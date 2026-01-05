@@ -23,9 +23,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 <div className="text-left">
                     <h4 className="text-white text-[10px] font-black uppercase tracking-[0.2em] mb-10">Ecossistema</h4>
                     <ul className="space-y-5 text-[11px] font-bold uppercase tracking-widest">
-                        <li><button onClick={() => onNavigate(Page.Atendimento)} className="hover:text-indigo-400 transition-colors">Atendimento</button></li>
-                        <li><button onClick={() => onNavigate(Page.Automacao)} className="hover:text-indigo-400 transition-colors">Automação IA</button></li>
-                        <li><button onClick={() => onNavigate(Page.Digital)} className="hover:text-indigo-400 transition-colors">Presença Digital</button></li>
+                        <li><button onClick={() => onNavigate(Page.CustomerService)} className="hover:text-indigo-400 transition-colors">Atendimento</button></li>
+                        <li><button onClick={() => onNavigate(Page.Automation)} className="hover:text-indigo-400 transition-colors">Automação IA</button></li>
+                        <li><button onClick={() => onNavigate(Page.DigitalPresence)} className="hover:text-indigo-400 transition-colors">Presença Digital</button></li>
                     </ul>
                 </div>
                 <div className="text-left">

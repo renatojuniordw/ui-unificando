@@ -2,9 +2,9 @@
 export enum Page {
   Home = 'home',
   Solutions = 'solutions',
-  Atendimento = 'atendimento',
-  Automacao = 'automacao',
-  Digital = 'digital',
+  CustomerService = 'customer-service',
+  Automation = 'automation',
+  DigitalPresence = 'digital-presence',
   HowItWorks = 'how-it-works',
   Plans = 'plans',
   About = 'about',

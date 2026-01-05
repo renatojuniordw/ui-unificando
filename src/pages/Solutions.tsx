@@ -66,7 +66,7 @@ const DigitalAnimation = () => {
   );
 };
 
-export const Solutions: React.FC<{onNavigate: (p: Page) => void, currentPage: Page}> = ({ onNavigate }) => {
+export const Solutions: React.FC<{ onNavigate: (p: Page) => void, currentPage: Page }> = ({ onNavigate }) => {
   return (
     <div className="animate-in slide-in-from-bottom-4 duration-500 bg-white">
       <section className="py-20 bg-slate-50 border-b border-slate-200">
@@ -83,7 +83,7 @@ export const Solutions: React.FC<{onNavigate: (p: Page) => void, currentPage: Pa
             <div className="inline-block bg-indigo-50 text-indigo-700 font-black uppercase tracking-widest text-[10px] px-4 py-1.5 rounded-full mb-6 border border-indigo-100">Fase 01 - Organização</div>
             <h2 className="text-4xl font-black text-slate-900 mb-6 uppercase tracking-tighter">Atendimento Unificado</h2>
             <p className="text-lg text-slate-500 mb-10 font-medium">Centralize seus canais em uma única caixa de entrada profissional.</p>
-            <button onClick={() => onNavigate(Page.Atendimento)} className="bg-slate-900 text-white px-8 py-4 rounded-2xl text-[10px] font-black hover:bg-slate-800 transition-all uppercase tracking-widest">Ver Solução →</button>
+            <button onClick={() => onNavigate(Page.CustomerService)} className="bg-slate-900 text-white px-8 py-4 rounded-2xl text-[10px] font-black hover:bg-slate-800 transition-all uppercase tracking-widest">Ver Solução →</button>
           </motion.div>
           <AtendimentoAnimation />
         </div>
@@ -96,7 +96,7 @@ export const Solutions: React.FC<{onNavigate: (p: Page) => void, currentPage: Pa
             <div className="inline-block bg-indigo-600 text-white font-black uppercase tracking-widest text-[10px] px-4 py-1.5 rounded-full mb-6">Fase 02 - Evolução</div>
             <h2 className="text-4xl font-black text-slate-900 mb-6 uppercase tracking-tighter">Automação Inteligente</h2>
             <p className="text-lg text-slate-500 mb-10 font-medium">Automatize processos repetitivos e libere sua equipe.</p>
-            <button onClick={() => onNavigate(Page.Automacao)} className="bg-indigo-600 text-white px-8 py-4 rounded-2xl text-[10px] font-black hover:bg-indigo-700 transition-all uppercase tracking-widest">Ver Solução →</button>
+            <button onClick={() => onNavigate(Page.Automation)} className="bg-indigo-600 text-white px-8 py-4 rounded-2xl text-[10px] font-black hover:bg-indigo-700 transition-all uppercase tracking-widest">Ver Solução →</button>
           </motion.div>
         </div>
       </section>
@@ -107,7 +107,7 @@ export const Solutions: React.FC<{onNavigate: (p: Page) => void, currentPage: Pa
             <div className="inline-block bg-slate-900 text-white font-black uppercase tracking-widest text-[10px] px-4 py-1.5 rounded-full mb-6">Fase 03 - Presença</div>
             <h2 className="text-4xl font-black text-slate-900 mb-6 uppercase tracking-tighter">Presença Digital</h2>
             <p className="text-lg text-slate-500 mb-10 font-medium">Construímos sua vitrine profissional com autoridade máxima no Google.</p>
-            <button onClick={() => onNavigate(Page.Digital)} className="bg-slate-900 text-white px-8 py-4 rounded-2xl text-[10px] font-black hover:bg-slate-800 transition-all uppercase tracking-widest">Ver Solução →</button>
+            <button onClick={() => onNavigate(Page.DigitalPresence)} className="bg-slate-900 text-white px-8 py-4 rounded-2xl text-[10px] font-black hover:bg-slate-800 transition-all uppercase tracking-widest">Ver Solução →</button>
           </motion.div>
           <div className="h-full min-h-[400px]"><DigitalAnimation /></div>
         </div>

@@ -1,17 +1,16 @@
-
 import React, { useState, useEffect } from 'react';
-import { Page } from './types';
+import { AnimatePresence, motion } from 'framer-motion';
 import { Layout } from './components/Layout';
+import { About } from './pages/About';
+import { Automation } from './pages/Automation';
+import { Contact } from './pages/Contact';
+import { CustomerService } from './pages/CustomerService';
+import { DigitalPresence } from './pages/DigitalPresence';
 import { Home } from './pages/Home';
-import { Solutions } from './pages/Solutions';
-import { Atendimento } from './pages/Atendimento';
-import { Automacao } from './pages/Automacao';
-import { Digital } from './pages/Digital';
 import { HowItWorks } from './pages/HowItWorks';
 import { Plans } from './pages/Plans';
-import { About } from './pages/About';
-import { Contact } from './pages/Contact';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Solutions } from './pages/Solutions';
+import { Page } from './types';
 
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<Page>(Page.Home);
@@ -23,9 +22,9 @@ const App: React.FC = () => {
   const renderPage = () => {
     switch (currentPage) {
       case Page.Home: return <Home onNavigate={setCurrentPage} />;
-      case Page.Atendimento: return <Atendimento onNavigate={setCurrentPage} />;
-      case Page.Automacao: return <Automacao onNavigate={setCurrentPage} />;
-      case Page.Digital: return <Digital onNavigate={setCurrentPage} />;
+      case Page.CustomerService: return <CustomerService onNavigate={setCurrentPage} />;
+      case Page.Automation: return <Automation onNavigate={setCurrentPage} />;
+      case Page.DigitalPresence: return <DigitalPresence onNavigate={setCurrentPage} />;
       case Page.Solutions: return <Solutions onNavigate={setCurrentPage} currentPage={currentPage} />;
       case Page.HowItWorks: return <HowItWorks onNavigate={setCurrentPage} />;
       case Page.Plans: return <Plans onNavigate={setCurrentPage} />;

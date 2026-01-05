@@ -1,9 +1,8 @@
-
 import React, { useState, useEffect } from 'react';
 import { Page } from '../types';
 import { motion, AnimatePresence } from 'framer-motion';
 
-interface AutomacaoProps {
+interface AutomationProps {
   onNavigate: (page: Page) => void;
 }
 
@@ -19,7 +18,7 @@ const WhatsAppSimulation = () => {
       { id: 4, text: "Perfeito, Marcos! Qual serviço você procura?", type: 'bot', time: '10:01', delay: 5000 },
     ];
 
-    const timeouts = sequence.map(msg => 
+    const timeouts = sequence.map(msg =>
       setTimeout(() => {
         setMessages(prev => [...prev, msg]);
       }, msg.delay)
@@ -52,14 +51,13 @@ const WhatsAppSimulation = () => {
               key={msg.id}
               initial={{ opacity: 0, scale: 0.9, y: 10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              className={`max-w-[85%] p-3 rounded-2xl text-[10px] shadow-sm font-medium ${
-                msg.type === 'user' 
-                  ? 'bg-indigo-600 text-white self-end rounded-tr-none' 
+              className={`max-w-[85%] p-3 rounded-2xl text-[10px] shadow-sm font-medium ${msg.type === 'user'
+                  ? 'bg-indigo-600 text-white self-end rounded-tr-none'
                   : 'bg-white text-slate-800 self-start rounded-tl-none border border-slate-200'
-              }`}
+                } `}
             >
               {msg.text}
-              <div className={`text-[8px] mt-1 ${msg.type === 'user' ? 'text-indigo-200' : 'text-slate-400'}`}>{msg.time}</div>
+              <div className={`text-[8px] mt-1 ${msg.type === 'user' ? 'text-indigo-200' : 'text-slate-400'} `}>{msg.time}</div>
             </motion.div>
           ))}
         </AnimatePresence>
@@ -74,7 +72,7 @@ const WhatsAppSimulation = () => {
   );
 };
 
-export const Automacao: React.FC<AutomacaoProps> = ({ onNavigate }) => {
+export const Automation: React.FC<AutomationProps> = ({ onNavigate }) => {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [channels, setChannels] = useState(1);
   const [useIA, setUseIA] = useState(false);
@@ -124,7 +122,7 @@ export const Automacao: React.FC<AutomacaoProps> = ({ onNavigate }) => {
               Automação inteligente para filtrar e organizar conversas. Tecnologia invisível que trabalha para sua equipe focar no lucro.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button 
+              <button
                 onClick={() => onNavigate(Page.Contact)}
                 className="bg-slate-900 text-white px-10 py-5 rounded-2xl text-[10px] font-black hover:bg-slate-800 transition-all shadow-xl uppercase tracking-widest"
               >
@@ -132,11 +130,11 @@ export const Automacao: React.FC<AutomacaoProps> = ({ onNavigate }) => {
               </button>
             </div>
           </motion.div>
-          
+
           <div className="relative">
-             <div className="bg-slate-900 rounded-[3rem] p-4 shadow-2xl h-[500px] border border-slate-800">
-                <WhatsAppSimulation />
-             </div>
+            <div className="bg-slate-900 rounded-[3rem] p-4 shadow-2xl h-[500px] border border-slate-800">
+              <WhatsAppSimulation />
+            </div>
           </div>
         </div>
       </section>
@@ -148,7 +146,7 @@ export const Automacao: React.FC<AutomacaoProps> = ({ onNavigate }) => {
             <span className="text-indigo-600 font-black uppercase tracking-[0.2em] text-[10px] mb-4 block">Evolução Modular</span>
             <h2 className="text-3xl md:text-5xl font-black text-slate-900 uppercase tracking-tighter">A automação a serviço de pessoas.</h2>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-6">
             {[
               { t: "Triagem Eficiente", d: "Saiba o que o cliente quer antes do atendente dar o primeiro 'oi'." },
@@ -156,7 +154,7 @@ export const Automacao: React.FC<AutomacaoProps> = ({ onNavigate }) => {
               { t: "IA com Propósito", d: "Transcrição de áudios e compreensão de linguagem natural avançada." }
             ].map((item, i) => (
               <div key={i} className="p-10 bg-white border border-slate-200 rounded-[3rem] hover:border-indigo-400 transition-all text-left group">
-                <div className="w-12 h-12 bg-slate-100 group-hover:bg-indigo-50 text-slate-900 group-hover:text-indigo-600 rounded-2xl flex items-center justify-center mb-8 font-black transition-colors">0{i+1}</div>
+                <div className="w-12 h-12 bg-slate-100 group-hover:bg-indigo-50 text-slate-900 group-hover:text-indigo-600 rounded-2xl flex items-center justify-center mb-8 font-black transition-colors">0{i + 1}</div>
                 <h4 className="text-xs font-black text-slate-900 uppercase tracking-widest mb-4">{item.t}</h4>
                 <p className="text-sm text-slate-500 font-medium leading-relaxed">{item.d}</p>
               </div>
@@ -178,8 +176,8 @@ export const Automacao: React.FC<AutomacaoProps> = ({ onNavigate }) => {
 
                 <div>
                   <label className="block text-[10px] font-black text-slate-400 mb-6 uppercase tracking-widest">Número de Canais</label>
-                  <input 
-                    type="range" min="1" max="5" value={channels} 
+                  <input
+                    type="range" min="1" max="5" value={channels}
                     onChange={(e) => setChannels(parseInt(e.target.value))}
                     className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600"
                   />
@@ -192,24 +190,24 @@ export const Automacao: React.FC<AutomacaoProps> = ({ onNavigate }) => {
 
                 <div className="grid grid-cols-3 gap-3">
                   {[1, 2, 3].map(v => (
-                    <button 
+                    <button
                       key={v}
                       onClick={() => setComplexity(v)}
-                      className={`p-5 rounded-2xl border transition-all text-left ${complexity === v ? 'bg-indigo-600 border-indigo-600 text-white shadow-xl' : 'bg-white border-slate-200 text-slate-400 hover:border-indigo-400'}`}
+                      className={`p-5 rounded-2xl border transition-all text-left ${complexity === v ? 'bg-indigo-600 border-indigo-600 text-white shadow-xl' : 'bg-white border-slate-200 text-slate-400 hover:border-indigo-400'} `}
                     >
                       <span className="block text-[10px] font-black uppercase tracking-widest mb-1">{v === 1 ? 'Simples' : v === 2 ? 'Médio' : 'Pro'}</span>
-                      <span className={`text-[8px] font-bold uppercase tracking-tighter ${complexity === v ? 'text-indigo-200' : 'text-slate-300'}`}>Complexidade</span>
+                      <span className={`text-[8px] font-bold uppercase tracking-tighter ${complexity === v ? 'text-indigo-200' : 'text-slate-300'} `}>Complexidade</span>
                     </button>
                   ))}
                 </div>
 
                 <div className="flex items-center justify-between p-6 bg-white rounded-2xl border border-slate-200">
                   <span className="text-[10px] font-black text-slate-900 uppercase tracking-widest">Ativar Inteligência Artificial</span>
-                  <button 
+                  <button
                     onClick={() => setUseIA(!useIA)}
-                    className={`w-14 h-7 rounded-full transition-all relative ${useIA ? 'bg-indigo-600' : 'bg-slate-300'}`}
+                    className={`w-14 h-7 rounded-full transition-all relative ${useIA ? 'bg-indigo-600' : 'bg-slate-300'} `}
                   >
-                    <div className={`absolute top-1 w-5 h-5 rounded-full bg-white transition-all shadow-sm ${useIA ? 'right-1' : 'left-1'}`}></div>
+                    <div className={`absolute top-1 w-5 h-5 rounded-full bg-white transition-all shadow-sm ${useIA ? 'right-1' : 'left-1'} `}></div>
                   </button>
                 </div>
               </div>
@@ -228,7 +226,7 @@ export const Automacao: React.FC<AutomacaoProps> = ({ onNavigate }) => {
                     </div>
                   </div>
                 </div>
-                <button 
+                <button
                   onClick={() => onNavigate(Page.Contact)}
                   className="w-full bg-white text-slate-900 py-5 rounded-2xl font-black mt-12 hover:bg-slate-100 transition-all uppercase tracking-widest text-[10px]"
                 >
@@ -247,12 +245,12 @@ export const Automacao: React.FC<AutomacaoProps> = ({ onNavigate }) => {
           <div className="space-y-4 text-left">
             {faqItems.map((item, idx) => (
               <div key={idx} className="bg-white border border-slate-100 rounded-[2rem] overflow-hidden shadow-sm">
-                <button 
+                <button
                   onClick={() => setActiveFaq(activeFaq === idx ? null : idx)}
                   className="w-full flex justify-between items-center p-8 text-left hover:bg-slate-50 transition-colors"
                 >
                   <span className="font-black text-[11px] text-slate-800 uppercase tracking-widest">{item.q}</span>
-                  <div className={`w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 transition-all ${activeFaq === idx ? 'rotate-180 bg-slate-900 text-white' : ''}`}>
+                  <div className={`w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 transition-all ${activeFaq === idx ? 'rotate-180 bg-slate-900 text-white' : ''} `}>
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
                   </div>
                 </button>
@@ -272,7 +270,7 @@ export const Automacao: React.FC<AutomacaoProps> = ({ onNavigate }) => {
         <div className="absolute inset-0 bg-indigo-500/5 blur-[120px] pointer-events-none"></div>
         <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
           <h2 className="text-3xl md:text-5xl font-black mb-12 uppercase tracking-tighter leading-none">Pronto para a <span className="text-indigo-400 font-normal italic">evolução</span>?</h2>
-          <button 
+          <button
             onClick={() => onNavigate(Page.Contact)}
             className="bg-indigo-600 text-white px-12 py-5 rounded-2xl text-[10px] font-black hover:bg-indigo-500 transition-all shadow-2xl uppercase tracking-[0.2em]"
           >

@@ -41,7 +41,7 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               Centralizamos seus canais, automatizamos com responsabilidade e criamos sua vitrine profissional. A estrutura que seu negócio merece.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <motion.button 
+              <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => onNavigate(Page.Contact)}
@@ -49,7 +49,7 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               >
                 Falar com especialista
               </motion.button>
-              <motion.button 
+              <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => onNavigate(Page.Solutions)}
@@ -59,15 +59,15 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               </motion.button>
             </div>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             className="relative"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
           >
             <div className="bg-slate-900 rounded-[3.5rem] aspect-square flex items-center justify-center p-12 shadow-2xl relative z-10 overflow-hidden border border-slate-800">
-               <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 to-transparent"></div>
               <div className="bg-white/5 backdrop-blur-xl rounded-[2.5rem] w-full h-full border border-white/10 flex flex-col p-8 text-white text-left">
                 <div className="flex justify-between items-center mb-12">
                   <div className="h-4 w-32 bg-white/20 rounded-full"></div>
@@ -118,8 +118,8 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               Perda de leads, demora no atendimento e invisibilidade no Google. Resolva a fundação do seu negócio de uma vez por todas com o método Unificando.
             </p>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             className="grid md:grid-cols-3 gap-6 text-left"
             variants={containerVariants}
             initial="hidden"
@@ -151,14 +151,14 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
             <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-4 uppercase tracking-tighter">A evolução em fases</h2>
             <p className="text-slate-500 font-medium max-w-xl mx-auto">Cada negócio tem seu tempo. Respeitamos sua maturidade digital.</p>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { phase: "FASE 01", title: "Organização", desc: "Centralize tudo em um único painel. Retome o controle.", link: Page.Atendimento, color: "bg-indigo-600" },
-              { phase: "FASE 02", title: "Evolução", desc: "Automatize processos repetitivos com inteligência.", link: Page.Automacao, color: "bg-indigo-400" },
-              { phase: "FASE 03", title: "Presença", desc: "Sua casa própria na web com autoridade máxima.", link: Page.Digital, color: "bg-slate-900" },
+              { phase: "FASE 01", title: "Organização", desc: "Centralize tudo em um único painel. Retome o controle.", link: Page.CustomerService, color: "bg-indigo-600" },
+              { phase: "FASE 02", title: "Evolução", desc: "Automatize processos repetitivos com inteligência.", link: Page.Automation, color: "bg-indigo-400" },
+              { phase: "FASE 03", title: "Presença", desc: "Sua casa própria na web com autoridade máxima.", link: Page.DigitalPresence, color: "bg-slate-900" },
             ].map((p, i) => (
-              <motion.div 
+              <motion.div
                 key={i}
                 whileHover={{ y: -10 }}
                 className="relative p-10 bg-slate-50 rounded-[3.5rem] border border-slate-200 hover:shadow-2xl transition-all group text-left"
@@ -182,7 +182,7 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
           <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }}>
             <h2 className="text-3xl md:text-6xl font-black mb-8 uppercase tracking-tighter leading-none">Pronto para a <span className="text-indigo-400 font-normal italic">evolução</span>?</h2>
             <p className="text-lg text-slate-400 mb-12 max-w-xl mx-auto font-medium">Estrutura sólida para crescer sem bagunça. Vamos conversar?</p>
-            <motion.button 
+            <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => onNavigate(Page.Contact)}
