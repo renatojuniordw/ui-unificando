@@ -60,7 +60,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, navItems, solutionI
                         onMouseLeave={() => setIsSolutionsOpen(false)}
                     >
                         <button
-                            className={`text-[10px] font-black uppercase tracking-[0.2em] transition-colors flex items-center gap-1 py-4 ${[Page.Solutions, Page.CustomerService, Page.Automation, Page.DigitalPresence].includes(currentPage)
+                            className={`text-[10px] font-black uppercase tracking-[0.2em] transition-colors flex items-center gap-1 py-4 ${[Page.Solutions, Page.CustomerService, Page.Productivity, Page.DigitalPresence].includes(currentPage)
                                 ? 'text-indigo-600' : 'text-slate-500 hover:text-indigo-600'
                                 }`}
                         >

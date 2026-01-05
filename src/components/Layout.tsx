@@ -13,7 +13,7 @@ const navItems: NavItem[] = [
 
 const solutionItems = [
   { label: 'Atendimento', page: Page.CustomerService, desc: 'Fase 01 - Organização' },
-  { label: 'Automação', page: Page.Automation, desc: 'Fase 02 - Evolução' },
+  { label: 'Produtividade', page: Page.Productivity, desc: 'Fase 02 - Evolução' },
   { label: 'Presença Digital', page: Page.DigitalPresence, desc: 'Fase 03 - Autoridade' },
 ];
 

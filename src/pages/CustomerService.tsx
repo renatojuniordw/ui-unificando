@@ -97,7 +97,7 @@ export const CustomerService: React.FC<CustomerServiceProps> = ({ onNavigate }) 
           <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} className="text-left">
             <div className="inline-flex items-center gap-2 bg-indigo-50 text-indigo-700 px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-6">Fase 01 - Organização</div>
             <h1 className="text-5xl md:text-7xl font-black text-slate-900 leading-[1.1] mb-8 uppercase tracking-tighter">
-              Atendimento <span className="text-slate-500 font-normal">Sem Bagunça.</span>
+              Atendimento Unificado no  <span className="text-slate-500 font-normal">WhatsApp e Instagram.</span>
             </h1>
             <p className="text-lg text-slate-500 mb-10 leading-relaxed max-w-lg font-medium">
               Centralize WhatsApp e Instagram em uma única caixa de entrada profissional com o Unificando. Tenha controle total e sincronia com sua equipe.

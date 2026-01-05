@@ -3,7 +3,7 @@ export enum Page {
   Home = 'home',
   Solutions = 'solutions',
   CustomerService = 'customer-service',
-  Automation = 'automation',
+  Productivity = 'productivity',
   DigitalPresence = 'digital-presence',
   HowItWorks = 'how-it-works',
   Plans = 'plans',

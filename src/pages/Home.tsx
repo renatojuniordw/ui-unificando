@@ -26,8 +26,8 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
   return (
     <div className="bg-white">
       <SEO
-        title="Unificando - Sistema de Atendimento para Empresas"
-        description="Organize e centralize o atendimento WhatsApp e Instagram do seu negócio. O Unificando oferece uma plataforma completa para gestão e automação."
+        title="Unificando | Centralize WhatsApp e Instagram para Empresas"
+        description="Centralize o atendimento do WhatsApp e Instagram em um único painel. Organize conversas, use múltiplos atendentes e pare de perder vendas."
         canonical="/"
       />
       {/* Hero Section */}
@@ -42,7 +42,7 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               Ecossistema Unificando
             </div>
             <h1 className="text-5xl md:text-7xl font-black text-slate-900 leading-[1.1] mb-8 uppercase tracking-tighter">
-              Organize o atendimento. <span className="text-slate-500 font-normal">Depois, evolua.</span>
+              Centralize o atendimento no WhatsApp e Instagram. <span className="text-slate-500 font-normal">Depois, evolua.</span>
             </h1>
             <p className="text-lg text-slate-500 mb-10 leading-relaxed max-w-lg font-medium">
               Centralizamos seus canais, automatizamos com responsabilidade e criamos sua vitrine profissional. A estrutura que seu negócio merece.
@@ -162,7 +162,7 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
           <div className="grid md:grid-cols-3 gap-6">
             {[
               { phase: "FASE 01", title: "Organização", desc: "Centralize tudo em um único painel. Retome o controle.", link: Page.CustomerService, color: "bg-indigo-600" },
-              { phase: "FASE 02", title: "Evolução", desc: "Automatize processos repetitivos com inteligência.", link: Page.Automation, color: "bg-indigo-400" },
+              { phase: "FASE 02", title: "Evolução", desc: "Organize seus processos com ferramentas de produtividade.", link: Page.Productivity, color: "bg-indigo-400" },
               { phase: "FASE 03", title: "Presença", desc: "Sua casa própria na web com autoridade máxima.", link: Page.DigitalPresence, color: "bg-slate-900" },
             ].map((p, i) => (
               <motion.div

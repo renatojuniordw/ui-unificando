@@ -22,7 +22,7 @@ export const Footer: React.FC = () => {
                     <h4 className="text-white text-[10px] font-black uppercase tracking-[0.2em] mb-10">Ecossistema</h4>
                     <ul className="space-y-5 text-[11px] font-bold uppercase tracking-widest">
                         <li><Link to={ROUTES[Page.CustomerService]} className="hover:text-indigo-400 transition-colors">Atendimento</Link></li>
-                        <li><Link to={ROUTES[Page.Automation]} className="hover:text-indigo-400 transition-colors">Automação IA</Link></li>
+                        <li><Link to={ROUTES[Page.Productivity]} className="hover:text-indigo-400 transition-colors">Produtividade</Link></li>
                         <li><Link to={ROUTES[Page.DigitalPresence]} className="hover:text-indigo-400 transition-colors">Presença Digital</Link></li>
                     </ul>
                 </div>

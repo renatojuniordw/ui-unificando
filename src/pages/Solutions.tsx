@@ -47,7 +47,7 @@ const AutomacaoAnimation = () => {
         {step === 1 && <div className="flex gap-1 p-2"><div className="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-pulse"></div><div className="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-pulse delay-75"></div></div>}
         <motion.div animate={{ opacity: step >= 2 ? 1 : 0, x: step >= 2 ? 0 : 20 }} className="bg-indigo-600 p-4 rounded-2xl rounded-br-none max-w-[70%] self-end text-[9px] font-bold text-white shadow-xl uppercase tracking-tight">Olá! Escolha uma opção...</motion.div>
       </div>
-      <div className="text-[9px] font-black text-slate-500 uppercase tracking-widest text-center mt-4">IA UNIFICADA ATIVA</div>
+      <div className="text-[9px] font-black text-slate-500 uppercase tracking-widest text-center mt-4">TRIAGEM INTELIGENTE</div>
     </div>
   );
 };
@@ -100,9 +100,9 @@ export const Solutions: React.FC<{ onNavigate: (p: Page) => void, currentPage: P
           <div className="order-2 md:order-1"><AutomacaoAnimation /></div>
           <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="order-1 md:order-2">
             <div className="inline-block bg-indigo-600 text-white font-black uppercase tracking-widest text-[10px] px-4 py-1.5 rounded-full mb-6">Fase 02 - Evolução</div>
-            <h2 className="text-4xl font-black text-slate-900 mb-6 uppercase tracking-tighter">Automação Inteligente</h2>
-            <p className="text-lg text-slate-500 mb-10 font-medium">Automatize processos repetitivos e libere sua equipe.</p>
-            <button onClick={() => onNavigate(Page.Automation)} className="bg-indigo-600 text-white px-8 py-4 rounded-2xl text-[10px] font-black hover:bg-indigo-700 transition-all uppercase tracking-widest">Ver Solução →</button>
+            <h2 className="text-4xl font-black text-slate-900 mb-6 uppercase tracking-tighter">Produtividade & Organização</h2>
+            <p className="text-lg text-slate-500 mb-10 font-medium">Ferramentas que organizam o caos e agilizam seu atendimento.</p>
+            <button onClick={() => onNavigate(Page.Productivity)} className="bg-indigo-600 text-white px-8 py-4 rounded-2xl text-[10px] font-black hover:bg-indigo-700 transition-all uppercase tracking-widest">Ver Solução →</button>
           </motion.div>
         </div>
       </section>

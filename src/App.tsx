@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Layout } from './components/Layout';
 import { About } from './pages/About';
-import { Automation } from './pages/Automation';
+import { Productivity } from './pages/Productivity';
 import { Contact } from './pages/Contact';
 import { CustomerService } from './pages/CustomerService';
 import { DigitalPresence } from './pages/DigitalPresence';
@@ -19,7 +19,7 @@ import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 const pageRoutes: Record<Page, string> = {
   [Page.Home]: '/',
   [Page.CustomerService]: '/atendimento',
-  [Page.Automation]: '/automacao',
+  [Page.Productivity]: '/produtividade',
   [Page.DigitalPresence]: '/presenca-digital',
   [Page.Solutions]: '/solucoes',
   [Page.HowItWorks]: '/como-funciona',
@@ -57,7 +57,7 @@ const App: React.FC = () => {
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home onNavigate={handleNavigate} />} />
           <Route path="/atendimento" element={<CustomerService onNavigate={handleNavigate} />} />
-          <Route path="/automacao" element={<Automation onNavigate={handleNavigate} />} />
+          <Route path="/produtividade" element={<Productivity onNavigate={handleNavigate} />} />
           <Route path="/presenca-digital" element={<DigitalPresence onNavigate={handleNavigate} />} />
           <Route path="/solucoes" element={<Solutions onNavigate={handleNavigate} currentPage={currentPage} />} />
           <Route path="/como-funciona" element={<HowItWorks onNavigate={handleNavigate} />} />
