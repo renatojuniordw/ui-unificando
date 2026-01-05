@@ -3,5 +3,5 @@ services:
     container_name: unificando-frontend
     build: .
     ports:
-      - "21004:80"
+      - "11004:80"
     restart: always
