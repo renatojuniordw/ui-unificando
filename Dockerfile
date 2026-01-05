@@ -7,8 +7,7 @@ WORKDIR /app
 
 # Instala dependências (cache eficiente)
 COPY package*.json ./
-# npm ci é mais rápido e confiável para builds (usa lockfile exato)
-RUN npm ci --legacy-peer-deps
+RUN npm install --legacy-peer-deps
 
 # Copia código fonte
 COPY . .
