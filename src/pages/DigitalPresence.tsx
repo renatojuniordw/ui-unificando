@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Page } from '../types';
 import { motion } from 'framer-motion';
+import { SEO } from '../components/SEO';
 
 interface DigitalPresenceProps {
   onNavigate: (page: Page) => void;
@@ -92,6 +93,11 @@ export const DigitalPresence: React.FC<DigitalPresenceProps> = ({ onNavigate }) 
 
   return (
     <div className="animate-in fade-in duration-500 bg-white">
+      <SEO
+        title="Gestão Profissional de Redes Sociais e Sites | Unificando"
+        description="Construa sua autoridade digital com sites profissionais e gestão de redes sociais. O passo final da sua evolução digital."
+        canonical="/presenca-digital"
+      />
       {/* Top Context Bar */}
       <div className="bg-slate-50 border-b border-slate-200 py-3">
         <div className="max-w-7xl mx-auto px-4 flex items-center gap-2 text-xs font-medium text-slate-500">

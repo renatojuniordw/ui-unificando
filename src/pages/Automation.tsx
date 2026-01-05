@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Page } from '../types';
 import { motion, AnimatePresence } from 'framer-motion';
+import { SEO } from '../components/SEO';
 
 interface AutomationProps {
   onNavigate: (page: Page) => void;
@@ -52,8 +53,8 @@ const WhatsAppSimulation = () => {
               initial={{ opacity: 0, scale: 0.9, y: 10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               className={`max-w-[85%] p-3 rounded-2xl text-[10px] shadow-sm font-medium ${msg.type === 'user'
-                  ? 'bg-indigo-600 text-white self-end rounded-tr-none'
-                  : 'bg-white text-slate-800 self-start rounded-tl-none border border-slate-200'
+                ? 'bg-indigo-600 text-white self-end rounded-tr-none'
+                : 'bg-white text-slate-800 self-start rounded-tl-none border border-slate-200'
                 } `}
             >
               {msg.text}
@@ -101,6 +102,11 @@ export const Automation: React.FC<AutomationProps> = ({ onNavigate }) => {
 
   return (
     <div className="bg-white">
+      <SEO
+        title="Automação de Atendimento WhatsApp com IA | Unificando"
+        description="Automatize a triagem e respostas frequentes do seu WhatsApp com Inteligência Artificial. Ganhe tempo sem perder o toque humano."
+        canonical="/automacao"
+      />
       {/* Top Breadcrumb */}
       <div className="bg-slate-50 border-b border-slate-200 py-3">
         <div className="max-w-7xl mx-auto px-4 flex items-center gap-2 text-[10px] font-black text-slate-400 uppercase tracking-widest">

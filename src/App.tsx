@@ -12,40 +12,60 @@ import { Plans } from './pages/Plans';
 import { Solutions } from './pages/Solutions';
 import { Page } from './types';
 
-const App: React.FC = () => {
-  const [currentPage, setCurrentPage] = useState<Page>(Page.Home);
+/* Routing & Adapter Logic */
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 
+// Map Page enum to Paths
+const pageRoutes: Record<Page, string> = {
+  [Page.Home]: '/',
+  [Page.CustomerService]: '/atendimento',
+  [Page.Automation]: '/automacao',
+  [Page.DigitalPresence]: '/presenca-digital',
+  [Page.Solutions]: '/solucoes',
+  [Page.HowItWorks]: '/como-funciona',
+  [Page.Plans]: '/planos',
+  [Page.About]: '/sobre',
+  [Page.Contact]: '/contato'
+};
+
+const App: React.FC = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Scroll to top on route change
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [currentPage]);
+  }, [location.pathname]);
 
-  const renderPage = () => {
-    switch (currentPage) {
-      case Page.Home: return <Home onNavigate={setCurrentPage} />;
-      case Page.CustomerService: return <CustomerService onNavigate={setCurrentPage} />;
-      case Page.Automation: return <Automation onNavigate={setCurrentPage} />;
-      case Page.DigitalPresence: return <DigitalPresence onNavigate={setCurrentPage} />;
-      case Page.Solutions: return <Solutions onNavigate={setCurrentPage} currentPage={currentPage} />;
-      case Page.HowItWorks: return <HowItWorks onNavigate={setCurrentPage} />;
-      case Page.Plans: return <Plans onNavigate={setCurrentPage} />;
-      case Page.About: return <About />;
-      case Page.Contact: return <Contact />;
-      default: return <Home onNavigate={setCurrentPage} />;
-    }
+  // Adapter for existing components requesting onNavigate
+  const handleNavigate = (page: Page) => {
+    const path = pageRoutes[page];
+    if (path) navigate(path);
   };
 
+  // Determine currentPage for Layout based on path (Reverse Mapping)
+  const getCurrentPage = (): Page => {
+    const entry = Object.entries(pageRoutes).find(([_, path]) => path === location.pathname);
+    return entry ? (entry[0] as Page) : Page.Home;
+  };
+
+  const currentPage = getCurrentPage();
+
   return (
-    <Layout currentPage={currentPage} onNavigate={setCurrentPage}>
+    <Layout currentPage={currentPage} onNavigate={handleNavigate}>
       <AnimatePresence mode="wait">
-        <motion.div
-          key={currentPage}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.3 }}
-        >
-          {renderPage()}
-        </motion.div>
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Home onNavigate={handleNavigate} />} />
+          <Route path="/atendimento" element={<CustomerService onNavigate={handleNavigate} />} />
+          <Route path="/automacao" element={<Automation onNavigate={handleNavigate} />} />
+          <Route path="/presenca-digital" element={<DigitalPresence onNavigate={handleNavigate} />} />
+          <Route path="/solucoes" element={<Solutions onNavigate={handleNavigate} currentPage={currentPage} />} />
+          <Route path="/como-funciona" element={<HowItWorks onNavigate={handleNavigate} />} />
+          <Route path="/planos" element={<Plans onNavigate={handleNavigate} />} />
+          <Route path="/sobre" element={<About />} />
+          <Route path="/contato" element={<Contact />} />
+          <Route path="*" element={<Home onNavigate={handleNavigate} />} />
+        </Routes>
       </AnimatePresence>
     </Layout>
   );

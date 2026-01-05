@@ -1,11 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Page } from '../types';
+import { ROUTES } from '../routes';
 
-interface FooterProps {
-    onNavigate: (page: Page) => void;
-}
-
-export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
+export const Footer: React.FC = () => {
     return (
         <footer className="bg-slate-900 text-slate-400 py-24">
             <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-16">
@@ -23,17 +21,17 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 <div className="text-left">
                     <h4 className="text-white text-[10px] font-black uppercase tracking-[0.2em] mb-10">Ecossistema</h4>
                     <ul className="space-y-5 text-[11px] font-bold uppercase tracking-widest">
-                        <li><button onClick={() => onNavigate(Page.CustomerService)} className="hover:text-indigo-400 transition-colors">Atendimento</button></li>
-                        <li><button onClick={() => onNavigate(Page.Automation)} className="hover:text-indigo-400 transition-colors">Automação IA</button></li>
-                        <li><button onClick={() => onNavigate(Page.DigitalPresence)} className="hover:text-indigo-400 transition-colors">Presença Digital</button></li>
+                        <li><Link to={ROUTES[Page.CustomerService]} className="hover:text-indigo-400 transition-colors">Atendimento</Link></li>
+                        <li><Link to={ROUTES[Page.Automation]} className="hover:text-indigo-400 transition-colors">Automação IA</Link></li>
+                        <li><Link to={ROUTES[Page.DigitalPresence]} className="hover:text-indigo-400 transition-colors">Presença Digital</Link></li>
                     </ul>
                 </div>
                 <div className="text-left">
                     <h4 className="text-white text-[10px] font-black uppercase tracking-[0.2em] mb-10">Unificando</h4>
                     <ul className="space-y-5 text-[11px] font-bold uppercase tracking-widest">
-                        <li><button onClick={() => onNavigate(Page.About)} className="hover:text-indigo-400 transition-colors">Nossa Postura</button></li>
-                        <li><button onClick={() => onNavigate(Page.HowItWorks)} className="hover:text-indigo-400 transition-colors">O Método</button></li>
-                        <li><button onClick={() => onNavigate(Page.Contact)} className="hover:text-indigo-400 transition-colors">Fale Conosco</button></li>
+                        <li><Link to={ROUTES[Page.About]} className="hover:text-indigo-400 transition-colors">Nossa Postura</Link></li>
+                        <li><Link to={ROUTES[Page.HowItWorks]} className="hover:text-indigo-400 transition-colors">O Método</Link></li>
+                        <li><Link to={ROUTES[Page.Contact]} className="hover:text-indigo-400 transition-colors">Fale Conosco</Link></li>
                     </ul>
                 </div>
             </div>

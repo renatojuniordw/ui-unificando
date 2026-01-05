@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Page } from '../types';
 import { motion, AnimatePresence } from 'framer-motion';
+import { SEO } from '../components/SEO';
 
 interface CustomerServiceProps {
   onNavigate: (page: Page) => void;
@@ -85,6 +86,11 @@ const DashboardSimulation = () => {
 export const CustomerService: React.FC<CustomerServiceProps> = ({ onNavigate }) => {
   return (
     <div className="bg-white">
+      <SEO
+        title="Atendimento Centralizado WhatsApp e Instagram | Unificando"
+        description="Centralize seus canais de atendimento em uma única caixa de entrada profissional. Múltiplos atendentes, histórico salvo e organização total."
+        canonical="/atendimento"
+      />
       {/* Hero */}
       <section className="py-20 bg-slate-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-16 items-center">

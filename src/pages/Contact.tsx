@@ -1,6 +1,8 @@
 
 import React from 'react';
 
+import { SEO } from '../components/SEO';
+
 export const Contact: React.FC = () => {
   const [submitted, setSubmitted] = React.useState(false);
 
@@ -11,6 +13,11 @@ export const Contact: React.FC = () => {
 
   return (
     <div className="animate-in fade-in duration-500 bg-white">
+      <SEO
+        title="Fale Conosco | Atendimento Especializado Unificando"
+        description="Entre em contato com nossa equipe. Tire dúvidas, peça um orçamento ou agende uma demonstração das nossas soluções."
+        canonical="/contato"
+      />
       <section className="py-24 bg-slate-50 min-h-[80vh] flex items-center text-left border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-16">
           <div>
@@ -19,7 +26,7 @@ export const Contact: React.FC = () => {
             <p className="text-lg text-slate-500 mb-12 leading-relaxed font-medium max-w-lg">
               Oferecemos uma consultoria diagnóstica gratuita para entender qual fase do ecossistema seu negócio precisa agora.
             </p>
-            
+
             <div className="space-y-6">
               {[
                 { t: "Diagnóstico Real", d: "Análise do seu fluxo atual sem custo." },

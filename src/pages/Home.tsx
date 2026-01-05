@@ -2,6 +2,8 @@
 import React from 'react';
 import { Page } from '../types';
 import { motion } from 'framer-motion';
+import { SEO } from '../components/SEO';
+import { ROUTES } from '../routes';
 
 interface HomeProps {
   onNavigate: (page: Page) => void;
@@ -23,6 +25,11 @@ const itemVariants = {
 export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
   return (
     <div className="bg-white">
+      <SEO
+        title="Unificando - Sistema de Atendimento para Empresas"
+        description="Organize e centralize o atendimento WhatsApp e Instagram do seu negócio. O Unificando oferece uma plataforma completa para gestão e automação."
+        canonical="/"
+      />
       {/* Hero Section */}
       <section className="py-20 md:py-32 overflow-hidden bg-white">
         <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-16 items-center text-left">

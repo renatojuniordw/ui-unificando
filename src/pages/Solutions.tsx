@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Page } from '../types';
 import { motion, AnimatePresence } from 'framer-motion';
+import { SEO } from '../components/SEO';
 
 const AtendimentoAnimation = () => {
   return (
@@ -69,6 +70,11 @@ const DigitalAnimation = () => {
 export const Solutions: React.FC<{ onNavigate: (p: Page) => void, currentPage: Page }> = ({ onNavigate }) => {
   return (
     <div className="animate-in slide-in-from-bottom-4 duration-500 bg-white">
+      <SEO
+        title="Soluções de Atendimento e Automação | Unificando"
+        description="Conheça o ecossistema completo do Unificando. Do atendimento centralizado à automação com IA e presença digital."
+        canonical="/solucoes"
+      />
       <section className="py-20 bg-slate-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <span className="text-indigo-600 font-black uppercase tracking-[0.2em] text-[10px] mb-4 block">Ecossistema Completo</span>

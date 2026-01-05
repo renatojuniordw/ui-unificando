@@ -28,7 +28,6 @@ export const Layout: React.FC<LayoutProps> = ({ children, currentPage, onNavigat
     <div className="min-h-screen flex flex-col selection:bg-indigo-100 selection:text-indigo-900">
       <Header
         currentPage={currentPage}
-        onNavigate={onNavigate}
         navItems={navItems}
         solutionItems={solutionItems}
       />
@@ -37,7 +36,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, currentPage, onNavigat
         {children}
       </main>
 
-      <Footer onNavigate={onNavigate} />
+      <Footer />
     </div>
   );
 };

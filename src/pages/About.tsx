@@ -1,9 +1,16 @@
 
 import React from 'react';
 
+import { SEO } from '../components/SEO';
+
 export const About: React.FC = () => {
   return (
     <div className="animate-in fade-in duration-500 bg-white">
+      <SEO
+        title="Sobre o Unificando | Nossa Missão e Postura"
+        description="Somos contra o 'digital bagunçado'. Conheça a missão do Unificando de levar maturidade digital real para pequenos negócios."
+        canonical="/sobre"
+      />
       <section className="py-24 bg-slate-50 border-b border-slate-200">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <span className="text-indigo-600 font-black uppercase tracking-[0.2em] text-[10px] mb-4 block">Unificado Digital</span>
