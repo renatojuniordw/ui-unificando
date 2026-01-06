@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Page, NavItem } from '../types';
 import { ROUTES } from '../routes';
+import LogoUnificando from '../assets/img/LOGO_UNIFICANDO.svg';
 
 interface HeaderProps {
     currentPage: Page;
@@ -39,10 +40,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, navItems, solutionI
                     className="flex items-center gap-2 cursor-pointer"
                     onClick={closeMenu}
                 >
-                    <div className="w-8 h-8 bg-slate-900 rounded-lg flex items-center justify-center">
-                        <span className="text-white font-black text-xl">U</span>
-                    </div>
-                    <span className="text-xl font-black tracking-tighter text-slate-900 uppercase">Unificando</span>
+                    <img src={LogoUnificando} alt="Unificando" className="h-8 w-auto" />
                 </Link>
 
                 <nav className="hidden md:flex items-center gap-8">
