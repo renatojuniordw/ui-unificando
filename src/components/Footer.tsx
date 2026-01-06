@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Page } from '../types';
 import { ROUTES } from '../routes';
+import LogoUnificando from '../assets/img/LOGO_UNIFICANDO.svg';
 
 export const Footer: React.FC = () => {
     return (
@@ -9,10 +10,7 @@ export const Footer: React.FC = () => {
             <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-16">
                 <div className="col-span-1 md:col-span-2 text-left">
                     <div className="flex items-center gap-2 mb-8">
-                        <div className="w-10 h-10 bg-indigo-500 rounded-2xl flex items-center justify-center">
-                            <span className="text-white font-black text-2xl">U</span>
-                        </div>
-                        <span className="text-2xl font-black tracking-tighter text-white uppercase">Unificando</span>
+                        <img src={LogoUnificando} alt="Unificando" className="h-10 w-auto brightness-0 invert" />
                     </div>
                     <p className="max-w-xs mb-8 text-sm leading-relaxed font-medium">
                         O ecossistema definitivo para negócios que buscam maturidade, autoridade e organização no ambiente digital.
