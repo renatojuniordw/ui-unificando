@@ -32,6 +32,17 @@ export const SEO: React.FC<SEOProps> = ({ title, description, canonical, ogImage
             <meta name="twitter:title" content={title} />
             <meta name="twitter:description" content={description} />
             <meta name="twitter:image" content={fullImage} />
+
+            <script type="application/ld+json">
+                {JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "Organization",
+                    "name": "Unificando",
+                    "url": "https://unificando.com.br",
+                    "logo": "https://unificando.com.br/logo.png",
+                    "description": "Ecossistema de organização e automação de atendimento para WhatsApp e Instagram."
+                })}
+            </script>
         </Helmet>
     );
 };

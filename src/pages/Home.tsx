@@ -28,7 +28,7 @@ export const Home: React.FC = () => {
     <PageTransition>
       <SEO
         title="Unificando | Ecossistema de Atendimento e Automação"
-        description="Centralize seu atendimento no WhatsApp, automatize com responsabilidade e construa autoridade na web. O ecossistema completo para seu negócio."
+        description="Pare de perder vendas. Centralize seu WhatsApp e Instagram, automatize o atendimento com IA e tenha um site profissional. Teste o ecossistema Unificando."
         canonical="/"
       />
 

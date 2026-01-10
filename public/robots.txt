@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://unificando.com.br/sitemap.xml
