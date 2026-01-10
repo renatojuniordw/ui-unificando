@@ -1,10 +1,11 @@
 import React from 'react';
 
 import { SEO } from '../components/common/SEO';
+import { PageTransition } from '../components/common/PageTransition';
 
 export const About: React.FC = () => {
   return (
-    <div className="animate-in fade-in duration-500 bg-white">
+    <PageTransition>
       <SEO
         title="Sobre o Unificado | Manifesto Digital"
         description="Nossa postura: clareza, responsabilidade e tecnologia como estrutura, não espetáculo."
@@ -110,6 +111,6 @@ export const About: React.FC = () => {
           </div>
         </div>
       </section>
-    </div>
+    </PageTransition>
   );
 };

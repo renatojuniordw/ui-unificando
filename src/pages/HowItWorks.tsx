@@ -1,11 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../routes';
+import { PageTransition } from '../components/common/PageTransition';
 import { SEO } from '../components/common/SEO';
 
 export const HowItWorks: React.FC = () => {
   const navigate = useNavigate();
   return (
-    <div className="animate-in fade-in duration-700 bg-white">
+    <PageTransition>
       <SEO
         title="Como Funciona o Método Unificando | Crescimento sem Bagunça"
         description="Nosso método dividido em fases: Organização, Evolução e Autoridade. Entre no estágio ideal para o seu negócio."
@@ -182,6 +183,6 @@ export const HowItWorks: React.FC = () => {
           </div>
         </div>
       </section>
-    </div>
+    </PageTransition>
   );
 };

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../routes';
 import { motion } from 'framer-motion';
 import { SEO } from '../components/common/SEO';
+import { PageTransition } from '../components/common/PageTransition';
 
 
 
@@ -94,7 +95,7 @@ export const DigitalPresence: React.FC = () => {
   ];
 
   return (
-    <div className="animate-in fade-in duration-500 bg-white">
+    <PageTransition>
       <SEO
         title="Sites Profissionais e Presença Digital | Unificando"
         description="Tenha uma casa própria na internet. Sites rápidos, profissionais e otimizados para o Google."
@@ -321,6 +322,6 @@ export const DigitalPresence: React.FC = () => {
           </button>
         </div>
       </section>
-    </div>
+    </PageTransition>
   );
 };

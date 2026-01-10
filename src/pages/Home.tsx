@@ -4,11 +4,14 @@ import { ROUTES } from '../routes';
 import { motion } from 'framer-motion';
 import { SEO } from '../components/common/SEO';
 
+import { PageTransition } from '../components/common/PageTransition';
+
+// Internal staggered animation for content
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.2 }
+    transition: { staggerChildren: 0.1, delayChildren: 0.2 }
   }
 };
 
@@ -19,8 +22,9 @@ const itemVariants = {
 
 export const Home: React.FC = () => {
   const navigate = useNavigate();
+
   return (
-    <div className="bg-white">
+    <PageTransition>
       <SEO
         title="Unificando | Ecossistema de Atendimento e Automação"
         description="Centralize seu atendimento no WhatsApp, automatize com responsabilidade e construa autoridade na web. O ecossistema completo para seu negócio."
@@ -282,6 +286,6 @@ export const Home: React.FC = () => {
           </motion.div>
         </div>
       </section>
-    </div>
+    </PageTransition>
   );
 };

@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { SEO } from '../components/common/SEO';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../routes';
+import { PageTransition } from '../components/common/PageTransition';
 
 
 const WhatsAppSimulation = () => {
@@ -124,7 +125,7 @@ export const Productivity: React.FC = () => {
     ];
 
     return (
-        <div className="bg-white">
+        <PageTransition>
             <SEO
                 title="Agentes de IA para Negócios | Unificando"
                 description="Tenha agentes inteligentes atendendo no WhatsApp, Instagram e site, 24/7. Mais escala e produtividade sem aumentar custos fixos."
@@ -375,6 +376,6 @@ export const Productivity: React.FC = () => {
                     </button>
                 </div>
             </section>
-        </div>
+        </PageTransition>
     );
 };

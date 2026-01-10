@@ -8,12 +8,13 @@ import { PricingCalculator } from '../features/customer-service/PricingCalculato
 import { IntegrationsSection } from '../features/customer-service/IntegrationsSection';
 import { FAQSection } from '../features/customer-service/FAQSection';
 import { TestimonialsSection } from '../features/customer-service/TestimonialsSection';
+import { PageTransition } from '../components/common/PageTransition';
 
 export const CustomerService: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-white">
+    <PageTransition>
       <SEO
         title="Atendimento Centralizado WhatsApp e Instagram | Unificando"
         description="Centralize seus canais de atendimento em uma única caixa de entrada profissional. Múltiplos atendentes, histórico salvo e organização total."
@@ -121,6 +122,6 @@ export const CustomerService: React.FC = () => {
           <button onClick={() => navigate(ROUTES.CONTACT)} className="bg-white text-indigo-600 px-12 py-5 rounded-2xl text-xs font-black uppercase tracking-[0.2em] hover:scale-105 transition-transform shadow-2xl">Criar Conta Grátis</button>
         </div>
       </section>
-    </div>
+    </PageTransition>
   );
 };

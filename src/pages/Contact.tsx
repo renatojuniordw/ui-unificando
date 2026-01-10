@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { SEO } from '../components/common/SEO';
+import { PageTransition } from '../components/common/PageTransition';
 
 export const Contact: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -41,7 +42,7 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <div className="animate-in fade-in duration-500 bg-white">
+    <PageTransition>
       <SEO
         title="Fale Conosco | Diagnóstico Gratuito Unificando"
         description="Agende uma conversa com nossos especialistas. Diagnóstico real do seu negócio sem custo e sem compromisso."
@@ -136,6 +137,6 @@ export const Contact: React.FC = () => {
           </div>
         </div>
       </section>
-    </div>
+    </PageTransition>
   );
 };

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../routes';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SEO } from '../components/common/SEO';
+import { PageTransition } from '../components/common/PageTransition';
 
 const AtendimentoAnimation = () => {
   return (
@@ -71,7 +72,7 @@ const DigitalAnimation = () => {
 export const Solutions: React.FC = () => {
   const navigate = useNavigate();
   return (
-    <div className="animate-in slide-in-from-bottom-4 duration-500 bg-white">
+    <PageTransition>
       <SEO
         title="Nossas Soluções | Ecossistema Unificando"
         description="Ferramentas modulares para transformar sua operação digital. Atendimento, IA e Presença Digital."
@@ -229,6 +230,6 @@ export const Solutions: React.FC = () => {
         </div>
       </section>
 
-    </div>
+    </PageTransition>
   );
 };

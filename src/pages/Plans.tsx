@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../routes';
+import { PageTransition } from '../components/common/PageTransition';
 import { motion, Variants } from 'framer-motion';
 import { SEO } from '../components/common/SEO';
 
@@ -94,7 +95,7 @@ export const Plans: React.FC<PlansProps> = () => {
   };
 
   return (
-    <div className="bg-white">
+    <PageTransition className="bg-white">
       <SEO
         title="Planos e Preços | Unificando"
         description="Monte a solução ideal para o seu negócio. Atendimento Digital, Inteligência Artificial e Sites."
@@ -371,6 +372,6 @@ export const Plans: React.FC<PlansProps> = () => {
         </div>
       </section>
 
-    </div>
+    </PageTransition>
   );
 };
