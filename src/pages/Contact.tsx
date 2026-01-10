@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { SEO } from '../components/SEO';
+import { SEO } from '../components/common/SEO';
 
 export const Contact: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);

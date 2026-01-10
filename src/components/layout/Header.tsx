@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { NavItem } from '../types';
-import { ROUTES } from '../routes';
-import LogoUnificando from '../assets/img/LOGO_UNIFICANDO.svg';
+import { NavItem } from '../../types';
+import { ROUTES } from '../../routes';
+import LogoUnificando from '../../assets/img/LOGO_UNIFICANDO.svg';
 
 interface HeaderProps {
     navItems: NavItem[];

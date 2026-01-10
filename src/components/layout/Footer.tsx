@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ROUTES } from '../routes';
-import LogoUnificando from '../assets/img/LOGO_UNIFICANDO.svg';
+import { ROUTES } from '../../routes';
+import LogoUnificando from '../../assets/img/LOGO_UNIFICANDO.svg';
 
 export const Footer: React.FC = () => {
     return (

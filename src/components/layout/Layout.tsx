@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { NavItem } from '../types';
-import { ROUTES } from '../routes';
+import { NavItem } from '../../types';
+import { ROUTES } from '../../routes';
 import { Header } from './Header';
 import { Footer } from './Footer';
 

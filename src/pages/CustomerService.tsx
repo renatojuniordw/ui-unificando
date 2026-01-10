@@ -2,12 +2,12 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../routes';
 import { motion } from 'framer-motion';
-import { SEO } from '../components/SEO';
-import { DashboardSimulation } from '../components/customer-service/DashboardSimulation';
-import { PricingCalculator } from '../components/customer-service/PricingCalculator';
-import { IntegrationsSection } from '../components/customer-service/IntegrationsSection';
-import { FAQSection } from '../components/customer-service/FAQSection';
-import { TestimonialsSection } from '../components/customer-service/TestimonialsSection';
+import { SEO } from '../components/common/SEO';
+import { DashboardSimulation } from '../features/customer-service/DashboardSimulation';
+import { PricingCalculator } from '../features/customer-service/PricingCalculator';
+import { IntegrationsSection } from '../features/customer-service/IntegrationsSection';
+import { FAQSection } from '../features/customer-service/FAQSection';
+import { TestimonialsSection } from '../features/customer-service/TestimonialsSection';
 
 export const CustomerService: React.FC = () => {
   const navigate = useNavigate();

@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../routes';
-import { SEO } from '../components/SEO';
+import { SEO } from '../components/common/SEO';
 
 export const HowItWorks: React.FC = () => {
   const navigate = useNavigate();

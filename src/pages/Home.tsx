@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../routes';
 import { motion } from 'framer-motion';
-import { SEO } from '../components/SEO';
+import { SEO } from '../components/common/SEO';
 
 const containerVariants = {
   hidden: { opacity: 0 },
