@@ -6,7 +6,7 @@ export enum Page {
   Productivity = 'productivity',
   DigitalPresence = 'digital-presence',
   HowItWorks = 'how-it-works',
-  Plans = 'plans',
+  // Plans = 'plans',
   About = 'about',
   Contact = 'contact'
 }

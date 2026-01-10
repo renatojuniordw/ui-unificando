@@ -8,7 +8,7 @@ import { CustomerService } from './pages/CustomerService';
 import { DigitalPresence } from './pages/DigitalPresence';
 import { Home } from './pages/Home';
 import { HowItWorks } from './pages/HowItWorks';
-import { Plans } from './pages/Plans';
+// import { Plans } from './pages/Plans';
 import { Solutions } from './pages/Solutions';
 import { Page } from './types';
 
@@ -23,7 +23,7 @@ const pageRoutes: Record<Page, string> = {
   [Page.DigitalPresence]: '/presenca-digital',
   [Page.Solutions]: '/solucoes',
   [Page.HowItWorks]: '/como-funciona',
-  [Page.Plans]: '/planos',
+  // [Page.Plans]: '/planos',
   [Page.About]: '/sobre',
   [Page.Contact]: '/contato'
 };
@@ -61,7 +61,7 @@ const App: React.FC = () => {
           <Route path="/presenca-digital" element={<DigitalPresence onNavigate={handleNavigate} />} />
           <Route path="/solucoes" element={<Solutions onNavigate={handleNavigate} currentPage={currentPage} />} />
           <Route path="/como-funciona" element={<HowItWorks onNavigate={handleNavigate} />} />
-          <Route path="/planos" element={<Plans onNavigate={handleNavigate} />} />
+          {/* <Route path="/planos" element={<Plans onNavigate={handleNavigate} />} /> */}
           <Route path="/sobre" element={<About />} />
           <Route path="/contato" element={<Contact />} />
           <Route path="*" element={<Home onNavigate={handleNavigate} />} />
