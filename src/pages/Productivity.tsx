@@ -1,6 +1,6 @@
 
+
 import React, { useState, useEffect } from 'react';
-import { Page } from '../types';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SEO } from '../components/SEO';
 import { useNavigate } from 'react-router-dom';
@@ -155,7 +155,7 @@ export const Productivity: React.FC = () => {
                             </ul>
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <button
-                                    onClick={() => onNavigate(Page.Contact)}
+                                    onClick={() => navigate(ROUTES.CONTACT)}
                                     className="bg-slate-900 text-white px-10 py-5 rounded-2xl text-[10px] font-black hover:bg-slate-800 transition-all shadow-xl uppercase tracking-widest"
                                 >
                                     Falar com Especialista
@@ -368,7 +368,7 @@ export const Productivity: React.FC = () => {
                 <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
                     <h2 className="text-3xl md:text-5xl font-black mb-12 uppercase tracking-tighter leading-none">Pronto para <span className="text-indigo-200 font-normal italic">ganhar tempo</span>?</h2>
                     <button
-                        onClick={() => navigate(ROUTES[Page.Contact])}
+                        onClick={() => navigate(ROUTES.CONTACT)}
                         className="bg-white text-indigo-600 px-12 py-5 rounded-2xl text-[10px] font-black hover:bg-indigo-50 transition-all shadow-2xl uppercase tracking-[0.2em]"
                     >
                         Falar com especialista agora

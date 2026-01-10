@@ -1,7 +1,6 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Page } from '../types';
 import { ROUTES } from '../routes';
 import { motion } from 'framer-motion';
 import { SEO } from '../components/SEO';
@@ -117,7 +116,7 @@ export const DigitalPresence: React.FC = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <button
-                onClick={() => navigate(ROUTES[Page.Contact])}
+                onClick={() => navigate(ROUTES.CONTACT)}
                 className="bg-slate-900 text-white px-8 py-4 rounded-xl text-sm font-black hover:bg-slate-800 transition-all shadow-lg shadow-slate-200 uppercase tracking-widest"
               >
                 Construir minha presença
@@ -315,7 +314,7 @@ export const DigitalPresence: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-8 uppercase tracking-tighter">Pronto para ter sua <br /><span className="text-indigo-600">Casa Própria na Web?</span></h2>
           <button
-            onClick={() => navigate(ROUTES[Page.Contact])}
+            onClick={() => navigate(ROUTES.CONTACT)}
             className="bg-slate-900 text-white px-12 py-5 rounded-2xl text-xs font-black hover:bg-slate-800 transition-all shadow-2xl shadow-slate-200 uppercase tracking-widest"
           >
             Solicitar Orçamento de Site

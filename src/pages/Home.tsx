@@ -1,6 +1,5 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Page } from '../types';
 import { ROUTES } from '../routes';
 import { motion } from 'framer-motion';
 import { SEO } from '../components/SEO';
@@ -49,7 +48,7 @@ export const Home: React.FC = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => navigate(ROUTES[Page.Plans])}
+                onClick={() => navigate(ROUTES.PLANS)}
                 className="bg-slate-900 text-white px-10 py-5 rounded-2xl text-[10px] font-black hover:bg-slate-800 transition-all shadow-xl uppercase tracking-[0.2em]"
               >
                 Simular minha solução
@@ -57,7 +56,7 @@ export const Home: React.FC = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => navigate(ROUTES[Page.Solutions])}
+                onClick={() => navigate(ROUTES.SOLUTIONS)}
                 className="bg-white text-slate-900 border border-slate-200 px-10 py-5 rounded-2xl text-[10px] font-black hover:bg-slate-50 transition-all uppercase tracking-[0.2em]"
               >
                 Conhecer as soluções
@@ -192,7 +191,7 @@ export const Home: React.FC = () => {
               <div className="absolute -top-3 left-10 bg-indigo-600 text-white text-[10px] font-black px-5 py-2 rounded-full uppercase tracking-widest">Atendimento</div>
               <h3 className="text-3xl font-black mb-4 mt-6 uppercase tracking-tighter text-slate-900">Organização</h3>
               <p className="text-slate-500 mb-8 font-medium text-sm leading-relaxed">Centralize todos os canais em um único painel profissional. Tenha controle, histórico e atendimento em equipe.</p>
-              <button onClick={() => navigate(ROUTES[Page.Plans])} className="text-indigo-600 font-black inline-flex items-center gap-2 group-hover:gap-4 transition-all uppercase text-[10px] tracking-[0.2em]">
+              <button onClick={() => navigate(ROUTES.PLANS)} className="text-indigo-600 font-black inline-flex items-center gap-2 group-hover:gap-4 transition-all uppercase text-[10px] tracking-[0.2em]">
                 Simular atendimento
               </button>
             </motion.div>
@@ -202,7 +201,7 @@ export const Home: React.FC = () => {
               <div className="absolute -top-3 left-10 bg-indigo-400 text-white text-[10px] font-black px-5 py-2 rounded-full uppercase tracking-widest">Processos</div>
               <h3 className="text-3xl font-black mb-4 mt-6 uppercase tracking-tighter text-slate-900">Evolução</h3>
               <p className="text-slate-500 mb-8 font-medium text-sm leading-relaxed">Automatizamos o que faz sentido e implementamos IA com responsabilidade, sem perder o toque humano.</p>
-              <button onClick={() => navigate(ROUTES[Page.Plans])} className="text-indigo-600 font-black inline-flex items-center gap-2 group-hover:gap-4 transition-all uppercase text-[10px] tracking-[0.2em]">
+              <button onClick={() => navigate(ROUTES.PLANS)} className="text-indigo-600 font-black inline-flex items-center gap-2 group-hover:gap-4 transition-all uppercase text-[10px] tracking-[0.2em]">
                 Simular com IA
               </button>
             </motion.div>
@@ -212,7 +211,7 @@ export const Home: React.FC = () => {
               <div className="absolute -top-3 left-10 bg-slate-900 text-white text-[10px] font-black px-5 py-2 rounded-full uppercase tracking-widest">Vitrine</div>
               <h3 className="text-3xl font-black mb-4 mt-6 uppercase tracking-tighter text-slate-900">Presença</h3>
               <p className="text-slate-500 mb-8 font-medium text-sm leading-relaxed">Construímos sua casa própria na internet para que sua empresa seja encontrada, respeitada e lembrada.</p>
-              <button onClick={() => navigate(ROUTES[Page.Plans])} className="text-indigo-600 font-black inline-flex items-center gap-2 group-hover:gap-4 transition-all uppercase text-[10px] tracking-[0.2em]">
+              <button onClick={() => navigate(ROUTES.PLANS)} className="text-indigo-600 font-black inline-flex items-center gap-2 group-hover:gap-4 transition-all uppercase text-[10px] tracking-[0.2em]">
                 Simular site
               </button>
             </motion.div>
@@ -245,7 +244,7 @@ export const Home: React.FC = () => {
           <p className="text-slate-400 font-medium mb-12 max-w-lg mx-auto text-sm uppercase tracking-widest">Ou monte tudo de uma vez. O caminho se adapta ao seu momento.</p>
 
           <button
-            onClick={() => navigate(ROUTES[Page.Plans])}
+            onClick={() => navigate(ROUTES.PLANS)}
             className="bg-white text-slate-900 px-12 py-5 rounded-2xl text-[10px] font-black hover:bg-slate-200 transition-all shadow-2xl uppercase tracking-widest"
           >
             Simular minha solução
@@ -264,7 +263,7 @@ export const Home: React.FC = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => navigate(ROUTES[Page.Plans])}
+                onClick={() => navigate(ROUTES.PLANS)}
                 className="bg-slate-900 text-white px-12 py-5 rounded-2xl text-[10px] font-black shadow-2xl uppercase tracking-[0.2em] hover:bg-slate-800"
               >
                 Simular agora
@@ -273,7 +272,7 @@ export const Home: React.FC = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => navigate(ROUTES[Page.Contact])}
+                onClick={() => navigate(ROUTES.CONTACT)}
                 className="bg-white border border-slate-200 text-slate-900 px-12 py-5 rounded-2xl text-[10px] font-black shadow-sm uppercase tracking-[0.2em] hover:bg-slate-50"
               >
                 Agendar diagnóstico

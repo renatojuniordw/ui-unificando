@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { Page } from '../../types';
-
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../routes';
 
@@ -109,7 +107,7 @@ export const PricingCalculator = () => {
                                         setup,
                                         date: new Date().toISOString()
                                     }));
-                                    navigate(ROUTES[Page.Contact]);
+                                    navigate(ROUTES.CONTACT);
                                 }}
                                 className="w-full bg-white text-slate-900 py-5 rounded-2xl font-black mt-12 hover:bg-slate-100 transition-all uppercase tracking-widest text-[10px]"
                             >

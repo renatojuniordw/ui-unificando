@@ -1,12 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Page, NavItem } from '../types';
+import { NavItem } from '../types';
 import { ROUTES } from '../routes';
 import LogoUnificando from '../assets/img/LOGO_UNIFICANDO.svg';
 
 interface HeaderProps {
     navItems: NavItem[];
-    solutionItems: { label: string; page: Page; desc: string }[];
+    solutionItems: { label: string; path: string; desc: string }[];
 }
 
 export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
@@ -46,8 +46,8 @@ export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
 
                 <nav className="hidden md:flex items-center gap-8">
                     <Link
-                        to={ROUTES[Page.Home]}
-                        className={`text-[10px] font-black uppercase tracking-[0.2em] transition-colors ${pathname === ROUTES[Page.Home] ? 'text-indigo-600' : 'text-slate-500 hover:text-indigo-600'}`}
+                        to={ROUTES.HOME}
+                        className={`text-[10px] font-black uppercase tracking-[0.2em] transition-colors ${pathname === ROUTES.HOME ? 'text-indigo-600' : 'text-slate-500 hover:text-indigo-600'}`}
                     >
                         Início
                     </Link>
@@ -59,7 +59,7 @@ export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
                         onMouseLeave={() => setIsSolutionsOpen(false)}
                     >
                         <button
-                            className={`text-[10px] font-black uppercase tracking-[0.2em] transition-colors flex items-center gap-1 py-4 ${[ROUTES[Page.Solutions], ROUTES[Page.CustomerService], ROUTES[Page.Productivity], ROUTES[Page.DigitalPresence]].includes(pathname)
+                            className={`text-[10px] font-black uppercase tracking-[0.2em] transition-colors flex items-center gap-1 py-4 ${[ROUTES.SOLUTIONS, ROUTES.CUSTOMER_SERVICE, ROUTES.PRODUCTIVITY, ROUTES.DIGITAL_PRESENCE].includes(pathname as any)
                                 ? 'text-indigo-600' : 'text-slate-500 hover:text-indigo-600'
                                 }`}
                         >
@@ -72,7 +72,7 @@ export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
                         {isSolutionsOpen && (
                             <div className="absolute top-full left-0 w-64 bg-white border border-slate-100 rounded-[1.5rem] shadow-2xl p-2 animate-in fade-in slide-in-from-top-2 duration-200">
                                 <Link
-                                    to={ROUTES[Page.Solutions]}
+                                    to={ROUTES.SOLUTIONS}
                                     onClick={closeMenu}
                                     className="w-full text-left p-3 hover:bg-slate-50 rounded-xl transition-colors mb-1 group block"
                                 >
@@ -82,8 +82,8 @@ export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
                                 <div className="h-px bg-slate-100 my-1 mx-2" />
                                 {solutionItems.map((item) => (
                                     <Link
-                                        key={item.page}
-                                        to={ROUTES[item.page]}
+                                        key={item.path}
+                                        to={item.path}
                                         onClick={closeMenu}
                                         className="w-full text-left p-3 hover:bg-slate-50 rounded-xl transition-colors group block"
                                     >
@@ -95,18 +95,18 @@ export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
                         )}
                     </div>
 
-                    {navItems.filter(i => i.page !== Page.Home).map((item) => (
+                    {navItems.filter(i => i.path !== ROUTES.HOME).map((item) => (
                         <Link
-                            key={item.page}
-                            to={ROUTES[item.page]}
-                            className={`text-[10px] font-black uppercase tracking-[0.2em] transition-colors ${pathname === ROUTES[item.page] ? 'text-indigo-600' : 'text-slate-500 hover:text-indigo-600'}`}
+                            key={item.path}
+                            to={item.path}
+                            className={`text-[10px] font-black uppercase tracking-[0.2em] transition-colors ${pathname === item.path ? 'text-indigo-600' : 'text-slate-500 hover:text-indigo-600'}`}
                         >
                             {item.label}
                         </Link>
                     ))}
 
                     <Link
-                        to={ROUTES[Page.Contact]}
+                        to={ROUTES.CONTACT}
                         className="bg-slate-900 text-white px-6 py-3 rounded-full text-[10px] font-black uppercase tracking-[0.2em] hover:bg-slate-800 transition-all"
                     >
                         Falar com Especialista
@@ -126,7 +126,7 @@ export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
             {/* Mobile Nav */}
             {isMenuOpen && (
                 <div className="md:hidden bg-white border-b border-slate-200 py-6 px-4 flex flex-col gap-2">
-                    <Link to={ROUTES[Page.Home]} onClick={closeMenu} className="text-left text-slate-900 text-[10px] font-black uppercase tracking-[0.2em] py-3 border-b border-slate-50">Início</Link>
+                    <Link to={ROUTES.HOME} onClick={closeMenu} className="text-left text-slate-900 text-[10px] font-black uppercase tracking-[0.2em] py-3 border-b border-slate-50">Início</Link>
                     <button onClick={() => setIsMobileSolutionsOpen(!isMobileSolutionsOpen)} className="w-full flex justify-between items-center text-left text-slate-900 text-[10px] font-black uppercase tracking-[0.2em] py-3 border-b border-slate-50">
                         Soluções
                         <svg xmlns="http://www.w3.org/2000/svg" className={`h-4 w-4 transition-transform ${isMobileSolutionsOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -135,16 +135,16 @@ export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
                     </button>
                     {isMobileSolutionsOpen && (
                         <div className="bg-slate-50 rounded-xl px-4 py-2 flex flex-col gap-4 my-2">
-                            <Link to={ROUTES[Page.Solutions]} onClick={closeMenu} className="text-left py-1 text-[10px] font-bold uppercase text-slate-500">Ver Todas</Link>
+                            <Link to={ROUTES.SOLUTIONS} onClick={closeMenu} className="text-left py-1 text-[10px] font-bold uppercase text-slate-500">Ver Todas</Link>
                             {solutionItems.map((item) => (
-                                <Link key={item.page} to={ROUTES[item.page]} onClick={closeMenu} className="text-left py-1 text-[10px] font-bold uppercase text-slate-500">{item.label}</Link>
+                                <Link key={item.path} to={item.path} onClick={closeMenu} className="text-left py-1 text-[10px] font-bold uppercase text-slate-500">{item.label}</Link>
                             ))}
                         </div>
                     )}
-                    {navItems.filter(i => i.page !== Page.Home).map((item) => (
-                        <Link key={item.page} to={ROUTES[item.page]} onClick={closeMenu} className="text-left text-slate-900 text-[10px] font-black uppercase tracking-[0.2em] py-3 border-b border-slate-50">{item.label}</Link>
+                    {navItems.filter(i => i.path !== ROUTES.HOME).map((item) => (
+                        <Link key={item.path} to={item.path} onClick={closeMenu} className="text-left text-slate-900 text-[10px] font-black uppercase tracking-[0.2em] py-3 border-b border-slate-50">{item.label}</Link>
                     ))}
-                    <Link to={ROUTES[Page.Contact]} onClick={closeMenu} className="bg-indigo-600 text-white w-full py-4 rounded-xl font-black uppercase tracking-[0.2em] text-[10px] mt-4 text-center">Falar com Especialista</Link>
+                    <Link to={ROUTES.CONTACT} onClick={closeMenu} className="bg-indigo-600 text-white w-full py-4 rounded-xl font-black uppercase tracking-[0.2em] text-[10px] mt-4 text-center">Falar com Especialista</Link>
                 </div>
             )}
         </header>

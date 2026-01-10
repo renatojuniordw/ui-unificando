@@ -1,20 +1,21 @@
 
 import React from 'react';
-import { Page, NavItem } from '../types';
+import { NavItem } from '../types';
+import { ROUTES } from '../routes';
 import { Header } from './Header';
 import { Footer } from './Footer';
 
 const navItems: NavItem[] = [
-  { label: 'Início', page: Page.Home },
-  { label: 'Como Funciona', page: Page.HowItWorks },
-  { label: 'Planos', page: Page.Plans },
-  { label: 'Sobre', page: Page.About },
+  { label: 'Início', path: ROUTES.HOME },
+  { label: 'Como Funciona', path: ROUTES.HOW_IT_WORKS },
+  { label: 'Planos', path: ROUTES.PLANS },
+  { label: 'Sobre', path: ROUTES.ABOUT },
 ];
 
 const solutionItems = [
-  { label: 'Atendimento', page: Page.CustomerService, desc: 'Plataforma de Crescimento' },
-  { label: 'Produtividade', page: Page.Productivity, desc: 'IA para negócios' },
-  { label: 'Presença Digital', page: Page.DigitalPresence, desc: 'Presença Digital & Autoridade' },
+  { label: 'Atendimento', path: ROUTES.CUSTOMER_SERVICE, desc: 'Plataforma de Crescimento' },
+  { label: 'Produtividade', path: ROUTES.PRODUCTIVITY, desc: 'IA para negócios' },
+  { label: 'Presença Digital', path: ROUTES.DIGITAL_PRESENCE, desc: 'Presença Digital & Autoridade' },
 ];
 
 interface LayoutProps {

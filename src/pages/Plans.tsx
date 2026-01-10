@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Page } from '../types';
 import { ROUTES } from '../routes';
 import { motion, Variants } from 'framer-motion';
 import { SEO } from '../components/SEO';
@@ -91,7 +90,7 @@ export const Plans: React.FC<PlansProps> = () => {
     };
 
     localStorage.setItem('unificando_plan_selection', JSON.stringify(selection));
-    navigate(ROUTES[Page.Contact]);
+    navigate(ROUTES.CONTACT);
   };
 
   return (

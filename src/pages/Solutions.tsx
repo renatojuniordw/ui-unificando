@@ -1,7 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Page } from '../types';
 import { ROUTES } from '../routes';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SEO } from '../components/SEO';
@@ -86,7 +85,7 @@ export const Solutions: React.FC = () => {
           <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 tracking-tighter uppercase leading-none">Nossas Soluções.</h1>
           <p className="text-lg text-slate-500 max-w-2xl mx-auto font-medium mb-12">Ferramentas modulares para transformar sua operação digital. Use uma, combine várias ou monte tudo sob medida.</p>
           <button
-            onClick={() => navigate(ROUTES[Page.Plans])}
+            onClick={() => navigate(ROUTES.PLANS)}
             className="bg-indigo-600 text-white px-10 py-5 rounded-2xl text-[10px] font-black hover:bg-indigo-500 transition-all shadow-xl uppercase tracking-widest"
           >
             Simular minha solução
@@ -114,7 +113,7 @@ export const Solutions: React.FC = () => {
               </ul>
             </div>
 
-            <button onClick={() => navigate(ROUTES[Page.Plans])} className="bg-slate-900 text-white px-8 py-4 rounded-2xl text-[10px] font-black hover:bg-slate-800 transition-all uppercase tracking-widest">
+            <button onClick={() => navigate(ROUTES.PLANS)} className="bg-slate-900 text-white px-8 py-4 rounded-2xl text-[10px] font-black hover:bg-slate-800 transition-all uppercase tracking-widest">
               Simular atendimento
             </button>
           </motion.div>
@@ -143,7 +142,7 @@ export const Solutions: React.FC = () => {
               </ul>
             </div>
 
-            <button onClick={() => navigate(ROUTES[Page.Plans])} className="bg-indigo-600 text-white px-8 py-4 rounded-2xl text-[10px] font-black hover:bg-indigo-700 transition-all uppercase tracking-widest">
+            <button onClick={() => navigate(ROUTES.PLANS)} className="bg-indigo-600 text-white px-8 py-4 rounded-2xl text-[10px] font-black hover:bg-indigo-700 transition-all uppercase tracking-widest">
               Simular atendimento com IA
             </button>
           </motion.div>
@@ -170,7 +169,7 @@ export const Solutions: React.FC = () => {
               </ul>
             </div>
 
-            <button onClick={() => navigate(ROUTES[Page.Plans])} className="bg-slate-900 text-white px-8 py-4 rounded-2xl text-[10px] font-black hover:bg-slate-800 transition-all uppercase tracking-widest">
+            <button onClick={() => navigate(ROUTES.PLANS)} className="bg-slate-900 text-white px-8 py-4 rounded-2xl text-[10px] font-black hover:bg-slate-800 transition-all uppercase tracking-widest">
               Simular site
             </button>
           </motion.div>
@@ -202,7 +201,7 @@ export const Solutions: React.FC = () => {
 
           <div className="mt-16">
             <button
-              onClick={() => navigate(ROUTES[Page.Plans])}
+              onClick={() => navigate(ROUTES.PLANS)}
               className="bg-indigo-600 text-white px-12 py-5 rounded-2xl text-[10px] font-black hover:bg-indigo-500 transition-all shadow-2xl uppercase tracking-[0.2em]"
             >
               Simular agora

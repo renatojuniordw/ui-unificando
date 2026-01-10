@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Page } from '../types';
 import { ROUTES } from '../routes';
 import LogoUnificando from '../assets/img/LOGO_UNIFICANDO.svg';
 
@@ -19,17 +18,17 @@ export const Footer: React.FC = () => {
                 <div className="text-left">
                     <h4 className="text-white text-[10px] font-black uppercase tracking-[0.2em] mb-10">Ecossistema</h4>
                     <ul className="space-y-5 text-[11px] font-bold uppercase tracking-widest">
-                        <li><Link to={ROUTES[Page.CustomerService]} className="hover:text-indigo-400 transition-colors">Atendimento</Link></li>
-                        <li><Link to={ROUTES[Page.Productivity]} className="hover:text-indigo-400 transition-colors">Produtividade</Link></li>
-                        <li><Link to={ROUTES[Page.DigitalPresence]} className="hover:text-indigo-400 transition-colors">Presença Digital</Link></li>
+                        <li><Link to={ROUTES.CUSTOMER_SERVICE} className="hover:text-indigo-400 transition-colors">Atendimento</Link></li>
+                        <li><Link to={ROUTES.PRODUCTIVITY} className="hover:text-indigo-400 transition-colors">Produtividade</Link></li>
+                        <li><Link to={ROUTES.DIGITAL_PRESENCE} className="hover:text-indigo-400 transition-colors">Presença Digital</Link></li>
                     </ul>
                 </div>
                 <div className="text-left">
                     <h4 className="text-white text-[10px] font-black uppercase tracking-[0.2em] mb-10">Unificando</h4>
                     <ul className="space-y-5 text-[11px] font-bold uppercase tracking-widest">
-                        <li><Link to={ROUTES[Page.About]} className="hover:text-indigo-400 transition-colors">Nossa Postura</Link></li>
-                        <li><Link to={ROUTES[Page.HowItWorks]} className="hover:text-indigo-400 transition-colors">O Método</Link></li>
-                        <li><Link to={ROUTES[Page.Contact]} className="hover:text-indigo-400 transition-colors">Fale Conosco</Link></li>
+                        <li><Link to={ROUTES.ABOUT} className="hover:text-indigo-400 transition-colors">Nossa Postura</Link></li>
+                        <li><Link to={ROUTES.HOW_IT_WORKS} className="hover:text-indigo-400 transition-colors">O Método</Link></li>
+                        <li><Link to={ROUTES.CONTACT} className="hover:text-indigo-400 transition-colors">Fale Conosco</Link></li>
                     </ul>
                 </div>
             </div>

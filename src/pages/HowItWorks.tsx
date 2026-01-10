@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom';
-import { Page } from '../types';
 import { ROUTES } from '../routes';
 import { SEO } from '../components/SEO';
 
@@ -49,7 +48,7 @@ export const HowItWorks: React.FC = () => {
                 </div>
 
                 <button
-                  onClick={() => navigate(ROUTES[Page.Plans])}
+                  onClick={() => navigate(ROUTES.PLANS)}
                   className="bg-slate-900 text-white px-8 py-4 rounded-xl text-[10px] font-black hover:bg-slate-800 transition-all uppercase tracking-widest shadow-lg"
                 >
                   Simular atendimento
@@ -89,7 +88,7 @@ export const HowItWorks: React.FC = () => {
                 </div>
 
                 <button
-                  onClick={() => navigate(ROUTES[Page.Plans])}
+                  onClick={() => navigate(ROUTES.PLANS)}
                   className="bg-indigo-600 text-white px-8 py-4 rounded-xl text-[10px] font-black hover:bg-indigo-700 transition-all uppercase tracking-widest shadow-lg shadow-indigo-200"
                 >
                   Simular atendimento com IA
@@ -117,7 +116,7 @@ export const HowItWorks: React.FC = () => {
                 </div>
 
                 <button
-                  onClick={() => navigate(ROUTES[Page.Plans])}
+                  onClick={() => navigate(ROUTES.PLANS)}
                   className="bg-slate-900 text-white px-8 py-4 rounded-xl text-[10px] font-black hover:bg-slate-800 transition-all uppercase tracking-widest shadow-lg"
                 >
                   Simular site
@@ -158,7 +157,7 @@ export const HowItWorks: React.FC = () => {
           <p className="text-slate-400 text-sm font-medium mb-12 uppercase tracking-widest">Nada é engessado. Tudo é pensado para o seu momento.</p>
 
           <button
-            onClick={() => navigate(ROUTES[Page.Contact])}
+            onClick={() => navigate(ROUTES.CONTACT)}
             className="bg-white text-slate-900 px-12 py-5 rounded-2xl text-[10px] font-black hover:bg-slate-200 transition-all shadow-2xl uppercase tracking-widest"
           >
             Simular minha solução
