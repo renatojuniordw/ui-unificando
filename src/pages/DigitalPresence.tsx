@@ -1,11 +1,13 @@
+
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Page } from '../types';
+import { ROUTES } from '../routes';
 import { motion } from 'framer-motion';
 import { SEO } from '../components/SEO';
 
-interface DigitalPresenceProps {
-  onNavigate: (page: Page) => void;
-}
+
+
 
 // Animação de Scroll e Construção de Landing Page
 const LandingPageAnimation = () => {
@@ -81,7 +83,8 @@ const LandingPageAnimation = () => {
   );
 };
 
-export const DigitalPresence: React.FC<DigitalPresenceProps> = ({ onNavigate }) => {
+export const DigitalPresence: React.FC = () => {
+  const navigate = useNavigate();
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
   const faqItems = [
@@ -114,7 +117,7 @@ export const DigitalPresence: React.FC<DigitalPresenceProps> = ({ onNavigate }) 
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <button
-                onClick={() => onNavigate(Page.Contact)}
+                onClick={() => navigate(ROUTES[Page.Contact])}
                 className="bg-slate-900 text-white px-8 py-4 rounded-xl text-sm font-black hover:bg-slate-800 transition-all shadow-lg shadow-slate-200 uppercase tracking-widest"
               >
                 Construir minha presença
@@ -292,7 +295,7 @@ export const DigitalPresence: React.FC<DigitalPresenceProps> = ({ onNavigate }) 
                   className="w-full flex justify-between items-center p-7 text-left hover:bg-slate-50 transition-colors"
                 >
                   <span className="font-black text-slate-800 text-sm uppercase tracking-wide">{item.q}</span>
-                  <div className={`w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 transition-all ${activeFaq === idx ? 'rotate-180 bg-slate-900 text-white' : ''} `}>
+                  <div className={`w - 8 h - 8 rounded - full bg - slate - 100 flex items - center justify - center text - slate - 400 transition - all ${activeFaq === idx ? 'rotate-180 bg-slate-900 text-white' : ''} `}>
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
                   </div>
                 </button>
@@ -312,7 +315,7 @@ export const DigitalPresence: React.FC<DigitalPresenceProps> = ({ onNavigate }) 
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-8 uppercase tracking-tighter">Pronto para ter sua <br /><span className="text-indigo-600">Casa Própria na Web?</span></h2>
           <button
-            onClick={() => onNavigate(Page.Contact)}
+            onClick={() => navigate(ROUTES[Page.Contact])}
             className="bg-slate-900 text-white px-12 py-5 rounded-2xl text-xs font-black hover:bg-slate-800 transition-all shadow-2xl shadow-slate-200 uppercase tracking-widest"
           >
             Solicitar Orçamento de Site

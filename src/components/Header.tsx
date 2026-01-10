@@ -1,16 +1,17 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Page, NavItem } from '../types';
 import { ROUTES } from '../routes';
 import LogoUnificando from '../assets/img/LOGO_UNIFICANDO.svg';
 
 interface HeaderProps {
-    currentPage: Page;
     navItems: NavItem[];
     solutionItems: { label: string; page: Page; desc: string }[];
 }
 
-export const Header: React.FC<HeaderProps> = ({ currentPage, navItems, solutionItems }) => {
+export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
+    const location = useLocation();
+    const { pathname } = location;
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
     const [isMobileSolutionsOpen, setIsMobileSolutionsOpen] = useState(false);
@@ -46,7 +47,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, navItems, solutionI
                 <nav className="hidden md:flex items-center gap-8">
                     <Link
                         to={ROUTES[Page.Home]}
-                        className={`text-[10px] font-black uppercase tracking-[0.2em] transition-colors ${currentPage === Page.Home ? 'text-indigo-600' : 'text-slate-500 hover:text-indigo-600'}`}
+                        className={`text-[10px] font-black uppercase tracking-[0.2em] transition-colors ${pathname === ROUTES[Page.Home] ? 'text-indigo-600' : 'text-slate-500 hover:text-indigo-600'}`}
                     >
                         Início
                     </Link>
@@ -58,7 +59,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, navItems, solutionI
                         onMouseLeave={() => setIsSolutionsOpen(false)}
                     >
                         <button
-                            className={`text-[10px] font-black uppercase tracking-[0.2em] transition-colors flex items-center gap-1 py-4 ${[Page.Solutions, Page.CustomerService, Page.Productivity, Page.DigitalPresence].includes(currentPage)
+                            className={`text-[10px] font-black uppercase tracking-[0.2em] transition-colors flex items-center gap-1 py-4 ${[ROUTES[Page.Solutions], ROUTES[Page.CustomerService], ROUTES[Page.Productivity], ROUTES[Page.DigitalPresence]].includes(pathname)
                                 ? 'text-indigo-600' : 'text-slate-500 hover:text-indigo-600'
                                 }`}
                         >
@@ -98,7 +99,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, navItems, solutionI
                         <Link
                             key={item.page}
                             to={ROUTES[item.page]}
-                            className={`text-[10px] font-black uppercase tracking-[0.2em] transition-colors ${currentPage === item.page ? 'text-indigo-600' : 'text-slate-500 hover:text-indigo-600'}`}
+                            className={`text-[10px] font-black uppercase tracking-[0.2em] transition-colors ${pathname === ROUTES[item.page] ? 'text-indigo-600' : 'text-slate-500 hover:text-indigo-600'}`}
                         >
                             {item.label}
                         </Link>

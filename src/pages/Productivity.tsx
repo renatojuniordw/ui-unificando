@@ -1,11 +1,11 @@
+
 import React, { useState, useEffect } from 'react';
 import { Page } from '../types';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SEO } from '../components/SEO';
+import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '../routes';
 
-interface ProductivityProps {
-    onNavigate: (page: Page) => void;
-}
 
 const WhatsAppSimulation = () => {
     const [messages, setMessages] = useState<Array<{ id: number, text: React.ReactNode, type: 'user' | 'bot' | 'system', time: string }>>([
@@ -74,13 +74,13 @@ const WhatsAppSimulation = () => {
                             key={msg.id}
                             initial={{ opacity: 0, scale: 0.9, y: 10 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
-                            className={`max-w-[85%] p-3 rounded-2xl text-[10px] shadow-sm font-medium ${msg.type === 'user'
+                            className={`max - w - [85 %] p - 3 rounded - 2xl text - [10px] shadow - sm font - medium ${msg.type === 'user'
                                 ? 'bg-indigo-600 text-white self-end rounded-tr-none'
                                 : 'bg-white text-slate-800 self-start rounded-tl-none border border-slate-200'
                                 } `}
                         >
                             {msg.text}
-                            <div className={`text-[8px] mt-1 ${msg.type === 'user' ? 'text-indigo-200' : 'text-slate-400'} `}>{msg.time}</div>
+                            <div className={`text - [8px] mt - 1 ${msg.type === 'user' ? 'text-indigo-200' : 'text-slate-400'} `}>{msg.time}</div>
                         </motion.div>
                     ))}
                 </AnimatePresence>
@@ -95,7 +95,8 @@ const WhatsAppSimulation = () => {
     );
 };
 
-export const Productivity: React.FC<ProductivityProps> = ({ onNavigate }) => {
+export const Productivity: React.FC = () => {
+    const navigate = useNavigate();
     const [activeFaq, setActiveFaq] = useState<number | null>(null);
     const [channels, setChannels] = useState(1);
     const [useIA, setUseIA] = useState(false);
@@ -346,7 +347,7 @@ export const Productivity: React.FC<ProductivityProps> = ({ onNavigate }) => {
                                     className="w-full flex justify-between items-center p-8 text-left hover:bg-slate-50 transition-colors"
                                 >
                                     <span className="font-black text-[11px] text-slate-800 uppercase tracking-widest">{item.q}</span>
-                                    <div className={`w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 transition-all ${activeFaq === idx ? 'rotate-180 bg-slate-900 text-white' : ''} `}>
+                                    <div className={`w - 8 h - 8 rounded - full bg - slate - 100 flex items - center justify - center text - slate - 400 transition - all ${activeFaq === idx ? 'rotate-180 bg-slate-900 text-white' : ''} `}>
                                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
                                     </div>
                                 </button>
@@ -367,7 +368,7 @@ export const Productivity: React.FC<ProductivityProps> = ({ onNavigate }) => {
                 <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
                     <h2 className="text-3xl md:text-5xl font-black mb-12 uppercase tracking-tighter leading-none">Pronto para <span className="text-indigo-200 font-normal italic">ganhar tempo</span>?</h2>
                     <button
-                        onClick={() => onNavigate(Page.Contact)}
+                        onClick={() => navigate(ROUTES[Page.Contact])}
                         className="bg-white text-indigo-600 px-12 py-5 rounded-2xl text-[10px] font-black hover:bg-indigo-50 transition-all shadow-2xl uppercase tracking-[0.2em]"
                     >
                         Falar com especialista agora

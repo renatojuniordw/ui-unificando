@@ -1,8 +1,10 @@
-import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Page } from '../types';
+import { ROUTES } from '../routes';
 import { SEO } from '../components/SEO';
 
-export const HowItWorks: React.FC<{ onNavigate: (p: Page) => void }> = ({ onNavigate }) => {
+export const HowItWorks: React.FC = () => {
+  const navigate = useNavigate();
   return (
     <div className="animate-in fade-in duration-700 bg-white">
       <SEO
@@ -47,7 +49,7 @@ export const HowItWorks: React.FC<{ onNavigate: (p: Page) => void }> = ({ onNavi
                 </div>
 
                 <button
-                  onClick={() => onNavigate(Page.Plans)}
+                  onClick={() => navigate(ROUTES[Page.Plans])}
                   className="bg-slate-900 text-white px-8 py-4 rounded-xl text-[10px] font-black hover:bg-slate-800 transition-all uppercase tracking-widest shadow-lg"
                 >
                   Simular atendimento
@@ -87,7 +89,7 @@ export const HowItWorks: React.FC<{ onNavigate: (p: Page) => void }> = ({ onNavi
                 </div>
 
                 <button
-                  onClick={() => onNavigate(Page.Plans)}
+                  onClick={() => navigate(ROUTES[Page.Plans])}
                   className="bg-indigo-600 text-white px-8 py-4 rounded-xl text-[10px] font-black hover:bg-indigo-700 transition-all uppercase tracking-widest shadow-lg shadow-indigo-200"
                 >
                   Simular atendimento com IA
@@ -115,7 +117,7 @@ export const HowItWorks: React.FC<{ onNavigate: (p: Page) => void }> = ({ onNavi
                 </div>
 
                 <button
-                  onClick={() => onNavigate(Page.Plans)}
+                  onClick={() => navigate(ROUTES[Page.Plans])}
                   className="bg-slate-900 text-white px-8 py-4 rounded-xl text-[10px] font-black hover:bg-slate-800 transition-all uppercase tracking-widest shadow-lg"
                 >
                   Simular site
@@ -156,7 +158,7 @@ export const HowItWorks: React.FC<{ onNavigate: (p: Page) => void }> = ({ onNavi
           <p className="text-slate-400 text-sm font-medium mb-12 uppercase tracking-widest">Nada é engessado. Tudo é pensado para o seu momento.</p>
 
           <button
-            onClick={() => onNavigate(Page.Plans)}
+            onClick={() => navigate(ROUTES[Page.Contact])}
             className="bg-white text-slate-900 px-12 py-5 rounded-2xl text-[10px] font-black hover:bg-slate-200 transition-all shadow-2xl uppercase tracking-widest"
           >
             Simular minha solução

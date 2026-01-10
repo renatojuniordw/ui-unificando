@@ -19,15 +19,12 @@ const solutionItems = [
 
 interface LayoutProps {
   children: React.ReactNode;
-  currentPage: Page;
-  onNavigate: (page: Page) => void;
 }
 
-export const Layout: React.FC<LayoutProps> = ({ children, currentPage, onNavigate }) => {
+export const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="min-h-screen flex flex-col selection:bg-indigo-100 selection:text-indigo-900">
       <Header
-        currentPage={currentPage}
         navItems={navItems}
         solutionItems={solutionItems}
       />

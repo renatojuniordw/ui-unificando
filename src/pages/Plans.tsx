@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Page } from '../types';
+import { ROUTES } from '../routes';
 import { motion, Variants } from 'framer-motion';
 import { SEO } from '../components/SEO';
 
-interface PlansProps {
-  onNavigate: (page: Page) => void;
-}
+interface PlansProps { }
 
 const container: Variants = {
   hidden: { opacity: 0 },
@@ -20,7 +20,8 @@ const card: Variants = {
   show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100 } }
 };
 
-export const Plans: React.FC<PlansProps> = ({ onNavigate }) => {
+export const Plans: React.FC<PlansProps> = () => {
+  const navigate = useNavigate();
   // Calculator State
   const [includeSupport, setIncludeSupport] = useState(true);
   const [inboxes, setInboxes] = useState(1);
@@ -90,7 +91,7 @@ export const Plans: React.FC<PlansProps> = ({ onNavigate }) => {
     };
 
     localStorage.setItem('unificando_plan_selection', JSON.stringify(selection));
-    onNavigate(Page.Contact);
+    navigate(ROUTES[Page.Contact]);
   };
 
   return (

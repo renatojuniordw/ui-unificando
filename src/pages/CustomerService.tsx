@@ -1,5 +1,7 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Page } from '../types';
+import { ROUTES } from '../routes';
 import { motion } from 'framer-motion';
 import { SEO } from '../components/SEO';
 import { DashboardSimulation } from '../components/customer-service/DashboardSimulation';
@@ -8,11 +10,8 @@ import { IntegrationsSection } from '../components/customer-service/Integrations
 import { FAQSection } from '../components/customer-service/FAQSection';
 import { TestimonialsSection } from '../components/customer-service/TestimonialsSection';
 
-interface CustomerServiceProps {
-  onNavigate: (page: Page) => void;
-}
-
-export const CustomerService: React.FC<CustomerServiceProps> = ({ onNavigate }) => {
+export const CustomerService: React.FC = () => {
+  const navigate = useNavigate();
 
   return (
     <div className="bg-white">
@@ -41,7 +40,7 @@ export const CustomerService: React.FC<CustomerServiceProps> = ({ onNavigate }) 
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => onNavigate(Page.Contact)}
+                onClick={() => navigate(ROUTES[Page.Contact])}
                 className="bg-slate-900 text-white px-10 py-5 rounded-2xl text-[10px] font-black shadow-xl uppercase tracking-[0.2em]"
               >
                 Organizar meu negócio
@@ -107,7 +106,7 @@ export const CustomerService: React.FC<CustomerServiceProps> = ({ onNavigate }) 
             <p className="text-slate-500 text-lg font-medium">Configure os recursos ideais para o seu negócio.</p>
           </div>
 
-          <PricingCalculator onNavigate={onNavigate} />
+          <PricingCalculator />
         </div>
       </section>
 
@@ -120,7 +119,7 @@ export const CustomerService: React.FC<CustomerServiceProps> = ({ onNavigate }) 
         <div className="relative z-10 max-w-4xl mx-auto">
           <h2 className="text-4xl md:text-6xl font-black mb-8 uppercase tracking-tighter">Pronto para vender mais?</h2>
           <p className="text-indigo-100 text-lg mb-10 max-w-2xl mx-auto font-medium">Junte-se a centenas de empresas que transformaram seu atendimento com o Unificando.</p>
-          <button onClick={() => onNavigate(Page.Contact)} className="bg-white text-indigo-600 px-12 py-5 rounded-2xl text-xs font-black uppercase tracking-[0.2em] hover:scale-105 transition-transform shadow-2xl">Criar Conta Grátis</button>
+          <button onClick={() => navigate(ROUTES[Page.Contact])} className="bg-white text-indigo-600 px-12 py-5 rounded-2xl text-xs font-black uppercase tracking-[0.2em] hover:scale-105 transition-transform shadow-2xl">Criar Conta Grátis</button>
         </div>
       </section>
     </div>

@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { Page } from '../../types';
 
-export const PricingCalculator = ({ onNavigate }: { onNavigate: (page: Page) => void }) => {
+import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '../../routes';
+
+export const PricingCalculator = () => {
+    const navigate = useNavigate();
     const [inboxes, setInboxes] = useState(1);
     const [attendants, setAttendants] = useState(1);
 
@@ -105,7 +109,7 @@ export const PricingCalculator = ({ onNavigate }: { onNavigate: (page: Page) => 
                                         setup,
                                         date: new Date().toISOString()
                                     }));
-                                    onNavigate(Page.Contact);
+                                    navigate(ROUTES[Page.Contact]);
                                 }}
                                 className="w-full bg-white text-slate-900 py-5 rounded-2xl font-black mt-12 hover:bg-slate-100 transition-all uppercase tracking-widest text-[10px]"
                             >

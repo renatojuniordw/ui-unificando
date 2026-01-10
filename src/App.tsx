@@ -1,35 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Layout } from './components/Layout';
-import { About } from './pages/About';
-import { Productivity } from './pages/Productivity';
-import { Contact } from './pages/Contact';
-import { CustomerService } from './pages/CustomerService';
-import { DigitalPresence } from './pages/DigitalPresence';
-import { Home } from './pages/Home';
-import { HowItWorks } from './pages/HowItWorks';
-import { Plans } from './pages/Plans';
-import { Solutions } from './pages/Solutions';
-import { Page } from './types';
+import { Routes, Route, useLocation } from 'react-router-dom';
 
-/* Routing & Adapter Logic */
-import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
+// Lazy load pages for code splitting
+const Home = React.lazy(() => import('./pages/Home').then(module => ({ default: module.Home })));
+const CustomerService = React.lazy(() => import('./pages/CustomerService').then(module => ({ default: module.CustomerService })));
+const Productivity = React.lazy(() => import('./pages/Productivity').then(module => ({ default: module.Productivity })));
+const DigitalPresence = React.lazy(() => import('./pages/DigitalPresence').then(module => ({ default: module.DigitalPresence })));
+const Solutions = React.lazy(() => import('./pages/Solutions').then(module => ({ default: module.Solutions })));
+const HowItWorks = React.lazy(() => import('./pages/HowItWorks').then(module => ({ default: module.HowItWorks })));
+const Plans = React.lazy(() => import('./pages/Plans').then(module => ({ default: module.Plans })));
+const About = React.lazy(() => import('./pages/About').then(module => ({ default: module.About })));
+const Contact = React.lazy(() => import('./pages/Contact').then(module => ({ default: module.Contact })));
 
-// Map Page enum to Paths
-const pageRoutes: Record<Page, string> = {
-  [Page.Home]: '/',
-  [Page.CustomerService]: '/atendimento',
-  [Page.Productivity]: '/produtividade',
-  [Page.DigitalPresence]: '/presenca-digital',
-  [Page.Solutions]: '/solucoes',
-  [Page.HowItWorks]: '/como-funciona',
-  [Page.Plans]: '/planos',
-  [Page.About]: '/sobre',
-  [Page.Contact]: '/contato'
-};
+const LoadingFallback: React.FC = () => (
+  <div className="flex items-center justify-center min-h-screen">
+    <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-indigo-600"></div>
+  </div>
+);
 
 const App: React.FC = () => {
-  const navigate = useNavigate();
   const location = useLocation();
 
   // Scroll to top on route change
@@ -37,35 +28,23 @@ const App: React.FC = () => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
-  // Adapter for existing components requesting onNavigate
-  const handleNavigate = (page: Page) => {
-    const path = pageRoutes[page];
-    if (path) navigate(path);
-  };
-
-  // Determine currentPage for Layout based on path (Reverse Mapping)
-  const getCurrentPage = (): Page => {
-    const entry = Object.entries(pageRoutes).find(([_, path]) => path === location.pathname);
-    return entry ? (entry[0] as Page) : Page.Home;
-  };
-
-  const currentPage = getCurrentPage();
-
   return (
-    <Layout currentPage={currentPage} onNavigate={handleNavigate}>
+    <Layout>
       <AnimatePresence mode="wait">
-        <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<Home onNavigate={handleNavigate} />} />
-          <Route path="/atendimento" element={<CustomerService onNavigate={handleNavigate} />} />
-          <Route path="/produtividade" element={<Productivity onNavigate={handleNavigate} />} />
-          <Route path="/presenca-digital" element={<DigitalPresence onNavigate={handleNavigate} />} />
-          <Route path="/solucoes" element={<Solutions onNavigate={handleNavigate} currentPage={currentPage} />} />
-          <Route path="/como-funciona" element={<HowItWorks onNavigate={handleNavigate} />} />
-          <Route path="/planos" element={<Plans onNavigate={handleNavigate} />} />
-          <Route path="/sobre" element={<About />} />
-          <Route path="/contato" element={<Contact />} />
-          <Route path="*" element={<Home onNavigate={handleNavigate} />} />
-        </Routes>
+        <Suspense fallback={<LoadingFallback />}>
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<Home />} />
+            <Route path="/atendimento" element={<CustomerService />} />
+            <Route path="/produtividade" element={<Productivity />} />
+            <Route path="/presenca-digital" element={<DigitalPresence />} />
+            <Route path="/solucoes" element={<Solutions />} />
+            <Route path="/como-funciona" element={<HowItWorks />} />
+            <Route path="/planos" element={<Plans />} />
+            <Route path="/sobre" element={<About />} />
+            <Route path="/contato" element={<Contact />} />
+            <Route path="*" element={<Home />} />
+          </Routes>
+        </Suspense>
       </AnimatePresence>
     </Layout>
   );
