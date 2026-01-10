@@ -19,6 +19,8 @@ export const FAQSection: React.FC = () => {
                         <div key={idx} className="bg-white border border-slate-100 rounded-[2rem] overflow-hidden shadow-sm">
                             <button
                                 onClick={() => setActiveFaq(activeFaq === idx ? null : idx)}
+                                aria-expanded={activeFaq === idx}
+                                aria-controls={`digital-faq-${idx}`}
                                 className="w-full flex justify-between items-center p-7 text-left hover:bg-slate-50 transition-colors"
                             >
                                 <span className="font-black text-slate-800 text-sm uppercase tracking-wide">{item.q}</span>
@@ -27,7 +29,11 @@ export const FAQSection: React.FC = () => {
                                 </div>
                             </button>
                             {activeFaq === idx && (
-                                <div className="px-7 pb-7 text-slate-500 text-sm leading-relaxed font-medium">
+                                <div
+                                    id={`digital-faq-${idx}`}
+                                    role="region"
+                                    className="px-7 pb-7 text-slate-500 text-sm leading-relaxed font-medium"
+                                >
                                     {item.a}
                                 </div>
                             )}

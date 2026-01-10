@@ -59,6 +59,9 @@ export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
                         onMouseLeave={() => setIsSolutionsOpen(false)}
                     >
                         <button
+                            onClick={() => setIsSolutionsOpen(!isSolutionsOpen)}
+                            aria-expanded={isSolutionsOpen}
+                            aria-haspopup="true"
                             className={`text-[10px] font-black uppercase tracking-[0.2em] transition-colors flex items-center gap-1 py-4 ${[ROUTES.SOLUTIONS, ROUTES.CUSTOMER_SERVICE, ROUTES.PRODUCTIVITY, ROUTES.DIGITAL_PRESENCE].includes(pathname as any)
                                 ? 'text-indigo-600' : 'text-slate-500 hover:text-indigo-600'
                                 }`}
@@ -116,6 +119,7 @@ export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
                 <button
                     className="md:hidden text-slate-900"
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
+                    aria-label="Toggle menu"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />

@@ -39,8 +39,9 @@ export const PricingCalculator = () => {
 
                             {/* Inboxes */}
                             <div>
-                                <label className="block text-[10px] font-black text-slate-400 mb-6 uppercase tracking-widest">Número de Caixas de Entrada</label>
+                                <label htmlFor="inboxes-range" className="block text-[10px] font-black text-slate-400 mb-6 uppercase tracking-widest">Número de Caixas de Entrada</label>
                                 <input
+                                    id="inboxes-range"
                                     type="range" min="1" max="10" value={inboxes}
                                     onChange={(e) => setInboxes(Number(e.target.value))}
                                     className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600"
@@ -54,8 +55,9 @@ export const PricingCalculator = () => {
 
                             {/* Attendants */}
                             <div>
-                                <label className="block text-[10px] font-black text-slate-400 mb-6 uppercase tracking-widest">Número de Atendentes</label>
+                                <label htmlFor="attendants-range" className="block text-[10px] font-black text-slate-400 mb-6 uppercase tracking-widest">Número de Atendentes</label>
                                 <input
+                                    id="attendants-range"
                                     type="range" min="1" max="20" value={attendants}
                                     onChange={(e) => setAttendants(Number(e.target.value))}
                                     className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600"
