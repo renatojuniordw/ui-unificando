@@ -56,20 +56,6 @@ export const LandingPageAnimation = () => {
                     </motion.div>
                 </div>
             </div>
-
-            {/* Floating Elements */}
-            <motion.div
-                animate={{ y: [0, -20, 0] }}
-                transition={{ duration: 4, repeat: Infinity }}
-                className="absolute -right-6 top-1/4 w-24 h-44 bg-white rounded-2xl shadow-2xl border border-slate-200 p-2 hidden lg:block"
-            >
-                <div className="bg-slate-50 h-full w-full rounded-xl p-2 flex flex-col gap-2">
-                    <div className="h-20 bg-slate-100 rounded-lg"></div>
-                    <div className="h-1 w-full bg-slate-200 rounded"></div>
-                    <div className="h-1 w-2/3 bg-slate-200 rounded"></div>
-                    <div className="mt-auto h-6 bg-indigo-600 rounded-lg"></div>
-                </div>
-            </motion.div>
         </div>
     );
 };
