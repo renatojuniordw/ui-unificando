@@ -1,140 +1,23 @@
 
 
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { SEO } from '../components/common/SEO';
+import React from 'react';
+import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../routes';
 import { PageTransition } from '../components/common/PageTransition';
 
-
-const WhatsAppSimulation = () => {
-    const [messages, setMessages] = useState<Array<{ id: number, text: React.ReactNode, type: 'user' | 'bot' | 'system', time: string }>>([
-        { id: 1, text: "Olá! Gostaria de saber mais sobre os planos.", type: 'user', time: '10:00' },
-    ]);
-
-    useEffect(() => {
-        const sequence = [
-            {
-                id: 2,
-                text: (
-                    <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 rounded-full bg-indigo-500/20 flex items-center justify-center">
-                            <svg className="w-4 h-4 text-indigo-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" /></svg>
-                        </div>
-                        <div className="h-1 flex-1 bg-indigo-500/20 rounded-full overflow-hidden w-24">
-                            <div className="h-full bg-indigo-400 w-2/3 animate-pulse"></div>
-                        </div>
-                        <span className="text-[9px] opacity-70">0:12</span>
-                    </div>
-                ),
-                type: 'user',
-                time: '10:00',
-                delay: 1000
-            },
-            { id: 3, text: <span className="italic opacity-80 text-[9px] flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span> Transcrevendo áudio...</span>, type: 'system', time: '10:00', delay: 2500 },
-            { id: 4, text: "Entendi! Você quer detalhes sobre custos e benefícios, certo? Nossos planos começam com...", type: 'bot', time: '10:01', delay: 4500 },
-            { id: 5, text: "Exatamente! E vocês atendem domingos?", type: 'user', time: '10:02', delay: 7000 },
-            { id: 6, text: "Sim! Nossos Agentes IA trabalham 24/7, inclusive domingos e feriados, sem pausas.", type: 'bot', time: '10:02', delay: 9000 },
-        ];
-
-        const timeouts = sequence.map(msg =>
-            setTimeout(() => {
-                setMessages(prev => {
-                    // Remove system message if exists
-                    const filtered = prev.filter(m => m.type !== 'system');
-                    return [...filtered, msg as any];
-                });
-            }, msg.delay)
-        );
-
-        const resetTimeout = setTimeout(() => {
-            setMessages([{ id: 1, text: "Olá! Gostaria de saber mais sobre os planos.", type: 'user', time: '10:00' }]);
-        }, 16000);
-
-        return () => {
-            timeouts.forEach(clearTimeout);
-            clearTimeout(resetTimeout);
-        };
-    }, []);
-
-    return (
-        <div className="bg-slate-50 rounded-[2rem] h-full overflow-hidden flex flex-col shadow-inner relative border border-slate-200">
-            <div className="bg-slate-900 p-4 flex items-center gap-3 text-white">
-                <div className="w-8 h-8 bg-indigo-500 rounded-lg flex items-center justify-center text-white font-black text-xs">U</div>
-                <div className="flex flex-col text-left">
-                    <span className="text-[10px] font-black uppercase tracking-widest leading-none">Unificando AI</span>
-                    <span className="text-[8px] opacity-60 font-bold uppercase tracking-tight">AUTOMAÇÃO INTELIGENTE</span>
-                </div>
-            </div>
-
-            <div className="flex-1 p-4 flex flex-col gap-3 overflow-y-auto bg-slate-100">
-                <AnimatePresence>
-                    {messages.map((msg) => (
-                        <motion.div
-                            key={msg.id}
-                            initial={{ opacity: 0, scale: 0.9, y: 10 }}
-                            animate={{ opacity: 1, scale: 1, y: 0 }}
-                            className={`max - w - [85 %] p - 3 rounded - 2xl text - [10px] shadow - sm font - medium ${msg.type === 'user'
-                                ? 'bg-indigo-600 text-white self-end rounded-tr-none'
-                                : 'bg-white text-slate-800 self-start rounded-tl-none border border-slate-200'
-                                } `}
-                        >
-                            {msg.text}
-                            <div className={`text - [8px] mt - 1 ${msg.type === 'user' ? 'text-indigo-200' : 'text-slate-400'} `}>{msg.time}</div>
-                        </motion.div>
-                    ))}
-                </AnimatePresence>
-            </div>
-
-            <div className="p-3 bg-white border-t border-slate-200 flex gap-2 items-center">
-                <div className="flex-1 bg-slate-50 rounded-full h-8 px-4 flex items-center border border-slate-100">
-                    <div className="w-px h-3 bg-indigo-600 animate-pulse"></div>
-                </div>
-            </div>
-        </div>
-    );
-};
+import { WhatsAppSimulation } from '../features/productivity/WhatsAppSimulation';
+import { FAQSection } from '../features/productivity/FAQSection';
 
 export const Productivity: React.FC = () => {
     const navigate = useNavigate();
-    const [activeFaq, setActiveFaq] = useState<number | null>(null);
-    const [channels, setChannels] = useState(1);
-    const [useIA, setUseIA] = useState(false);
-    const [complexity, setComplexity] = useState(1);
-
-    const calculatePricing = () => {
-        const setupBase = 1000;
-        const mensalBase = 297;
-        const channelCost = 100;
-        const iaCost = 200;
-        const complexityFactor = complexity === 1 ? 1 : complexity === 2 ? 1.5 : 2.5;
-
-        const setupTotal = (setupBase * complexityFactor) + (channels * 150);
-        const mensalTotal = mensalBase + (channels > 1 ? (channels - 1) * channelCost : 0) + (useIA ? iaCost : 0);
-
-        return { setup: setupTotal, mensal: mensalTotal };
-    };
-
-    const pricing = calculatePricing();
-
-    const faqItems = [
-        { q: "A IA substitui meus atendentes?", a: "Não. A IA reduz tarefas repetitivas e escala o atendimento. Pessoas continuam essenciais." },
-        { q: "Consigo treinar a IA com meus dados?", a: "Sim. A IA aprende com seus manuais, perguntas frequentes e processos." },
-        { q: "Funciona sem o atendimento tradicional?", a: "Sim. A IA pode atuar sozinha ou integrada ao painel de atendimento." }
-    ];
 
     return (
         <PageTransition>
-            <SEO
-                title="Agentes de IA para Negócios | Unificando"
-                description="Tenha agentes inteligentes atendendo no WhatsApp, Instagram e site, 24/7. Mais escala e produtividade sem aumentar custos fixos."
-                canonical="/produtividade"
-            />
-            {/* Hero Section */}
             <section className="py-20 md:py-32 bg-white relative overflow-hidden">
-                <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
+                <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-16 items-center">
                     <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }}>
+                        {/* ... content ... */}
                         <div className="inline-flex items-center gap-2 bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest mb-6">🤖 IA PARA NEGÓCIOS</div>
                         <h1 className="text-4xl md:text-6xl font-black text-slate-900 leading-[1.1] mb-8 uppercase tracking-tighter">
                             Agentes de IA que trabalham para <span className="text-indigo-600">o seu negócio</span>, não contra ele.
@@ -165,7 +48,7 @@ export const Productivity: React.FC = () => {
                         </div>
                     </motion.div>
 
-                    <div className="relative">
+                    <div className="relative hidden md:block">
                         <div className="bg-slate-900 rounded-[3rem] p-4 shadow-2xl h-[500px] border border-slate-800">
                             <WhatsAppSimulation />
                         </div>
@@ -337,31 +220,7 @@ export const Productivity: React.FC = () => {
             </section>
 
             {/* FAQ */}
-            <section className="py-24 bg-slate-50">
-                <div className="max-w-3xl mx-auto px-4">
-                    <h2 className="text-3xl font-black text-slate-900 text-center mb-16 uppercase tracking-tight">Dúvidas Comuns</h2>
-                    <div className="space-y-4 text-left">
-                        {faqItems.map((item, idx) => (
-                            <div key={idx} className="bg-white border border-slate-100 rounded-[2rem] overflow-hidden shadow-sm">
-                                <button
-                                    onClick={() => setActiveFaq(activeFaq === idx ? null : idx)}
-                                    className="w-full flex justify-between items-center p-8 text-left hover:bg-slate-50 transition-colors"
-                                >
-                                    <span className="font-black text-[11px] text-slate-800 uppercase tracking-widest">{item.q}</span>
-                                    <div className={`w - 8 h - 8 rounded - full bg - slate - 100 flex items - center justify - center text - slate - 400 transition - all ${activeFaq === idx ? 'rotate-180 bg-slate-900 text-white' : ''} `}>
-                                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
-                                    </div>
-                                </button>
-                                {activeFaq === idx && (
-                                    <div className="px-8 pb-8 text-slate-500 text-sm leading-relaxed font-medium">
-                                        {item.a}
-                                    </div>
-                                )}
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+            <FAQSection />
 
             {/* Final CTA */}
             <section className="py-24 bg-indigo-600 text-white relative overflow-hidden">

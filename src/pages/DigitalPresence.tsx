@@ -10,89 +10,12 @@ import { PageTransition } from '../components/common/PageTransition';
 
 
 // Animação de Scroll e Construção de Landing Page
-const LandingPageAnimation = () => {
-  return (
-    <div className="bg-slate-900 rounded-[2.5rem] p-3 shadow-2xl overflow-hidden relative border border-slate-800 h-[500px] group">
-      <div className="bg-white rounded-[1.8rem] h-full flex flex-col overflow-hidden shadow-inner">
-        {/* Browser Bar */}
-        <div className="bg-slate-100 h-10 border-b border-slate-200 flex items-center px-6 justify-between shrink-0">
-          <div className="flex gap-1.5">
-            <div className="w-2.5 h-2.5 bg-red-400 rounded-full"></div>
-            <div className="w-2.5 h-2.5 bg-yellow-400 rounded-full"></div>
-            <div className="w-2.5 h-2.5 bg-green-400 rounded-full"></div>
-          </div>
-          <div className="h-4 w-48 bg-white border border-slate-200 rounded-full"></div>
-          <div className="w-4 h-4 bg-slate-200 rounded-sm"></div>
-        </div>
+import { LandingPageAnimation } from '../features/digital-presence/LandingPageAnimation';
+import { FAQSection } from '../features/digital-presence/FAQSection';
 
-        {/* Animated Landing Page Content */}
-        <div className="flex-1 overflow-hidden relative">
-          <motion.div
-            animate={{ y: [0, -300, 0] }}
-            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-            className="p-8 space-y-12"
-          >
-            {/* Hero Section */}
-            <div className="text-center space-y-4">
-              <div className="h-8 bg-slate-900 rounded-xl w-full"></div>
-              <div className="h-3 bg-slate-200 rounded-full w-3/4 mx-auto"></div>
-              <div className="h-10 bg-indigo-600 rounded-2xl w-32 mx-auto"></div>
-            </div>
-
-            {/* Features Grid */}
-            <div className="grid grid-cols-2 gap-4">
-              {[1, 2, 3, 4].map((i) => (
-                <div key={i} className="h-28 bg-slate-50 border border-slate-100 rounded-2xl p-4 flex flex-col justify-end gap-2">
-                  <div className="w-8 h-8 bg-indigo-100 rounded-lg"></div>
-                  <div className="h-2 w-full bg-slate-200 rounded-full"></div>
-                  <div className="h-2 w-2/3 bg-slate-100 rounded-full"></div>
-                </div>
-              ))}
-            </div>
-
-            {/* Content Section */}
-            <div className="space-y-4">
-              <div className="h-40 bg-slate-100 rounded-3xl w-full"></div>
-              <div className="h-4 bg-slate-200 rounded-full w-full"></div>
-              <div className="h-4 bg-slate-200 rounded-full w-5/6"></div>
-            </div>
-
-            {/* Final CTA */}
-            <div className="p-8 bg-slate-900 rounded-3xl text-center space-y-4">
-              <div className="h-6 bg-white/20 rounded-lg w-1/2 mx-auto"></div>
-              <div className="h-12 bg-indigo-600 rounded-2xl w-full"></div>
-            </div>
-          </motion.div>
-        </div>
-      </div>
-
-      {/* Floating Elements */}
-      <motion.div
-        animate={{ y: [0, -20, 0] }}
-        transition={{ duration: 4, repeat: Infinity }}
-        className="absolute -right-6 top-1/4 w-24 h-44 bg-white rounded-2xl shadow-2xl border border-slate-200 p-2 hidden lg:block"
-      >
-        <div className="bg-slate-50 h-full w-full rounded-xl p-2 flex flex-col gap-2">
-          <div className="h-20 bg-slate-100 rounded-lg"></div>
-          <div className="h-1 w-full bg-slate-200 rounded"></div>
-          <div className="h-1 w-2/3 bg-slate-200 rounded"></div>
-          <div className="mt-auto h-6 bg-indigo-600 rounded-lg"></div>
-        </div>
-      </motion.div>
-    </div>
-  );
-};
 
 export const DigitalPresence: React.FC = () => {
   const navigate = useNavigate();
-  const [activeFaq, setActiveFaq] = useState<number | null>(null);
-
-  const faqItems = [
-    { q: "O que é uma página estática?", a: "É uma página com conteúdo fixo, sem painel de edição ou sistema interno. Mais rápida, segura e ideal para presença institucional." },
-    { q: "O site é meu ou pago aluguel?", a: "O site é seu. Após o primeiro ano, domínio e hospedagem podem ser renovados pelo cliente ou mantidos conosco." },
-    { q: "Aparecer no Google demora quanto tempo?", a: "A indexação inicial costuma ocorrer em poucos dias. Resultados orgânicos variam conforme concorrência e conteúdo." },
-    { q: "Como funciona a cobrança por página extra?", a: "Cada página adicional soma 10% ao valor base, mantendo o mesmo padrão visual e técnico." }
-  ];
 
   return (
     <PageTransition>
@@ -125,7 +48,7 @@ export const DigitalPresence: React.FC = () => {
             </div>
           </div>
 
-          <div className="relative">
+          <div className="relative hidden md:block">
             <LandingPageAnimation />
           </div>
         </div>
@@ -284,31 +207,7 @@ export const DigitalPresence: React.FC = () => {
       </section>
 
       {/* FAQ */}
-      <section className="py-24 bg-slate-50">
-        <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-3xl font-black text-slate-900 text-center mb-12 uppercase tracking-tight">Dúvidas Frequentes</h2>
-          <div className="space-y-4 text-left">
-            {faqItems.map((item, idx) => (
-              <div key={idx} className="bg-white border border-slate-100 rounded-[2rem] overflow-hidden shadow-sm">
-                <button
-                  onClick={() => setActiveFaq(activeFaq === idx ? null : idx)}
-                  className="w-full flex justify-between items-center p-7 text-left hover:bg-slate-50 transition-colors"
-                >
-                  <span className="font-black text-slate-800 text-sm uppercase tracking-wide">{item.q}</span>
-                  <div className={`w - 8 h - 8 rounded - full bg - slate - 100 flex items - center justify - center text - slate - 400 transition - all ${activeFaq === idx ? 'rotate-180 bg-slate-900 text-white' : ''} `}>
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
-                  </div>
-                </button>
-                {activeFaq === idx && (
-                  <div className="px-7 pb-7 text-slate-500 text-sm leading-relaxed font-medium">
-                    {item.a}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FAQSection />
 
       {/* CTA Final */}
       <section className="py-24 bg-white">

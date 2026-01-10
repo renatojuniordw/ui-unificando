@@ -48,7 +48,7 @@ export const CustomerService: React.FC = () => {
             </div>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="relative">
+          <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="relative hidden md:block">
             <div className="absolute -inset-4 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-[3rem] opacity-20 blur-2xl"></div>
             <DashboardSimulation />
           </motion.div>
@@ -63,7 +63,7 @@ export const CustomerService: React.FC = () => {
             <p className="text-slate-500 text-lg font-medium">Ferramentas intuitivas reimaginadas para converter leads e tornar seu negócio escalável.</p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8">
             {[
               { title: "Canais Unificados", desc: "WhatsApp e Instagram num só lugar." },
               { title: "Múltiplos Agentes", desc: "Todo seu time atendendo no mesmo número." },
@@ -81,7 +81,7 @@ export const CustomerService: React.FC = () => {
                 key={i}
                 className="p-8 bg-slate-50 rounded-[2rem] hover:bg-indigo-50/50 hover:scale-[1.02] transition-all border border-slate-100 hover:border-indigo-100 group"
               >
-                <div className="w-10 h-10 bg-white rounded-xl mb-6 flex items-center justify-center text-indigo-600 shadow-sm group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                <div className="w-10 h-10 bg-white rounded-xl mb-6 hidden md:flex items-center justify-center text-indigo-600 shadow-sm group-hover:bg-indigo-600 group-hover:text-white transition-colors">
                   <div className="w-2 h-2 rounded-full bg-current"></div>
                 </div>
                 <h3 className="font-black text-slate-900 uppercase tracking-wide text-xs mb-3">{feature.title}</h3>
