@@ -12,9 +12,9 @@ const navItems: NavItem[] = [
 ];
 
 const solutionItems = [
-  { label: 'Atendimento', page: Page.CustomerService, desc: 'Fase 01 - Organização' },
-  { label: 'Produtividade', page: Page.Productivity, desc: 'Fase 02 - Evolução' },
-  { label: 'Presença Digital', page: Page.DigitalPresence, desc: 'Fase 03 - Autoridade' },
+  { label: 'Atendimento', page: Page.CustomerService, desc: 'Plataforma de Crescimento' },
+  { label: 'Produtividade', page: Page.Productivity, desc: 'IA para negócios' },
+  { label: 'Presença Digital', page: Page.DigitalPresence, desc: 'Presença Digital & Autoridade' },
 ];
 
 interface LayoutProps {

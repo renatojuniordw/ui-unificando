@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Page } from '../types';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -71,53 +70,162 @@ export const Solutions: React.FC<{ onNavigate: (p: Page) => void, currentPage: P
   return (
     <div className="animate-in slide-in-from-bottom-4 duration-500 bg-white">
       <SEO
-        title="Soluções de Atendimento e Automação | Unificando"
-        description="Conheça o ecossistema completo do Unificando. Do atendimento centralizado à automação com IA e presença digital."
+        title="Nossas Soluções | Ecossistema Unificando"
+        description="Ferramentas modulares para transformar sua operação digital. Atendimento, IA e Presença Digital."
         canonical="/solucoes"
       />
+
+      {/* Header */}
       <section className="py-20 bg-slate-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <span className="text-indigo-600 font-black uppercase tracking-[0.2em] text-[10px] mb-4 block">Ecossistema Completo</span>
           <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 tracking-tighter uppercase leading-none">Nossas Soluções.</h1>
-          <p className="text-lg text-slate-500 max-w-3xl mx-auto font-medium">Ferramentas modulares para transformar sua operação digital. Use uma, use todas.</p>
+          <p className="text-lg text-slate-500 max-w-2xl mx-auto font-medium mb-12">Ferramentas modulares para transformar sua operação digital. Use uma, combine várias ou monte tudo sob medida.</p>
+          <button
+            onClick={() => onNavigate(Page.Plans)}
+            className="bg-indigo-600 text-white px-10 py-5 rounded-2xl text-[10px] font-black hover:bg-indigo-500 transition-all shadow-xl uppercase tracking-widest"
+          >
+            Simular minha solução
+          </button>
         </div>
       </section>
 
+      {/* Atendimento Unificado */}
       <section className="py-24 bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-16 items-center text-left">
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
             <div className="inline-block bg-indigo-50 text-indigo-700 font-black uppercase tracking-widest text-[10px] px-4 py-1.5 rounded-full mb-6 border border-indigo-100">Organização</div>
             <h2 className="text-4xl font-black text-slate-900 mb-6 uppercase tracking-tighter">Atendimento Unificado</h2>
-            <p className="text-lg text-slate-500 mb-10 font-medium">Centralize seus canais em uma única caixa de entrada profissional.</p>
-            <button onClick={() => onNavigate(Page.CustomerService)} className="bg-slate-900 text-white px-8 py-4 rounded-2xl text-[10px] font-black hover:bg-slate-800 transition-all uppercase tracking-widest">Ver Solução →</button>
+            <p className="text-lg text-slate-500 mb-8 font-medium">Centralize WhatsApp, Instagram, Telegram e chat do site em um único painel profissional. Mais controle, menos confusão e atendimento em equipe com histórico completo.</p>
+
+            <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100 mb-10">
+              <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-4 block">Quando Usar:</span>
+              <ul className="space-y-2">
+                {["Muitas mensagens espalhadas", "Mais de uma pessoa atendendo", "Falta de organização no dia a dia"].map((item, i) => (
+                  <li key={i} className="flex gap-3 text-sm font-bold text-slate-600">
+                    <div className="w-1.5 h-1.5 bg-indigo-500 rounded-full mt-1.5"></div>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <button onClick={() => onNavigate(Page.Plans)} className="bg-slate-900 text-white px-8 py-4 rounded-2xl text-[10px] font-black hover:bg-slate-800 transition-all uppercase tracking-widest">
+              Simular atendimento
+            </button>
           </motion.div>
           <AtendimentoAnimation />
         </div>
       </section>
 
+      {/* IA no Atendimento */}
       <section className="py-24 bg-slate-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-16 items-center text-left">
           <div className="order-2 md:order-1"><AutomacaoAnimation /></div>
           <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="order-1 md:order-2">
             <div className="inline-block bg-indigo-600 text-white font-black uppercase tracking-widest text-[10px] px-4 py-1.5 rounded-full mb-6">Produtividade</div>
-            <h2 className="text-4xl font-black text-slate-900 mb-6 uppercase tracking-tighter">Produtividade & Organização</h2>
-            <p className="text-lg text-slate-500 mb-10 font-medium">Ferramentas que organizam o caos e agilizam seu atendimento.</p>
-            <button onClick={() => onNavigate(Page.Productivity)} className="bg-indigo-600 text-white px-8 py-4 rounded-2xl text-[10px] font-black hover:bg-indigo-700 transition-all uppercase tracking-widest">Ver Solução →</button>
+            <h2 className="text-4xl font-black text-slate-900 mb-6 uppercase tracking-tighter">IA no Atendimento</h2>
+            <p className="text-lg text-slate-500 mb-8 font-medium">Agentes inteligentes que atendem, qualificam, agendam e escalam conversas 24/7, seguindo o tom da sua marca e seus processos.</p>
+
+            <div className="bg-white p-6 rounded-2xl border border-slate-200 mb-10">
+              <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-4 block">Quando Usar:</span>
+              <ul className="space-y-2">
+                {["Alto volume de mensagens", "Atendimento fora do horário", "Tarefas repetitivas", "Necessidade de escalar sem contratar"].map((item, i) => (
+                  <li key={i} className="flex gap-3 text-sm font-bold text-slate-600">
+                    <div className="w-1.5 h-1.5 bg-indigo-500 rounded-full mt-1.5"></div>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <button onClick={() => onNavigate(Page.Plans)} className="bg-indigo-600 text-white px-8 py-4 rounded-2xl text-[10px] font-black hover:bg-indigo-700 transition-all uppercase tracking-widest">
+              Simular atendimento com IA
+            </button>
           </motion.div>
         </div>
       </section>
 
-      <section className="py-24 bg-white">
+      {/* Sites & Presença Online */}
+      <section className="py-24 bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-16 items-center text-left">
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
             <div className="inline-block bg-slate-900 text-white font-black uppercase tracking-widest text-[10px] px-4 py-1.5 rounded-full mb-6">Presença Digital</div>
-            <h2 className="text-4xl font-black text-slate-900 mb-6 uppercase tracking-tighter">Presença Digital</h2>
-            <p className="text-lg text-slate-500 mb-10 font-medium">Construímos sua vitrine profissional com autoridade máxima no Google.</p>
-            <button onClick={() => onNavigate(Page.DigitalPresence)} className="bg-slate-900 text-white px-8 py-4 rounded-2xl text-[10px] font-black hover:bg-slate-800 transition-all uppercase tracking-widest">Ver Solução →</button>
+            <h2 className="text-4xl font-black text-slate-900 mb-6 uppercase tracking-tighter">Sites & Presença Online</h2>
+            <p className="text-lg text-slate-500 mb-8 font-medium">Construímos sua vitrine profissional para que sua empresa seja encontrada no Google, transmita autoridade e converta visitantes em oportunidades.</p>
+
+            <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100 mb-10">
+              <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-4 block">Quando Usar:</span>
+              <ul className="space-y-2">
+                {["Seu negócio ainda não tem site", "Precisa passar mais confiança", "Quer integrar site com atendimento e IA"].map((item, i) => (
+                  <li key={i} className="flex gap-3 text-sm font-bold text-slate-600">
+                    <div className="w-1.5 h-1.5 bg-indigo-500 rounded-full mt-1.5"></div>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <button onClick={() => onNavigate(Page.Plans)} className="bg-slate-900 text-white px-8 py-4 rounded-2xl text-[10px] font-black hover:bg-slate-800 transition-all uppercase tracking-widest">
+              Simular site
+            </button>
           </motion.div>
           <div className="h-full min-h-[400px]"><DigitalAnimation /></div>
         </div>
       </section>
+
+      {/* Como funciona */}
+      <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-indigo-500/10 blur-[120px] pointer-events-none"></div>
+        <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
+          <span className="text-indigo-400 font-black uppercase tracking-[0.2em] text-[10px] mb-4 block">Processo Simples</span>
+          <h2 className="text-3xl md:text-5xl font-black text-white mb-16 tracking-tighter uppercase">Como funciona</h2>
+
+          <div className="grid md:grid-cols-4 gap-8 text-left">
+            {[
+              { t: "Escolha as soluções", d: "Selecione o que faz sentido para o seu momento." },
+              { t: "Ajuste os detalhes", d: "Defina canais, tamanho da equipe, IA e site." },
+              { t: "Veja o valor na hora", d: "Sem pacotes engessados. Sem surpresas no preço." },
+              { t: "Contrate agora", d: "Inicie o setup ou agende um diagnóstico técnico." }
+            ].map((step, i) => (
+              <div key={i} className="bg-white/5 border border-white/10 p-8 rounded-[2rem]">
+                <span className="text-5xl font-black text-indigo-500/30 mb-4 block">{i + 1}</span>
+                <h3 className="text-lg font-black uppercase tracking-tight mb-2">{step.t}</h3>
+                <p className="text-sm text-slate-400 font-medium leading-relaxed">{step.d}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-16">
+            <button
+              onClick={() => onNavigate(Page.Plans)}
+              className="bg-indigo-600 text-white px-12 py-5 rounded-2xl text-[10px] font-black hover:bg-indigo-500 transition-all shadow-2xl uppercase tracking-[0.2em]"
+            >
+              Simular agora
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Transparência */}
+      <section className="py-24 bg-white">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-2xl font-black text-slate-900 uppercase tracking-tighter mb-12">🔒 Transparência Total</h2>
+          <div className="flex flex-wrap justify-center gap-4">
+            {[
+              "Cada canal conta como 1 caixa de entrada",
+              "Você usa seus próprios números e contas",
+              "IA segue regras da Meta",
+              "Você paga apenas pelo que escolher"
+            ].map((item, i) => (
+              <div key={i} className="bg-slate-50 border border-slate-200 px-6 py-3 rounded-full text-xs font-bold text-slate-600">
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 };

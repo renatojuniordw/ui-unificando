@@ -8,26 +8,48 @@ interface ProductivityProps {
 }
 
 const WhatsAppSimulation = () => {
-    const [messages, setMessages] = useState([
-        { id: 1, text: "Olá! Gostaria de um orçamento.", type: 'user', time: '10:00' },
+    const [messages, setMessages] = useState<Array<{ id: number, text: React.ReactNode, type: 'user' | 'bot' | 'system', time: string }>>([
+        { id: 1, text: "Olá! Gostaria de saber mais sobre os planos.", type: 'user', time: '10:00' },
     ]);
 
     useEffect(() => {
         const sequence = [
-            { id: 2, text: "Olá! Bem-vindo à Unificando. Para qual departamento deseja falar?", type: 'bot', time: '10:00', delay: 1500 },
-            { id: 3, text: "Com o Comercial.", type: 'user', time: '10:01', delay: 3500 },
-            { id: 4, text: "Entendido! Um de nossos consultores já vai te atender.", type: 'bot', time: '10:01', delay: 5000 },
+            {
+                id: 2,
+                text: (
+                    <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 rounded-full bg-indigo-500/20 flex items-center justify-center">
+                            <svg className="w-4 h-4 text-indigo-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" /></svg>
+                        </div>
+                        <div className="h-1 flex-1 bg-indigo-500/20 rounded-full overflow-hidden w-24">
+                            <div className="h-full bg-indigo-400 w-2/3 animate-pulse"></div>
+                        </div>
+                        <span className="text-[9px] opacity-70">0:12</span>
+                    </div>
+                ),
+                type: 'user',
+                time: '10:00',
+                delay: 1000
+            },
+            { id: 3, text: <span className="italic opacity-80 text-[9px] flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span> Transcrevendo áudio...</span>, type: 'system', time: '10:00', delay: 2500 },
+            { id: 4, text: "Entendi! Você quer detalhes sobre custos e benefícios, certo? Nossos planos começam com...", type: 'bot', time: '10:01', delay: 4500 },
+            { id: 5, text: "Exatamente! E vocês atendem domingos?", type: 'user', time: '10:02', delay: 7000 },
+            { id: 6, text: "Sim! Nossos Agentes IA trabalham 24/7, inclusive domingos e feriados, sem pausas.", type: 'bot', time: '10:02', delay: 9000 },
         ];
 
         const timeouts = sequence.map(msg =>
             setTimeout(() => {
-                setMessages(prev => [...prev, msg]);
+                setMessages(prev => {
+                    // Remove system message if exists
+                    const filtered = prev.filter(m => m.type !== 'system');
+                    return [...filtered, msg as any];
+                });
             }, msg.delay)
         );
 
         const resetTimeout = setTimeout(() => {
-            setMessages([{ id: 1, text: "Olá! Gostaria de um orçamento.", type: 'user', time: '10:00' }]);
-        }, 12000);
+            setMessages([{ id: 1, text: "Olá! Gostaria de saber mais sobre os planos.", type: 'user', time: '10:00' }]);
+        }, 16000);
 
         return () => {
             timeouts.forEach(clearTimeout);
@@ -40,8 +62,8 @@ const WhatsAppSimulation = () => {
             <div className="bg-slate-900 p-4 flex items-center gap-3 text-white">
                 <div className="w-8 h-8 bg-indigo-500 rounded-lg flex items-center justify-center text-white font-black text-xs">U</div>
                 <div className="flex flex-col text-left">
-                    <span className="text-[10px] font-black uppercase tracking-widest leading-none">Unificando Assistant</span>
-                    <span className="text-[8px] opacity-60 font-bold uppercase tracking-tight">TRIAGEM INTELIGENTE</span>
+                    <span className="text-[10px] font-black uppercase tracking-widest leading-none">Unificando AI</span>
+                    <span className="text-[8px] opacity-60 font-bold uppercase tracking-tight">AUTOMAÇÃO INTELIGENTE</span>
                 </div>
             </div>
 
@@ -95,45 +117,49 @@ export const Productivity: React.FC<ProductivityProps> = ({ onNavigate }) => {
     const pricing = calculatePricing();
 
     const faqItems = [
-        { q: "Isso substitui meus atendentes?", a: "Não. Nossa filosofia é 'Human-First'. As ferramentas de produtividade organizam a fila e tarefas repetitivas para que seu time foque no que importa: vender e atender bem." },
-        { q: "Corro risco de banimento no WhatsApp?", a: "Jamais. Trabalhamos exclusivamente com APIs oficiais e boas práticas do Meta. Segurança total para seu número." },
-        { q: "Como a 'IA' me ajuda se não é um bot?", a: "A IA atua nos bastidores: transcrevendo áudios para texto, sugerindo respostas rápidas e classificando a urgência das mensagens. O cliente sempre fala com um humano." }
+        { q: "A IA substitui meus atendentes?", a: "Não. A IA reduz tarefas repetitivas e escala o atendimento. Pessoas continuam essenciais." },
+        { q: "Consigo treinar a IA com meus dados?", a: "Sim. A IA aprende com seus manuais, perguntas frequentes e processos." },
+        { q: "Funciona sem o atendimento tradicional?", a: "Sim. A IA pode atuar sozinha ou integrada ao painel de atendimento." }
     ];
 
     return (
         <div className="bg-white">
             <SEO
-                title="Produtividade e Organização para WhatsApp | Unificando"
-                description="Ferramentas de produtividade para atendimento humano. Respostas rápidas, triagem inteligente e organização de conversas sem robôs chatos."
+                title="Agentes de IA para Negócios | Unificando"
+                description="Tenha agentes inteligentes atendendo no WhatsApp, Instagram e site, 24/7. Mais escala e produtividade sem aumentar custos fixos."
                 canonical="/produtividade"
             />
-            {/* Top Breadcrumb */}
-            <div className="bg-slate-50 border-b border-slate-200 py-3">
-                <div className="max-w-7xl mx-auto px-4 flex items-center gap-2 text-[10px] font-black text-slate-400 uppercase tracking-widest">
-                    <button onClick={() => onNavigate(Page.Home)} className="hover:text-indigo-600 transition-colors">Início</button>
-                    <span>/</span>
-                    <span className="text-slate-900">Produtividade & Organização</span>
-                </div>
-            </div>
-
             {/* Hero Section */}
             <section className="py-20 md:py-32 bg-white relative overflow-hidden">
                 <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
                     <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }}>
-                        <div className="inline-flex items-center gap-2 bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest mb-6">Fase 02 - Organização</div>
-                        <h1 className="text-5xl md:text-7xl font-black text-slate-900 leading-[1.1] mb-8 uppercase tracking-tighter">
-                            Atendimento ágil, <span className="text-slate-500 font-normal">organizado e 100% humano.</span>
+                        <div className="inline-flex items-center gap-2 bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest mb-6">🤖 IA PARA NEGÓCIOS</div>
+                        <h1 className="text-4xl md:text-6xl font-black text-slate-900 leading-[1.1] mb-8 uppercase tracking-tighter">
+                            Agentes de IA que trabalham para <span className="text-indigo-600">o seu negócio</span>, não contra ele.
                         </h1>
                         <p className="text-lg text-slate-500 mb-10 leading-relaxed max-w-lg font-medium">
-                            Elimine o caos do WhatsApp. Ferramentas inteligentes para filtrar, organizar e agilizar conversas, sem transformar sua empresa em um robô.
+                            Tenha agentes inteligentes atendendo no WhatsApp, Instagram e site, 24 horas por dia, seguindo o jeito da sua marca, seus processos e suas regras.
                         </p>
-                        <div className="flex flex-col sm:flex-row gap-4">
-                            <button
-                                onClick={() => onNavigate(Page.Contact)}
-                                className="bg-slate-900 text-white px-10 py-5 rounded-2xl text-[10px] font-black hover:bg-slate-800 transition-all shadow-xl uppercase tracking-widest"
-                            >
-                                Melhorar Produtividade
-                            </button>
+                        <div className="flex flex-col gap-4">
+                            <ul className="space-y-2 mb-8">
+                                <li className="flex items-center gap-2 text-sm font-bold text-slate-700">
+                                    <span className="w-5 h-5 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xs">✓</span> Mais escala.
+                                </li>
+                                <li className="flex items-center gap-2 text-sm font-bold text-slate-700">
+                                    <span className="w-5 h-5 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xs">✓</span> Mais produtividade.
+                                </li>
+                                <li className="flex items-center gap-2 text-sm font-bold text-slate-700">
+                                    <span className="w-5 h-5 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xs">✓</span> Sem aumentar equipe ou custos fixos.
+                                </li>
+                            </ul>
+                            <div className="flex flex-col sm:flex-row gap-4">
+                                <button
+                                    onClick={() => onNavigate(Page.Contact)}
+                                    className="bg-slate-900 text-white px-10 py-5 rounded-2xl text-[10px] font-black hover:bg-slate-800 transition-all shadow-xl uppercase tracking-widest"
+                                >
+                                    Falar com Especialista
+                                </button>
+                            </div>
                         </div>
                     </motion.div>
 
@@ -145,22 +171,77 @@ export const Productivity: React.FC<ProductivityProps> = ({ onNavigate }) => {
                 </div>
             </section>
 
+            {/* Ecosystem Section */}
+            <section className="py-24 bg-slate-50">
+                <div className="max-w-7xl mx-auto px-4">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl md:text-5xl font-black text-slate-900 uppercase tracking-tighter mb-6">Duas soluções. <span className="text-indigo-600">Um único ecossistema.</span></h2>
+                        <p className="text-slate-500 max-w-2xl mx-auto text-lg font-medium">Você escolhe usar separado ou integrado. Nós montamos do jeito que o seu negócio precisa.</p>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-8">
+                        <div className="bg-white p-12 rounded-[3rem] border border-slate-200 hover:border-indigo-200 transition-all shadow-sm">
+                            <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-3xl mb-8">🖥️</div>
+                            <h3 className="text-2xl font-black uppercase tracking-tight mb-4 text-slate-900">Atendimento Digital</h3>
+                            <p className="text-slate-500 font-medium leading-relaxed">Organize conversas, equipe e canais em um só lugar.</p>
+                        </div>
+                        <div className="bg-slate-900 p-12 rounded-[3rem] text-white shadow-xl relative overflow-hidden">
+                            <div className="absolute top-0 right-0 p-12 opacity-10 text-9xl">🤖</div>
+                            <div className="w-16 h-16 bg-indigo-500/20 text-indigo-400 rounded-2xl flex items-center justify-center text-3xl mb-8 relative z-10">🧠</div>
+                            <h3 className="text-2xl font-black uppercase tracking-tight mb-4 relative z-10">IA para Negócios</h3>
+                            <p className="text-indigo-100 font-medium leading-relaxed relative z-10">Agentes inteligentes que atendem, agendam e vendem 24/7, adaptados à sua marca e ao seu processo.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Problemas (Pain Points) */}
+            <section className="py-24 bg-white relative">
+                <div className="max-w-7xl mx-auto px-4">
+                    <div className="text-center mb-16">
+                        <span className="text-red-500 font-black uppercase tracking-[0.2em] text-[10px] mb-4 block">O Gargalo que Ninguém Fala</span>
+                        <h2 className="text-3xl md:text-5xl font-black text-slate-900 uppercase tracking-tighter">Quando software pronto <br /><span className="text-red-500">não resolve.</span></h2>
+                    </div>
+
+                    <div className="grid md:grid-cols-3 gap-8">
+                        <div className="p-8 bg-slate-50 rounded-[2.5rem] border border-slate-100 hover:border-red-200 transition-colors">
+                            <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm">🧩</div>
+                            <h3 className="font-black text-slate-900 uppercase tracking-widest text-xs mb-3">Ferramentas Desconectadas</h3>
+                            <p className="text-sm text-slate-500 font-medium leading-relaxed">WhatsApp, planilhas, agendas e sistemas que não conversam entre si geram retrabalho e perda de informação.</p>
+                        </div>
+                        <div className="p-8 bg-slate-50 rounded-[2.5rem] border border-slate-100 hover:border-red-200 transition-colors">
+                            <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm">📉</div>
+                            <h3 className="font-black text-slate-900 uppercase tracking-widest text-xs mb-3">Processos Não Padronizados</h3>
+                            <p className="text-sm text-slate-500 font-medium leading-relaxed">O atendimento depende de pessoas específicas. Treinar alguém novo vira um problema.</p>
+                        </div>
+                        <div className="p-8 bg-slate-50 rounded-[2.5rem] border border-slate-100 hover:border-red-200 transition-colors">
+                            <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm">🔄</div>
+                            <h3 className="font-black text-slate-900 uppercase tracking-widest text-xs mb-3">Tudo Manual e Repetitivo</h3>
+                            <p className="text-sm text-slate-500 font-medium leading-relaxed">Perguntas, áudios, agendamentos e triagens que poderiam ser resolvidos automaticamente consomem tempo todos os dias.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* Features Grid */}
             <section className="py-24 bg-slate-50">
                 <div className="max-w-7xl mx-auto px-4">
                     <div className="text-center mb-16">
-                        <span className="text-indigo-600 font-black uppercase tracking-[0.2em] text-[10px] mb-4 block">Evolução Modular</span>
-                        <h2 className="text-3xl md:text-5xl font-black text-slate-900 uppercase tracking-tighter">Produtividade a serviço de pessoas.</h2>
+                        <span className="text-indigo-600 font-black uppercase tracking-[0.2em] text-[10px] mb-4 block">O que muda com Agentes Inteligentes</span>
+                        <h2 className="text-3xl md:text-5xl font-black text-slate-900 uppercase tracking-tighter">Por que usar IA no atendimento?</h2>
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-6">
                         {[
-                            { t: "Triagem Inteligente", d: "Direcione o cliente para o departamento certo automaticamente, sem fazê-lo navegar por menus infinitos." },
-                            { t: "Respostas Rápidas", d: "Biblioteca de respostas prontas para perguntas frequentes, acessíveis com um clique para toda a equipe." },
-                            { t: "Transcrição de Áudio", d: "Escute menos, leia mais. Transcrição automática de áudios para agilizar a leitura e busca por informações." }
+                            { t: "Atendimento Multicanal 24/7", d: "A IA responde WhatsApp, Instagram e site em tempo real. Nenhuma conversa fica sem resposta.", i: "🌐" },
+                            { t: "Entendimento de Áudio", d: "Seu cliente fala. A IA escuta, transcreve, entende e responde corretamente.", i: "🎙️" },
+                            { t: "Atendimento Hiper-personalizado", d: "A IA considera histórico, perfil, localização e contexto para responder como um atendente experiente.", i: "👤" },
+                            { t: "Escalonamento Inteligente", d: "Quando necessário, a conversa vai para um humano com resumo completo. Sem perda de contexto.", i: "⚡" },
+                            { t: "Dados que Viram Decisão", d: "A IA analisa conversas e revela padrões, dúvidas frequentes e oportunidades reais.", i: "📊" },
+                            { t: "Automação Sob Medida", d: "Nada engessado. Os fluxos são criados conforme o seu negócio, sua marca e sua operação.", i: "🛠️" }
                         ].map((item, i) => (
                             <div key={i} className="p-10 bg-white border border-slate-200 rounded-[3rem] hover:border-indigo-400 transition-all text-left group">
-                                <div className="w-12 h-12 bg-slate-100 group-hover:bg-indigo-50 text-slate-900 group-hover:text-indigo-600 rounded-2xl flex items-center justify-center mb-8 font-black transition-colors">0{i + 1}</div>
+                                <div className="w-12 h-12 bg-slate-100 group-hover:bg-indigo-50 text-slate-900 group-hover:text-indigo-600 rounded-2xl flex items-center justify-center mb-8 font-black transition-colors text-xl">{item.i}</div>
                                 <h4 className="text-xs font-black text-slate-900 uppercase tracking-widest mb-4">{item.t}</h4>
                                 <p className="text-sm text-slate-500 font-medium leading-relaxed">{item.d}</p>
                             </div>
@@ -169,76 +250,85 @@ export const Productivity: React.FC<ProductivityProps> = ({ onNavigate }) => {
                 </div>
             </section>
 
-            {/* Calculator Section */}
-            <section className="py-24 bg-white" id="calculadora">
+            {/* Comparison Section: Agents vs Chatbots */}
+            <section className="py-24 bg-white relative overflow-hidden">
                 <div className="max-w-7xl mx-auto px-4">
-                    <div className="max-w-5xl mx-auto bg-slate-50 border border-slate-200 rounded-[3rem] p-8 md:p-16 shadow-sm overflow-hidden text-left relative">
-                        <div className="grid md:grid-cols-2 gap-16 relative z-10">
-                            <div className="space-y-12">
-                                <div>
-                                    <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tighter mb-4">Simulação Técnica</h2>
-                                    <p className="text-sm text-slate-500 font-medium mb-12">Ajuste os parâmetros para planejar seu investimento em produtividade.</p>
-                                </div>
+                    <div className="text-center mb-20">
+                        <span className="text-indigo-600 font-black uppercase tracking-widest text-xs mb-4 block">Entenda a Diferença</span>
+                        <h2 className="text-4xl md:text-5xl font-black text-slate-900 uppercase tracking-tighter mb-6">Não é melhor ou pior. <span className="text-indigo-600">É diferente.</span></h2>
+                        <p className="text-slate-500 max-w-2xl mx-auto text-lg">O Unificando oferece os dois — você escolhe o que faz sentido.</p>
+                    </div>
 
-                                <div>
-                                    <label className="block text-[10px] font-black text-slate-400 mb-6 uppercase tracking-widest">Número de Canais</label>
-                                    <input
-                                        type="range" min="1" max="5" value={channels}
-                                        onChange={(e) => setChannels(parseInt(e.target.value))}
-                                        className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600"
-                                    />
-                                    <div className="flex justify-between mt-4 text-[9px] font-black text-indigo-600 uppercase tracking-widest">
-                                        <span>1 Canal</span>
-                                        <span>{channels} Canais Selecionados</span>
-                                        <span>5+ Canais</span>
-                                    </div>
-                                </div>
-
-                                <div className="grid grid-cols-3 gap-3">
-                                    {[1, 2, 3].map(v => (
-                                        <button
-                                            key={v}
-                                            onClick={() => setComplexity(v)}
-                                            className={`p-5 rounded-2xl border transition-all text-left ${complexity === v ? 'bg-indigo-600 border-indigo-600 text-white shadow-xl' : 'bg-white border-slate-200 text-slate-400 hover:border-indigo-400'} `}
-                                        >
-                                            <span className="block text-[10px] font-black uppercase tracking-widest mb-1">{v === 1 ? 'Básico' : v === 2 ? 'Médio' : 'Pro'}</span>
-                                            <span className={`text-[8px] font-bold uppercase tracking-tighter ${complexity === v ? 'text-indigo-200' : 'text-slate-300'} `}>Nível</span>
-                                        </button>
-                                    ))}
-                                </div>
-
-                                <div className="flex items-center justify-between p-6 bg-white rounded-2xl border border-slate-200">
-                                    <span className="text-[10px] font-black text-slate-900 uppercase tracking-widest">Ativar Assistência IA</span>
-                                    <button
-                                        onClick={() => setUseIA(!useIA)}
-                                        className={`w-14 h-7 rounded-full transition-all relative ${useIA ? 'bg-indigo-600' : 'bg-slate-300'} `}
-                                    >
-                                        <div className={`absolute top-1 w-5 h-5 rounded-full bg-white transition-all shadow-sm ${useIA ? 'right-1' : 'left-1'} `}></div>
-                                    </button>
-                                </div>
+                    <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                        {/* Agentes IA */}
+                        <div className="bg-slate-900 text-white p-12 rounded-[3rem] relative overflow-hidden group hover:scale-[1.02] transition-transform">
+                            <div className="absolute top-0 right-0 p-8 opacity-10 font-black text-9xl leading-none select-none">IA</div>
+                            <h3 className="text-3xl font-black uppercase tracking-widest mb-8 text-indigo-400">Agentes IA</h3>
+                            <ul className="space-y-6 relative z-10">
+                                <li className="flex items-start gap-4">
+                                    <div className="w-6 h-6 rounded-full bg-indigo-500 flex items-center justify-center shrink-0 mt-1">✓</div>
+                                    <p className="text-slate-300 font-medium leading-relaxed">Conversas <strong>naturais e flexíveis</strong>.</p>
+                                </li>
+                                <li className="flex items-start gap-4">
+                                    <div className="w-6 h-6 rounded-full bg-indigo-500 flex items-center justify-center shrink-0 mt-1">✓</div>
+                                    <p className="text-slate-300 font-medium leading-relaxed">Aprende com <strong>seus processos</strong>.</p>
+                                </li>
+                                <li className="flex items-start gap-4">
+                                    <div className="w-6 h-6 rounded-full bg-indigo-500 flex items-center justify-center shrink-0 mt-1">✓</div>
+                                    <p className="text-slate-300 font-medium leading-relaxed">Atua em <strong>vendas, suporte e agendamento</strong>.</p>
+                                </li>
+                            </ul>
+                            <div className="mt-12 pt-8 border-t border-white/10">
+                                <span className="block text-[10px] uppercase font-black tracking-widest text-indigo-400 mb-2">Ideal Para:</span>
+                                <p className="text-sm font-bold">SDR Virtual, Suporte Nível 1, Vendas Consultivas.</p>
                             </div>
+                        </div>
 
-                            <div className="bg-slate-900 text-white rounded-[2.5rem] p-12 flex flex-col justify-between shadow-2xl">
-                                <div>
-                                    <h4 className="text-indigo-400 font-black uppercase text-[10px] tracking-[0.2em] mb-12">Investimento Estimado</h4>
-                                    <div className="space-y-10">
-                                        <div className="border-b border-white/10 pb-10">
-                                            <span className="block text-slate-500 text-[10px] uppercase font-black tracking-widest mb-3">Setup Inicial (Único)</span>
-                                            <span className="text-5xl font-black tracking-tighter">R$ {pricing.setup.toLocaleString('pt-BR')}</span>
-                                        </div>
-                                        <div>
-                                            <span className="block text-slate-500 text-[10px] uppercase font-black tracking-widest mb-3">Mensalidade Unificada</span>
-                                            <span className="text-5xl font-black tracking-tighter text-indigo-400">R$ {pricing.mensal.toLocaleString('pt-BR')}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <button
-                                    onClick={() => onNavigate(Page.Contact)}
-                                    className="w-full bg-white text-slate-900 py-5 rounded-2xl font-black mt-12 hover:bg-slate-100 transition-all uppercase tracking-widest text-[10px]"
-                                >
-                                    Agendar Diagnóstico
-                                </button>
+                        {/* Chatbots */}
+                        <div className="bg-slate-50 border border-slate-200 p-12 rounded-[3rem] relative overflow-hidden group hover:scale-[1.02] transition-transform">
+                            <div className="absolute top-0 right-0 p-8 opacity-5 font-black text-9xl leading-none select-none text-slate-900">BOT</div>
+                            <h3 className="text-3xl font-black uppercase tracking-widest mb-8 text-slate-900">Chatbots Tradicionais</h3>
+                            <ul className="space-y-6 relative z-10">
+                                <li className="flex items-start gap-4">
+                                    <div className="w-6 h-6 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center shrink-0 mt-1">✓</div>
+                                    <p className="text-slate-600 font-medium leading-relaxed">Fluxos <strong>rígidos e previsíveis</strong>.</p>
+                                </li>
+                                <li className="flex items-start gap-4">
+                                    <div className="w-6 h-6 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center shrink-0 mt-1">✓</div>
+                                    <p className="text-slate-600 font-medium leading-relaxed">Sem <strong>improviso ou contexto</strong>.</p>
+                                </li>
+                            </ul>
+                            <div className="mt-12 pt-8 border-t border-slate-200">
+                                <span className="block text-[10px] uppercase font-black tracking-widest text-slate-400 mb-2">Ideal Para:</span>
+                                <p className="text-sm font-bold text-slate-700">Coleta de dados, 2ª via de boleto, Rastreio de pedidos.</p>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Methodology Section (New) */}
+            <section className="py-24 bg-indigo-600 text-white overflow-hidden">
+                <div className="max-w-7xl mx-auto px-4 text-center">
+                    <span className="opacity-60 text-[10px] font-black uppercase tracking-[0.3em] mb-8 block">Metodologia Unificando</span>
+                    <h2 className="text-3xl md:text-5xl font-black mb-12 max-w-4xl mx-auto tracking-tight">Soluções personalizadas de verdade.</h2>
+                    <p className="text-lg text-indigo-100 max-w-2xl mx-auto mb-16 font-medium">Aqui não existe "pacote mágico". Antes de qualquer implementação, fazemos um diagnóstico para entender seu modelo, fluxo, volume e objetivos.</p>
+
+                    <div className="grid md:grid-cols-3 gap-8 text-left">
+                        <div className="p-8 bg-indigo-700/50 rounded-[2rem] border border-indigo-500/30">
+                            <span className="text-4xl mb-4 block">1.</span>
+                            <h3 className="font-black uppercase tracking-widest text-sm mb-4">Atendimento Organizado</h3>
+                            <p className="text-indigo-100 text-sm leading-relaxed">Estruturamos seus canais e equipe para operarem com eficiência máxima.</p>
+                        </div>
+                        <div className="p-8 bg-indigo-700/50 rounded-[2rem] border border-indigo-500/30">
+                            <span className="text-4xl mb-4 block">2.</span>
+                            <h3 className="font-black uppercase tracking-widest text-sm mb-4">IA no Nível Certo</h3>
+                            <p className="text-indigo-100 text-sm leading-relaxed">Implementamos a inteligência artificial onde ela traz mais retorno, sem exageros.</p>
+                        </div>
+                        <div className="p-8 bg-indigo-700/50 rounded-[2rem] border border-indigo-500/30">
+                            <span className="text-4xl mb-4 block">3.</span>
+                            <h3 className="font-black uppercase tracking-widest text-sm mb-4">Automação que Resolve</h3>
+                            <p className="text-indigo-100 text-sm leading-relaxed">Criamos automações que eliminam gargalos e não atrapalham a experiência do cliente.</p>
                         </div>
                     </div>
                 </div>
@@ -272,13 +362,13 @@ export const Productivity: React.FC<ProductivityProps> = ({ onNavigate }) => {
             </section>
 
             {/* Final CTA */}
-            <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
-                <div className="absolute inset-0 bg-indigo-500/5 blur-[120px] pointer-events-none"></div>
+            <section className="py-24 bg-indigo-600 text-white relative overflow-hidden">
+                <div className="absolute inset-0 bg-white/5 blur-[120px] pointer-events-none"></div>
                 <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
-                    <h2 className="text-3xl md:text-5xl font-black mb-12 uppercase tracking-tighter leading-none">Pronto para <span className="text-indigo-400 font-normal italic">ganhar tempo</span>?</h2>
+                    <h2 className="text-3xl md:text-5xl font-black mb-12 uppercase tracking-tighter leading-none">Pronto para <span className="text-indigo-200 font-normal italic">ganhar tempo</span>?</h2>
                     <button
                         onClick={() => onNavigate(Page.Contact)}
-                        className="bg-indigo-600 text-white px-12 py-5 rounded-2xl text-[10px] font-black hover:bg-indigo-500 transition-all shadow-2xl uppercase tracking-[0.2em]"
+                        className="bg-white text-indigo-600 px-12 py-5 rounded-2xl text-[10px] font-black hover:bg-indigo-50 transition-all shadow-2xl uppercase tracking-[0.2em]"
                     >
                         Falar com especialista agora
                     </button>
