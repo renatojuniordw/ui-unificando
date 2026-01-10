@@ -1,240 +1,35 @@
 
 
 import React from 'react';
-import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
-import { ROUTES } from '../routes';
 import { PageTransition } from '../components/common/PageTransition';
+import { SEO } from '../components/common/SEO';
 
-import { WhatsAppSimulation } from '../features/productivity/WhatsAppSimulation';
+import { ProductivityHero } from '../features/productivity/components/ProductivityHero';
+import { EcosystemSection } from '../features/productivity/components/EcosystemSection';
+import { PainPointsSection } from '../features/productivity/components/PainPointsSection';
+import { FeaturesGrid } from '../features/productivity/components/FeaturesGrid';
+import { ComparisonSection } from '../features/productivity/components/ComparisonSection';
+import { MethodologySection } from '../features/productivity/components/MethodologySection';
+import { ProductivityCta } from '../features/productivity/components/ProductivityCta';
 import { FAQSection } from '../features/productivity/FAQSection';
 
 export const Productivity: React.FC = () => {
-    const navigate = useNavigate();
-
     return (
         <PageTransition>
-            <section className="py-20 md:py-32 bg-white relative overflow-hidden">
-                <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-16 items-center">
-                    <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }}>
-                        {/* ... content ... */}
-                        <div className="inline-flex items-center gap-2 bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest mb-6">🤖 IA PARA NEGÓCIOS</div>
-                        <h1 className="text-4xl md:text-6xl font-black text-slate-900 leading-[1.1] mb-8 uppercase tracking-tighter">
-                            Agentes de IA que trabalham para <span className="text-indigo-600">o seu negócio</span>, não contra ele.
-                        </h1>
-                        <p className="text-lg text-slate-500 mb-10 leading-relaxed max-w-lg font-medium">
-                            Tenha agentes inteligentes atendendo no WhatsApp, Instagram e site, 24 horas por dia, seguindo o jeito da sua marca, seus processos e suas regras.
-                        </p>
-                        <div className="flex flex-col gap-4">
-                            <ul className="space-y-2 mb-8">
-                                <li className="flex items-center gap-2 text-sm font-bold text-slate-700">
-                                    <span className="w-5 h-5 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xs">✓</span> Mais escala.
-                                </li>
-                                <li className="flex items-center gap-2 text-sm font-bold text-slate-700">
-                                    <span className="w-5 h-5 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xs">✓</span> Mais produtividade.
-                                </li>
-                                <li className="flex items-center gap-2 text-sm font-bold text-slate-700">
-                                    <span className="w-5 h-5 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xs">✓</span> Sem aumentar equipe ou custos fixos.
-                                </li>
-                            </ul>
-                            <div className="flex flex-col sm:flex-row gap-4">
-                                <button
-                                    onClick={() => navigate(ROUTES.CONTACT)}
-                                    className="bg-slate-900 text-white px-10 py-5 rounded-2xl text-[10px] font-black hover:bg-slate-800 transition-all shadow-xl uppercase tracking-widest"
-                                >
-                                    Falar com Especialista
-                                </button>
-                            </div>
-                        </div>
-                    </motion.div>
+            <SEO
+                title="IA para Negócios | Unificando"
+                description="Agentes inteligentes que atendem, vendem e agendam 24/7 no WhatsApp e Instagram."
+                canonical="/produtividade"
+            />
 
-                    <div className="relative hidden md:block">
-                        <div className="bg-slate-900 rounded-[3rem] p-4 shadow-2xl h-[500px] border border-slate-800">
-                            <WhatsAppSimulation />
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Ecosystem Section */}
-            <section className="py-24 bg-slate-50">
-                <div className="max-w-7xl mx-auto px-4">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-5xl font-black text-slate-900 uppercase tracking-tighter mb-6">Duas soluções. <span className="text-indigo-600">Um único ecossistema.</span></h2>
-                        <p className="text-slate-500 max-w-2xl mx-auto text-lg font-medium">Você escolhe usar separado ou integrado. Nós montamos do jeito que o seu negócio precisa.</p>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-8">
-                        <div className="bg-white p-12 rounded-[3rem] border border-slate-200 hover:border-indigo-200 transition-all shadow-sm">
-                            <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-3xl mb-8">🖥️</div>
-                            <h3 className="text-2xl font-black uppercase tracking-tight mb-4 text-slate-900">Atendimento Digital</h3>
-                            <p className="text-slate-500 font-medium leading-relaxed">Organize conversas, equipe e canais em um só lugar.</p>
-                        </div>
-                        <div className="bg-slate-900 p-12 rounded-[3rem] text-white shadow-xl relative overflow-hidden">
-                            <div className="absolute top-0 right-0 p-12 opacity-10 text-9xl">🤖</div>
-                            <div className="w-16 h-16 bg-indigo-500/20 text-indigo-400 rounded-2xl flex items-center justify-center text-3xl mb-8 relative z-10">🧠</div>
-                            <h3 className="text-2xl font-black uppercase tracking-tight mb-4 relative z-10">IA para Negócios</h3>
-                            <p className="text-indigo-100 font-medium leading-relaxed relative z-10">Agentes inteligentes que atendem, agendam e vendem 24/7, adaptados à sua marca e ao seu processo.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Problemas (Pain Points) */}
-            <section className="py-24 bg-white relative">
-                <div className="max-w-7xl mx-auto px-4">
-                    <div className="text-center mb-16">
-                        <span className="text-red-500 font-black uppercase tracking-[0.2em] text-[10px] mb-4 block">O Gargalo que Ninguém Fala</span>
-                        <h2 className="text-3xl md:text-5xl font-black text-slate-900 uppercase tracking-tighter">Quando software pronto <br /><span className="text-red-500">não resolve.</span></h2>
-                    </div>
-
-                    <div className="grid md:grid-cols-3 gap-8">
-                        <div className="p-8 bg-slate-50 rounded-[2.5rem] border border-slate-100 hover:border-red-200 transition-colors">
-                            <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm">🧩</div>
-                            <h3 className="font-black text-slate-900 uppercase tracking-widest text-xs mb-3">Ferramentas Desconectadas</h3>
-                            <p className="text-sm text-slate-500 font-medium leading-relaxed">WhatsApp, planilhas, agendas e sistemas que não conversam entre si geram retrabalho e perda de informação.</p>
-                        </div>
-                        <div className="p-8 bg-slate-50 rounded-[2.5rem] border border-slate-100 hover:border-red-200 transition-colors">
-                            <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm">📉</div>
-                            <h3 className="font-black text-slate-900 uppercase tracking-widest text-xs mb-3">Processos Não Padronizados</h3>
-                            <p className="text-sm text-slate-500 font-medium leading-relaxed">O atendimento depende de pessoas específicas. Treinar alguém novo vira um problema.</p>
-                        </div>
-                        <div className="p-8 bg-slate-50 rounded-[2.5rem] border border-slate-100 hover:border-red-200 transition-colors">
-                            <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm">🔄</div>
-                            <h3 className="font-black text-slate-900 uppercase tracking-widest text-xs mb-3">Tudo Manual e Repetitivo</h3>
-                            <p className="text-sm text-slate-500 font-medium leading-relaxed">Perguntas, áudios, agendamentos e triagens que poderiam ser resolvidos automaticamente consomem tempo todos os dias.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Features Grid */}
-            <section className="py-24 bg-slate-50">
-                <div className="max-w-7xl mx-auto px-4">
-                    <div className="text-center mb-16">
-                        <span className="text-indigo-600 font-black uppercase tracking-[0.2em] text-[10px] mb-4 block">O que muda com Agentes Inteligentes</span>
-                        <h2 className="text-3xl md:text-5xl font-black text-slate-900 uppercase tracking-tighter">Por que usar IA no atendimento?</h2>
-                    </div>
-
-                    <div className="grid md:grid-cols-3 gap-6">
-                        {[
-                            { t: "Atendimento Multicanal 24/7", d: "A IA responde WhatsApp, Instagram e site em tempo real. Nenhuma conversa fica sem resposta.", i: "🌐" },
-                            { t: "Entendimento de Áudio", d: "Seu cliente fala. A IA escuta, transcreve, entende e responde corretamente.", i: "🎙️" },
-                            { t: "Atendimento Hiper-personalizado", d: "A IA considera histórico, perfil, localização e contexto para responder como um atendente experiente.", i: "👤" },
-                            { t: "Escalonamento Inteligente", d: "Quando necessário, a conversa vai para um humano com resumo completo. Sem perda de contexto.", i: "⚡" },
-                            { t: "Dados que Viram Decisão", d: "A IA analisa conversas e revela padrões, dúvidas frequentes e oportunidades reais.", i: "📊" },
-                            { t: "Automação Sob Medida", d: "Nada engessado. Os fluxos são criados conforme o seu negócio, sua marca e sua operação.", i: "🛠️" }
-                        ].map((item, i) => (
-                            <div key={i} className="p-10 bg-white border border-slate-200 rounded-[3rem] hover:border-indigo-400 transition-all text-left group">
-                                <div className="w-12 h-12 bg-slate-100 group-hover:bg-indigo-50 text-slate-900 group-hover:text-indigo-600 rounded-2xl flex items-center justify-center mb-8 font-black transition-colors text-xl">{item.i}</div>
-                                <h4 className="text-xs font-black text-slate-900 uppercase tracking-widest mb-4">{item.t}</h4>
-                                <p className="text-sm text-slate-500 font-medium leading-relaxed">{item.d}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Comparison Section: Agents vs Chatbots */}
-            <section className="py-24 bg-white relative overflow-hidden">
-                <div className="max-w-7xl mx-auto px-4">
-                    <div className="text-center mb-20">
-                        <span className="text-indigo-600 font-black uppercase tracking-widest text-xs mb-4 block">Entenda a Diferença</span>
-                        <h2 className="text-4xl md:text-5xl font-black text-slate-900 uppercase tracking-tighter mb-6">Não é melhor ou pior. <span className="text-indigo-600">É diferente.</span></h2>
-                        <p className="text-slate-500 max-w-2xl mx-auto text-lg">O Unificando oferece os dois — você escolhe o que faz sentido.</p>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-                        {/* Agentes IA */}
-                        <div className="bg-slate-900 text-white p-12 rounded-[3rem] relative overflow-hidden group hover:scale-[1.02] transition-transform">
-                            <div className="absolute top-0 right-0 p-8 opacity-10 font-black text-9xl leading-none select-none">IA</div>
-                            <h3 className="text-3xl font-black uppercase tracking-widest mb-8 text-indigo-400">Agentes IA</h3>
-                            <ul className="space-y-6 relative z-10">
-                                <li className="flex items-start gap-4">
-                                    <div className="w-6 h-6 rounded-full bg-indigo-500 flex items-center justify-center shrink-0 mt-1">✓</div>
-                                    <p className="text-slate-300 font-medium leading-relaxed">Conversas <strong>naturais e flexíveis</strong>.</p>
-                                </li>
-                                <li className="flex items-start gap-4">
-                                    <div className="w-6 h-6 rounded-full bg-indigo-500 flex items-center justify-center shrink-0 mt-1">✓</div>
-                                    <p className="text-slate-300 font-medium leading-relaxed">Aprende com <strong>seus processos</strong>.</p>
-                                </li>
-                                <li className="flex items-start gap-4">
-                                    <div className="w-6 h-6 rounded-full bg-indigo-500 flex items-center justify-center shrink-0 mt-1">✓</div>
-                                    <p className="text-slate-300 font-medium leading-relaxed">Atua em <strong>vendas, suporte e agendamento</strong>.</p>
-                                </li>
-                            </ul>
-                            <div className="mt-12 pt-8 border-t border-white/10">
-                                <span className="block text-[10px] uppercase font-black tracking-widest text-indigo-400 mb-2">Ideal Para:</span>
-                                <p className="text-sm font-bold">SDR Virtual, Suporte Nível 1, Vendas Consultivas.</p>
-                            </div>
-                        </div>
-
-                        {/* Chatbots */}
-                        <div className="bg-slate-50 border border-slate-200 p-12 rounded-[3rem] relative overflow-hidden group hover:scale-[1.02] transition-transform">
-                            <div className="absolute top-0 right-0 p-8 opacity-5 font-black text-9xl leading-none select-none text-slate-900">BOT</div>
-                            <h3 className="text-3xl font-black uppercase tracking-widest mb-8 text-slate-900">Chatbots Tradicionais</h3>
-                            <ul className="space-y-6 relative z-10">
-                                <li className="flex items-start gap-4">
-                                    <div className="w-6 h-6 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center shrink-0 mt-1">✓</div>
-                                    <p className="text-slate-600 font-medium leading-relaxed">Fluxos <strong>rígidos e previsíveis</strong>.</p>
-                                </li>
-                                <li className="flex items-start gap-4">
-                                    <div className="w-6 h-6 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center shrink-0 mt-1">✓</div>
-                                    <p className="text-slate-600 font-medium leading-relaxed">Sem <strong>improviso ou contexto</strong>.</p>
-                                </li>
-                            </ul>
-                            <div className="mt-12 pt-8 border-t border-slate-200">
-                                <span className="block text-[10px] uppercase font-black tracking-widest text-slate-400 mb-2">Ideal Para:</span>
-                                <p className="text-sm font-bold text-slate-700">Coleta de dados, 2ª via de boleto, Rastreio de pedidos.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Methodology Section (New) */}
-            <section className="py-24 bg-indigo-600 text-white overflow-hidden">
-                <div className="max-w-7xl mx-auto px-4 text-center">
-                    <span className="opacity-60 text-[10px] font-black uppercase tracking-[0.3em] mb-8 block">Metodologia Unificando</span>
-                    <h2 className="text-3xl md:text-5xl font-black mb-12 max-w-4xl mx-auto tracking-tight">Soluções personalizadas de verdade.</h2>
-                    <p className="text-lg text-indigo-100 max-w-2xl mx-auto mb-16 font-medium">Aqui não existe "pacote mágico". Antes de qualquer implementação, fazemos um diagnóstico para entender seu modelo, fluxo, volume e objetivos.</p>
-
-                    <div className="grid md:grid-cols-3 gap-8 text-left">
-                        <div className="p-8 bg-indigo-700/50 rounded-[2rem] border border-indigo-500/30">
-                            <span className="text-4xl mb-4 block">1.</span>
-                            <h3 className="font-black uppercase tracking-widest text-sm mb-4">Atendimento Organizado</h3>
-                            <p className="text-indigo-100 text-sm leading-relaxed">Estruturamos seus canais e equipe para operarem com eficiência máxima.</p>
-                        </div>
-                        <div className="p-8 bg-indigo-700/50 rounded-[2rem] border border-indigo-500/30">
-                            <span className="text-4xl mb-4 block">2.</span>
-                            <h3 className="font-black uppercase tracking-widest text-sm mb-4">IA no Nível Certo</h3>
-                            <p className="text-indigo-100 text-sm leading-relaxed">Implementamos a inteligência artificial onde ela traz mais retorno, sem exageros.</p>
-                        </div>
-                        <div className="p-8 bg-indigo-700/50 rounded-[2rem] border border-indigo-500/30">
-                            <span className="text-4xl mb-4 block">3.</span>
-                            <h3 className="font-black uppercase tracking-widest text-sm mb-4">Automação que Resolve</h3>
-                            <p className="text-indigo-100 text-sm leading-relaxed">Criamos automações que eliminam gargalos e não atrapalham a experiência do cliente.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* FAQ */}
+            <ProductivityHero />
+            <EcosystemSection />
+            <PainPointsSection />
+            <FeaturesGrid />
+            <ComparisonSection />
+            <MethodologySection />
             <FAQSection />
-
-            {/* Final CTA */}
-            <section className="py-24 bg-indigo-600 text-white relative overflow-hidden">
-                <div className="absolute inset-0 bg-white/5 blur-[120px] pointer-events-none"></div>
-                <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
-                    <h2 className="text-3xl md:text-5xl font-black mb-12 uppercase tracking-tighter leading-none">Pronto para <span className="text-indigo-200 font-normal italic">ganhar tempo</span>?</h2>
-                    <button
-                        onClick={() => navigate(ROUTES.CONTACT)}
-                        className="bg-white text-indigo-600 px-12 py-5 rounded-2xl text-[10px] font-black hover:bg-indigo-50 transition-all shadow-2xl uppercase tracking-[0.2em]"
-                    >
-                        Falar com especialista agora
-                    </button>
-                </div>
-            </section>
+            <ProductivityCta />
         </PageTransition>
     );
 };

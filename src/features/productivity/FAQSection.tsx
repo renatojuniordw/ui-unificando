@@ -4,9 +4,9 @@ export const FAQSection: React.FC = () => {
     const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
     const faqItems = [
-        { q: "A IA substitui meus atendentes?", a: "Não. A IA reduz tarefas repetitivas e escala o atendimento. Pessoas continuam essenciais." },
-        { q: "Consigo treinar a IA com meus dados?", a: "Sim. A IA aprende com seus manuais, perguntas frequentes e processos." },
-        { q: "Funciona sem o atendimento tradicional?", a: "Sim. A IA pode atuar sozinha ou integrada ao painel de atendimento." }
+        { question: "A IA substitui meus atendentes?", answer: "Não. A IA reduz tarefas repetitivas e escala o atendimento. Pessoas continuam essenciais." },
+        { question: "Consigo treinar a IA com meus dados?", answer: "Sim. A IA aprende com seus manuais, perguntas frequentes e processos." },
+        { question: "Funciona sem o atendimento tradicional?", answer: "Sim. A IA pode atuar sozinha ou integrada ao painel de atendimento." }
     ];
 
     return (
@@ -22,7 +22,7 @@ export const FAQSection: React.FC = () => {
                                 aria-controls={`productivity-faq-${idx}`}
                                 className="w-full flex justify-between items-center p-8 text-left hover:bg-slate-50 transition-colors"
                             >
-                                <span className="font-black text-[11px] text-slate-800 uppercase tracking-widest">{item.q}</span>
+                                <span className="font-black text-[11px] text-slate-800 uppercase tracking-widest">{item.question}</span>
                                 <div className={`w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 transition-all ${activeFaq === idx ? 'rotate-180 bg-slate-900 text-white' : ''} `}>
                                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
                                 </div>
@@ -33,7 +33,7 @@ export const FAQSection: React.FC = () => {
                                     role="region"
                                     className="px-8 pb-8 text-slate-500 text-sm leading-relaxed font-medium"
                                 >
-                                    {item.a}
+                                    {item.answer}
                                 </div>
                             )}
                         </div>

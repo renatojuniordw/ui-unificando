@@ -1,8 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { NavItem } from '../../types';
 import { ROUTES } from '../../routes';
 import LogoUnificando from '../../assets/img/LOGO_UNIFICANDO.svg';
+import { useHeaderMenu } from '../../hooks/useHeaderMenu';
 
 interface HeaderProps {
     navItems: NavItem[];
@@ -10,28 +11,29 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
-    const location = useLocation();
-    const { pathname } = location;
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
-    const [isMobileSolutionsOpen, setIsMobileSolutionsOpen] = useState(false);
-    const dropdownRef = useRef<HTMLDivElement>(null);
+    const { pathname } = useLocation();
 
-    useEffect(() => {
-        const handleClickOutside = (event: MouseEvent) => {
-            if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-                setIsSolutionsOpen(false);
-            }
-        };
-        document.addEventListener('mousedown', handleClickOutside);
-        return () => document.removeEventListener('mousedown', handleClickOutside);
-    }, []);
+    // Custom hook for menu state
+    const {
+        isMenuOpen,
+        isSolutionsOpen,
+        isMobileSolutionsOpen,
+        dropdownRef,
+        toggleMenu,
+        toggleSolutions,
+        toggleMobileSolutions,
+        closeMenu,
+        openSolutions,
+        closeSolutions
+    } = useHeaderMenu();
 
-    const closeMenu = () => {
-        setIsMenuOpen(false);
-        setIsSolutionsOpen(false);
-        setIsMobileSolutionsOpen(false);
-    };
+    // Helper to check active state for solutions dropdown
+    const isSolutionsActive = ([
+        ROUTES.SOLUTIONS,
+        ROUTES.CUSTOMER_SERVICE,
+        ROUTES.PRODUCTIVITY,
+        ROUTES.DIGITAL_PRESENCE
+    ] as string[]).includes(pathname);
 
     return (
         <header className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md border-b border-slate-200 z-50">
@@ -55,14 +57,14 @@ export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
                     <div
                         className="relative"
                         ref={dropdownRef}
-                        onMouseEnter={() => setIsSolutionsOpen(true)}
-                        onMouseLeave={() => setIsSolutionsOpen(false)}
+                        onMouseEnter={openSolutions}
+                        onMouseLeave={closeSolutions}
                     >
                         <button
-                            onClick={() => setIsSolutionsOpen(!isSolutionsOpen)}
+                            onClick={toggleSolutions}
                             aria-expanded={isSolutionsOpen}
                             aria-haspopup="true"
-                            className={`text-[10px] font-black uppercase tracking-[0.2em] transition-colors flex items-center gap-1 py-4 ${[ROUTES.SOLUTIONS, ROUTES.CUSTOMER_SERVICE, ROUTES.PRODUCTIVITY, ROUTES.DIGITAL_PRESENCE].includes(pathname as any)
+                            className={`text-[10px] font-black uppercase tracking-[0.2em] transition-colors flex items-center gap-1 py-4 ${isSolutionsActive
                                 ? 'text-indigo-600' : 'text-slate-500 hover:text-indigo-600'
                                 }`}
                         >
@@ -118,7 +120,7 @@ export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
 
                 <button
                     className="md:hidden text-slate-900"
-                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+                    onClick={toggleMenu}
                     aria-label="Toggle menu"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -131,7 +133,7 @@ export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
             {isMenuOpen && (
                 <div className="md:hidden bg-white border-b border-slate-200 py-6 px-4 flex flex-col gap-2">
                     <Link to={ROUTES.HOME} onClick={closeMenu} className="text-left text-slate-900 text-[10px] font-black uppercase tracking-[0.2em] py-3 border-b border-slate-50">Início</Link>
-                    <button onClick={() => setIsMobileSolutionsOpen(!isMobileSolutionsOpen)} className="w-full flex justify-between items-center text-left text-slate-900 text-[10px] font-black uppercase tracking-[0.2em] py-3 border-b border-slate-50">
+                    <button onClick={toggleMobileSolutions} className="w-full flex justify-between items-center text-left text-slate-900 text-[10px] font-black uppercase tracking-[0.2em] py-3 border-b border-slate-50">
                         Soluções
                         <svg xmlns="http://www.w3.org/2000/svg" className={`h-4 w-4 transition-transform ${isMobileSolutionsOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
