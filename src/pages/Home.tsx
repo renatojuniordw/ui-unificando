@@ -154,16 +154,16 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <span className="text-indigo-600 font-black uppercase tracking-[0.2em] text-[10px] mb-4 block">O Caminho</span>
-            <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-4 uppercase tracking-tighter">A evolução em fases</h2>
-            <p className="text-slate-500 font-medium max-w-xl mx-auto">Cada negócio tem seu tempo. Respeitamos sua maturidade digital.</p>
+            <span className="text-indigo-600 font-black uppercase tracking-[0.2em] text-[10px] mb-4 block">Nossos Serviços</span>
+            <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-4 uppercase tracking-tighter">O que fazemos</h2>
+            <p className="text-slate-500 font-medium max-w-xl mx-auto">Contrate de forma modular ou completa. Soluções independentes que se integram perfeitamente.</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { phase: "FASE 01", title: "Organização", desc: "Centralize tudo em um único painel. Retome o controle.", link: Page.CustomerService, color: "bg-indigo-600" },
-              { phase: "FASE 02", title: "Evolução", desc: "Organize seus processos com ferramentas de produtividade.", link: Page.Productivity, color: "bg-indigo-400" },
-              { phase: "FASE 03", title: "Presença", desc: "Sua casa própria na web com autoridade máxima.", link: Page.DigitalPresence, color: "bg-slate-900" },
+              { phase: "ATENDIMENTO", title: "Organização", desc: "Centralize tudo em um único painel. Retome o controle.", link: Page.CustomerService, color: "bg-indigo-600" },
+              { phase: "PROCESSOS", title: "Evolução", desc: "Organize seus processos com ferramentas de produtividade.", link: Page.Productivity, color: "bg-indigo-400" },
+              { phase: "VITRINE", title: "Presença", desc: "Sua casa própria na web com autoridade máxima.", link: Page.DigitalPresence, color: "bg-slate-900" },
             ].map((p, i) => (
               <motion.div
                 key={i}

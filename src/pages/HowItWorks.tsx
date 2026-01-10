@@ -8,14 +8,14 @@ export const HowItWorks: React.FC<{ onNavigate: (p: Page) => void }> = ({ onNavi
     <div className="animate-in fade-in duration-700 bg-white">
       <SEO
         title="Como Funciona o Método Unificando | Processo Passo a Passo"
-        description="Entenda o método Unificando de evolução digital: Organização, Automação e Presença. Um caminho claro para o crescimento do seu negócio."
+        description="Entenda como atuamos: Organização, Automação e Presença. Escolha o serviço ideal para o crescimento do seu negócio."
         canonical="/como-funciona"
       />
       <section className="py-24 bg-slate-50 border-b border-slate-200">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <span className="text-indigo-600 font-black uppercase tracking-[0.2em] text-[10px] mb-4 block">Processo Unificado</span>
-          <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-8 uppercase tracking-tighter">O Método.</h1>
-          <p className="text-lg text-slate-500 font-medium leading-relaxed">Simples, direto e focado em maturidade digital.</p>
+          <span className="text-indigo-600 font-black uppercase tracking-[0.2em] text-[10px] mb-4 block">Nossos Pilares</span>
+          <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-8 uppercase tracking-tighter">Como Atuamos.</h1>
+          <p className="text-lg text-slate-500 font-medium leading-relaxed">Três frentes de atuação. Escolha a ideal para o seu momento.</p>
         </div>
       </section>
 
@@ -25,17 +25,17 @@ export const HowItWorks: React.FC<{ onNavigate: (p: Page) => void }> = ({ onNavi
             <div className="absolute left-1/2 top-0 bottom-0 w-px bg-slate-100 hidden md:block -translate-x-1/2"></div>
 
             {[
-              { id: "01", t: "Organização Total", d: "Arrumamos a casa. Centralizamos suas mensagens para que você retome o controle absoluto do que entra e sai do seu negócio.", color: "bg-slate-900" },
-              { id: "02", t: "Evolução Responsável", d: "Identificamos o que pode ser automatizado. Criamos fluxos que agilizam processos sem que o atendimento pareça robótico.", color: "bg-indigo-600" },
-              { id: "03", t: "Autoridade de Marca", d: "Construímos sua vitrine profissional. Agora que a operação está sólida, garantimos que sua marca seja encontrada com respeito.", color: "bg-indigo-400" }
+              { t: "Organização Total", d: "Arrumamos a casa. Centralizamos suas mensagens para que você retome o controle absoluto do que entra e sai do seu negócio.", color: "bg-slate-900", icon: "IN" },
+              { t: "Evolução Responsável", d: "Identificamos o que pode ser automatizado. Criamos fluxos que agilizam processos sem que o atendimento pareça robótico.", color: "bg-indigo-600", icon: "EV" },
+              { t: "Autoridade de Marca", d: "Construímos sua vitrine profissional. Agora que a operação está sólida, garantimos que sua marca seja encontrada com respeito.", color: "bg-indigo-400", icon: "PR" }
             ].map((step, i) => (
               <div key={i} className={`relative grid md:grid-cols-2 gap-12 items-center text-left ${i % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
                 <div className={`${i % 2 === 0 ? 'md:text-right' : 'md:text-left order-1 md:order-2'}`}>
-                  <h3 className="text-2xl font-black text-slate-900 mb-4 uppercase tracking-tight">{step.id}. {step.t}</h3>
+                  <h3 className="text-2xl font-black text-slate-900 mb-4 uppercase tracking-tight">{step.t}</h3>
                   <p className="text-slate-500 font-medium leading-relaxed">{step.d}</p>
                 </div>
                 <div className={`flex justify-center ${i % 2 === 0 ? 'md:justify-start' : 'md:justify-end order-2 md:order-1'}`}>
-                  <div className={`w-16 h-16 ${step.color} text-white rounded-2xl flex items-center justify-center text-xl font-black z-10 shadow-2xl border-4 border-white`}>{i + 1}</div>
+                  <div className={`w-16 h-16 ${step.color} text-white rounded-2xl flex items-center justify-center text-xl font-black z-10 shadow-2xl border-4 border-white tracking-widest`}>{step.icon}</div>
                 </div>
               </div>
             ))}

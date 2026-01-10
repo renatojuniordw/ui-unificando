@@ -78,15 +78,15 @@ export const Solutions: React.FC<{ onNavigate: (p: Page) => void, currentPage: P
       <section className="py-20 bg-slate-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <span className="text-indigo-600 font-black uppercase tracking-[0.2em] text-[10px] mb-4 block">Ecossistema Completo</span>
-          <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 tracking-tighter uppercase leading-none">Nosso Método.</h1>
-          <p className="text-lg text-slate-500 max-w-3xl mx-auto font-medium">Três fases modulares para transformar sua operação digital.</p>
+          <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 tracking-tighter uppercase leading-none">Nossas Soluções.</h1>
+          <p className="text-lg text-slate-500 max-w-3xl mx-auto font-medium">Ferramentas modulares para transformar sua operação digital. Use uma, use todas.</p>
         </div>
       </section>
 
       <section className="py-24 bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-16 items-center text-left">
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-            <div className="inline-block bg-indigo-50 text-indigo-700 font-black uppercase tracking-widest text-[10px] px-4 py-1.5 rounded-full mb-6 border border-indigo-100">Fase 01 - Organização</div>
+            <div className="inline-block bg-indigo-50 text-indigo-700 font-black uppercase tracking-widest text-[10px] px-4 py-1.5 rounded-full mb-6 border border-indigo-100">Organização</div>
             <h2 className="text-4xl font-black text-slate-900 mb-6 uppercase tracking-tighter">Atendimento Unificado</h2>
             <p className="text-lg text-slate-500 mb-10 font-medium">Centralize seus canais em uma única caixa de entrada profissional.</p>
             <button onClick={() => onNavigate(Page.CustomerService)} className="bg-slate-900 text-white px-8 py-4 rounded-2xl text-[10px] font-black hover:bg-slate-800 transition-all uppercase tracking-widest">Ver Solução →</button>
@@ -99,7 +99,7 @@ export const Solutions: React.FC<{ onNavigate: (p: Page) => void, currentPage: P
         <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-16 items-center text-left">
           <div className="order-2 md:order-1"><AutomacaoAnimation /></div>
           <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="order-1 md:order-2">
-            <div className="inline-block bg-indigo-600 text-white font-black uppercase tracking-widest text-[10px] px-4 py-1.5 rounded-full mb-6">Fase 02 - Evolução</div>
+            <div className="inline-block bg-indigo-600 text-white font-black uppercase tracking-widest text-[10px] px-4 py-1.5 rounded-full mb-6">Produtividade</div>
             <h2 className="text-4xl font-black text-slate-900 mb-6 uppercase tracking-tighter">Produtividade & Organização</h2>
             <p className="text-lg text-slate-500 mb-10 font-medium">Ferramentas que organizam o caos e agilizam seu atendimento.</p>
             <button onClick={() => onNavigate(Page.Productivity)} className="bg-indigo-600 text-white px-8 py-4 rounded-2xl text-[10px] font-black hover:bg-indigo-700 transition-all uppercase tracking-widest">Ver Solução →</button>
@@ -110,7 +110,7 @@ export const Solutions: React.FC<{ onNavigate: (p: Page) => void, currentPage: P
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-16 items-center text-left">
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-            <div className="inline-block bg-slate-900 text-white font-black uppercase tracking-widest text-[10px] px-4 py-1.5 rounded-full mb-6">Fase 03 - Presença</div>
+            <div className="inline-block bg-slate-900 text-white font-black uppercase tracking-widest text-[10px] px-4 py-1.5 rounded-full mb-6">Presença Digital</div>
             <h2 className="text-4xl font-black text-slate-900 mb-6 uppercase tracking-tighter">Presença Digital</h2>
             <p className="text-lg text-slate-500 mb-10 font-medium">Construímos sua vitrine profissional com autoridade máxima no Google.</p>
             <button onClick={() => onNavigate(Page.DigitalPresence)} className="bg-slate-900 text-white px-8 py-4 rounded-2xl text-[10px] font-black hover:bg-slate-800 transition-all uppercase tracking-widest">Ver Solução →</button>
