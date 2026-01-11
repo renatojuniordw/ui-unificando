@@ -65,16 +65,16 @@ export const DigitalPresence: React.FC = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { t: "Landing pages profissionais", i: "🚀" },
-              { t: "Sites institucionais estáticos", i: "🏢" },
-              { t: "Performance e carregamento rápido", i: "⚡" },
-              { t: "Estrutura pensada para SEO (Google)", i: "🔍" },
-              { t: "Visual alinhado à sua marca", i: "🎨" },
-              { t: "Foco em conversão", i: "🎯" }
-            ].map((item, i) => (
-              <div key={i} className="flex items-center gap-4 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-                <div className="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center text-2xl">{item.i}</div>
-                <span className="font-bold text-slate-900 uppercase tracking-tight text-sm">{item.t}</span>
+              { title: "Landing pages profissionais", icon: "🚀" },
+              { title: "Sites institucionais estáticos", icon: "🏢" },
+              { title: "Performance e carregamento rápido", icon: "⚡" },
+              { title: "Estrutura pensada para SEO (Google)", icon: "🔍" },
+              { title: "Visual alinhado à sua marca", icon: "🎨" },
+              { title: "Foco em conversão", icon: "🎯" }
+            ].map((feature, index) => (
+              <div key={index} className="flex items-center gap-4 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <div className="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center text-2xl">{feature.icon}</div>
+                <span className="font-bold text-slate-900 uppercase tracking-tight text-sm">{feature.title}</span>
               </div>
             ))}
           </div>
@@ -82,8 +82,8 @@ export const DigitalPresence: React.FC = () => {
           <div className="mt-12 text-center">
             <p className="text-slate-400 font-bold uppercase tracking-widest text-xs mb-4">Ideal Para:</p>
             <div className="flex flex-wrap justify-center gap-3">
-              {["Apresentar sua empresa", "Divulgar serviços", "Captar contatos", "Fortalecer autoridade online"].map((tag, i) => (
-                <span key={i} className="bg-white border border-slate-200 px-4 py-2 rounded-full text-xs font-bold text-slate-600">{tag}</span>
+              {["Apresentar sua empresa", "Divulgar serviços", "Captar contatos", "Fortalecer autoridade online"].map((tag, index) => (
+                <span key={index} className="bg-white border border-slate-200 px-4 py-2 rounded-full text-xs font-bold text-slate-600">{tag}</span>
               ))}
             </div>
           </div>
@@ -149,8 +149,8 @@ export const DigitalPresence: React.FC = () => {
                 <div>
                   <span className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-3 block">Ideal Para:</span>
                   <div className="flex flex-wrap gap-2">
-                    {["Página de serviços", "Quem somos", "Blog", "Portfólio", "Galerias"].map((tag, i) => (
-                      <span key={i} className="px-3 py-1 bg-white/10 rounded-lg text-[10px] font-bold text-slate-300 uppercase">{tag}</span>
+                    {["Página de serviços", "Quem somos", "Blog", "Portfólio", "Galerias"].map((tag, index) => (
+                      <span key={index} className="px-3 py-1 bg-white/10 rounded-lg text-[10px] font-bold text-slate-300 uppercase">{tag}</span>
                     ))}
                   </div>
                 </div>
@@ -198,9 +198,9 @@ export const DigitalPresence: React.FC = () => {
           </div>
 
           <div className="flex flex-wrap justify-center gap-3">
-            {["WhatsApp", "Instagram", "Telegram", "Atendimento Centralizado", "IA no Atendimento"].map((item, i) => (
-              <div key={i} className="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-[10px] font-bold uppercase tracking-wider text-indigo-200">
-                {item}
+            {["WhatsApp", "Instagram", "Telegram", "Atendimento Centralizado", "IA no Atendimento"].map((channel, index) => (
+              <div key={index} className="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-[10px] font-bold uppercase tracking-wider text-indigo-200">
+                {channel}
               </div>
             ))}
           </div>

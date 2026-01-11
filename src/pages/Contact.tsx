@@ -59,15 +59,15 @@ export const Contact: React.FC = () => {
 
             <div className="space-y-6">
               {[
-                { t: "Diagnóstico real", d: "Análise do seu atendimento, processos e presença digital, sem custo." },
-                { t: "Postura consultiva", d: "Foco no seu cenário atual, sem pressão, sem promessa vazia." },
-                { t: "Resposta ágil", d: "Retorno em até 2 horas úteis, em horário comercial." }
-              ].map((item, i) => (
-                <div key={i} className="flex gap-4 items-start p-6 bg-white border border-slate-200 rounded-[2rem] shadow-sm">
+                { title: "Diagnóstico real", description: "Análise do seu atendimento, processos e presença digital, sem custo." },
+                { title: "Postura consultiva", description: "Foco no seu cenário atual, sem pressão, sem promessa vazia." },
+                { title: "Resposta ágil", description: "Retorno em até 2 horas úteis, em horário comercial." }
+              ].map((benefit, index) => (
+                <div key={index} className="flex gap-4 items-start p-6 bg-white border border-slate-200 rounded-[2rem] shadow-sm">
                   <div className="w-8 h-8 bg-indigo-50 text-indigo-600 rounded-full flex items-center justify-center flex-shrink-0 font-black text-xs">✓</div>
                   <div>
-                    <h4 className="font-black text-slate-900 uppercase text-[10px] tracking-widest mb-1">{item.t}</h4>
-                    <p className="text-[11px] text-slate-500 font-medium">{item.d}</p>
+                    <h4 className="font-black text-slate-900 uppercase text-[10px] tracking-widest mb-1">{benefit.title}</h4>
+                    <p className="text-[11px] text-slate-500 font-medium">{benefit.description}</p>
                   </div>
                 </div>
               ))}

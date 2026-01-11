@@ -105,10 +105,10 @@ export const Solutions: React.FC = () => {
             <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100 mb-10">
               <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-4 block">Quando Usar:</span>
               <ul className="space-y-2">
-                {["Muitas mensagens espalhadas", "Mais de uma pessoa atendendo", "Falta de organização no dia a dia"].map((item, index) => (
+                {["Muitas mensagens espalhadas", "Mais de uma pessoa atendendo", "Falta de organização no dia a dia"].map((useCase, index) => (
                   <li key={index} className="flex gap-3 text-sm font-bold text-slate-600">
                     <div className="w-1.5 h-1.5 bg-indigo-500 rounded-full mt-1.5"></div>
-                    {item}
+                    {useCase}
                   </li>
                 ))}
               </ul>
@@ -134,10 +134,10 @@ export const Solutions: React.FC = () => {
             <div className="bg-white p-6 rounded-2xl border border-slate-200 mb-10">
               <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-4 block">Quando Usar:</span>
               <ul className="space-y-2">
-                {["Alto volume de mensagens", "Atendimento fora do horário", "Tarefas repetitivas", "Necessidade de escalar sem contratar"].map((item, index) => (
+                {["Alto volume de mensagens", "Atendimento fora do horário", "Tarefas repetitivas", "Necessidade de escalar sem contratar"].map((useCase, index) => (
                   <li key={index} className="flex gap-3 text-sm font-bold text-slate-600">
                     <div className="w-1.5 h-1.5 bg-indigo-500 rounded-full mt-1.5"></div>
-                    {item}
+                    {useCase}
                   </li>
                 ))}
               </ul>
@@ -161,10 +161,10 @@ export const Solutions: React.FC = () => {
             <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100 mb-10">
               <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-4 block">Quando Usar:</span>
               <ul className="space-y-2">
-                {["Seu negócio ainda não tem site", "Precisa passar mais confiança", "Quer integrar site com atendimento e IA"].map((item, index) => (
+                {["Seu negócio ainda não tem site", "Precisa passar mais confiança", "Quer integrar site com atendimento e IA"].map((useCase, index) => (
                   <li key={index} className="flex gap-3 text-sm font-bold text-slate-600">
                     <div className="w-1.5 h-1.5 bg-indigo-500 rounded-full mt-1.5"></div>
-                    {item}
+                    {useCase}
                   </li>
                 ))}
               </ul>
@@ -187,15 +187,15 @@ export const Solutions: React.FC = () => {
 
           <div className="grid md:grid-cols-4 gap-8 text-left">
             {[
-              { t: "Escolha as soluções", d: "Selecione o que faz sentido para o seu momento." },
-              { t: "Ajuste os detalhes", d: "Defina canais, tamanho da equipe, IA e site." },
-              { t: "Veja o valor na hora", d: "Sem pacotes engessados. Sem surpresas no preço." },
-              { t: "Contrate agora", d: "Inicie o setup ou agende um diagnóstico técnico." }
+              { title: "Escolha as soluções", description: "Selecione o que faz sentido para o seu momento." },
+              { title: "Ajuste os detalhes", description: "Defina canais, tamanho da equipe, IA e site." },
+              { title: "Veja o valor na hora", description: "Sem pacotes engessados. Sem surpresas no preço." },
+              { title: "Contrate agora", description: "Inicie o setup ou agende um diagnóstico técnico." }
             ].map((step, index) => (
               <div key={index} className="bg-white/5 border border-white/10 p-8 rounded-[2rem]">
                 <span className="text-5xl font-black text-indigo-500/30 mb-4 block">{index + 1}</span>
-                <h3 className="text-lg font-black uppercase tracking-tight mb-2">{step.t}</h3>
-                <p className="text-sm text-slate-400 font-medium leading-relaxed">{step.d}</p>
+                <h3 className="text-lg font-black uppercase tracking-tight mb-2">{step.title}</h3>
+                <p className="text-sm text-slate-400 font-medium leading-relaxed">{step.description}</p>
               </div>
             ))}
           </div>
@@ -221,9 +221,9 @@ export const Solutions: React.FC = () => {
               "Você usa seus próprios números e contas",
               "IA segue regras da Meta",
               "Você paga apenas pelo que escolher"
-            ].map((item, index) => (
+            ].map((benefit, index) => (
               <div key={index} className="bg-slate-50 border border-slate-200 px-6 py-3 rounded-full text-xs font-bold text-slate-600">
-                {item}
+                {benefit}
               </div>
             ))}
           </div>

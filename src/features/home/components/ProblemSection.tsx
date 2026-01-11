@@ -41,16 +41,16 @@ export const ProblemSection: React.FC = () => {
                     viewport={{ once: true }}
                 >
                     {[
-                        { t: "Desorganização", d: "Mensagens espalhadas, histórico perdido e ninguém sabe quem respondeu o quê.", icon: "✕" },
-                        { t: "Esforço Repetitivo", d: "Sua equipe gastando tempo com tarefas que poderiam ser automatizadas com segurança.", icon: "↻" },
-                        { t: "Invisibilidade", d: "Enquanto seu concorrente aparece no Google, seu negócio não tem presença própria.", icon: "∅" }
-                    ].map((item, i) => (
-                        <motion.div key={i} variants={itemVariants} className="p-10 rounded-[3rem] bg-white border border-slate-200 shadow-sm group hover:border-indigo-400 transition-all">
+                        { title: "Desorganização", description: "Mensagens espalhadas, histórico perdido e ninguém sabe quem respondeu o quê.", icon: "✕" },
+                        { title: "Esforço Repetitivo", description: "Sua equipe gastando tempo com tarefas que poderiam ser automatizadas com segurança.", icon: "↻" },
+                        { title: "Invisibilidade", description: "Enquanto seu concorrente aparece no Google, seu negócio não tem presença própria.", icon: "∅" }
+                    ].map((item, index) => (
+                        <motion.div key={index} variants={itemVariants} className="p-10 rounded-[3rem] bg-white border border-slate-200 shadow-sm group hover:border-indigo-400 transition-all">
                             <div className="w-12 h-12 bg-slate-100 group-hover:bg-indigo-50 text-slate-900 group-hover:text-indigo-600 rounded-2xl flex items-center justify-center mb-8 font-black text-xl transition-colors">
                                 {item.icon}
                             </div>
-                            <h3 className="font-black text-slate-900 mb-3 text-[10px] uppercase tracking-[0.2em]">{item.t}</h3>
-                            <p className="text-slate-500 text-sm leading-relaxed font-medium">{item.d}</p>
+                            <h3 className="font-black text-slate-900 mb-3 text-[10px] uppercase tracking-[0.2em]">{item.title}</h3>
+                            <p className="text-slate-500 text-sm leading-relaxed font-medium">{item.description}</p>
                         </motion.div>
                     ))}
                 </motion.div>

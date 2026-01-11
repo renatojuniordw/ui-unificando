@@ -98,14 +98,14 @@ export const About: React.FC = () => {
 
           <div className="grid md:grid-cols-3 gap-8 text-center md:text-left">
             {[
-              { id: "01", t: "Continuidade", d: "Soluções pensadas para durar, crescer e escalar com segurança." },
-              { id: "02", t: "Transparência", d: "Você sabe exatamente o que está contratando, quanto custa e por quê." },
-              { id: "03", t: "Suporte real", d: "Problemas acontecem. Quando acontecerem, você fala com pessoas, não com filas infinitas." }
-            ].map((item, i) => (
-              <div key={i} className="flex flex-col gap-4 p-6 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
-                <span className="text-4xl font-black text-indigo-100 self-start">{item.id}</span>
-                <h4 className="font-black text-slate-900 uppercase tracking-widest text-xs">{item.t}</h4>
-                <p className="text-sm text-slate-500 font-medium leading-relaxed">{item.d}</p>
+              { id: "01", title: "Continuidade", description: "Soluções pensadas para durar, crescer e escalar com segurança." },
+              { id: "02", title: "Transparência", description: "Você sabe exatamente o que está contratando, quanto custa e por quê." },
+              { id: "03", title: "Suporte real", description: "Problemas acontecem. Quando acontecerem, você fala com pessoas, não com filas infinitas." }
+            ].map((principle, index) => (
+              <div key={index} className="flex flex-col gap-4 p-6 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                <span className="text-4xl font-black text-indigo-100 self-start">{principle.id}</span>
+                <h4 className="font-black text-slate-900 uppercase tracking-widest text-xs">{principle.title}</h4>
+                <p className="text-sm text-slate-500 font-medium leading-relaxed">{principle.description}</p>
               </div>
             ))}
           </div>
