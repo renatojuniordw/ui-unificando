@@ -173,6 +173,9 @@ export const Plans: React.FC<PlansProps> = () => {
                     <span>{inboxes}</span>
                   </div>
                   <input
+                    type="range"
+                    min={PRICING.calculadora.rules.minimumInboxes}
+                    max="10"
                     value={inboxes}
                     onChange={(event) => setInboxes(parseInt(event.target.value))}
                     className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600"
@@ -185,6 +188,9 @@ export const Plans: React.FC<PlansProps> = () => {
                     <span>{attendants}</span>
                   </div>
                   <input
+                    type="range"
+                    min={PRICING.calculadora.rules.minimumAttendants}
+                    max="20"
                     value={attendants}
                     onChange={(event) => setAttendants(parseInt(event.target.value))}
                     className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600"
@@ -257,6 +263,9 @@ export const Plans: React.FC<PlansProps> = () => {
                     <span>{sitePages}</span>
                   </div>
                   <input
+                    type="range"
+                    min="1"
+                    max="10"
                     value={sitePages}
                     onChange={(event) => setSitePages(parseInt(event.target.value))}
                     className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600"
