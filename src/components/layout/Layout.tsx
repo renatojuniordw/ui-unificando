@@ -4,6 +4,7 @@ import { NavItem } from '../../types';
 import { ROUTES } from '../../routes';
 import { Header } from './Header';
 import { Footer } from './Footer';
+import { ChatwootWidget } from '../common/ChatwootWidget';
 
 const navItems: NavItem[] = [
   { label: 'Início', path: ROUTES.HOME },
@@ -35,6 +36,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
       </main>
 
       <Footer />
+      <ChatwootWidget />
     </div>
   );
 };
