@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../routes';
+import { PRICING } from '../../constants/pricing';
 
 export const PricingCalculator = () => {
     const navigate = useNavigate();
@@ -9,16 +10,16 @@ export const PricingCalculator = () => {
 
     // Logic
     const calculatePlan = () => {
-        let monthly = 80;
-        let setup = 300;
+        let monthly = PRICING.atendimento.base.monthly;
+        let setup = PRICING.atendimento.base.setup;
 
         // Base rules
-        if (inboxes > 1) {
-            monthly += (inboxes - 1) * 50;
+        if (inboxes > PRICING.atendimento.base.includes.inboxes) {
+            monthly += (inboxes - PRICING.atendimento.base.includes.inboxes) * PRICING.atendimento.extras.inbox.priceMonthly;
         }
 
-        if (attendants > 1) {
-            monthly += (attendants - 1) * 20;
+        if (attendants > PRICING.atendimento.base.includes.attendants) {
+            monthly += (attendants - PRICING.atendimento.base.includes.attendants) * PRICING.atendimento.extras.attendant.priceMonthly;
         }
 
         return { monthly, setup };
@@ -42,7 +43,7 @@ export const PricingCalculator = () => {
                                 <label htmlFor="inboxes-range" className="block text-[10px] font-black text-slate-400 mb-6 uppercase tracking-widest">Número de Caixas de Entrada</label>
                                 <input
                                     id="inboxes-range"
-                                    type="range" min="1" max="10" value={inboxes}
+                                    type="range" min={PRICING.calculadora.rules.minimumInboxes} max="10" value={inboxes}
                                     onChange={(e) => setInboxes(Number(e.target.value))}
                                     className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600"
                                 />
@@ -58,7 +59,7 @@ export const PricingCalculator = () => {
                                 <label htmlFor="attendants-range" className="block text-[10px] font-black text-slate-400 mb-6 uppercase tracking-widest">Número de Atendentes</label>
                                 <input
                                     id="attendants-range"
-                                    type="range" min="1" max="20" value={attendants}
+                                    type="range" min={PRICING.calculadora.rules.minimumAttendants} max="20" value={attendants}
                                     onChange={(e) => setAttendants(Number(e.target.value))}
                                     className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600"
                                 />

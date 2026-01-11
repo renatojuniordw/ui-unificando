@@ -4,6 +4,7 @@ import { ROUTES } from '../routes';
 import { PageTransition } from '../components/common/PageTransition';
 import { motion, Variants } from 'framer-motion';
 import { SEO } from '../components/common/SEO';
+import { PRICING } from '../constants/pricing';
 
 interface PlansProps { }
 
@@ -36,8 +37,8 @@ export const Plans: React.FC<PlansProps> = () => {
     const clampInt = (value: number, min: number) => Math.max(min, Number.isFinite(value) ? Math.floor(value) : min);
 
     // Normalized values
-    const normInboxes = clampInt(inboxes, 1);
-    const normAttendants = clampInt(attendants, 1);
+    const normInboxes = clampInt(inboxes, PRICING.calculadora.rules.minimumInboxes);
+    const normAttendants = clampInt(attendants, PRICING.calculadora.rules.minimumAttendants);
     const normSitePages = clampInt(sitePages, 1);
 
     let setup = 0;
@@ -45,28 +46,28 @@ export const Plans: React.FC<PlansProps> = () => {
 
     // Support
     if (includeSupport) {
-      setup += 300;
-      monthly += 80;
-      if (normInboxes > 1) monthly += (normInboxes - 1) * 50;
-      if (normAttendants > 1) monthly += (normAttendants - 1) * 20;
+      setup += PRICING.atendimento.base.setup;
+      monthly += PRICING.atendimento.base.monthly;
+      if (normInboxes > 1) monthly += (normInboxes - 1) * PRICING.atendimento.extras.inbox.priceMonthly;
+      if (normAttendants > 1) monthly += (normAttendants - 1) * PRICING.atendimento.extras.attendant.priceMonthly;
     }
 
     // AI
     if (aiEnabled) {
       if (aiLevel === "advanced") {
-        setup += 2500;
-        monthly += 450;
+        setup += PRICING.ia.advanced.setup;
+        monthly += PRICING.ia.advanced.monthly;
       } else {
-        setup += 1200;
-        monthly += 250;
+        setup += PRICING.ia.essential.setup;
+        monthly += PRICING.ia.essential.monthly;
       }
     }
 
     // Site
     if (siteEnabled) {
-      setup += 1300;
+      setup += PRICING.site.landing.setup;
       if (normSitePages > 1) {
-        setup += (normSitePages - 1) * 130;
+        setup += (normSitePages - 1) * PRICING.site.extraPage.priceSetup;
       }
     }
 
@@ -215,7 +216,7 @@ export const Plans: React.FC<PlansProps> = () => {
                 >
                   <div className="flex justify-between items-center mb-1">
                     <span className="font-black text-xs uppercase tracking-wider text-slate-900">Essencial</span>
-                    <span className="text-indigo-600 font-bold text-xs">R$ 250<span className="text-[9px] text-slate-400">/mês</span></span>
+                    <span className="text-indigo-600 font-bold text-xs">R$ {PRICING.ia.essential.monthly}<span className="text-[9px] text-slate-400">/mês</span></span>
                   </div>
                   <p className="text-[10px] text-slate-500 font-medium">Triagem, respostas rápidas e suporte nível 1.</p>
                 </button>
@@ -226,7 +227,7 @@ export const Plans: React.FC<PlansProps> = () => {
                 >
                   <div className="flex justify-between items-center mb-1">
                     <span className={`font-black text-xs uppercase tracking-wider ${aiLevel === 'advanced' ? 'text-white' : 'text-slate-900'}`}>Avançada</span>
-                    <span className={`font-bold text-xs ${aiLevel === 'advanced' ? 'text-indigo-400' : 'text-indigo-600'}`}>R$ 450<span className="text-[9px] opacity-60">/mês</span></span>
+                    <span className={`font-bold text-xs ${aiLevel === 'advanced' ? 'text-indigo-400' : 'text-indigo-600'}`}>R$ {PRICING.ia.advanced.monthly}<span className="text-[9px] opacity-60">/mês</span></span>
                   </div>
                   <p className={`text-[10px] font-medium ${aiLevel === 'advanced' ? 'text-slate-400' : 'text-slate-500'}`}>Agendamentos, vendas complexas e fluxos avançados.</p>
                 </button>
@@ -266,7 +267,7 @@ export const Plans: React.FC<PlansProps> = () => {
                 <div className="p-4 bg-white rounded-xl border border-slate-200">
                   <div className="flex justify-between items-center mb-1">
                     <span className="font-bold text-xs uppercase text-slate-700">Setup Site</span>
-                    <span className="font-black text-slate-900">R$ {1300 + ((sitePages > 1 ? sitePages - 1 : 0) * 130)}</span>
+                    <span className="font-black text-slate-900">R$ {PRICING.site.landing.setup + ((sitePages > 1 ? sitePages - 1 : 0) * PRICING.site.extraPage.priceSetup)}</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="font-bold text-xs uppercase text-slate-400">Mensal</span>

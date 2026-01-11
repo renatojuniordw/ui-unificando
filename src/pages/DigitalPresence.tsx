@@ -13,6 +13,7 @@ import { PageTransition } from '../components/common/PageTransition';
 import { LandingPageAnimation } from '../features/digital-presence/LandingPageAnimation';
 import { FAQSection } from '../features/digital-presence/FAQSection';
 
+import { PRICING } from '../constants/pricing';
 
 export const DigitalPresence: React.FC = () => {
   const navigate = useNavigate();
@@ -102,7 +103,7 @@ export const DigitalPresence: React.FC = () => {
               <h4 className="font-black text-slate-900 mb-4 text-xl uppercase tracking-widest">Landing Page Profissional</h4>
               <div className="flex items-baseline gap-2 mb-6">
                 <span className="text-slate-400 font-bold text-xs uppercase tracking-widest">A partir de</span>
-                <span className="text-4xl font-black text-slate-900">R$ 1.300</span>
+                <span className="text-4xl font-black text-slate-900">R$ {PRICING.site.landing.setup.toLocaleString('pt-BR')}</span>
               </div>
               <p className="text-sm text-slate-600 leading-relaxed font-medium mb-8">Páginas de alta conversão para conteúdos fixos e institucionais.</p>
 
@@ -141,7 +142,7 @@ export const DigitalPresence: React.FC = () => {
                   <span className="font-bold uppercase tracking-tight text-sm">Página Adicional</span>
                   <span className="text-2xl font-black text-indigo-400">+ 10% <span className="text-xs text-white/50 align-middle">(do valor base)</span></span>
                 </div>
-                <p className="text-xs text-slate-400">R$ 130 por página extra.</p>
+                <p className="text-xs text-slate-400">R$ {PRICING.site.extraPage.priceSetup.toLocaleString('pt-BR')} por página extra.</p>
               </div>
 
               <div className="space-y-6">
