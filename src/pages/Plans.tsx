@@ -28,7 +28,7 @@ export const Plans: React.FC<PlansProps> = () => {
   const [inboxes, setInboxes] = useState(1);
   const [attendants, setAttendants] = useState(1);
   const [aiEnabled, setAiEnabled] = useState(false);
-  const [aiLevel, setAiLevel] = useState<'essential' | 'advanced'>('essential');
+  // Removed aiLevel state as there is only one plan now
   const [siteEnabled, setSiteEnabled] = useState(false);
   const [sitePages, setSitePages] = useState(1);
 
@@ -54,13 +54,8 @@ export const Plans: React.FC<PlansProps> = () => {
 
     // AI
     if (aiEnabled) {
-      if (aiLevel === "advanced") {
-        setup += PRICING.ia.advanced.setup;
-        monthly += PRICING.ia.advanced.monthly;
-      } else {
-        setup += PRICING.ia.essential.setup;
-        monthly += PRICING.ia.essential.monthly;
-      }
+      setup += PRICING.ia.setup;
+      monthly += PRICING.ia.monthly;
     }
 
     // Site
@@ -82,7 +77,7 @@ export const Plans: React.FC<PlansProps> = () => {
       inboxes,
       attendants,
       aiEnabled,
-      aiLevel: aiEnabled ? aiLevel : null,
+      // aiLevel removed
       siteEnabled,
       sitePages: siteEnabled ? sitePages : null,
       totals: {
@@ -216,27 +211,21 @@ export const Plans: React.FC<PlansProps> = () => {
 
             {aiEnabled && (
               <div className="space-y-4 animate-in fade-in slide-in-from-bottom-4">
-                <button
-                  onClick={() => setAiLevel('essential')}
-                  className={`w-full p-4 rounded-xl border-2 text-left transition-all ${aiLevel === 'essential' ? 'bg-white border-indigo-600 shadow-md' : 'border-slate-200 hover:border-indigo-300'}`}
-                >
+                <div className="w-full p-4 rounded-xl border-2 text-left transition-all bg-white border-indigo-600 shadow-md">
                   <div className="flex justify-between items-center mb-1">
-                    <span className="font-black text-xs uppercase tracking-wider text-slate-900">Essencial</span>
-                    <span className="text-indigo-600 font-bold text-xs">R$ {PRICING.ia.essential.monthly}<span className="text-[9px] text-slate-400">/mês</span></span>
+                    <span className="font-black text-xs uppercase tracking-wider text-slate-900">Plano IA Avançada</span>
+                    <span className="text-indigo-600 font-black text-xs">R$ {PRICING.ia.monthly}<span className="text-[9px] text-slate-400 font-medium">/mês</span></span>
                   </div>
-                  <p className="text-[10px] text-slate-500 font-medium">Triagem, respostas rápidas e suporte nível 1.</p>
-                </button>
+                  <p className="text-[10px] text-slate-500 font-medium mb-3">Solução completa para seu atendimento.</p>
 
-                <button
-                  onClick={() => setAiLevel('advanced')}
-                  className={`w-full p-4 rounded-xl border-2 text-left transition-all ${aiLevel === 'advanced' ? 'bg-slate-900 border-slate-900 shadow-md' : 'border-slate-200 hover:border-slate-400'}`}
-                >
-                  <div className="flex justify-between items-center mb-1">
-                    <span className={`font-black text-xs uppercase tracking-wider ${aiLevel === 'advanced' ? 'text-white' : 'text-slate-900'}`}>Avançada</span>
-                    <span className={`font-bold text-xs ${aiLevel === 'advanced' ? 'text-indigo-400' : 'text-indigo-600'}`}>R$ {PRICING.ia.advanced.monthly}<span className="text-[9px] opacity-60">/mês</span></span>
-                  </div>
-                  <p className={`text-[10px] font-medium ${aiLevel === 'advanced' ? 'text-slate-400' : 'text-slate-500'}`}>Agendamentos, vendas complexas e fluxos avançados.</p>
-                </button>
+                  <ul className="grid grid-cols-2 gap-2">
+                    {PRICING.ia.features.map((feature, index) => (
+                      <li key={index} className="flex gap-1.5 items-center text-[9px] font-bold text-slate-600">
+                        <span className="text-indigo-600">✓</span> {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             )}
           </div>
@@ -318,23 +307,13 @@ export const Plans: React.FC<PlansProps> = () => {
             <div className="bg-slate-50 border border-slate-200 rounded-[3rem] p-8 md:p-12 shadow-sm">
               <h3 className="text-lg font-black uppercase tracking-widest text-slate-900 mb-6">🤖 Inteligência Artificial</h3>
               <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h4 className="font-bold text-indigo-600 uppercase text-xs tracking-wide mb-3">Essencial</h4>
-                  <ul className="space-y-2 text-sm text-slate-600">
-                    <li>✓ Triagem Inicial</li>
-                    <li>✓ Respostas Rápidas</li>
-                    <li>✓ Direcionamento Humano</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="font-bold text-indigo-600 uppercase text-xs tracking-wide mb-3">Avançada</h4>
-                  <ul className="space-y-2 text-sm text-slate-600">
-                    <li>✓ Todos do Essencial</li>
-                    <li>✓ Agendamento Automático</li>
-                    <li>✓ Vendas Consultivas</li>
-                    <li>✓ Processamento de Áudio</li>
-                  </ul>
-                </div>
+                <ul className="space-y-3 text-sm text-slate-600 font-medium">
+                  {PRICING.ia.features.map((feature, index) => (
+                    <li key={index} className="flex gap-3">
+                      <span className="text-indigo-600 font-bold">✓</span> {feature}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </motion.div>

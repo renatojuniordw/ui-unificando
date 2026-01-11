@@ -21,28 +21,16 @@ export const PRICING = {
     },
 
     ia: {
-        essential: {
-            setup: 1200,
-            monthly: 250,
-            features: [
-                "Resposta automática inteligente",
-                "Triagem inicial de contatos",
-                "Atendimento fora do horário",
-                "Escalonamento para humano"
-            ]
-        },
-        advanced: {
-            setup: 2500,
-            monthly: 450,
-            features: [
-                "Atendimento 24/7",
-                "Entendimento de mensagens e áudios",
-                "Qualificação avançada",
-                "Agendamento automático",
-                "Vendas assistidas por IA",
-                "Escalonamento inteligente"
-            ]
-        }
+        setup: 2500,
+        monthly: 450,
+        features: [
+            "Atendimento 24/7",
+            "Entendimento de mensagens e áudios",
+            "Qualificação avançada",
+            "Agendamento automático",
+            "Vendas assistidas por IA",
+            "Escalonamento inteligente"
+        ]
     },
 
     site: {
