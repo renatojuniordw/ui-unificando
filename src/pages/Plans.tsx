@@ -173,8 +173,8 @@ export const Plans: React.FC<PlansProps> = () => {
                     <span>{inboxes}</span>
                   </div>
                   <input
-                    type="range" min="1" max="10" value={inboxes}
-                    onChange={(e) => setInboxes(parseInt(e.target.value))}
+                    value={inboxes}
+                    onChange={(event) => setInboxes(parseInt(event.target.value))}
                     className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600"
                   />
                   <p className="text-[10px] text-slate-400 mt-2 font-medium">WhatsApp, Instagram, Site, Telegram...</p>
@@ -185,8 +185,8 @@ export const Plans: React.FC<PlansProps> = () => {
                     <span>{attendants}</span>
                   </div>
                   <input
-                    type="range" min="1" max="20" value={attendants}
-                    onChange={(e) => setAttendants(parseInt(e.target.value))}
+                    value={attendants}
+                    onChange={(event) => setAttendants(parseInt(event.target.value))}
                     className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600"
                   />
                 </div>
@@ -257,8 +257,8 @@ export const Plans: React.FC<PlansProps> = () => {
                     <span>{sitePages}</span>
                   </div>
                   <input
-                    type="range" min="1" max="10" value={sitePages}
-                    onChange={(e) => setSitePages(parseInt(e.target.value))}
+                    value={sitePages}
+                    onChange={(event) => setSitePages(parseInt(event.target.value))}
                     className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600"
                   />
                   <p className="text-[10px] text-slate-400 mt-2 font-medium">1 = Landing Page única. 2+ = Páginas internas.</p>

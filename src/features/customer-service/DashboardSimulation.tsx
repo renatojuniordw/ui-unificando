@@ -15,14 +15,14 @@ export const DashboardSimulation = () => {
 
         let timeouts: NodeJS.Timeout[] = [];
 
-        sequence.forEach((msg) => {
+        sequence.forEach((message) => {
             const timeout = setTimeout(() => {
                 setMessages(prev => {
                     // Keep only last 4 messages to avoid overflow in simulation
-                    const newMsgs = [...prev, { id: msg.id, text: msg.text, side: msg.side }];
+                    const newMsgs = [...prev, { id: message.id, text: message.text, side: message.side }];
                     return newMsgs.slice(-4);
                 });
-            }, msg.delay);
+            }, message.delay);
             timeouts.push(timeout);
         });
 
@@ -49,8 +49,8 @@ export const DashboardSimulation = () => {
                     <div className="text-slate-500 text-[9px]">Todas as conversas</div>
                 </div>
                 <div className="flex-1 p-2 space-y-2">
-                    {[1, 2, 3].map(i => (
-                        <div key={i} className={`p-3 rounded-xl cursor-pointer ${i === 1 ? 'bg-indigo-500/10 border border-indigo-500/20' : 'hover:bg-white/5 border border-transparent'}`}>
+                    {[1, 2, 3].map(index => (
+                        <div key={index} className={`p-3 rounded-xl cursor-pointer ${index === 1 ? 'bg-indigo-500/10 border border-indigo-500/20' : 'hover:bg-white/5 border border-transparent'}`}>
                             <div className="flex justify-between mb-1">
                                 <div className="w-16 h-2 bg-slate-700 rounded-full"></div>
                                 <div className="w-8 h-2 bg-slate-800 rounded-full"></div>
@@ -76,14 +76,14 @@ export const DashboardSimulation = () => {
 
                 <div className="flex-1 p-6 flex flex-col gap-4 overflow-y-auto w-full">
                     <AnimatePresence>
-                        {messages.map((m) => (
+                        {messages.map((message) => (
                             <motion.div
-                                key={m.id}
+                                key={message.id}
                                 initial={{ opacity: 0, scale: 0.9, y: 10 }}
                                 animate={{ opacity: 1, scale: 1, y: 0 }}
-                                className={`max-w-[85%] p-3 px-4 rounded-2xl font-medium leading-relaxed ${m.side === 'left' ? 'bg-slate-800 text-slate-200 self-start rounded-tl-sm' : 'bg-indigo-600 text-white self-end rounded-tr-sm shadow-lg shadow-indigo-900/20'} `}
+                                className={`max-w-[85%] p-3 px-4 rounded-2xl font-medium leading-relaxed ${message.side === 'left' ? 'bg-slate-800 text-slate-200 self-start rounded-tl-sm' : 'bg-indigo-600 text-white self-end rounded-tr-sm shadow-lg shadow-indigo-900/20'} `}
                             >
-                                {m.text}
+                                {message.text}
                             </motion.div>
                         ))}
                     </AnimatePresence>

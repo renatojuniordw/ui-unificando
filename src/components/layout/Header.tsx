@@ -100,7 +100,7 @@ export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
                         )}
                     </div>
 
-                    {navItems.filter(i => i.path !== ROUTES.HOME).map((item) => (
+                    {navItems.filter(navItem => navItem.path !== ROUTES.HOME).map((item) => (
                         <Link
                             key={item.path}
                             to={item.path}
@@ -147,7 +147,7 @@ export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
                             ))}
                         </div>
                     )}
-                    {navItems.filter(i => i.path !== ROUTES.HOME).map((item) => (
+                    {navItems.filter(navItem => navItem.path !== ROUTES.HOME).map((item) => (
                         <Link key={item.path} to={item.path} onClick={closeMenu} className="text-left text-slate-900 text-[10px] font-black uppercase tracking-[0.2em] py-3 border-b border-slate-50">{item.label}</Link>
                     ))}
                     <Link to={ROUTES.CONTACT} onClick={closeMenu} className="bg-indigo-600 text-white w-full py-4 rounded-xl font-black uppercase tracking-[0.2em] text-[10px] mt-4 text-center">Falar com Especialista</Link>

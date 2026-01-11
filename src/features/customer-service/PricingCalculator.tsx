@@ -44,7 +44,7 @@ export const PricingCalculator = () => {
                                 <input
                                     id="inboxes-range"
                                     type="range" min={PRICING.calculadora.rules.minimumInboxes} max="10" value={inboxes}
-                                    onChange={(e) => setInboxes(Number(e.target.value))}
+                                    onChange={(event) => setInboxes(Number(event.target.value))}
                                     className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600"
                                 />
                                 <div className="flex justify-between mt-4 text-[9px] font-black text-indigo-600 uppercase tracking-widest">
@@ -60,7 +60,7 @@ export const PricingCalculator = () => {
                                 <input
                                     id="attendants-range"
                                     type="range" min={PRICING.calculadora.rules.minimumAttendants} max="20" value={attendants}
-                                    onChange={(e) => setAttendants(Number(e.target.value))}
+                                    onChange={(event) => setAttendants(Number(event.target.value))}
                                     className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600"
                                 />
                                 <div className="flex justify-between mt-4 text-[9px] font-black text-indigo-600 uppercase tracking-widest">

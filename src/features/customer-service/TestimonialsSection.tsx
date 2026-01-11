@@ -54,15 +54,15 @@ export const TestimonialsSection = () => {
                             duration: 40,
                             repeat: Infinity,
                         }}
-                    >    {[...listTestimonials, ...listTestimonials].map((t, i) => (
-                        <div key={i} className="w-[350px] md:w-[450px] bg-slate-800/50 p-8 rounded-[2rem] border border-white/5 backdrop-blur-sm flex-shrink-0">
+                    >    {[...listTestimonials, ...listTestimonials].map((testimonial, index) => (
+                        <div key={index} className="w-[350px] md:w-[450px] bg-slate-800/50 p-8 rounded-[2rem] border border-white/5 backdrop-blur-sm flex-shrink-0">
                             <div className="flex gap-1 mb-6">
-                                {[1, 2, 3, 4, 5].map(s => <StarIcon key={s} />)}
+                                {[1, 2, 3, 4, 5].map(star => <StarIcon key={star} />)}
                             </div>
-                            <p className="text-slate-300 mb-8 text-sm leading-relaxed">"{t.text}"</p>
+                            <p className="text-slate-300 mb-8 text-sm leading-relaxed">"{testimonial.text}"</p>
                             <div>
-                                <div className="font-bold text-white uppercase tracking-wider text-xs">{t.name}</div>
-                                <div className="text-indigo-400 text-[10px] font-black uppercase tracking-widest mt-1">{t.company}</div>
+                                <div className="font-bold text-white uppercase tracking-wider text-xs">{testimonial.name}</div>
+                                <div className="text-indigo-400 text-[10px] font-black uppercase tracking-widest mt-1">{testimonial.company}</div>
                             </div>
                         </div>
                     ))}

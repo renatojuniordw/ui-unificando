@@ -32,8 +32,8 @@ export const LandingPageAnimation = () => {
 
                         {/* Features Grid */}
                         <div className="grid grid-cols-2 gap-4">
-                            {[1, 2, 3, 4].map((i) => (
-                                <div key={i} className="h-28 bg-slate-50 border border-slate-100 rounded-2xl p-4 flex flex-col justify-end gap-2">
+                            {[1, 2, 3, 4].map((index) => (
+                                <div key={index} className="h-28 bg-slate-50 border border-slate-100 rounded-2xl p-4 flex flex-col justify-end gap-2">
                                     <div className="w-8 h-8 bg-indigo-100 rounded-lg"></div>
                                     <div className="h-2 w-full bg-slate-200 rounded-full"></div>
                                     <div className="h-2 w-2/3 bg-slate-100 rounded-full"></div>

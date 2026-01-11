@@ -32,8 +32,8 @@ export const Contact: React.FC = () => {
     }
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
     // Here you would normally send 'planSelection' data along with the form
     console.log("Form Submitted", { planSelection, challenge });
     setSubmitted(true);
@@ -114,7 +114,7 @@ export const Contact: React.FC = () => {
                     <select
                       required
                       value={challenge}
-                      onChange={(e) => setChallenge(e.target.value)}
+                      onChange={(event) => setChallenge(event.target.value)}
                       className="w-full bg-white/5 border border-white/10 text-white px-5 py-4 rounded-2xl focus:ring-2 focus:ring-indigo-500 outline-none font-medium transition-all appearance-none cursor-pointer"
                     >
                       {CHALLENGES.map((option) => (

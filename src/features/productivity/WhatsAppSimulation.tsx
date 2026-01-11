@@ -31,14 +31,14 @@ export const WhatsAppSimulation = () => {
             { id: 6, text: "Sim! Nossos Agentes IA trabalham 24/7, inclusive domingos e feriados, sem pausas.", type: 'bot', time: '10:02', delay: 9000 },
         ];
 
-        const timeouts = sequence.map(msg =>
+        const timeouts = sequence.map(message =>
             setTimeout(() => {
                 setMessages(prev => {
                     // Remove system message if exists
-                    const filtered = prev.filter(m => m.type !== 'system');
-                    return [...filtered, msg as any];
+                    const filtered = prev.filter(message => message.type !== 'system');
+                    return [...filtered, message as any];
                 });
-            }, msg.delay)
+            }, message.delay)
         );
 
         const resetTimeout = setTimeout(() => {
@@ -63,18 +63,18 @@ export const WhatsAppSimulation = () => {
 
             <div className="flex-1 p-4 flex flex-col gap-3 overflow-y-auto bg-slate-100">
                 <AnimatePresence>
-                    {messages.map((msg) => (
+                    {messages.map((message) => (
                         <motion.div
-                            key={msg.id}
+                            key={message.id}
                             initial={{ opacity: 0, scale: 0.9, y: 10 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
-                            className={`max-w-[85%] p-3 rounded-2xl text-[10px] shadow-sm font-medium ${msg.type === 'user'
+                            className={`max-w-[85%] p-3 rounded-2xl text-[10px] shadow-sm font-medium ${message.type === 'user'
                                 ? 'bg-indigo-600 text-white self-end rounded-tr-none'
                                 : 'bg-white text-slate-800 self-start rounded-tl-none border border-slate-200'
                                 } `}
                         >
-                            {msg.text}
-                            <div className={`text-[8px] mt-1 ${msg.type === 'user' ? 'text-indigo-200' : 'text-slate-400'} `}>{msg.time}</div>
+                            {message.text}
+                            <div className={`text-[8px] mt-1 ${message.type === 'user' ? 'text-indigo-200' : 'text-slate-400'} `}>{message.time}</div>
                         </motion.div>
                     ))}
                 </AnimatePresence>
