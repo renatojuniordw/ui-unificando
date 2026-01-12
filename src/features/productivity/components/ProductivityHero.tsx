@@ -11,12 +11,12 @@ export const ProductivityHero: React.FC = () => {
         <section className="py-20 md:py-32 bg-white relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-16 items-center">
                 <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }}>
-                    <div className="inline-flex items-center gap-2 bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest mb-6">🤖 IA PARA NEGÓCIOS</div>
+                    <div className="inline-flex items-center gap-2 bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest mb-6">🤖 Automação com IA</div>
                     <h1 className="text-4xl md:text-6xl font-black text-slate-900 leading-[1.1] mb-8 uppercase tracking-tighter">
-                        Agentes de IA que trabalham para <span className="text-indigo-600">o seu negócio</span>, não contra ele.
+                        Comece simples. <br /> <span className="text-indigo-600">Evolua quando fizer sentido.</span>
                     </h1>
                     <p className="text-lg text-slate-500 mb-10 leading-relaxed max-w-lg font-medium">
-                        Tenha agentes inteligentes atendendo no WhatsApp, Instagram e site, 24 horas por dia, seguindo o jeito da sua marca, seus processos e suas regras.
+                        A automação com IA do Unificando foi pensada pra não complicar. Você começa com o básico funcionando bem e adiciona recursos conforme a necessidade.
                     </p>
                     <div className="flex flex-col gap-4">
                         <ul className="space-y-2 mb-8">
