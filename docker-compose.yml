@@ -1,7 +1,12 @@
 services:
   app:
     container_name: unificando-frontend
-    build: .
+    build:
+      context: .
+      args:
+        VITE_TURNSTILE_SITE_KEY: ${VITE_TURNSTILE_SITE_KEY}
+        VITE_N8N_WEBHOOK_URL: ${VITE_N8N_WEBHOOK_URL}
+        VITE_CHATWOOT_TOKEN: ${VITE_CHATWOOT_TOKEN}
     ports:
       - "11004:80"
     restart: always

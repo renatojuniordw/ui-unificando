@@ -12,6 +12,16 @@ RUN npm install --legacy-peer-deps
 # Copia código fonte
 COPY . .
 
+# Argumentos de build (passados via docker-compose ou --build-arg)
+ARG VITE_TURNSTILE_SITE_KEY
+ARG VITE_N8N_WEBHOOK_URL
+ARG VITE_CHATWOOT_TOKEN
+
+# Persiste como variáveis de ambiente para o build
+ENV VITE_TURNSTILE_SITE_KEY=$VITE_TURNSTILE_SITE_KEY
+ENV VITE_N8N_WEBHOOK_URL=$VITE_N8N_WEBHOOK_URL
+ENV VITE_CHATWOOT_TOKEN=$VITE_CHATWOOT_TOKEN
+
 # Gera o build de produção (pasta /dist)
 RUN npm run build
 
