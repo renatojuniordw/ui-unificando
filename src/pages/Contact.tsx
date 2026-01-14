@@ -124,6 +124,12 @@ export const Contact: React.FC = () => {
     try {
       const webhookUrl = `${import.meta.env.VITE_N8N_WEBHOOK_URL}/api/contact`;
 
+      console.log("Webhook URL:", webhookUrl);
+      console.log(
+        "import.meta.env.VITE_N8N_WEBHOOK_URL:",
+        import.meta.env.VITE_TURNSTILE_SITE_KEY
+      );
+
       if (!webhookUrl) {
         throw new Error("Webhook URL not configured");
       }
