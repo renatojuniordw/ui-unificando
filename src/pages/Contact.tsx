@@ -64,8 +64,9 @@ export const Contact: React.FC = () => {
         console.error("Error parsing plan selection:", error);
       }
     }
-    console.log(import.meta.env.VITE_TURNSTILE_SITE_KEY);
   }, []);
+
+  const [company, setCompany] = useState("");
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let value = e.target.value.replace(/\D/g, "");
@@ -86,6 +87,11 @@ export const Contact: React.FC = () => {
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
+
+    // Honeypot check
+    if (company) {
+      return;
+    }
 
     if (!name.trim() || !whatsapp.trim() || !challenge) {
       alert("Por favor, preencha todos os campos obrigatórios.");
@@ -279,6 +285,19 @@ export const Contact: React.FC = () => {
                     placeholder="(00) 90000-0000"
                   />
                 </div>
+
+                {/* Honeypot Field */}
+                <div className="hidden" aria-hidden="true">
+                  <input
+                    type="text"
+                    name="company"
+                    value={company}
+                    onChange={(e) => setCompany(e.target.value)}
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
+
                 <div>
                   <label className="block text-[10px] font-black text-slate-400 mb-3 uppercase tracking-widest">
                     Qual é o principal desafio hoje?
@@ -336,7 +355,6 @@ export const Contact: React.FC = () => {
                 <p className="text-center text-[8px] font-black text-slate-600 mt-6 uppercase tracking-[0.3em]">
                   Seus dados estão seguros. Não enviamos spam.
                 </p>
-                token {import.meta.env.VITE_TURNSTILE_SITE_KEY}
               </form>
             )}
           </div>
