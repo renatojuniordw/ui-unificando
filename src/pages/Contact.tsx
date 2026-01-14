@@ -64,6 +64,11 @@ export const Contact: React.FC = () => {
         console.error("Error parsing plan selection:", error);
       }
     }
+
+    console.log(
+      "import.meta.env.VITE_N8N_WEBHOOK_URL:",
+      import.meta.env.VITE_TURNSTILE_SITE_KEY
+    );
   }, []);
 
   const [company, setCompany] = useState("");
@@ -125,10 +130,6 @@ export const Contact: React.FC = () => {
       const webhookUrl = `${import.meta.env.VITE_N8N_WEBHOOK_URL}/api/contact`;
 
       console.log("Webhook URL:", webhookUrl);
-      console.log(
-        "import.meta.env.VITE_N8N_WEBHOOK_URL:",
-        import.meta.env.VITE_TURNSTILE_SITE_KEY
-      );
 
       if (!webhookUrl) {
         throw new Error("Webhook URL not configured");
