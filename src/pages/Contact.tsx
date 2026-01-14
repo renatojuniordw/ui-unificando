@@ -64,6 +64,7 @@ export const Contact: React.FC = () => {
         console.error("Error parsing plan selection:", error);
       }
     }
+    console.log(import.meta.env.VITE_TURNSTILE_SITE_KEY);
   }, []);
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -305,7 +306,6 @@ export const Contact: React.FC = () => {
                     </div>
                   </div>
                 </div>
-
                 {/* Cloudflare Turnstile */}
                 <div className="overflow-hidden rounded-xl">
                   <Turnstile
@@ -317,7 +317,6 @@ export const Contact: React.FC = () => {
                     }}
                   />
                 </div>
-
                 <button
                   type="submit"
                   disabled={!turnstileToken || isSubmitting}
@@ -337,6 +336,7 @@ export const Contact: React.FC = () => {
                 <p className="text-center text-[8px] font-black text-slate-600 mt-6 uppercase tracking-[0.3em]">
                   Seus dados estão seguros. Não enviamos spam.
                 </p>
+                token {import.meta.env.VITE_TURNSTILE_SITE_KEY}
               </form>
             )}
           </div>
