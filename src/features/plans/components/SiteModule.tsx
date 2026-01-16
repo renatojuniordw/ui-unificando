@@ -69,7 +69,7 @@ export const SiteModule: React.FC<SiteModuleProps> = ({
           <div className="p-4 bg-white rounded-xl border border-slate-200">
             <div className="flex justify-between items-center mb-1">
               <span className="font-bold text-xs uppercase text-slate-700">
-                Setup Site
+                Configuração e Implementação
               </span>
               <span className="font-black text-slate-900">
                 R${" "}
