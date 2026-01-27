@@ -256,8 +256,30 @@ export const ContractGenerator: React.FC = () => {
   return (
     <PageTransition className="bg-slate-50 min-h-screen pb-20">
       <SEO
-        title="Gerar Contrato | Unificando"
-        description="Configure e gere seu contrato de serviços."
+        title="Gerar Contrato | Unificando - Automação para Prestadores de Serviço"
+        description="Configure e gere seu contrato de prestação de serviços de forma automática e profissional. Ideal para freelancers e agências de marketing."
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: "Gerador de Contrato de Prestação de Serviços",
+          provider: {
+            "@type": "Organization",
+            name: "Unificando",
+          },
+          description:
+            "Ferramenta online gratuita para configurar e gerar contratos de prestação de serviços de marketing, tráfego pago, design e desenvolvimento web.",
+          audience: {
+            "@type": "Audience",
+            audienceType:
+              "Freelancers, Agências de Marketing, Gestores de Tráfego",
+          },
+          serviceType: "Legal Service Automation",
+          offers: {
+            "@type": "Offer",
+            price: "0",
+            priceCurrency: "BRL",
+          },
+        }}
       />
 
       {/* Header */}

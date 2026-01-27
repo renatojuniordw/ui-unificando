@@ -20,6 +20,24 @@ export const DigitalPresence: React.FC = () => {
         title="Sites Profissionais e Presença Digital | Unificando"
         description="Tenha uma casa própria na internet. Sites rápidos, profissionais e otimizados para o Google."
         canonical="/presenca-digital"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          serviceType: "Web Development",
+          provider: {
+            "@type": "Organization",
+            name: "Unificando",
+          },
+          name: "Sites e Presença Digital",
+          description:
+            "Desenvolvimento de sites profissionais, landing pages e otimização SEO.",
+          offers: {
+            "@type": "Offer",
+            priceCurrency: "BRL",
+            price: "500.00",
+            priceValidUntil: "2025-12-31",
+          },
+        }}
       />
 
       {/* 1. Hero Section */}

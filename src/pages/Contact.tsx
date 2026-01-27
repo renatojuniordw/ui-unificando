@@ -24,6 +24,22 @@ export const Contact: React.FC = () => {
         title="Fale Conosco | Diagnóstico Gratuito Unificando"
         description="Agende uma conversa com nossos especialistas. Diagnóstico real do seu negócio sem custo e sem compromisso."
         canonical="/contato"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          name: "Fale Conosco - Unificando",
+          description:
+            "Entre em contato para um diagnóstico gratuito do seu ecossistema digital.",
+          mainEntity: {
+            "@type": "Organization",
+            name: "Unificando",
+            contactPoint: {
+              "@type": "ContactPoint",
+              contactType: "sales",
+              availableLanguage: "Portuguese",
+            },
+          },
+        }}
       />
       <section className="py-24 bg-slate-50 min-h-[80vh] flex items-center text-left border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-16">

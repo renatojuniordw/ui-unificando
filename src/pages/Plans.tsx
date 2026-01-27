@@ -56,7 +56,7 @@ export const Plans: React.FC<PlansProps> = () => {
 
     localStorage.setItem(
       "unificando_plan_selection",
-      JSON.stringify(selection)
+      JSON.stringify(selection),
     );
     navigate(ROUTES.CONTACT);
   };
@@ -67,6 +67,34 @@ export const Plans: React.FC<PlansProps> = () => {
         title="Planos e Preços | Unificando"
         description="Monte a solução ideal para o seu negócio. Atendimento Digital, Inteligência Artificial e Sites."
         canonical="/planos"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "OfferCatalog",
+          name: "Planos Unificando",
+          itemListElement: [
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Atendimento Digital",
+              },
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Inteligência Artificial",
+              },
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Site Institucional",
+              },
+            },
+          ],
+        }}
       />
 
       <PlansHeader />

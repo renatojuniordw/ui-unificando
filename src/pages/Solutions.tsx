@@ -138,6 +138,30 @@ export const Solutions: React.FC = () => {
         title="Nossas Soluções | Ecossistema Unificando"
         description="Ferramentas modulares para transformar sua operação digital. Atendimento, IA e Presença Digital."
         canonical="/solucoes"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "Soluções Unificando",
+          description:
+            "Ecossistema completo de ferramentas para atendimento, IA e sites.",
+          hasPart: [
+            {
+              "@type": "Service",
+              name: "Atendimento Unificado",
+              description: "Centralização de WhatsApp e Instagram.",
+            },
+            {
+              "@type": "Service",
+              name: "IA no Atendimento",
+              description: "Automação inteligente e chatbots.",
+            },
+            {
+              "@type": "Service",
+              name: "Sites & Presença Online",
+              description: "Desenvolvimento de sites e landing pages.",
+            },
+          ],
+        }}
       />
 
       {/* Header */}
