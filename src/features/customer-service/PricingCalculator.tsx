@@ -148,7 +148,7 @@ export const PricingCalculator = () => {
                 <div className="space-y-10">
                   <div className="border-b border-white/10 pb-10">
                     <span className="block text-slate-500 text-[10px] uppercase font-black tracking-widest mb-3">
-                      Configuração e Implementação Inicial (Único)
+                      Configuração e Implementação (Único)
                     </span>
                     <span className="text-5xl font-black tracking-tighter">
                       R$ {setup.toLocaleString("pt-BR")}
@@ -174,7 +174,7 @@ export const PricingCalculator = () => {
                       monthly,
                       setup,
                       date: new Date().toISOString(),
-                    })
+                    }),
                   );
                   navigate(ROUTES.CONTACT);
                 }}

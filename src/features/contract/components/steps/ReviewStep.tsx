@@ -25,7 +25,7 @@ export const ReviewStep: React.FC<ReviewStepProps> = ({
         <div className="grid grid-cols-2 gap-8 mb-8">
           <div className="text-center p-4 rounded-xl bg-white/5 border border-white/10">
             <div className="text-xs text-slate-400 uppercase tracking-widest mb-1">
-              Setup (Único)
+              Configuração e Implementação (Único)
             </div>
             <div className="text-2xl md:text-3xl font-black text-indigo-400">
               {pricing.setup.toLocaleString("pt-BR", {

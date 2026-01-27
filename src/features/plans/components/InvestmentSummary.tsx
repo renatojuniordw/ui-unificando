@@ -24,7 +24,7 @@ export const InvestmentSummary: React.FC<InvestmentSummaryProps> = ({
             <div className="flex items-end gap-6 justify-center md:justify-start">
               <div>
                 <span className="block text-slate-400 text-[10px] font-bold uppercase tracking-widest mb-1">
-                  Configuração e Implementação Inicial
+                  Configuração e Implementação
                 </span>
                 <span className="text-3xl md:text-4xl font-black tracking-tighter">
                   R$ {setup.toLocaleString("pt-BR")}
