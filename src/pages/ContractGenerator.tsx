@@ -33,6 +33,8 @@ export const ContractGenerator: React.FC = () => {
     message: string;
     type: ModalType;
     onClose?: () => void;
+    confirmText?: string;
+    onConfirm?: () => void;
   }>({
     isOpen: false,
     title: "",
@@ -45,8 +47,18 @@ export const ContractGenerator: React.FC = () => {
     message: string,
     type: ModalType = "error",
     onClose?: () => void,
+    confirmText?: string,
+    onConfirm?: () => void,
   ) => {
-    setModal({ isOpen: true, title, message, type, onClose });
+    setModal({
+      isOpen: true,
+      title,
+      message,
+      type,
+      onClose,
+      confirmText,
+      onConfirm,
+    });
   };
 
   const closeModal = () => {
@@ -276,10 +288,16 @@ export const ContractGenerator: React.FC = () => {
       await WebhookService.sendData("/api/contract", submissionData);
 
       showModal(
-        "Sucesso!",
-        "Seus dados foram enviados com sucesso. Você será redirecionado em instantes.",
+        "Sucesso! Próximo Passo 🚀",
+        "Seus dados foram enviados e o contrato gerado. Para iniciarmos o setup, precisamos de alguns detalhes técnicos.",
         "success",
         () => navigate("/"),
+        "PREENCHER BRIEFING AGORA",
+        () => {
+          // Redirect to briefing form (Tally/Typeform)
+          window.open("https://tally.so", "_blank");
+          navigate("/");
+        },
       );
     } catch (e) {
       console.error(e);
@@ -525,6 +543,8 @@ export const ContractGenerator: React.FC = () => {
         title={modal.title}
         message={modal.message}
         type={modal.type}
+        confirmText={modal.confirmText}
+        onConfirm={modal.onConfirm}
       />
     </PageTransition>
   );

@@ -9,6 +9,8 @@ interface ModalProps {
   title: string;
   message: string;
   type?: ModalType;
+  confirmText?: string;
+  onConfirm?: () => void;
 }
 
 export const Modal: React.FC<ModalProps> = ({
@@ -17,6 +19,8 @@ export const Modal: React.FC<ModalProps> = ({
   title,
   message,
   type = "error",
+  confirmText,
+  onConfirm,
 }) => {
   useEffect(() => {
     if (isOpen) {
@@ -111,12 +115,30 @@ export const Modal: React.FC<ModalProps> = ({
             <p className="text-slate-500 mb-6 text-sm leading-relaxed">
               {message}
             </p>
-            <button
-              onClick={onClose}
-              className={`w-full py-3 rounded-xl font-bold text-white transition-all shadow-lg hover:-translate-y-0.5 ${buttonColors[type]}`}
-            >
-              Entendido
-            </button>
+
+            {onConfirm ? (
+              <div className="flex flex-col w-full gap-3">
+                <button
+                  onClick={onConfirm}
+                  className={`w-full py-3 rounded-xl font-bold text-white transition-all shadow-lg hover:-translate-y-0.5 ${buttonColors[type]}`}
+                >
+                  {confirmText || "Confirmar"}
+                </button>
+                <button
+                  onClick={onClose}
+                  className="w-full py-3 rounded-xl font-bold text-slate-400 hover:text-slate-600 transition-colors"
+                >
+                  Fechar
+                </button>
+              </div>
+            ) : (
+              <button
+                onClick={onClose}
+                className={`w-full py-3 rounded-xl font-bold text-white transition-all shadow-lg hover:-translate-y-0.5 ${buttonColors[type]}`}
+              >
+                Entendido
+              </button>
+            )}
           </motion.div>
         </div>
       )}
