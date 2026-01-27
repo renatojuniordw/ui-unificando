@@ -100,22 +100,6 @@ export const IAStep: React.FC<IAStepProps> = ({ data, handleInputChange }) => {
           />
         </div>
       </div>
-
-      <div>
-        <label
-          htmlFor="aiDetails"
-          className="block text-[15px] font-black text-slate-400 mb-3 uppercase tracking-widest"
-        >
-          Observações sobre a IA <span className="text-red-500">*</span>
-        </label>
-        <textarea
-          id="aiDetails"
-          className="w-full bg-slate-50 border-2 border-slate-200 text-slate-900 px-4 py-3 rounded-2xl focus:border-indigo-500 focus:ring-0 outline-none font-medium transition-all placeholder:text-slate-400 min-h-[120px] resize-y"
-          value={data.aiDetails}
-          onChange={(e) => handleInputChange("aiDetails", e.target.value)}
-          placeholder="Descreva brevemente o comportamento esperado da IA..."
-        />
-      </div>
     </div>
   );
 };

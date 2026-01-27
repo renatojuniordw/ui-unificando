@@ -44,16 +44,13 @@ export interface ServiceDetailsData {
   // Atendimento
   inboxes: number;
   attendants: number;
-  inboxDetails: string;
 
   // IA
   aiChannels: ContractAiChannels;
   aiAddons: ContractAiAddons;
-  aiDetails: string;
 
   // Site
   sitePages: number;
-  siteDetails: string;
 }
 
 // 4. Cobrança
@@ -97,7 +94,6 @@ export const INITIAL_CONTRACT_DATA: ContractData = {
   serviceDetailsData: {
     inboxes: 1,
     attendants: 1,
-    inboxDetails: "",
     aiChannels: {
       whatsapp: false,
       instagram_direct: false,
@@ -109,9 +105,7 @@ export const INITIAL_CONTRACT_DATA: ContractData = {
       api: false,
       google: false,
     },
-    aiDetails: "",
     sitePages: 1,
-    siteDetails: "",
   },
   billingData: {
     billingDueDay: "05",

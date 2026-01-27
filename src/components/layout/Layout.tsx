@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import { NavItem } from "../../types";
 import { ROUTES } from "../../routes";
 import { Header } from "./Header";
@@ -35,13 +36,20 @@ interface LayoutProps {
 }
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
+  const location = useLocation();
+  const isContractPage = location.pathname === "/contrato";
+
   return (
     <div className="min-h-screen flex flex-col selection:bg-indigo-100 selection:text-indigo-900">
-      <Header navItems={navItems} solutionItems={solutionItems} />
+      {!isContractPage && (
+        <Header navItems={navItems} solutionItems={solutionItems} />
+      )}
 
-      <main className="flex-grow pt-20">{children}</main>
+      <main className={`flex-grow ${!isContractPage ? "pt-20" : ""}`}>
+        {children}
+      </main>
 
-      <Footer />
+      {!isContractPage && <Footer />}
       {/* <ChatwootWidget /> */}
     </div>
   );

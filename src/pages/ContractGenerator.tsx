@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { PageTransition } from "../components/common/PageTransition";
 import { SEO } from "../components/common/SEO";
 import { PRICING } from "../constants/pricing";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import {
   ContractData,
   INITIAL_CONTRACT_DATA,
@@ -226,16 +226,11 @@ export const ContractGenerator: React.FC = () => {
 
     // IA step
     if (currentId === "ia") {
-      if (
-        !data.serviceDetailsData.aiDetails.trim() &&
-        Object.values(data.serviceDetailsData.aiChannels).every((v) => !v)
-      )
+      if (Object.values(data.serviceDetailsData.aiChannels).every((v) => !v))
         return false;
     }
 
-    if (currentId === "site") {
-      if (!data.serviceDetailsData.siteDetails.trim()) return false;
-    }
+    // Site step - no validation needed as pages has default
 
     return true;
   };
@@ -329,6 +324,17 @@ export const ContractGenerator: React.FC = () => {
 
       {/* Header */}
       <div className="bg-slate-900 text-white py-12 px-4 text-center relative overflow-hidden">
+        {/* Back Button */}
+        <Link
+          to="/"
+          className="absolute top-6 left-6 z-20 flex items-center gap-2 text-slate-500 hover:text-white transition-colors text-xs font-bold uppercase tracking-widest group"
+        >
+          <span className="group-hover:-translate-x-1 transition-transform">
+            ←
+          </span>{" "}
+          Voltar
+        </Link>
+
         <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 blur-[100px] rounded-full pointer-events-none"></div>
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-500/10 blur-[100px] rounded-full pointer-events-none"></div>
         <h1 className="text-3xl md:text-4xl font-black uppercase tracking-tight mb-4 relative z-10">
