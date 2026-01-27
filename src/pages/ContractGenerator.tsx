@@ -14,6 +14,7 @@ import { AtendimentoStep } from "../features/contract/components/steps/Atendimen
 import { IAStep } from "../features/contract/components/steps/IAStep";
 import { SiteStep } from "../features/contract/components/steps/SiteStep";
 import { ReviewStep } from "../features/contract/components/steps/ReviewStep";
+import { Modal, ModalType } from "../components/common/Modal";
 
 export const ContractGenerator: React.FC = () => {
   const navigate = useNavigate();
@@ -21,6 +22,34 @@ export const ContractGenerator: React.FC = () => {
   const [data, setData] = useState<ContractData>(INITIAL_CONTRACT_DATA);
   const [turnstileToken, setTurnstileToken] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Modal State
+  const [modal, setModal] = useState<{
+    isOpen: boolean;
+    title: string;
+    message: string;
+    type: ModalType;
+    onClose?: () => void;
+  }>({
+    isOpen: false,
+    title: "",
+    message: "",
+    type: "error",
+  });
+
+  const showModal = (
+    title: string,
+    message: string,
+    type: ModalType = "error",
+    onClose?: () => void,
+  ) => {
+    setModal({ isOpen: true, title, message, type, onClose });
+  };
+
+  const closeModal = () => {
+    setModal((prev) => ({ ...prev, isOpen: false }));
+    if (modal.onClose) modal.onClose();
+  };
 
   // Determine steps based on selection
   const steps = useMemo(() => {
@@ -170,8 +199,10 @@ export const ContractGenerator: React.FC = () => {
       setStep((prev) => Math.min(prev + 1, steps.length - 1));
       window.scrollTo(0, 0);
     } else {
-      alert(
+      showModal(
+        "Atenção",
         "Por favor, preencha todas as informações obrigatórias desta etapa para continuar.",
+        "warning",
       );
     }
   };
@@ -183,7 +214,11 @@ export const ContractGenerator: React.FC = () => {
 
   const handleSubmit = async () => {
     if (!turnstileToken) {
-      alert("Aguarde a verificação de segurança.");
+      showModal(
+        "Verificação Necessária",
+        "Aguarde a verificação de segurança (Turnstile) antes de continuar.",
+        "warning",
+      );
       return;
     }
     setIsSubmitting(true);
@@ -211,11 +246,19 @@ export const ContractGenerator: React.FC = () => {
 
       if (!response.ok) throw new Error("Erro no envio");
 
-      alert("Dados enviados com sucesso! Redirecionando...");
-      navigate("/");
+      showModal(
+        "Sucesso!",
+        "Seus dados foram enviados com sucesso. Você será redirecionado em instantes.",
+        "success",
+        () => navigate("/"),
+      );
     } catch (e) {
       console.error(e);
-      alert("Erro ao enviar. Tente novamente ou contate o suporte.");
+      showModal(
+        "Erro no Envio",
+        "Ocorreu um erro ao processar sua solicitação. Tente novamente ou contate o suporte.",
+        "error",
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -369,6 +412,13 @@ export const ContractGenerator: React.FC = () => {
             @apply text-xl font-bold text-slate-800 mb-1;
         }
       `}</style>
+      <Modal
+        isOpen={modal.isOpen}
+        onClose={closeModal}
+        title={modal.title}
+        message={modal.message}
+        type={modal.type}
+      />
     </PageTransition>
   );
 };

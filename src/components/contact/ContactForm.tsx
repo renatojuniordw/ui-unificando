@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Turnstile } from "@marsidev/react-turnstile";
 import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
+import { Modal, ModalType } from "../common/Modal";
 
 interface ContactFormProps {
   planSelection?: any;
@@ -15,6 +16,34 @@ export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
   const [whatsapp, setWhatsapp] = useState("");
   const [turnstileToken, setTurnstileToken] = useState("");
   const [company, setCompany] = useState(""); // Honeypot
+
+  // Modal State
+  const [modal, setModal] = useState<{
+    isOpen: boolean;
+    title: string;
+    message: string;
+    type: ModalType;
+    onClose?: () => void;
+  }>({
+    isOpen: false,
+    title: "",
+    message: "",
+    type: "error",
+  });
+
+  const showModal = (
+    title: string,
+    message: string,
+    type: ModalType = "error",
+    onClose?: () => void,
+  ) => {
+    setModal({ isOpen: true, title, message, type, onClose });
+  };
+
+  const closeModal = () => {
+    setModal((prev) => ({ ...prev, isOpen: false }));
+    if (modal.onClose) modal.onClose();
+  };
 
   const CHALLENGES = [
     {
@@ -66,7 +95,11 @@ export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
     }
 
     if (!name.trim() || !whatsapp.trim() || !challenge) {
-      alert("Por favor, preencha todos os campos obrigatórios.");
+      showModal(
+        "Campos Obrigatórios",
+        "Por favor, preencha todos os campos obrigatórios.",
+        "warning",
+      );
       return;
     }
 
@@ -120,8 +153,10 @@ export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
       localStorage.removeItem("unificando_plan_selection");
     } catch (error) {
       console.error("Error submitting form:", error);
-      alert(
+      showModal(
+        "Erro no Envio",
         "Houve um erro ao enviar sua mensagem. Por favor, tente novamente ou entre em contato pelo WhatsApp.",
+        "error",
       );
     } finally {
       setIsSubmitting(false);
@@ -266,6 +301,13 @@ export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
           </p>
         </form>
       )}
+      <Modal
+        isOpen={modal.isOpen}
+        onClose={closeModal}
+        title={modal.title}
+        message={modal.message}
+        type={modal.type}
+      />
     </div>
   );
 };
