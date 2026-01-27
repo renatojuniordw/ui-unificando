@@ -3,6 +3,7 @@ import { Turnstile } from "@marsidev/react-turnstile";
 import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
 import { Modal, ModalType } from "../common/Modal";
+import { WebhookService } from "../../services/webhook.service";
 
 interface ContactFormProps {
   planSelection?: any;
@@ -127,25 +128,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
     );
 
     try {
-      const webhookUrl = `${import.meta.env.VITE_N8N_WEBHOOK_URL}/api/contact`;
-
-      if (!webhookUrl) {
-        throw new Error("Webhook URL not configured");
-      }
-
-      const idem = crypto.randomUUID();
-      const response = await fetch(webhookUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Idempotency-Key": idem,
-        },
-        body: JSON.stringify(submissionData),
-      });
-
-      if (!response.ok) {
-        throw new Error(`Webhook error: ${response.status}`);
-      }
+      await WebhookService.sendData("/api/contact", submissionData);
 
       // Success
       setSubmitted(true);

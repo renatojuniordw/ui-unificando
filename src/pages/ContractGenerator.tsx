@@ -15,6 +15,7 @@ import { IAStep } from "../features/contract/components/steps/IAStep";
 import { SiteStep } from "../features/contract/components/steps/SiteStep";
 import { ReviewStep } from "../features/contract/components/steps/ReviewStep";
 import { Modal, ModalType } from "../components/common/Modal";
+import { WebhookService } from "../services/webhook.service";
 
 export const ContractGenerator: React.FC = () => {
   const navigate = useNavigate();
@@ -216,7 +217,7 @@ export const ContractGenerator: React.FC = () => {
     if (!turnstileToken) {
       showModal(
         "Verificação Necessária",
-        "Aguarde a verificação de segurança (Turnstile) antes de continuar.",
+        "Aguarde a verificação de segurança antes de continuar.",
         "warning",
       );
       return;
@@ -232,19 +233,7 @@ export const ContractGenerator: React.FC = () => {
     };
 
     try {
-      const webhookUrl = `${import.meta.env.VITE_N8N_WEBHOOK_URL}/api/contract`;
-      const idem = crypto.randomUUID();
-
-      const response = await fetch(webhookUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Idempotency-Key": idem,
-        },
-        body: JSON.stringify(submissionData),
-      });
-
-      if (!response.ok) throw new Error("Erro no envio");
+      await WebhookService.sendData("/api/contract", submissionData);
 
       showModal(
         "Sucesso!",
