@@ -90,7 +90,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
     // Save to localStorage as a backup
     localStorage.setItem(
       "unificando_contact_data",
-      JSON.stringify(submissionData)
+      JSON.stringify(submissionData),
     );
 
     try {
@@ -121,7 +121,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
     } catch (error) {
       console.error("Error submitting form:", error);
       alert(
-        "Houve um erro ao enviar sua mensagem. Por favor, tente novamente ou entre em contato pelo WhatsApp."
+        "Houve um erro ao enviar sua mensagem. Por favor, tente novamente ou entre em contato pelo WhatsApp.",
       );
     } finally {
       setIsSubmitting(false);
@@ -258,8 +258,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
             {isSubmitting
               ? "ENVIANDO..."
               : turnstileToken
-              ? "AGENDAR CONVERSA"
-              : "AGUARDANDO VERIFICAÇÃO..."}
+                ? "SAIBA MAIS"
+                : "AGUARDANDO VERIFICAÇÃO..."}
           </button>
           <p className="text-center text-[8px] font-black text-slate-600 mt-6 uppercase tracking-[0.3em]">
             Seus dados estão seguros. Não enviamos spam.
