@@ -49,7 +49,7 @@ export const SEO: React.FC<SEOProps> = ({
             "@type": "Organization",
             name: "Unificando",
             url: "https://unificando.com.br",
-            logo: "https://unificando.com.br/logo.png",
+            logo: "https://unificando.com.br/assets/LOGO_UNIFICANDO-D8bsxGgc.svg",
             description:
               "Ecossistema de organização e automação de atendimento para WhatsApp e Instagram.",
           },

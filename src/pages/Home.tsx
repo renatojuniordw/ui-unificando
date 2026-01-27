@@ -17,14 +17,33 @@ export const Home: React.FC = () => {
         canonical="/"
         jsonLd={{
           "@context": "https://schema.org",
-          "@type": "WebSite",
-          name: "Unificando",
-          url: "https://unificando.com.br",
-          potentialAction: {
-            "@type": "SearchAction",
-            target: "https://unificando.com.br/search?q={search_term_string}",
-            "query-input": "required name=search_term_string",
-          },
+          "@graph": [
+            {
+              "@type": "WebSite",
+              name: "Unificando",
+              url: "https://unificando.com.br",
+              potentialAction: {
+                "@type": "SearchAction",
+                target:
+                  "https://unificando.com.br/search?q={search_term_string}",
+                "query-input": "required name=search_term_string",
+              },
+            },
+            {
+              "@type": "Organization",
+              name: "Unificando",
+              url: "https://unificando.com.br",
+              logo: "https://unificando.com.br/assets/LOGO_UNIFICANDO-D8bsxGgc.svg",
+              sameAs: ["https://instagram.com/unificando.digital"],
+              contactPoint: {
+                "@type": "ContactPoint",
+                telephone: "+55 81 99555-7302",
+                contactType: "customer service",
+                areaServed: "BR",
+                availableLanguage: "Portuguese",
+              },
+            },
+          ],
         }}
       />
 
