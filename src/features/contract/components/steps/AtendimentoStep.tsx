@@ -1,11 +1,11 @@
 import React from "react";
 
 import { Counter } from "../Counter";
-import { ContractData } from "@/types/contract";
+import { ServiceDetailsData } from "@/types/contract";
 
 interface AtendimentoStepProps {
-  data: ContractData;
-  handleInputChange: (field: keyof ContractData, value: any) => void;
+  data: ServiceDetailsData;
+  handleInputChange: (field: keyof ServiceDetailsData, value: any) => void;
 }
 
 export const AtendimentoStep: React.FC<AtendimentoStepProps> = ({

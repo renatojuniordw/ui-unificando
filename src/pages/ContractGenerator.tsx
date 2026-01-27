@@ -10,10 +10,12 @@ import {
   ServiceSelection,
 } from "../types/contract";
 import { PersonalDataStep } from "../features/contract/components/steps/PersonalDataStep";
+import { AddressStep } from "../features/contract/components/steps/AddressStep";
 import { AtendimentoStep } from "../features/contract/components/steps/AtendimentoStep";
 import { IAStep } from "../features/contract/components/steps/IAStep";
 import { SiteStep } from "../features/contract/components/steps/SiteStep";
 import { ReviewStep } from "../features/contract/components/steps/ReviewStep";
+import { BillingStep } from "../features/contract/components/steps/BillingStep";
 import { Modal, ModalType } from "../components/common/Modal";
 import { WebhookService } from "../services/webhook.service";
 
@@ -55,14 +57,17 @@ export const ContractGenerator: React.FC = () => {
   // Determine steps based on selection
   const steps = useMemo(() => {
     const s = [{ id: "personal", title: "Dados & Serviços" }];
-    if (data.services.atendimento)
+    s.push({ id: "address", title: "Endereço" });
+    if (data.personalData.services.atendimento)
       s.push({ id: "atendimento", title: "Atendimento" });
-    if (data.services.ia)
+    if (data.personalData.services.ia)
       s.push({ id: "ia", title: "Inteligência Artificial" });
-    if (data.services.site) s.push({ id: "site", title: "Site & Presença" });
+    if (data.personalData.services.site)
+      s.push({ id: "site", title: "Site & Presença" });
+    s.push({ id: "billing", title: "Cobrança" });
     s.push({ id: "review", title: "Revisão & Contrato" });
     return s;
-  }, [data.services]);
+  }, [data.personalData.services]);
 
   const currentStepId = steps[step]?.id;
 
@@ -75,13 +80,13 @@ export const ContractGenerator: React.FC = () => {
     let monthlyTotal = 0;
 
     // Atendimento
-    if (data.services.atendimento) {
+    if (data.personalData.services.atendimento) {
       const normInboxes = clampInt(
-        data.inboxes,
+        data.serviceDetailsData.inboxes,
         PRICING.calculadora.rules.minimumInboxes,
       );
       const normAttendants = clampInt(
-        data.attendants,
+        data.serviceDetailsData.attendants,
         PRICING.calculadora.rules.minimumAttendants,
       );
 
@@ -98,16 +103,16 @@ export const ContractGenerator: React.FC = () => {
     }
 
     // IA
-    if (data.services.ia) {
+    if (data.personalData.services.ia) {
       const baseSetup = PRICING.ia.base.setup;
       const baseMonthly = PRICING.ia.base.monthly;
 
       setupTotal += baseSetup;
       monthlyTotal += baseMonthly;
 
-      const selectedCount = Object.values(data.aiChannels).filter(
-        Boolean,
-      ).length;
+      const selectedCount = Object.values(
+        data.serviceDetailsData.aiChannels,
+      ).filter(Boolean).length;
       const extraChannels = Math.max(0, selectedCount - 1);
 
       if (extraChannels > 0) {
@@ -119,15 +124,15 @@ export const ContractGenerator: React.FC = () => {
           (baseMonthly * PRICING.ia.extras.channel.monthlyPercentage);
       }
 
-      if (data.aiAddons.audio) {
+      if (data.serviceDetailsData.aiAddons.audio) {
         setupTotal += baseSetup * PRICING.ia.extras.audio.setupPercentage;
         monthlyTotal += baseMonthly * PRICING.ia.extras.audio.monthlyPercentage;
       }
-      if (data.aiAddons.api) {
+      if (data.serviceDetailsData.aiAddons.api) {
         setupTotal += baseSetup * PRICING.ia.extras.api.setupPercentage;
         monthlyTotal += baseMonthly * PRICING.ia.extras.api.monthlyPercentage;
       }
-      if (data.aiAddons.google) {
+      if (data.serviceDetailsData.aiAddons.google) {
         setupTotal += baseSetup * PRICING.ia.extras.google.setupPercentage;
         monthlyTotal +=
           baseMonthly * PRICING.ia.extras.google.monthlyPercentage;
@@ -135,8 +140,8 @@ export const ContractGenerator: React.FC = () => {
     }
 
     // Site
-    if (data.services.site) {
-      const normPages = clampInt(data.sitePages, 1);
+    if (data.personalData.services.site) {
+      const normPages = clampInt(data.serviceDetailsData.sitePages, 1);
       setupTotal += PRICING.site.landing.setup;
       if (normPages > 1) {
         setupTotal +=
@@ -149,14 +154,30 @@ export const ContractGenerator: React.FC = () => {
   }, [data]);
 
   // Handlers
-  const handleInputChange = (field: keyof ContractData, value: any) => {
-    setData((prev) => ({ ...prev, [field]: value }));
+  const handleInputChange = (
+    section: keyof ContractData,
+    field: string,
+    value: any,
+  ) => {
+    setData((prev) => ({
+      ...prev,
+      [section]: {
+        ...prev[section],
+        [field]: value,
+      },
+    }));
   };
 
   const updateService = (service: keyof ServiceSelection) => {
     setData((prev) => ({
       ...prev,
-      services: { ...prev.services, [service]: !prev.services[service] },
+      personalData: {
+        ...prev.personalData,
+        services: {
+          ...prev.personalData.services,
+          [service]: !prev.personalData.services[service],
+        },
+      },
     }));
   };
 
@@ -165,31 +186,55 @@ export const ContractGenerator: React.FC = () => {
 
     if (currentId === "personal") {
       if (
-        !data.name.trim() ||
-        !data.document.trim() ||
-        !data.email.trim() ||
-        !data.whatsapp.trim()
+        !data.personalData.name.trim() ||
+        !data.personalData.document.trim() ||
+        !data.personalData.email.trim() ||
+        !data.personalData.whatsapp.trim()
       )
         return false;
+
+      // Validate Representative if CNPJ
+      const docDigits = data.personalData.document.replace(/\D/g, "");
+      if (docDigits.length > 11) {
+        if (
+          !data.personalData.representativeName?.trim() ||
+          !data.personalData.representativeDocument?.trim()
+        ) {
+          return false;
+        }
+      }
+
       if (
-        !data.services.atendimento &&
-        !data.services.ia &&
-        !data.services.site
+        !data.personalData.services.atendimento &&
+        !data.personalData.services.ia &&
+        !data.personalData.services.site
       )
         return false;
     }
 
-    // IA step usually requires at least one channel or description if implied, checking details presence
+    if (currentId === "address") {
+      if (
+        !data.addressData.zipCode ||
+        !data.addressData.street ||
+        !data.addressData.number ||
+        !data.addressData.neighborhood ||
+        !data.addressData.city ||
+        !data.addressData.state
+      )
+        return false;
+    }
+
+    // IA step
     if (currentId === "ia") {
       if (
-        !data.aiDetails.trim() &&
-        Object.values(data.aiChannels).every((v) => !v)
+        !data.serviceDetailsData.aiDetails.trim() &&
+        Object.values(data.serviceDetailsData.aiChannels).every((v) => !v)
       )
         return false;
     }
 
     if (currentId === "site") {
-      if (!data.siteDetails.trim()) return false;
+      if (!data.serviceDetailsData.siteDetails.trim()) return false;
     }
 
     return true;
@@ -330,32 +375,77 @@ export const ContractGenerator: React.FC = () => {
                 {/* STEP 1: Personal Data & Services */}
                 {currentStepId === "personal" && (
                   <PersonalDataStep
-                    data={data}
-                    handleInputChange={handleInputChange}
+                    data={data.personalData}
+                    handleInputChange={(field, value) =>
+                      handleInputChange("personalData", field as string, value)
+                    }
                     updateService={updateService}
+                  />
+                )}
+
+                {/* STEP: Address */}
+                {currentStepId === "address" && (
+                  <AddressStep
+                    data={data.addressData}
+                    handleInputChange={(field, value) =>
+                      handleInputChange("addressData", field as string, value)
+                    }
                   />
                 )}
 
                 {/* STEP: Atendimento */}
                 {currentStepId === "atendimento" && (
                   <AtendimentoStep
-                    data={data}
-                    handleInputChange={handleInputChange}
+                    data={data.serviceDetailsData}
+                    handleInputChange={(field, value) =>
+                      handleInputChange(
+                        "serviceDetailsData",
+                        field as string,
+                        value,
+                      )
+                    }
                   />
                 )}
 
                 {/* STEP: IA */}
                 {currentStepId === "ia" && (
                   <IAStep
-                    data={data}
-                    setData={setData}
-                    handleInputChange={handleInputChange}
+                    data={data.serviceDetailsData}
+                    handleInputChange={(field, value) =>
+                      handleInputChange(
+                        "serviceDetailsData",
+                        field as string,
+                        value,
+                      )
+                    }
                   />
                 )}
 
                 {/* STEP: Site */}
                 {currentStepId === "site" && (
-                  <SiteStep data={data} handleInputChange={handleInputChange} />
+                  <SiteStep
+                    data={data.serviceDetailsData}
+                    handleInputChange={(field, value) =>
+                      handleInputChange(
+                        "serviceDetailsData",
+                        field as string,
+                        value,
+                      )
+                    }
+                  />
+                )}
+
+                {/* STEP: Billing */}
+                {currentStepId === "billing" && (
+                  <BillingStep
+                    data={data.billingData}
+                    updateData={(updates) =>
+                      setData((prev) => ({
+                        ...prev,
+                        billingData: { ...prev.billingData, ...updates },
+                      }))
+                    }
+                  />
                 )}
 
                 {/* STEP: Review */}

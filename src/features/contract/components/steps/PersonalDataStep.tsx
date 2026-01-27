@@ -1,12 +1,12 @@
 import React from "react";
 import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
-import { ContractData, ServiceSelection } from "@/types/contract";
+import { PersonalData, ServiceSelection } from "@/types/contract";
 import { ServiceCard } from "../ServiceCard";
 
 interface PersonalDataStepProps {
-  data: ContractData;
-  handleInputChange: (field: keyof ContractData, value: any) => void;
+  data: PersonalData;
+  handleInputChange: (field: keyof PersonalData, value: any) => void;
   updateService: (service: keyof ServiceSelection) => void;
 }
 
@@ -92,6 +92,55 @@ export const PersonalDataStep: React.FC<PersonalDataStepProps> = ({
               maxLength={18}
             />
           </div>
+
+          {/* Legal Representative Fields (Only for CNPJ) */}
+          {data.document.replace(/\D/g, "").length > 11 && (
+            <div className="md:col-span-1 space-y-6 animate-in bg-slate-100 p-6 rounded-2xl border border-slate-200">
+              <div className="col-span-full">
+                <h3 className="text-sm font-bold text-slate-700 uppercase tracking-wide mb-1 flex items-center gap-2">
+                  👤 Responsável Legal
+                </h3>
+                <p className="text-[10px] text-slate-500 mb-4">
+                  Como é uma Pessoa Jurídica (CNPJ), precisamos dos dados de
+                  quem assinará o contrato.
+                </p>
+              </div>
+              <div>
+                <label className="block text-[10px] font-black text-slate-400 mb-3 uppercase tracking-widest">
+                  Nome do Sócio/Responsável{" "}
+                  <span className="text-red-500">*</span>
+                </label>
+                <input
+                  className="w-full bg-white border-2 border-slate-200 text-slate-900 px-4 py-3 rounded-2xl focus:border-indigo-500 focus:ring-0 outline-none font-medium transition-all placeholder:text-slate-400"
+                  value={data.representativeName}
+                  onChange={(e) =>
+                    handleInputChange("representativeName", e.target.value)
+                  }
+                  placeholder="Nome completo do assinante"
+                />
+              </div>
+              <div>
+                <label className="block text-[10px] font-black text-slate-400 mb-3 uppercase tracking-widest">
+                  CPF do Responsável <span className="text-red-500">*</span>
+                </label>
+                <input
+                  className="w-full bg-white border-2 border-slate-200 text-slate-900 px-4 py-3 rounded-2xl focus:border-indigo-500 focus:ring-0 outline-none font-medium transition-all placeholder:text-slate-400"
+                  value={data.representativeDocument}
+                  onChange={(e) => {
+                    const val = e.target.value
+                      .replace(/\D/g, "")
+                      .slice(0, 11)
+                      .replace(/(\d{3})(\d)/, "$1.$2")
+                      .replace(/(\d{3})(\d)/, "$1.$2")
+                      .replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+                    handleInputChange("representativeDocument", val);
+                  }}
+                  placeholder="000.000.000-00"
+                  maxLength={14}
+                />
+              </div>
+            </div>
+          )}
           <div>
             <label
               htmlFor="email"

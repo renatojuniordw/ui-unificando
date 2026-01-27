@@ -1,18 +1,13 @@
 import React from "react";
-import { ContractData } from "@/types/contract";
+import { ServiceDetailsData } from "@/types/contract";
 import { Checkbox } from "../Checkbox";
 
 interface IAStepProps {
-  data: ContractData;
-  setData: React.Dispatch<React.SetStateAction<ContractData>>;
-  handleInputChange: (field: keyof ContractData, value: any) => void;
+  data: ServiceDetailsData;
+  handleInputChange: (field: keyof ServiceDetailsData, value: any) => void;
 }
 
-export const IAStep: React.FC<IAStepProps> = ({
-  data,
-  setData,
-  handleInputChange,
-}) => {
+export const IAStep: React.FC<IAStepProps> = ({ data, handleInputChange }) => {
   return (
     <div className="space-y-6">
       <h2 className="text-xl font-bold text-slate-800 mb-6 flex items-center gap-2">
@@ -29,52 +24,40 @@ export const IAStep: React.FC<IAStepProps> = ({
             label="WhatsApp"
             checked={data.aiChannels.whatsapp}
             onChange={() =>
-              setData((prev) => ({
-                ...prev,
-                aiChannels: {
-                  ...prev.aiChannels,
-                  whatsapp: !prev.aiChannels.whatsapp,
-                },
-              }))
+              handleInputChange("aiChannels", {
+                ...data.aiChannels,
+                whatsapp: !data.aiChannels.whatsapp,
+              })
             }
           />
           <Checkbox
             label="Instagram Direct"
             checked={data.aiChannels.instagram_direct}
             onChange={() =>
-              setData((prev) => ({
-                ...prev,
-                aiChannels: {
-                  ...prev.aiChannels,
-                  instagram_direct: !prev.aiChannels.instagram_direct,
-                },
-              }))
+              handleInputChange("aiChannels", {
+                ...data.aiChannels,
+                instagram_direct: !data.aiChannels.instagram_direct,
+              })
             }
           />
           <Checkbox
             label="Instagram Comentários"
             checked={data.aiChannels.instagram_comments}
             onChange={() =>
-              setData((prev) => ({
-                ...prev,
-                aiChannels: {
-                  ...prev.aiChannels,
-                  instagram_comments: !prev.aiChannels.instagram_comments,
-                },
-              }))
+              handleInputChange("aiChannels", {
+                ...data.aiChannels,
+                instagram_comments: !data.aiChannels.instagram_comments,
+              })
             }
           />
           <Checkbox
             label="Chat no Site"
             checked={data.aiChannels.site_chat}
             onChange={() =>
-              setData((prev) => ({
-                ...prev,
-                aiChannels: {
-                  ...prev.aiChannels,
-                  site_chat: !prev.aiChannels.site_chat,
-                },
-              }))
+              handleInputChange("aiChannels", {
+                ...data.aiChannels,
+                site_chat: !data.aiChannels.site_chat,
+              })
             }
           />
         </div>
@@ -89,39 +72,30 @@ export const IAStep: React.FC<IAStepProps> = ({
             label="Interpretação de Áudio"
             checked={data.aiAddons.audio}
             onChange={() =>
-              setData((prev) => ({
-                ...prev,
-                aiAddons: {
-                  ...prev.aiAddons,
-                  audio: !prev.aiAddons.audio,
-                },
-              }))
+              handleInputChange("aiAddons", {
+                ...data.aiAddons,
+                audio: !data.aiAddons.audio,
+              })
             }
           />
           <Checkbox
             label="Consulta API (CRM/ERP)"
             checked={data.aiAddons.api}
             onChange={() =>
-              setData((prev) => ({
-                ...prev,
-                aiAddons: {
-                  ...prev.aiAddons,
-                  api: !prev.aiAddons.api,
-                },
-              }))
+              handleInputChange("aiAddons", {
+                ...data.aiAddons,
+                api: !data.aiAddons.api,
+              })
             }
           />
           <Checkbox
             label="Agendamento Google"
             checked={data.aiAddons.google}
             onChange={() =>
-              setData((prev) => ({
-                ...prev,
-                aiAddons: {
-                  ...prev.aiAddons,
-                  google: !prev.aiAddons.google,
-                },
-              }))
+              handleInputChange("aiAddons", {
+                ...data.aiAddons,
+                google: !data.aiAddons.google,
+              })
             }
           />
         </div>

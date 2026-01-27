@@ -1,10 +1,10 @@
 import React from "react";
-import { ContractData } from "@/types/contract";
+import { ServiceDetailsData } from "@/types/contract";
 import { Counter } from "../Counter";
 
 interface SiteStepProps {
-  data: ContractData;
-  handleInputChange: (field: keyof ContractData, value: any) => void;
+  data: ServiceDetailsData;
+  handleInputChange: (field: keyof ServiceDetailsData, value: any) => void;
 }
 
 export const SiteStep: React.FC<SiteStepProps> = ({

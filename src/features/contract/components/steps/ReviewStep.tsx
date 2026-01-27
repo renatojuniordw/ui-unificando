@@ -50,22 +50,57 @@ export const ReviewStep: React.FC<ReviewStepProps> = ({
         <div className="space-y-2 text-sm text-slate-400 border-t border-white/10 pt-4">
           <div className="flex justify-between">
             <span>Cliente</span>
-            <span className="text-white">{data.name}</span>
+            <span className="text-white">{data.personalData.name}</span>
           </div>
           <div className="flex justify-between">
             <span>Documento</span>
-            <span className="text-white">{data.document}</span>
+            <span className="text-white">{data.personalData.document}</span>
+          </div>
+          <div className="flex justify-between">
+            <span>Endereço</span>
+            <span className="text-white text-right max-w-[200px] leading-tight">
+              {data.addressData.street}, {data.addressData.number}
+              {data.addressData.complement &&
+                ` - ${data.addressData.complement}`}
+              <br />
+              {data.addressData.neighborhood} - {data.addressData.city}/
+              {data.addressData.state}
+            </span>
           </div>
           <div className="flex justify-between">
             <span>Serviços</span>
             <span className="text-white">
               {[
-                data.services.atendimento && "Atendimento",
-                data.services.ia && "IA",
-                data.services.site && "Site",
+                data.personalData.services.atendimento && "Atendimento",
+                data.personalData.services.ia && "IA",
+                data.personalData.services.site && "Site",
               ]
                 .filter(Boolean)
                 .join(", ")}
+            </span>
+          </div>
+          <div className="flex justify-between">
+            <span>Pagamento Setup</span>
+            <span className="text-white">
+              {data.billingData.billingSetupMethod === "credit_card"
+                ? "Cartão de Crédito"
+                : "PIX (À Vista)"}
+            </span>
+          </div>
+          <div className="flex justify-between border-t border-white/5 pt-2 mt-2">
+            <span>Vencimento Mensal</span>
+            <span className="text-white">
+              Dia {data.billingData.billingDueDay}
+            </span>
+          </div>
+          <div className="flex justify-between">
+            <span>Pagamento Mensal</span>
+            <span className="text-white">
+              {data.billingData.billingMethod === "credit_card"
+                ? "Cartão de Crédito"
+                : data.billingData.billingMethod === "boleto"
+                  ? "Boleto"
+                  : "PIX Automático"}
             </span>
           </div>
         </div>
