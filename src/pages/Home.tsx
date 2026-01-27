@@ -34,6 +34,14 @@ export const Home: React.FC = () => {
               name: "Unificando",
               url: "https://unificando.com.br",
               logo: "https://unificando.com.br/assets/LOGO_UNIFICANDO-D8bsxGgc.svg",
+              legalName: "64.630.380 MARIA JOSE GOMES DOS SANTOS",
+              taxID: "64.630.380/0001-20",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Recife",
+                addressRegion: "PE",
+                addressCountry: "BR",
+              },
               sameAs: ["https://instagram.com/unificando.digital"],
               contactPoint: {
                 "@type": "ContactPoint",

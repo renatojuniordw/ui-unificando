@@ -137,6 +137,13 @@ export const Footer: React.FC = () => {
           </Link>
         </div>
       </div>
+      <div className="max-w-7xl mx-auto px-4 mt-8 pt-8 border-t border-slate-800/50 text-[9px] font-bold uppercase tracking-widest text-slate-700 text-center">
+        <p>
+          Unificando © {new Date().getFullYear()} é operado por 64.630.380 MARIA
+          JOSE GOMES DOS SANTOS <br className="md:hidden" /> CNPJ:
+          64.630.380/0001-20 • Recife - PE
+        </p>
+      </div>
     </footer>
   );
 };
