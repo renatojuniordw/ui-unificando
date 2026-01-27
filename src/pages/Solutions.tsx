@@ -228,10 +228,10 @@ export const Solutions: React.FC = () => {
             </div>
 
             <button
-              onClick={() => navigate(ROUTES.PLANS)}
+              onClick={() => navigate(ROUTES.CUSTOMER_SERVICE)}
               className="bg-slate-900 text-white px-8 py-4 rounded-2xl text-[10px] font-black hover:bg-slate-800 transition-all uppercase tracking-widest"
             >
-              Simular atendimento
+              Ver detalhes
             </button>
           </motion.div>
           <AtendimentoAnimation />
@@ -284,10 +284,10 @@ export const Solutions: React.FC = () => {
             </div>
 
             <button
-              onClick={() => navigate(ROUTES.PLANS)}
+              onClick={() => navigate(ROUTES.PRODUCTIVITY)}
               className="bg-indigo-600 text-white px-8 py-4 rounded-2xl text-[10px] font-black hover:bg-indigo-700 transition-all uppercase tracking-widest"
             >
-              Simular atendimento com IA
+              Conhecer Inteligência Artificial
             </button>
           </motion.div>
         </div>
@@ -335,10 +335,10 @@ export const Solutions: React.FC = () => {
             </div>
 
             <button
-              onClick={() => navigate(ROUTES.PLANS)}
+              onClick={() => navigate(ROUTES.DIGITAL_PRESENCE)}
               className="bg-slate-900 text-white px-8 py-4 rounded-2xl text-[10px] font-black hover:bg-slate-800 transition-all uppercase tracking-widest"
             >
-              Simular site
+              Ver detalhes de Sites
             </button>
           </motion.div>
           <div className="h-full min-h-[400px]">

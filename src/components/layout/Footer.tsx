@@ -115,6 +115,16 @@ export const Footer: React.FC = () => {
                 Fale Conosco
               </Link>
             </li>
+            <li>
+              <a
+                href="https://wa.me/5581995557302"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-indigo-400 transition-colors"
+              >
+                WhatsApp Oficial
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -137,11 +147,17 @@ export const Footer: React.FC = () => {
           </Link>
         </div>
       </div>
-      <div className="max-w-7xl mx-auto px-4 mt-8 pt-8 border-t border-slate-800/50 text-[9px] font-bold uppercase tracking-widest text-slate-700 text-center">
+      <div className="max-w-7xl mx-auto px-4 mt-8 pt-8 border-t border-slate-800/50 text-[9px] font-bold uppercase tracking-widest text-slate-500 text-center">
         <p>
           Unificando © {new Date().getFullYear()} é operado por 64.630.380 MARIA
           JOSE GOMES DOS SANTOS <br className="md:hidden" /> CNPJ:
           64.630.380/0001-20 • Recife - PE
+        </p>
+        <p className="mt-4 text-[9px] text-slate-600 font-medium normal-case tracking-normal max-w-3xl mx-auto leading-relaxed">
+          Este site não faz parte do site do Facebook ou Facebook Inc. Além
+          disso, este site NÃO é endossado pelo Facebook de nenhuma maneira.
+          FACEBOOK é uma marca comercial da FACEBOOK, Inc. WhatsApp é uma marca
+          comercial do WhatsApp LLC.
         </p>
       </div>
     </footer>
