@@ -123,12 +123,18 @@ export const Footer: React.FC = () => {
           © {new Date().getFullYear()} Unificando Digital. Crafted for results.
         </p>
         <div className="flex gap-8">
-          <a href="#" className="hover:text-white transition-colors">
+          <Link
+            to={ROUTES.PRIVACY}
+            className="hover:text-white transition-colors"
+          >
             Privacidade
-          </a>
-          <a href="#" className="hover:text-white transition-colors">
+          </Link>
+          <Link
+            to={ROUTES.TERMS}
+            className="hover:text-white transition-colors"
+          >
             Termos
-          </a>
+          </Link>
         </div>
       </div>
     </footer>

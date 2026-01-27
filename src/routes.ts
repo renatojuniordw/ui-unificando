@@ -9,5 +9,7 @@ export const ROUTES = {
   ABOUT: "/sobre",
   CONTACT: "/contato",
   CONTRACT: "/contrato",
+  PRIVACY: "/privacidade",
+  TERMS: "/termos",
   NOT_FOUND: "/404",
 } as const;

@@ -50,6 +50,16 @@ const ContractGenerator = React.lazy(() =>
 const NotFound = React.lazy(() =>
   import("../pages/NotFound").then((module) => ({ default: module.NotFound })),
 );
+const PrivacyPolicy = React.lazy(() =>
+  import("../pages/PrivacyPolicy").then((module) => ({
+    default: module.PrivacyPolicy,
+  })),
+);
+const TermsOfService = React.lazy(() =>
+  import("../pages/TermsOfService").then((module) => ({
+    default: module.TermsOfService,
+  })),
+);
 
 export const AppRouter: React.FC = () => {
   const location = useLocation();
@@ -68,6 +78,8 @@ export const AppRouter: React.FC = () => {
           <Route path={ROUTES.ABOUT} element={<About />} />
           <Route path={ROUTES.CONTACT} element={<Contact />} />
           <Route path={ROUTES.CONTRACT} element={<ContractGenerator />} />
+          <Route path={ROUTES.PRIVACY} element={<PrivacyPolicy />} />
+          <Route path={ROUTES.TERMS} element={<TermsOfService />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
