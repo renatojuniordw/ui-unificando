@@ -47,6 +47,9 @@ const ContractGenerator = React.lazy(() =>
     default: module.ContractGenerator,
   })),
 );
+const NotFound = React.lazy(() =>
+  import("../pages/NotFound").then((module) => ({ default: module.NotFound })),
+);
 
 export const AppRouter: React.FC = () => {
   const location = useLocation();
@@ -65,7 +68,7 @@ export const AppRouter: React.FC = () => {
           <Route path={ROUTES.ABOUT} element={<About />} />
           <Route path={ROUTES.CONTACT} element={<Contact />} />
           <Route path={ROUTES.CONTRACT} element={<ContractGenerator />} />
-          <Route path="*" element={<Home />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
     </AnimatePresence>
