@@ -10,17 +10,12 @@ export const WebhookService = {
    * @param endpoint O caminho do endpoint (ex: '/api/contract' ou '/api/contact')
    * @param data O objeto de dados a ser enviado
    */
-  async sendData(endpoint: string, data: any): Promise<WebhookResponse> {
-    const baseUrl = import.meta.env.VITE_N8N_WEBHOOK_URL;
-
-    if (!baseUrl) {
-      console.error(
-        "VITE_N8N_WEBHOOK_URL is not defined in environment variables.",
-      );
+  async sendData(url: string, data: any): Promise<WebhookResponse> {
+    if (!url) {
+      console.error("URL do Webhook não definida.");
       throw new Error("Erro de configuração: URL do Webhook não definida.");
     }
 
-    const url = `${baseUrl}${endpoint}`;
     const idem = crypto.randomUUID();
 
     try {
