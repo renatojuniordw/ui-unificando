@@ -128,9 +128,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
     );
 
     try {
-      const baseUrl = import.meta.env.VITE_N8N_WEBHOOK_URL;
-      const url = `${baseUrl}/api/contact`;
-      await WebhookService.sendData(url, submissionData);
+      await WebhookService.sendContact(submissionData);
 
       // Success
       setSubmitted(true);

@@ -113,3 +113,13 @@ export const INITIAL_CONTRACT_DATA: ContractData = {
     billingMethod: "pix",
   },
 };
+
+export interface ContractSubmissionPayload extends ContractData {
+  pricing: {
+    setup: number;
+    monthly: number;
+  };
+  turnstileToken: string;
+  submittedAt: string;
+  source: string;
+}

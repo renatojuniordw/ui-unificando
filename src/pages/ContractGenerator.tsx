@@ -285,9 +285,7 @@ export const ContractGenerator: React.FC = () => {
     };
 
     try {
-      const baseUrl = import.meta.env.VITE_N8N_WEBHOOK_URL_CONTRACT;
-      const url = `${baseUrl}/api/contract`;
-      await WebhookService.sendData(url, submissionData);
+      await WebhookService.sendContract(submissionData);
 
       showModal(
         "Sucesso! Próximo Passo 🚀",
