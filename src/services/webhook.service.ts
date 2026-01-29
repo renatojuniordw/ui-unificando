@@ -25,7 +25,7 @@ export const WebhookService = {
         "Erro de configuração: URL do Webhook de contato não definida.",
       );
     }
-    const url = `${baseUrl}/api/contact`;
+    const url = `${this.ensureProtocol(baseUrl)}/api/contact`;
     return this.postRequest(url, data);
   },
 
@@ -42,8 +42,15 @@ export const WebhookService = {
         "Erro de configuração: URL do Webhook de contrato não definida.",
       );
     }
-    const url = `${baseUrl}/api/contract`;
+    const url = `${this.ensureProtocol(baseUrl)}/api/contract`;
     return this.postRequest(url, data);
+  },
+
+  ensureProtocol(url: string): string {
+    if (!url.startsWith("http://") && !url.startsWith("https://")) {
+      return `https://${url}`;
+    }
+    return url;
   },
 
   /**
