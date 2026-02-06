@@ -9,6 +9,12 @@ import {
   INITIAL_CONTRACT_DATA,
   ServiceSelection,
 } from "../types/contract";
+import {
+  validateEmail,
+  validateCPF,
+  validateCNPJ,
+  validatePhone,
+} from "../utils/validators";
 import { PersonalDataStep } from "../features/contract/components/steps/PersonalDataStep";
 import { AddressStep } from "../features/contract/components/steps/AddressStep";
 import { AtendimentoStep } from "../features/contract/components/steps/AtendimentoStep";
@@ -197,31 +203,107 @@ export const ContractGenerator: React.FC = () => {
     const currentId = steps[step].id;
 
     if (currentId === "personal") {
+      // 1. Basic Fields Presence
       if (
         !data.personalData.name.trim() ||
         !data.personalData.document.trim() ||
         !data.personalData.email.trim() ||
         !data.personalData.whatsapp.trim()
-      )
+      ) {
+        showModal(
+          "Campos Obrigatórios",
+          "Por favor, preencha todos os campos obrigatórios (*).",
+          "warning",
+        );
         return false;
+      }
 
-      // Validate Representative if CNPJ
-      const docDigits = data.personalData.document.replace(/\D/g, "");
-      if (docDigits.length > 11) {
-        if (
-          !data.personalData.representativeName?.trim() ||
-          !data.personalData.representativeDocument?.trim()
-        ) {
+      // 2. Email Validation
+      if (!validateEmail(data.personalData.email)) {
+        showModal(
+          "E-mail Inválido",
+          "Por favor, insira um endereço de e-mail válido.",
+          "warning",
+        );
+        return false;
+      }
+
+      // 3. Phone Validation
+      if (!validatePhone(data.personalData.whatsapp)) {
+        showModal(
+          "WhatsApp Inválido",
+          "Por favor, insira um número de WhatsApp válido com DDD.",
+          "warning",
+        );
+        return false;
+      }
+
+      // 4. Document Validation (CPF/CNPJ)
+      const docClean = data.personalData.document.replace(/\D/g, "");
+      let isCnpj = false;
+
+      if (docClean.length <= 11) {
+        if (!validateCPF(docClean)) {
+          showModal(
+            "CPF Inválido",
+            "O CPF informado não é válido. Verifique os números.",
+            "warning",
+          );
+          return false;
+        }
+      } else {
+        isCnpj = true;
+        if (!validateCNPJ(docClean)) {
+          showModal(
+            "CNPJ Inválido",
+            "O CNPJ informado não é válido. Verifique os números.",
+            "warning",
+          );
           return false;
         }
       }
 
+      // 5. Representative Validation (if CNPJ)
+      if (isCnpj) {
+        if (
+          !data.personalData.representativeName?.trim() ||
+          !data.personalData.representativeDocument?.trim()
+        ) {
+          showModal(
+            "Responsável Legal",
+            "Para cadastro via CNPJ, é obrigatório informar o Responsável Legal e seu CPF.",
+            "warning",
+          );
+          return false;
+        }
+
+        const repDocClean = data.personalData.representativeDocument.replace(
+          /\D/g,
+          "",
+        );
+        if (!validateCPF(repDocClean)) {
+          showModal(
+            "CPF do Responsável Inválido",
+            "O CPF do responsável legal informado não é válido.",
+            "warning",
+          );
+          return false;
+        }
+      }
+
+      // 6. Service Selection
       if (
         !data.personalData.services.atendimento &&
         !data.personalData.services.ia &&
         !data.personalData.services.site
-      )
+      ) {
+        showModal(
+          "Selecione um Serviço",
+          "Você precisa selecionar pelo menos um serviço para continuar.",
+          "warning",
+        );
         return false;
+      }
     }
 
     if (currentId === "address") {
@@ -233,7 +315,7 @@ export const ContractGenerator: React.FC = () => {
         !data.addressData.city ||
         !data.addressData.state
       )
-        return false;
+        return false; // UI handles generic "fill all" message in handleNext or we can add specific one here if needed
     }
 
     // IA step

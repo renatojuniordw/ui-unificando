@@ -66,6 +66,7 @@ export const AddressStep: React.FC<AddressStepProps> = ({
               onBlur={handleBlurCep}
               placeholder="00000-000"
               maxLength={9}
+              inputMode="numeric"
             />
             {loadingCep && (
               <div className="absolute right-3 top-3 text-indigo-500 animate-spin">
@@ -96,6 +97,8 @@ export const AddressStep: React.FC<AddressStepProps> = ({
             value={data.number}
             onChange={(e) => handleInputChange("number", e.target.value)}
             placeholder="Ex: 1000"
+            inputMode="numeric"
+            type="number"
           />
         </div>
 

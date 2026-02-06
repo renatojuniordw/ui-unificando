@@ -210,6 +210,9 @@ export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
               }}
               forceDialCode={true}
               placeholder="(00) 90000-0000"
+              inputProps={{
+                inputMode: "numeric",
+              }}
             />
           </div>
 

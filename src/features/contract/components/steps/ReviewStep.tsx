@@ -22,7 +22,7 @@ export const ReviewStep: React.FC<ReviewStepProps> = ({
           Resumo do Investimento
         </h2>
 
-        <div className="grid grid-cols-2 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mb-8">
           <div className="text-center p-4 rounded-xl bg-white/5 border border-white/10">
             <div className="text-xs text-slate-400 uppercase tracking-widest mb-1">
               Configuração e Implementação (Único)

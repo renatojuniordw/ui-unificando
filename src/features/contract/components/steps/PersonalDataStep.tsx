@@ -175,6 +175,9 @@ export const PersonalDataStep: React.FC<PersonalDataStepProps> = ({
                 },
               }}
               forceDialCode={true}
+              inputProps={{
+                inputMode: "numeric",
+              }}
             />
           </div>
         </div>
