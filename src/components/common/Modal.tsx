@@ -135,3 +135,5 @@ export const Modal: React.FC<ModalProps> = ({
     </AnimatePresence>
   );
 };
+
+// export { ModalType };

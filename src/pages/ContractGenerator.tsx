@@ -169,8 +169,8 @@ export const ContractGenerator: React.FC = () => {
         () => navigate("/"),
         "PREENCHER BRIEFING AGORA",
         () => {
-          // Redirect to briefing form (Tally/Typeform)
-          window.open("https://tally.so", "_blank");
+          const briefingUrl = import.meta.env.VITE_BRIEFING_FORM_URL;
+          window.open(briefingUrl, "_blank");
           navigate("/");
         },
       );
