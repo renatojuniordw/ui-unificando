@@ -3,11 +3,10 @@ import { Turnstile } from "@marsidev/react-turnstile";
 import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
 import { Modal, ModalType } from "../common/Modal";
-import { WebhookService } from "../../services/webhook.service";
+import { useContactValidation } from "../../hooks/useContactValidation";
+import { WebhookService } from "@/services/webhook.service";
 
-interface ContactFormProps {
-  planSelection?: any;
-}
+import { ContactFormProps } from "../../types/contact";
 
 export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
   const [submitted, setSubmitted] = useState(false);
@@ -17,6 +16,9 @@ export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
   const [whatsapp, setWhatsapp] = useState("");
   const [turnstileToken, setTurnstileToken] = useState("");
   const [company, setCompany] = useState(""); // Honeypot
+
+  // Validation Hook
+  const { validateForm } = useContactValidation();
 
   // Modal State
   const [modal, setModal] = useState<{
@@ -95,17 +97,24 @@ export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
       return;
     }
 
-    if (!name.trim() || !whatsapp.trim() || !challenge) {
+    // New Validation Logic
+    const validation = validateForm({ name, whatsapp, challenge });
+    if (!validation.isValid && validation.error) {
       showModal(
-        "Campos Obrigatórios",
-        "Por favor, preencha todos os campos obrigatórios.",
-        "warning",
+        validation.error.title,
+        validation.error.message,
+        validation.error.type,
       );
       return;
     }
 
     if (!turnstileToken) {
       console.warn("Turnstile challenge not yet solved.");
+      showModal(
+        "Verificação Necessária",
+        "Por favor, aguarde a verificação de segurança.",
+        "warning",
+      );
       return;
     }
 

@@ -1,18 +1,10 @@
 import { useState, useMemo } from "react";
 import { PRICING } from "../../../constants/pricing";
 
-export interface AiChannels {
-  whatsapp: boolean;
-  instagram_direct: boolean;
-  instagram_comments: boolean;
-  site_chat: boolean;
-}
-
-export interface AiAddons {
-  audio: boolean;
-  api: boolean;
-  google: boolean;
-}
+import {
+  ContractAiChannels as AiChannels,
+  ContractAiAddons as AiAddons,
+} from "../../../types/contract";
 
 export const usePlanCalculator = () => {
   // Support State
@@ -47,11 +39,11 @@ export const usePlanCalculator = () => {
     // Normalized values
     const normInboxes = clampInt(
       inboxes,
-      PRICING.calculadora.rules.minimumInboxes
+      PRICING.calculadora.rules.minimumInboxes,
     );
     const normAttendants = clampInt(
       attendants,
-      PRICING.calculadora.rules.minimumAttendants
+      PRICING.calculadora.rules.minimumAttendants,
     );
     const normSitePages = clampInt(sitePages, 1);
 

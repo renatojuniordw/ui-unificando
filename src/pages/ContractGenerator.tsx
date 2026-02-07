@@ -9,12 +9,8 @@ import {
   INITIAL_CONTRACT_DATA,
   ServiceSelection,
 } from "../types/contract";
-import {
-  validateEmail,
-  validateCPF,
-  validateCNPJ,
-  validatePhone,
-} from "../utils/validators";
+import { useContractPricing } from "../hooks/useContractPricing";
+import { useContractValidation } from "../hooks/useContractValidation";
 import { PersonalDataStep } from "../features/contract/components/steps/PersonalDataStep";
 import { AddressStep } from "../features/contract/components/steps/AddressStep";
 import { AtendimentoStep } from "../features/contract/components/steps/AtendimentoStep";
@@ -89,87 +85,8 @@ export const ContractGenerator: React.FC = () => {
 
   const currentStepId = steps[step]?.id;
 
-  // Pricing Logic (Replicated/Adapted from usePlanCalculator)
-  const pricing = useMemo(() => {
-    const clampInt = (value: number, min: number) =>
-      Math.max(min, Number.isFinite(value) ? Math.floor(value) : min);
-
-    let setupTotal = 0;
-    let monthlyTotal = 0;
-
-    // Atendimento
-    if (data.personalData.services.atendimento) {
-      const normInboxes = clampInt(
-        data.serviceDetailsData.inboxes,
-        PRICING.calculadora.rules.minimumInboxes,
-      );
-      const normAttendants = clampInt(
-        data.serviceDetailsData.attendants,
-        PRICING.calculadora.rules.minimumAttendants,
-      );
-
-      setupTotal += PRICING.atendimento.base.setup;
-      monthlyTotal += PRICING.atendimento.base.monthly;
-
-      if (normInboxes > 1)
-        monthlyTotal +=
-          (normInboxes - 1) * PRICING.atendimento.extras.inbox.priceMonthly;
-      if (normAttendants > 1)
-        monthlyTotal +=
-          (normAttendants - 1) *
-          PRICING.atendimento.extras.attendant.priceMonthly;
-    }
-
-    // IA
-    if (data.personalData.services.ia) {
-      const baseSetup = PRICING.ia.base.setup;
-      const baseMonthly = PRICING.ia.base.monthly;
-
-      setupTotal += baseSetup;
-      monthlyTotal += baseMonthly;
-
-      const selectedCount = Object.values(
-        data.serviceDetailsData.aiChannels,
-      ).filter(Boolean).length;
-      const extraChannels = Math.max(0, selectedCount - 1);
-
-      if (extraChannels > 0) {
-        setupTotal +=
-          extraChannels *
-          (baseSetup * PRICING.ia.extras.channel.setupPercentage);
-        monthlyTotal +=
-          extraChannels *
-          (baseMonthly * PRICING.ia.extras.channel.monthlyPercentage);
-      }
-
-      if (data.serviceDetailsData.aiAddons.audio) {
-        setupTotal += baseSetup * PRICING.ia.extras.audio.setupPercentage;
-        monthlyTotal += baseMonthly * PRICING.ia.extras.audio.monthlyPercentage;
-      }
-      if (data.serviceDetailsData.aiAddons.api) {
-        setupTotal += baseSetup * PRICING.ia.extras.api.setupPercentage;
-        monthlyTotal += baseMonthly * PRICING.ia.extras.api.monthlyPercentage;
-      }
-      if (data.serviceDetailsData.aiAddons.google) {
-        setupTotal += baseSetup * PRICING.ia.extras.google.setupPercentage;
-        monthlyTotal +=
-          baseMonthly * PRICING.ia.extras.google.monthlyPercentage;
-      }
-    }
-
-    // Site
-    if (data.personalData.services.site) {
-      const normPages = clampInt(data.serviceDetailsData.sitePages, 1);
-      setupTotal += PRICING.site.landing.setup;
-      if (normPages > 1) {
-        setupTotal +=
-          (normPages - 1) *
-          (PRICING.site.landing.setup * PRICING.site.extraPage.setupPercentage);
-      }
-    }
-
-    return { setup: setupTotal, monthly: monthlyTotal };
-  }, [data]);
+  // Pricing Logic
+  const pricing = useContractPricing(data);
 
   // Handlers
   const handleInputChange = (
@@ -199,145 +116,21 @@ export const ContractGenerator: React.FC = () => {
     }));
   };
 
-  const validateStep = () => {
-    const currentId = steps[step].id;
-
-    if (currentId === "personal") {
-      // 1. Basic Fields Presence
-      if (
-        !data.personalData.name.trim() ||
-        !data.personalData.document.trim() ||
-        !data.personalData.email.trim() ||
-        !data.personalData.whatsapp.trim()
-      ) {
-        showModal(
-          "Campos Obrigatórios",
-          "Por favor, preencha todos os campos obrigatórios (*).",
-          "warning",
-        );
-        return false;
-      }
-
-      // 2. Email Validation
-      if (!validateEmail(data.personalData.email)) {
-        showModal(
-          "E-mail Inválido",
-          "Por favor, insira um endereço de e-mail válido.",
-          "warning",
-        );
-        return false;
-      }
-
-      // 3. Phone Validation
-      if (!validatePhone(data.personalData.whatsapp)) {
-        showModal(
-          "WhatsApp Inválido",
-          "Por favor, insira um número de WhatsApp válido com DDD.",
-          "warning",
-        );
-        return false;
-      }
-
-      // 4. Document Validation (CPF/CNPJ)
-      const docClean = data.personalData.document.replace(/\D/g, "");
-      let isCnpj = false;
-
-      if (docClean.length <= 11) {
-        if (!validateCPF(docClean)) {
-          showModal(
-            "CPF Inválido",
-            "O CPF informado não é válido. Verifique os números.",
-            "warning",
-          );
-          return false;
-        }
-      } else {
-        isCnpj = true;
-        if (!validateCNPJ(docClean)) {
-          showModal(
-            "CNPJ Inválido",
-            "O CNPJ informado não é válido. Verifique os números.",
-            "warning",
-          );
-          return false;
-        }
-      }
-
-      // 5. Representative Validation (if CNPJ)
-      if (isCnpj) {
-        if (
-          !data.personalData.representativeName?.trim() ||
-          !data.personalData.representativeDocument?.trim()
-        ) {
-          showModal(
-            "Responsável Legal",
-            "Para cadastro via CNPJ, é obrigatório informar o Responsável Legal e seu CPF.",
-            "warning",
-          );
-          return false;
-        }
-
-        const repDocClean = data.personalData.representativeDocument.replace(
-          /\D/g,
-          "",
-        );
-        if (!validateCPF(repDocClean)) {
-          showModal(
-            "CPF do Responsável Inválido",
-            "O CPF do responsável legal informado não é válido.",
-            "warning",
-          );
-          return false;
-        }
-      }
-
-      // 6. Service Selection
-      if (
-        !data.personalData.services.atendimento &&
-        !data.personalData.services.ia &&
-        !data.personalData.services.site
-      ) {
-        showModal(
-          "Selecione um Serviço",
-          "Você precisa selecionar pelo menos um serviço para continuar.",
-          "warning",
-        );
-        return false;
-      }
-    }
-
-    if (currentId === "address") {
-      if (
-        !data.addressData.zipCode ||
-        !data.addressData.street ||
-        !data.addressData.number ||
-        !data.addressData.neighborhood ||
-        !data.addressData.city ||
-        !data.addressData.state
-      )
-        return false; // UI handles generic "fill all" message in handleNext or we can add specific one here if needed
-    }
-
-    // IA step
-    if (currentId === "ia") {
-      if (Object.values(data.serviceDetailsData.aiChannels).every((v) => !v))
-        return false;
-    }
-
-    // Site step - no validation needed as pages has default
-
-    return true;
-  };
+  // Validation Hook
+  const { validateStep } = useContractValidation();
 
   const handleNext = () => {
-    if (validateStep()) {
+    const currentId = steps[step].id;
+    const validation = validateStep(currentId, data);
+
+    if (validation.isValid) {
       setStep((prev) => Math.min(prev + 1, steps.length - 1));
       window.scrollTo(0, 0);
-    } else {
+    } else if (validation.error) {
       showModal(
-        "Atenção",
-        "Por favor, preencha todas as informações obrigatórias desta etapa para continuar.",
-        "warning",
+        validation.error.title,
+        validation.error.message,
+        validation.error.type,
       );
     }
   };

@@ -1,10 +1,9 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import { NavItem } from "../../types";
+import { NavItem, LayoutProps } from "../../types/layout";
 import { ROUTES } from "../../routes";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
-import { ChatwootWidget } from "../common/ChatwootWidget";
 
 const navItems: NavItem[] = [
   { label: "Início", path: ROUTES.HOME },
@@ -30,10 +29,6 @@ const solutionItems = [
     desc: "Presença Digital & Autoridade",
   },
 ];
-
-interface LayoutProps {
-  children: React.ReactNode;
-}
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const location = useLocation();

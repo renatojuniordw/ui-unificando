@@ -1,17 +1,6 @@
-export interface WebhookResponse {
-  success: boolean;
-  message?: string;
-  data?: any;
-}
-
+import { WebhookResponse } from "../types/webhook";
 import { ContractSubmissionPayload } from "../types/contract";
 import { ContactWebhookData } from "../types/contact";
-
-export interface WebhookResponse {
-  success: boolean;
-  message?: string;
-  data?: any;
-}
 
 export const WebhookService = {
   /**

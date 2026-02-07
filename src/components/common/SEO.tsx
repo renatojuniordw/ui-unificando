@@ -1,13 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-
-interface SEOProps {
-  title: string;
-  description: string;
-  canonical?: string;
-  ogImage?: string;
-  jsonLd?: Record<string, any> | Record<string, any>[];
-}
+import { SEOProps } from "../../types/ui";
 
 export const SEO: React.FC<SEOProps> = ({
   title,

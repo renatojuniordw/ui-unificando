@@ -1,17 +1,7 @@
 import React, { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export type ModalType = "success" | "error" | "warning";
-
-interface ModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  title: string;
-  message: string;
-  type?: ModalType;
-  confirmText?: string;
-  onConfirm?: () => void;
-}
+import { ModalType, ModalProps } from "../../types/ui";
 
 export const Modal: React.FC<ModalProps> = ({
   isOpen,
