@@ -15,6 +15,7 @@ COPY . .
 # Argumentos de build (passados via docker-compose ou --build-arg)
 ARG VITE_TURNSTILE_SITE_KEY
 ARG VITE_N8N_WEBHOOK_URL
+ARG VITE_N8N_WEBHOOK_URL_CONTRACT
 ARG VITE_CHATWOOT_TOKEN
 
 # Persiste como variáveis de ambiente para o build
