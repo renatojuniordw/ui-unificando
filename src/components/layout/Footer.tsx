@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ROUTES } from "../../routes";
+import { SOCIAL_LINKS } from "../../constants/social";
 import LogoUnificando from "../../assets/img/LOGO_UNIFICANDO.svg";
 
 export const Footer: React.FC = () => {
@@ -21,7 +22,7 @@ export const Footer: React.FC = () => {
           </p>
           <div className="flex gap-4">
             <a
-              href="https://instagram.com/unificando.digital"
+              href={SOCIAL_LINKS.instagram}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
@@ -65,7 +66,7 @@ export const Footer: React.FC = () => {
                 to={ROUTES.CUSTOMER_SERVICE}
                 className="hover:text-indigo-400 transition-colors"
               >
-                Atendimento
+                Atendimento Unificado
               </Link>
             </li>
             <li>
@@ -73,7 +74,7 @@ export const Footer: React.FC = () => {
                 to={ROUTES.PRODUCTIVITY}
                 className="hover:text-indigo-400 transition-colors"
               >
-                Produtividade
+                IA no Atendimento
               </Link>
             </li>
             <li>
@@ -81,7 +82,7 @@ export const Footer: React.FC = () => {
                 to={ROUTES.DIGITAL_PRESENCE}
                 className="hover:text-indigo-400 transition-colors"
               >
-                Presença Digital
+                Sites & Presença Online
               </Link>
             </li>
           </ul>
@@ -117,7 +118,7 @@ export const Footer: React.FC = () => {
             </li>
             <li>
               <a
-                href="https://wa.me/5581995557302"
+                href={SOCIAL_LINKS.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-indigo-400 transition-colors"

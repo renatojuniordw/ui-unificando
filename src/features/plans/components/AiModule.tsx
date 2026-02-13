@@ -54,7 +54,7 @@ export const AiModule: React.FC<AiModuleProps> = ({
         </button>
       </div>
       <h3 className="text-xl font-black uppercase tracking-tight text-slate-900 mb-2">
-        Inteligência Artificial
+        IA no Atendimento
       </h3>
       <p className="text-xs text-slate-500 font-medium mb-8">
         Comece simples. Evolua quando fizer sentido.

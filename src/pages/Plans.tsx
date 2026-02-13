@@ -76,21 +76,21 @@ export const Plans: React.FC<PlansProps> = () => {
               "@type": "Offer",
               itemOffered: {
                 "@type": "Service",
-                name: "Atendimento Digital",
+                name: "Atendimento Unificado",
               },
             },
             {
               "@type": "Offer",
               itemOffered: {
                 "@type": "Service",
-                name: "Inteligência Artificial",
+                name: "IA no Atendimento",
               },
             },
             {
               "@type": "Offer",
               itemOffered: {
                 "@type": "Service",
-                name: "Site Institucional",
+                name: "Sites & Presença Online",
               },
             },
           ],

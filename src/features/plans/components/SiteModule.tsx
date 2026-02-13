@@ -40,7 +40,7 @@ export const SiteModule: React.FC<SiteModuleProps> = ({
         </button>
       </div>
       <h3 className="text-xl font-black uppercase tracking-tight text-slate-900 mb-2">
-        Site & Landing Page
+        Sites & Presença Online
       </h3>
       <p className="text-xs text-slate-500 font-medium mb-8">
         Sua casa própria na internet.

@@ -44,7 +44,7 @@ export const SupportModule: React.FC<SupportModuleProps> = ({
         </button>
       </div>
       <h3 className="text-xl font-black uppercase tracking-tight text-slate-900 mb-2">
-        Atendimento
+        Atendimento Unificado
       </h3>
       <p className="text-xs text-slate-500 font-medium mb-8">
         Painel multicanal para sua equipe.

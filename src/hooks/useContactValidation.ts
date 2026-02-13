@@ -1,10 +1,11 @@
-import { ContactFormData, ValidationResult } from "../types/contact";
+import { ContactFormData } from "../types/contact";
+import { ValidationResult } from "../types/form";
 import { validatePhone } from "../utils/validators";
 
 export const useContactValidation = () => {
   const validateForm = (data: ContactFormData): ValidationResult => {
-    // 1. Basic Fields Presence
-    if (!data.name.trim() || !data.whatsapp.trim() || !data.challenge) {
+    // 1. Basic Fields Presence (Name and Challenge are mandatory)
+    if (!data.name.trim() || !data.challenge) {
       return {
         isValid: false,
         error: {
@@ -27,8 +28,8 @@ export const useContactValidation = () => {
       };
     }
 
-    // 3. Phone Validation
-    if (!validatePhone(data.whatsapp)) {
+    // 3. Phone Validation (Only if provided)
+    if (data.whatsapp && !validatePhone(data.whatsapp)) {
       return {
         isValid: false,
         error: {

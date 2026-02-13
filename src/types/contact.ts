@@ -1,5 +1,3 @@
-import { ValidationResult } from "./form";
-
 export interface ContactWebhookData {
   name: string;
   whatsapp: string;
@@ -12,7 +10,7 @@ export interface ContactWebhookData {
 
 export type ContactFormData = {
   name: string;
-  whatsapp: string;
+  whatsapp?: string;
   challenge: string;
 };
 
