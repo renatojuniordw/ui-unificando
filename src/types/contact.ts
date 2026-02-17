@@ -1,3 +1,9 @@
+export interface ServiceSelection {
+  atendimento: boolean;
+  ia: boolean;
+  site: boolean;
+}
+
 export interface ContactWebhookData {
   name: string;
   whatsapp: string;

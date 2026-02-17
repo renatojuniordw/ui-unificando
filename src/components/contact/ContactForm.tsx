@@ -3,12 +3,37 @@ import { Turnstile } from "@marsidev/react-turnstile";
 import { Modal } from "../common/Modal";
 import { useContactValidation } from "../../hooks/useContactValidation";
 import { CONTACT_INFO } from "../../constants/social";
-import { ContactFormProps } from "../../types/contact";
+import { ContactFormProps, ServiceSelection } from "../../types/contact";
 import { ModalType } from "../../types/ui";
+import { ServiceSelector } from "./ServiceSelector";
+import { SimulationSummary } from "./SimulationSummary";
+import { buildWhatsAppMessage } from "./ContactForm.utils";
+
+const SERVICE_OPTIONS = [
+  {
+    id: "atendimento" as keyof ServiceSelection,
+    label: "Atendimento Unificado",
+    emoji: "💬",
+  },
+  {
+    id: "ia" as keyof ServiceSelection,
+    label: "IA no Atendimento",
+    emoji: "🤖",
+  },
+  {
+    id: "site" as keyof ServiceSelection,
+    label: "Sites & Presença Online",
+    emoji: "🌐",
+  },
+];
 
 export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [serviceType, setServiceType] = useState("atendimento");
+  const [selectedServices, setSelectedServices] = useState<ServiceSelection>({
+    atendimento: false,
+    ia: false,
+    site: false,
+  });
   const [name, setName] = useState("");
   const [turnstileToken, setTurnstileToken] = useState("");
   const [company, setCompany] = useState(""); // Honeypot
@@ -44,68 +69,11 @@ export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
     if (modal.onClose) modal.onClose();
   };
 
-  const SERVICE_TYPES = [
-    { value: "Atendimento Unificado", label: "Atendimento Unificado" },
-    { value: "IA no Atendimento", label: "IA no Atendimento" },
-    { value: "Sites & Presença Online", label: "Sites & Presença Online" },
-  ];
-
-  const buildWhatsAppMessage = () => {
-    let message = `Olá! Me chamo *${name}*.\n\n`;
-
-    if (planSelection) {
-      message += `Fiz uma simulação no site e gostaria de saber mais sobre:\n\n`;
-
-      const {
-        includeSupport,
-        inboxes,
-        attendants,
-        aiChannels,
-        aiAddons,
-        siteEnabled,
-        sitePages,
-      } = planSelection;
-
-      if (includeSupport) {
-        message += `✅ *Atendimento Unificado*\n   - ${inboxes} Caixa(s) de Entrada\n   - ${attendants} Atendente(s)\n`;
-      }
-
-      if (aiChannels) {
-        // aiChannels is { whatsapp: true, ... }
-        const activeChannels = Object.entries(aiChannels)
-          .filter(([_, active]) => active)
-          .map(([key]) =>
-            key.replace(/_/g, " ").replace(/\b\w/g, (l) => l.toUpperCase()),
-          ); // Format label
-
-        if (activeChannels.length > 0) {
-          message += `✅ *IA no Atendimento*\n   - Canais: ${activeChannels.join(", ")}\n`;
-        }
-      }
-
-      if (aiAddons) {
-        const activeAddons = Object.entries(aiAddons)
-          .filter(([_, active]) => active)
-          .map(([key]) => key.toUpperCase());
-
-        if (activeAddons.length > 0) {
-          message += `   - Add-ons: ${activeAddons.join(", ")}\n`;
-        }
-      }
-
-      if (siteEnabled) {
-        message += `✅ *Sites & Presença Online*\n   - ${sitePages} página(s)\n`;
-      }
-    } else {
-      const typeLabel =
-        SERVICE_TYPES.find((s) => s.value === serviceType)?.label ||
-        serviceType;
-      message += `Gostaria de saber mais sobre: *${typeLabel}*.\n`;
-    }
-
-    message += `\n\nPoderiam me explicar melhor como funciona?`;
-
-    return encodeURIComponent(message);
+  const handleServiceChange = (
+    id: keyof ServiceSelection,
+    checked: boolean,
+  ) => {
+    setSelectedServices((prev) => ({ ...prev, [id]: checked }));
   };
 
   const handleSubmit = async (event: React.FormEvent) => {
@@ -113,8 +81,21 @@ export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
 
     if (company) return; // Honeypot
 
+    // Validate at least one service is selected (if no planSelection)
+    if (!planSelection) {
+      const hasSelection = Object.values(selectedServices).some((v) => v);
+      if (!hasSelection) {
+        showModal(
+          "Seleção Necessária",
+          "Por favor, selecione ao menos um serviço sobre o qual você tem dúvidas.",
+          "warning",
+        );
+        return;
+      }
+    }
+
     // Pass 'simulacao' as challenge if planSelection exists, to satisfy validation
-    const challengeValue = planSelection ? "simulacao" : serviceType;
+    const challengeValue = planSelection ? "simulacao" : "servicos";
 
     const validation = validateForm({ name, challenge: challengeValue });
 
@@ -128,7 +109,6 @@ export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
     }
 
     if (!turnstileToken) {
-      console.warn("Turnstile challenge not yet solved.");
       showModal(
         "Verificação Necessária",
         "Por favor, aguarde a verificação de segurança.",
@@ -140,7 +120,12 @@ export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
     setIsSubmitting(true);
 
     try {
-      const message = buildWhatsAppMessage();
+      const message = buildWhatsAppMessage({
+        name,
+        selectedServices,
+        planSelection,
+        serviceOptions: SERVICE_OPTIONS,
+      });
       const url = `https://wa.me/${CONTACT_INFO.whatsappNumber}?text=${message}`;
 
       window.open(url, "_blank");
@@ -148,7 +133,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
 
       showModal(
         "Redirecionando",
-        "Estamos abrindo seu WhatsApp para tirar suas dúvidas. Se não abrir, verifique o bloqueador de pop-ups.",
+        "Estamos abrindo seu WhatsApp para tirar suas dúvidas.",
         "success",
         () => setIsSubmitting(false),
       );
@@ -175,7 +160,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             disabled={isSubmitting}
-            className="w-full bg-white/5 border border-white/10 text-white px-5 py-4 rounded-2xl focus:ring-2 focus:ring-indigo-500 outline-none font-medium transition-all print:bg-white print:text-black"
+            className="w-full bg-white/5 border border-white/10 text-white px-5 py-4 rounded-2xl focus:ring-2 focus:ring-indigo-500 outline-none font-medium transition-all"
             placeholder="Como devemos te chamar?"
           />
         </div>
@@ -193,56 +178,21 @@ export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
         </div>
 
         {!planSelection ? (
-          <div>
-            <label className="block text-[10px] font-black text-slate-400 mb-3 uppercase tracking-widest">
-              Qual tipo de serviço você tem dúvida?
-            </label>
-            <div className="relative">
-              <select
-                required
-                value={serviceType}
-                onChange={(event) => setServiceType(event.target.value)}
-                disabled={isSubmitting}
-                className="w-full bg-white/5 border border-white/10 text-white px-5 py-4 rounded-2xl focus:ring-2 focus:ring-indigo-500 outline-none font-medium transition-all appearance-none cursor-pointer"
-              >
-                {SERVICE_TYPES.map((option) => (
-                  <option
-                    key={option.value}
-                    value={option.value}
-                    className="bg-slate-900 text-white"
-                  >
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-              <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
-                ▼
-              </div>
-            </div>
-          </div>
+          <ServiceSelector
+            options={SERVICE_OPTIONS}
+            selectedServices={selectedServices}
+            onChange={handleServiceChange}
+            disabled={isSubmitting}
+          />
         ) : (
-          <div className="p-5 bg-indigo-500/10 border border-indigo-500/20 rounded-2xl">
-            <div className="flex items-center gap-3 mb-2">
-              <span className="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></span>
-              <p className="text-[10px] font-black uppercase tracking-widest text-indigo-300">
-                Simulação Anexada
-              </p>
-            </div>
-            <p className="text-xs text-indigo-100 font-medium leading-relaxed">
-              Os itens que você selecionou serão enviados na mensagem para
-              focarmos na sua dúvida.
-            </p>
-          </div>
+          <SimulationSummary />
         )}
 
         <div className="overflow-hidden rounded-xl">
           <Turnstile
             siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY}
             onSuccess={setTurnstileToken}
-            options={{
-              theme: "dark",
-              size: "flexible",
-            }}
+            options={{ theme: "dark", size: "flexible" }}
           />
         </div>
 
