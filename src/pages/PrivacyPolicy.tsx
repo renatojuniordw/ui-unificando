@@ -72,7 +72,49 @@ export const PrivacyPolicy: React.FC = () => {
       ),
     },
     {
-      title: "5. Como os dados são coletados?",
+      title: "5. Uso de Dados de Serviços Google (Google User Data)",
+      content: (
+        <>
+          <p className="mb-4">
+            Em conformidade com a Política de Dados do Usuário dos Serviços de
+            API do Google, detalhamos o uso das integrações:
+          </p>
+          <ul className="list-disc pl-5 space-y-2 mb-4">
+            <li>
+              <strong>Acesso:</strong> A plataforma acessa dados do Google
+              Sheets, Docs, Drive e Calendar apenas mediante autorização
+              explícita (OAuth) para executar automações solicitadas pelo
+              usuário.
+            </li>
+            <li>
+              <strong>Uso:</strong> Os dados são usados estritamente para ler
+              informações de processos (Sheets), gerar documentos modelos
+              (Docs/Drive) e agendar compromissos (Calendar).
+            </li>
+            <li>
+              <strong>Limited Use Disclosure:</strong> O uso e a transferência
+              de informações recebidas das APIs do Google para qualquer outro
+              aplicativo aderirão à{" "}
+              <a
+                href="https://developers.google.com/terms/api-services-user-data-policy"
+                target="_blank"
+                rel="noreferrer"
+                className="text-indigo-600 hover:text-indigo-800 underline"
+              >
+                Política de Dados do Usuário dos Serviços de API do Google
+              </a>
+              , incluindo os requisitos de Uso Limitado.
+            </li>
+          </ul>
+          <p className="font-bold">
+            Não utilizamos dados obtidos via APIs do Google Workspace para
+            treinar modelos de Inteligência Artificial.
+          </p>
+        </>
+      ),
+    },
+    {
+      title: "6. Como os dados são coletados?",
       content: (
         <ul className="list-disc pl-5 space-y-2">
           <li>Formulários de cadastro e contato;</li>
@@ -87,7 +129,7 @@ export const PrivacyPolicy: React.FC = () => {
       ),
     },
     {
-      title: "6. Para que usamos os dados?",
+      title: "7. Para que usamos os dados?",
       content: (
         <ul className="list-disc pl-5 space-y-2">
           <li>Criar e gerenciar contas;</li>
@@ -103,7 +145,7 @@ export const PrivacyPolicy: React.FC = () => {
       ),
     },
     {
-      title: "7. Compartilhamento com terceiros",
+      title: "8. Compartilhamento com terceiros",
       content: (
         <>
           <p className="mb-4">
@@ -120,7 +162,7 @@ export const PrivacyPolicy: React.FC = () => {
       ),
     },
     {
-      title: "8. Papel do Unificando no tratamento de dados",
+      title: "9. Papel do Unificando no tratamento de dados",
       content: (
         <ul className="list-disc pl-5 space-y-2">
           <li>
@@ -138,17 +180,17 @@ export const PrivacyPolicy: React.FC = () => {
       ),
     },
     {
-      title: "9. Uso de Inteligência Artificial",
+      title: "10. Uso de Inteligência Artificial",
       content:
         "A IA do Unificando apoia o atendimento humano, segue regras definidas pelo usuário e pode tratar texto e áudio, escalando para humano quando necessário. A IA não substitui atendentes, não toma decisões críticas sozinha e não atua fora das regras configuradas.",
     },
     {
-      title: "10. Cookies e tecnologias similares",
+      title: "11. Cookies e tecnologias similares",
       content:
         "Utilizamos cookies para funcionamento básico, autenticação, segurança e análise de uso. Não utilizamos cookies para rastreamento excessivo ou práticas invasivas.",
     },
     {
-      title: "11. Base legal do tratamento",
+      title: "12. Base legal do tratamento",
       content: (
         <ul className="list-disc pl-5 space-y-2">
           <li>Execução de contrato;</li>
@@ -159,7 +201,7 @@ export const PrivacyPolicy: React.FC = () => {
       ),
     },
     {
-      title: "12. Direitos do titular de dados",
+      title: "13. Direitos do titular de dados",
       content: (
         <>
           <p className="mb-4">O titular pode solicitar:</p>
@@ -178,17 +220,17 @@ export const PrivacyPolicy: React.FC = () => {
       ),
     },
     {
-      title: "13. Segurança da informação",
+      title: "14. Segurança da informação",
       content:
         "Adotamos medidas técnicas e organizacionais para proteger os dados contra acesso não autorizado, vazamentos, perda ou uso indevido. Trabalhamos continuamente para manter padrões elevados de segurança.",
     },
     {
-      title: "14. Retenção e exclusão de dados",
+      title: "15. Retenção e exclusão de dados",
       content:
         "Os dados são armazenados pelo tempo necessário para execução do serviço, cumprimento de obrigações legais ou até solicitação de exclusão. Em caso de inadimplência superior a 30 dias, os dados poderão ser apagados conforme regras do serviço.",
     },
     {
-      title: "15. Alterações nesta Política",
+      title: "16. Alterações nesta Política",
       content:
         "Esta Política pode ser atualizada a qualquer momento. A versão vigente estará sempre disponível nos canais oficiais do Unificando. O uso contínuo da plataforma indica concordância com a versão atualizada.",
     },

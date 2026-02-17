@@ -105,7 +105,33 @@ export const TermsOfService: React.FC = () => {
       ),
     },
     {
-      title: "8. Sites, hospedagem e domínio",
+      title: "8. Automações e Integrações (Google e Terceiros)",
+      content: (
+        <>
+          <p className="mb-4">
+            Ao utilizar automações integradas a serviços de terceiros (como
+            Google Workspace), o usuário:
+          </p>
+          <ul className="list-disc pl-5 space-y-2 mb-4">
+            <li>
+              Autoriza explicitamente o acesso aos escopos necessários (ex: ler
+              planilhas, criar documentos);
+            </li>
+            <li>
+              Reconhece que a revogação de permissões pode interromper o
+              funcionamento das automações;
+            </li>
+            <li>
+              Declara estar ciente de que o Unificando age como operador das
+              ferramentas, não tendo controle sobre mudanças nas APIs de
+              terceiros.
+            </li>
+          </ul>
+        </>
+      ),
+    },
+    {
+      title: "9. Sites, hospedagem e domínio",
       content: (
         <>
           <p className="mb-4">
@@ -131,7 +157,7 @@ export const TermsOfService: React.FC = () => {
       ),
     },
     {
-      title: "9. Cobrança, prazos e início do serviço",
+      title: "10. Cobrança, prazos e início do serviço",
       content: (
         <>
           <p className="mb-4">
@@ -149,7 +175,7 @@ export const TermsOfService: React.FC = () => {
       ),
     },
     {
-      title: "10. Cancelamento e reembolso",
+      title: "11. Cancelamento e reembolso",
       content: (
         <>
           <p className="mb-4">
@@ -165,7 +191,7 @@ export const TermsOfService: React.FC = () => {
       ),
     },
     {
-      title: "11. Atraso no pagamento",
+      title: "12. Atraso no pagamento",
       content: (
         <ul className="list-disc pl-5 space-y-2">
           <li>Até 7 dias de atraso: acesso suspenso temporariamente;</li>
@@ -175,7 +201,7 @@ export const TermsOfService: React.FC = () => {
       ),
     },
     {
-      title: "12. Responsabilidades do usuário",
+      title: "13. Responsabilidades do usuário",
       content: (
         <>
           <p className="mb-4">O usuário se compromete a:</p>
@@ -195,7 +221,7 @@ export const TermsOfService: React.FC = () => {
       ),
     },
     {
-      title: "13. Limitação de responsabilidade",
+      title: "14. Limitação de responsabilidade",
       content: (
         <>
           <p className="mb-4">O Unificando não se responsabiliza por:</p>
@@ -210,27 +236,27 @@ export const TermsOfService: React.FC = () => {
       ),
     },
     {
-      title: "14. Propriedade intelectual",
+      title: "15. Propriedade intelectual",
       content:
         "Todos os direitos sobre a plataforma, software, marca, identidade visual e materiais pertencem exclusivamente ao Unificando. É proibido uso não autorizado.",
     },
     {
-      title: "15. Suspensão ou encerramento do acesso",
+      title: "16. Suspensão ou encerramento do acesso",
       content:
         "O Unificando pode suspender ou encerrar o acesso em caso de violação dos Termos, uso indevido, inadimplência ou risco à plataforma, a terceiros ou ao próprio serviço.",
     },
     {
-      title: "16. Alterações dos Termos",
+      title: "17. Alterações dos Termos",
       content:
         "Os Termos podem ser alterados a qualquer momento. A versão vigente estará sempre disponível nos canais oficiais. O uso contínuo indica concordância com a versão atualizada.",
     },
     {
-      title: "17. Legislação e foro",
+      title: "18. Legislação e foro",
       content:
         "Os Termos são regidos pelas leis brasileiras. Fica eleito o foro do domicílio do Unificando, salvo disposição legal em contrário.",
     },
     {
-      title: "18. Contato oficial",
+      title: "19. Contato oficial",
       content: (
         <p>
           Para dúvidas, suporte ou questões contratuais:{" "}
