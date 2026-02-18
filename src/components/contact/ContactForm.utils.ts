@@ -13,7 +13,7 @@ export const buildWhatsAppMessage = ({
   planSelection,
   serviceOptions,
 }: WhatsAppMessageParams): string => {
-  let message = `Olá! Me chamo *${name}*.\n\n`;
+  let message = `Olá! Me chamo ${name}.\n\n`;
 
   if (planSelection) {
     message += `Fiz uma simulação no site e gostaria de saber mais sobre:\n\n`;
@@ -29,7 +29,7 @@ export const buildWhatsAppMessage = ({
     } = planSelection;
 
     if (includeSupport) {
-      message += `✅ *Atendimento Unificado*\n   - ${inboxes} Caixa(s) de Entrada\n   - ${attendants} Atendente(s)\n`;
+      message += `Atendimento Unificado\n   - ${inboxes} Caixa(s) de Entrada\n   - ${attendants} Atendente(s)\n`;
     }
 
     if (aiChannels) {
@@ -40,7 +40,7 @@ export const buildWhatsAppMessage = ({
         );
 
       if (activeChannels.length > 0) {
-        message += `✅ *IA no Atendimento*\n   - Canais: ${activeChannels.join(", ")}\n`;
+        message += `IA no Atendimento\n   - Canais: ${activeChannels.join(", ")}\n`;
       }
     }
 
@@ -55,7 +55,7 @@ export const buildWhatsAppMessage = ({
     }
 
     if (siteEnabled) {
-      message += `✅ *Sites & Presença Online*\n   - ${sitePages} página(s)\n`;
+      message += `Sites & Presença Online\n   - ${sitePages} página(s)\n`;
     }
   } else {
     const selected = serviceOptions
@@ -65,7 +65,7 @@ export const buildWhatsAppMessage = ({
     if (selected.length > 0) {
       message += `Gostaria de saber mais sobre:\n\n`;
       selected.forEach((service) => {
-        message += `✅ *${service}*\n`;
+        message += `${service}\n`;
       });
     }
   }

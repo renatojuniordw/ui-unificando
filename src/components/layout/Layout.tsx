@@ -32,19 +32,21 @@ const solutionItems = [
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const location = useLocation();
-  const isContractPage = location.pathname === "/contrato";
+  const isContractPage = location.pathname === ROUTES.CONTRACT;
+  const isLinksPage = location.pathname === ROUTES.LINKS;
+  const shouldHideLayout = isContractPage || isLinksPage;
 
   return (
     <div className="min-h-screen flex flex-col selection:bg-indigo-100 selection:text-indigo-900">
-      {!isContractPage && (
+      {!shouldHideLayout && (
         <Header navItems={navItems} solutionItems={solutionItems} />
       )}
 
-      <main className={`flex-grow ${!isContractPage ? "pt-20" : ""}`}>
+      <main className={`flex-grow ${!shouldHideLayout ? "pt-20" : ""}`}>
         {children}
       </main>
 
-      {!isContractPage && <Footer />}
+      {!shouldHideLayout && <Footer />}
       {/* <ChatwootWidget /> */}
     </div>
   );

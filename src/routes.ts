@@ -11,5 +11,6 @@ export const ROUTES = {
   CONTRACT: "/contrato",
   PRIVACY: "/privacidade",
   TERMS: "/termos",
+  LINKS: "/links",
   NOT_FOUND: "/404",
 } as const;

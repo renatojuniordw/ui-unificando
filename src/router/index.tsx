@@ -60,6 +60,11 @@ const TermsOfService = React.lazy(() =>
     default: module.TermsOfService,
   })),
 );
+const LinksPage = React.lazy(() =>
+  import("../pages/LinksPage").then((module) => ({
+    default: module.LinksPage,
+  })),
+);
 
 export const AppRouter: React.FC = () => {
   const location = useLocation();
@@ -80,6 +85,7 @@ export const AppRouter: React.FC = () => {
           <Route path={ROUTES.CONTRACT} element={<ContractGenerator />} />
           <Route path={ROUTES.PRIVACY} element={<PrivacyPolicy />} />
           <Route path={ROUTES.TERMS} element={<TermsOfService />} />
+          <Route path={ROUTES.LINKS} element={<LinksPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
