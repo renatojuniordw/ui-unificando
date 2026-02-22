@@ -10,5 +10,5 @@ services:
         VITE_CHATWOOT_TOKEN: ${VITE_CHATWOOT_TOKEN}
         VITE_BRIEFING_FORM_URL: ${VITE_BRIEFING_FORM_URL}
     ports:
-      - "11004:80"
+      - "127.0.0.1:11004:80"
     restart: always
