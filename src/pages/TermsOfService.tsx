@@ -9,7 +9,7 @@ export const TermsOfService: React.FC = () => {
     {
       title: "1. Visão Geral",
       content:
-        "Estes Termos regulam o uso da plataforma Unificando, um ecossistema de soluções para atendimento digital, automação responsável, uso de inteligência artificial aplicada e presença profissional na internet. Ao criar conta, contratar ou utilizar qualquer serviço, o usuário declara que leu, entendeu e concorda com estes Termos e com a Política de Privacidade.",
+        "Estes Termos regulam o uso da plataforma Unificando (propriedade de 64.630.380 MARIA JOSE GOMES DOS SANTOS - CNPJ 64.630.380/0001-20), um ecossistema de soluções para atendimento digital, automação responsável e inteligência artificial aplicada. Ao utilizar os serviços, o usuário declara concordância integral com estes Termos.",
     },
     {
       title: "2. Aceitação dos Termos",

@@ -29,24 +29,23 @@ export const About: React.FC = () => {
       />
 
       {/* Header / Manifesto Intro */}
-      <section className="py-24 bg-slate-50 border-b border-slate-200">
+      <section className="py-24 md:py-32 bg-slate-50 border-b border-slate-200">
         <div className="max-w-5xl mx-auto px-4 text-center">
-          <span className="text-indigo-600 font-black uppercase tracking-[0.2em] text-[10px] mb-6 block">
+          <span className="text-indigo-600 font-black uppercase tracking-[0.2em] text-xs mb-8 block">
             Unificado Digital
           </span>
-          <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-10 uppercase tracking-tighter">
-            Nossa Postura.
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-slate-900 mb-12 uppercase tracking-tighter leading-[1.05]">
+            Nossa Missão.
           </h1>
-          <p className="text-xl md:text-3xl text-slate-600 mb-8 leading-tight font-black tracking-tight max-w-3xl mx-auto">
-            Nascemos para ser o porto seguro de quem vende no digital.
+          <p className="text-xl md:text-3xl lg:text-4xl text-slate-700 mb-10 leading-tight font-black tracking-tight max-w-3xl mx-auto">
+            Substituímos o caos do "zap" por uma{" "}
+            <span className="text-indigo-600 italic">
+              máquina de escala previsível.
+            </span>
           </p>
-          <div className="max-w-2xl mx-auto space-y-6 text-lg text-slate-500 font-medium leading-relaxed">
-            <p>
-              Em um mercado cheio de promessas fáceis e soluções mágicas,
-              escolhemos a clareza, a responsabilidade e o longo prazo.
-            </p>
-            <p className="text-slate-900 font-bold">
-              Aqui, tecnologia não é espetáculo. É estrutura.
+          <div className="max-w-2xl mx-auto space-y-8 text-lg md:text-xl text-slate-500 font-medium leading-relaxed">
+            <p className="text-slate-900 font-black text-2xl">
+              Não vendemos ferramentas. Vendemos estrutura.
             </p>
           </div>
         </div>

@@ -200,8 +200,12 @@ export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
             </>
           )}
         </button>
-        <p className="text-center text-[8px] font-black text-slate-600 mt-6 uppercase tracking-[0.3em]">
-          Você será redirecionado para tirar dúvidas.
+        <p className="text-center text-[9px] font-bold text-indigo-400 mt-6 uppercase tracking-[0.15em] flex items-center justify-center gap-2">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+          </span>
+          Atendimento Inteligente Imediato • 24/7
         </p>
       </form>
       <Modal

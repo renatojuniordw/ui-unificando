@@ -34,7 +34,7 @@ export const DigitalPresence: React.FC = () => {
           offers: {
             "@type": "Offer",
             priceCurrency: "BRL",
-            price: "500.00",
+            price: PRICING.site.landing.setup.toString(),
             priceValidUntil: "2025-12-31",
           },
         }}
@@ -131,132 +131,46 @@ export const DigitalPresence: React.FC = () => {
         </div>
       </section>
 
-      {/* 3. Investimento */}
-      <section className="py-24 bg-white">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-black text-slate-900 uppercase tracking-tighter">
-              Investimento
-            </h2>
-          </div>
+      {/* 3. Investimento & Escala CTA */}
+      <section className="py-24 bg-slate-50 relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none"></div>
+        <div className="max-w-7xl mx-auto px-4 relative z-10 text-center">
+          <div className="bg-slate-900 rounded-[3.5rem] p-12 md:p-24 shadow-3xl overflow-hidden relative border border-white/5">
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-600/10 blur-[100px] pointer-events-none"></div>
 
-          <div className="grid md:grid-cols-2 gap-8 text-left mb-16">
-            {/* Landing Page */}
-            <div className="bg-slate-50 p-10 rounded-[3rem] border border-slate-200 shadow-sm relative overflow-hidden flex flex-col">
-              <h4 className="font-black text-slate-900 mb-4 text-xl uppercase tracking-widest">
-                Landing Page Profissional
-              </h4>
-              <div className="flex items-baseline gap-2 mb-6">
-                <span className="text-slate-400 font-bold text-xs uppercase tracking-widest">
-                  A partir de
+            <div className="max-w-3xl mx-auto">
+              <span className="text-indigo-400 font-black uppercase tracking-[0.25em] text-[10px] mb-6 block">
+                Investimento Estratégico
+              </span>
+              <h2 className="text-3xl md:text-6xl font-black text-white mb-8 uppercase tracking-tighter leading-tight">
+                Sua presença digital <br />{" "}
+                <span className="text-indigo-400 italic">
+                  sem custos surpresa.
                 </span>
-                <span className="text-4xl font-black text-slate-900">
-                  R$ {PRICING.site.landing.setup.toLocaleString("pt-BR")}
-                </span>
-              </div>
-              <p className="text-sm text-slate-600 leading-relaxed font-medium mb-8">
-                Páginas de alta conversão para conteúdos fixos e institucionais.
+              </h2>
+              <p className="text-slate-400 text-lg md:text-xl mb-12 font-medium leading-relaxed">
+                Trabalhamos com uma estrutura de investimento modular e
+                transparente. Você investe na base profissional e escala novos
+                recursos conforme a necessidade real do seu negócio.
               </p>
 
-              <div className="mb-8">
-                <span className="text-xs font-black text-slate-900 uppercase tracking-widest block mb-4">
-                  Incluso:
-                </span>
-                <ul className="space-y-3">
-                  <li className="flex items-center gap-3 text-sm font-bold text-slate-600">
-                    <span className="text-indigo-600">✓</span> 1 página
-                    profissional
-                  </li>
-                  <li className="flex items-center gap-3 text-sm font-bold text-slate-600">
-                    <span className="text-indigo-600">✓</span> Design responsivo
-                    (mobile e desktop)
-                  </li>
-                  <li className="flex items-center gap-3 text-sm font-bold text-slate-600">
-                    <span className="text-indigo-600">✓</span> Domínio grátis
-                    por 1 ano
-                  </li>
-                  <li className="flex items-center gap-3 text-sm font-bold text-slate-600">
-                    <span className="text-indigo-600">✓</span> Hospedagem grátis
-                    por 1 ano
-                  </li>
-                </ul>
-              </div>
-
-              <div className="mt-auto p-4 bg-white rounded-2xl border border-slate-100">
-                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-relaxed">
-                  * Valores válidos para conteúdos estáticos. Não inclui
-                  sistemas complexos, e-commerce ou áreas logadas.
-                </p>
-              </div>
-            </div>
-
-            {/* Crescimento Modular */}
-            <div className="bg-slate-900 p-10 rounded-[3rem] border border-slate-800 shadow-xl text-white relative flex flex-col justify-center">
-              <h4 className="font-black text-indigo-400 mb-4 text-xl uppercase tracking-widest">
-                Crescimento Modular
-              </h4>
-              <p className="text-slate-300 text-sm leading-relaxed mb-8 font-medium">
-                Se o seu negócio precisa de mais conteúdo, a estrutura é modular
-                e justa.
-              </p>
-
-              <div className="bg-white/5 border border-white/10 p-6 rounded-2xl mb-8">
-                <div className="flex justify-between items-center mb-2">
-                  <span className="font-bold uppercase tracking-tight text-sm">
-                    Página Adicional
-                  </span>
-                  <span className="text-2xl font-black text-indigo-400">
-                    +{" "}
-                    {(PRICING.site.extraPage.setupPercentage * 100).toFixed(0)}%{" "}
-                    <span className="text-xs text-white/50 align-middle">
-                      (do valor base)
-                    </span>
-                  </span>
-                </div>
-                <p className="text-xs text-slate-400">
-                  R${" "}
-                  {(
-                    PRICING.site.landing.setup *
-                    PRICING.site.extraPage.setupPercentage
-                  ).toLocaleString("pt-BR")}{" "}
-                  por página extra.
-                </p>
-              </div>
-
-              <div className="space-y-6">
-                <div>
-                  <span className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-3 block">
-                    Ideal Para:
-                  </span>
-                  <div className="flex flex-wrap gap-2">
-                    {[
-                      "Página de serviços",
-                      "Quem somos",
-                      "Blog",
-                      "Portfólio",
-                      "Galerias",
-                    ].map((tag, index) => (
-                      <span
-                        key={index}
-                        className="px-3 py-1 bg-white/10 rounded-lg text-[10px] font-bold text-slate-300 uppercase"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <div>
-                  <span className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-3 block">
-                    Mantemos:
-                  </span>
-                  <div className="flex gap-4 text-xs font-bold text-indigo-200">
-                    <span>Identidade Visual</span>
-                    <span>•</span>
-                    <span>Performance</span>
-                    <span>•</span>
-                    <span>Padrão SEO</span>
-                  </div>
-                </div>
+              <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                <motion.button
+                  whileHover={{ scale: 1.02, translateY: -5 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => navigate(ROUTES.PLANS)}
+                  className="bg-indigo-600 text-white px-12 py-5 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] shadow-xl shadow-indigo-600/20"
+                >
+                  Simular Projeto Completo
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.02, translateY: -5 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => navigate(ROUTES.CONTACT)}
+                  className="bg-transparent border border-white/10 text-white px-12 py-5 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] hover:bg-white/5 transition-all"
+                >
+                  Solicitar Briefing Gratuito
+                </motion.button>
               </div>
             </div>
           </div>

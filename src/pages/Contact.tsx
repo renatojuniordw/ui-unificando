@@ -70,9 +70,9 @@ export const Contact: React.FC = () => {
                     "Foco no seu cenário atual, sem pressão, sem promessa vazia.",
                 },
                 {
-                  title: "Resposta ágil",
+                  title: "Atendimento Imediato",
                   description:
-                    "Retorno em até 2 horas úteis, em horário comercial.",
+                    "Resposta instantânea via Inteligência Artificial, disponível 24 horas por dia.",
                 },
               ].map((benefit, index) => (
                 <div

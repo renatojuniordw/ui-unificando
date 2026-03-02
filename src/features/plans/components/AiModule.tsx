@@ -57,7 +57,10 @@ export const AiModule: React.FC<AiModuleProps> = ({
         IA no Atendimento
       </h3>
       <p className="text-xs text-slate-500 font-medium mb-8">
-        Comece simples. Evolua quando fizer sentido.
+        IA treinada com a voz da sua marca e as suas regras de negócio.
+        <span className="block mt-1 text-indigo-600 font-bold italic">
+          Nada de respostas engessadas ou genéricas.
+        </span>
       </p>
 
       <div className="space-y-4 animate-in fade-in slide-in-from-bottom-4">
@@ -69,7 +72,7 @@ export const AiModule: React.FC<AiModuleProps> = ({
           }`}
         >
           {/* Channels Selection */}
-          <p className="text-[10px] uppercase font-black text-slate-400 mb-2 tracking-wider">
+          <p className="text-xs uppercase font-black text-slate-900 mb-4 tracking-[0.15em]">
             Canais Automatizados
           </p>
           <div className="grid grid-cols-1 gap-3 mb-4">
@@ -148,11 +151,11 @@ export const AiModule: React.FC<AiModuleProps> = ({
                   </span>
                   {channel.desc && (
                     <span
-                      className={`block text-[10px] leading-tight ${
+                      className={`block text-[11px] leading-tight font-bold uppercase tracking-tight ${
                         // @ts-ignore
                         (aiChannels as any)[channel.id]
                           ? "text-indigo-700/80"
-                          : "text-slate-500"
+                          : "text-slate-400"
                       }`}
                     >
                       {channel.desc}
@@ -163,7 +166,7 @@ export const AiModule: React.FC<AiModuleProps> = ({
             ))}
           </div>
 
-          <p className="text-[10px] uppercase font-black text-slate-400 mb-2 tracking-wider">
+          <p className="text-xs uppercase font-black text-slate-900 mb-4 mt-8 tracking-[0.15em]">
             Recursos Extras
           </p>
           <div className="space-y-2 mb-4">
@@ -238,35 +241,39 @@ export const AiModule: React.FC<AiModuleProps> = ({
                 className="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 w-4 h-4"
               />
               <span
-                className={`text-[10px] font-bold ${
+                className={`text-[11px] font-black uppercase tracking-tight ${
                   aiAddons.google ? "text-indigo-700" : "text-slate-500"
                 }`}
               >
-                Integração Google (Sheets, Docs, Agenda)
+                Integração Google (Sheets, Agenda)
               </span>
             </label>
           </div>
 
           {aiEnabled && (
             <>
-              <div className="flex justify-between items-center mb-1 pt-4 border-t border-slate-100">
-                <span className="font-black text-xs uppercase tracking-wider text-slate-900">
+              <div className="flex justify-between items-center mb-3 pt-6 border-t border-slate-100">
+                <span className="font-black text-xs uppercase tracking-[0.15em] text-slate-900">
                   Plano IA Base
                 </span>
-                <span className="text-indigo-600 font-black text-xs">
-                  R$ {PRICING.ia.base.monthly}
-                  <span className="text-[9px] text-slate-400 font-medium">
+                <span className="text-indigo-600 font-black text-lg tracking-tighter">
+                  R${" "}
+                  {PRICING.ia.base.monthly.toLocaleString("pt-BR", {
+                    minimumFractionDigits: 2,
+                  })}
+                  <span className="text-[10px] text-slate-400 font-bold uppercase ml-1">
                     /mês
                   </span>
                 </span>
               </div>
-              <ul className="grid grid-cols-2 gap-2 max-h-[1000px] opacity-100 transition-all">
+              <ul className="grid grid-cols-2 gap-x-4 gap-y-2 max-h-[1000px] opacity-100 transition-all">
                 {PRICING.ia.base.features.map((feature, index) => (
                   <li
                     key={index}
-                    className="flex gap-1.5 items-center text-[9px] font-bold text-slate-600"
+                    className="flex gap-2 items-center text-[10px] font-black uppercase tracking-tight text-slate-500"
                   >
-                    <span className="text-indigo-600">✓</span> {feature}
+                    <span className="text-indigo-600 font-black">✓</span>{" "}
+                    {feature}
                   </li>
                 ))}
               </ul>

@@ -7,6 +7,8 @@ import { ProblemSection } from "../features/home/components/ProblemSection";
 import { SolutionsSection } from "../features/home/components/SolutionsSection";
 import { JourneySection } from "../features/home/components/JourneySection";
 import { CtaSection } from "../features/home/components/CtaSection";
+import { MarketInsights } from "../features/home/components/MarketInsights";
+import { PartnerTech } from "../features/home/components/PartnerTech";
 
 export const Home: React.FC = () => {
   return (
@@ -56,9 +58,11 @@ export const Home: React.FC = () => {
       />
 
       <HeroSection />
+      <PartnerTech />
       <StatsSection />
       <ProblemSection />
       <SolutionsSection />
+      <MarketInsights />
       <JourneySection />
       <CtaSection />
     </PageTransition>

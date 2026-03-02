@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { PRICING } from "../../constants/pricing";
 
 export const FAQSection: React.FC = () => {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
@@ -16,8 +17,7 @@ export const FAQSection: React.FC = () => {
     },
     {
       question: "Qual o custo após o primeiro ano?",
-      answer:
-        "Para manter o site seguro e online em nossos servidores, cobramos uma taxa de manutenção de hospedagem (atualmente R$ 70/mês). Se não renovar, o site sai do ar, mas os arquivos continuam sendo seus.",
+      answer: `Para manter o site seguro e online em nossos servidores, cobramos uma taxa de manutenção de hospedagem (atualmente R$ ${PRICING.site.landing.hostingMonthly.toLocaleString("pt-BR")}/mês). Se não renovar, o site sai do ar, mas os arquivos continuam sendo seus.`,
     },
     {
       question: "Qual o prazo de entrega?",

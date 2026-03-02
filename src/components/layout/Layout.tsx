@@ -4,6 +4,7 @@ import { NavItem, LayoutProps } from "../../types/layout";
 import { ROUTES } from "../../routes";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
+import { WhatsAppFloating } from "../common/WhatsAppFloating";
 
 const navItems: NavItem[] = [
   { label: "Início", path: ROUTES.HOME },
@@ -47,6 +48,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
       </main>
 
       {!shouldHideLayout && <Footer />}
+      {!shouldHideLayout && <WhatsAppFloating />}
       {/* <ChatwootWidget /> */}
     </div>
   );

@@ -47,43 +47,59 @@ export const SiteModule: React.FC<SiteModuleProps> = ({
       </p>
 
       {siteEnabled && (
-        <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4">
+        <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4">
           <div>
-            <div className="flex justify-between text-xs font-bold uppercase tracking-wide text-slate-700 mb-3">
+            <div className="flex justify-between items-end text-xs font-black uppercase tracking-widest text-slate-900 mb-4">
               <span>Total de Páginas</span>
-              <span>{sitePages}</span>
+              <span className="text-xl text-indigo-600 leading-none">
+                {sitePages}
+              </span>
             </div>
             <input
               type="range"
               min="1"
-              max="10"
+              max="15"
               value={sitePages}
               onChange={(event) => setSitePages(parseInt(event.target.value))}
               className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600"
             />
-            <p className="text-[10px] text-slate-400 mt-2 font-medium">
-              1 = Landing Page única. 2+ = Páginas internas.
+            <p className="text-[11px] text-slate-400 mt-3 font-bold uppercase tracking-wide leading-relaxed">
+              1 = Landing Page única. <br />
+              2+ = Páginas internas e institucionais.
             </p>
           </div>
 
-          <div className="p-4 bg-white rounded-xl border border-slate-200">
-            <div className="flex justify-between items-center mb-1">
-              <span className="font-bold text-xs uppercase text-slate-700">
-                Configuração e Implementação
+          <div className="p-6 bg-white rounded-[2rem] border border-slate-100 shadow-sm space-y-4">
+            <div className="flex flex-col gap-2">
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">
+                Configuração inicial
               </span>
-              <span className="font-black text-slate-900">
-                R${" "}
-                {PRICING.site.landing.setup +
-                  (sitePages > 1 ? sitePages - 1 : 0) *
-                    (PRICING.site.landing.setup *
-                      PRICING.site.extraPage.setupPercentage)}
-              </span>
+              <div className="flex justify-between items-start gap-4">
+                <span className="text-xs font-black uppercase text-slate-900 leading-tight flex-1">
+                  Design e <br /> Implementação
+                </span>
+                <span className="text-xl md:text-2xl font-black text-slate-900 tracking-tighter whitespace-nowrap">
+                  R${" "}
+                  {(
+                    PRICING.site.landing.setup +
+                    (sitePages > 1 ? sitePages - 1 : 0) *
+                      (PRICING.site.landing.setup *
+                        PRICING.site.extraPage.setupPercentage)
+                  ).toLocaleString("pt-BR", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })}
+                </span>
+              </div>
             </div>
-            <div className="flex justify-between items-center">
-              <span className="font-bold text-xs uppercase text-slate-400">
-                Mensal
+
+            <div className="pt-4 border-t border-slate-50 flex justify-between items-center">
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-300">
+                Mensalidade
               </span>
-              <span className="font-black text-slate-400">R$ 0</span>
+              <span className="text-sm font-black text-slate-200 tracking-tighter">
+                R$ 0,00
+              </span>
             </div>
           </div>
         </div>

@@ -1,158 +1,244 @@
-import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { NavItem } from '../../types';
-import { ROUTES } from '../../routes';
-import LogoUnificando from '../../assets/img/LOGO_UNIFICANDO.svg';
-import { useHeaderMenu } from '../../hooks/useHeaderMenu';
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
+import { NavItem } from "../../types";
+import { ROUTES } from "../../routes";
+import LogoUnificando from "../../assets/img/LOGO_UNIFICANDO.svg";
+import { useHeaderMenu } from "../../hooks/useHeaderMenu";
 
 interface HeaderProps {
-    navItems: NavItem[];
-    solutionItems: { label: string; path: string; desc: string }[];
+  navItems: NavItem[];
+  solutionItems: { label: string; path: string; desc: string }[];
 }
 
 export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
-    const { pathname } = useLocation();
+  const { pathname } = useLocation();
 
-    // Custom hook for menu state
-    const {
-        isMenuOpen,
-        isSolutionsOpen,
-        isMobileSolutionsOpen,
-        dropdownRef,
-        toggleMenu,
-        toggleSolutions,
-        toggleMobileSolutions,
-        closeMenu,
-        openSolutions,
-        closeSolutions
-    } = useHeaderMenu();
+  // Custom hook for menu state
+  const {
+    isMenuOpen,
+    isSolutionsOpen,
+    isMobileSolutionsOpen,
+    dropdownRef,
+    toggleMenu,
+    toggleSolutions,
+    toggleMobileSolutions,
+    closeMenu,
+    openSolutions,
+    closeSolutions,
+  } = useHeaderMenu();
 
-    // Helper to check active state for solutions dropdown
-    const isSolutionsActive = ([
-        ROUTES.SOLUTIONS,
-        ROUTES.CUSTOMER_SERVICE,
-        ROUTES.PRODUCTIVITY,
-        ROUTES.DIGITAL_PRESENCE
-    ] as string[]).includes(pathname);
+  // Helper to check active state for solutions dropdown
+  const isSolutionsActive = (
+    [
+      ROUTES.SOLUTIONS,
+      ROUTES.CUSTOMER_SERVICE,
+      ROUTES.PRODUCTIVITY,
+      ROUTES.DIGITAL_PRESENCE,
+    ] as string[]
+  ).includes(pathname);
 
-    return (
-        <header className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md border-b border-slate-200 z-50">
-            <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+  return (
+    <header className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md border-b border-slate-200 z-50">
+      <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+        <Link
+          to="/"
+          className="flex items-center gap-2 cursor-pointer"
+          onClick={closeMenu}
+        >
+          <img src={LogoUnificando} alt="Unificando" className="h-8 w-auto" />
+        </Link>
+
+        <nav className="hidden md:flex items-center gap-8">
+          <Link
+            to={ROUTES.HOME}
+            className={`text-xs font-black uppercase tracking-[0.15em] transition-colors ${pathname === ROUTES.HOME ? "text-indigo-600" : "text-slate-500 hover:text-indigo-600"}`}
+          >
+            Início
+          </Link>
+
+          <div
+            className="relative"
+            ref={dropdownRef}
+            onMouseEnter={openSolutions}
+            onMouseLeave={closeSolutions}
+          >
+            <button
+              onClick={toggleSolutions}
+              aria-expanded={isSolutionsOpen}
+              aria-haspopup="true"
+              className={`text-xs font-black uppercase tracking-[0.15em] transition-colors flex items-center gap-1 py-4 ${
+                isSolutionsActive
+                  ? "text-indigo-600"
+                  : "text-slate-500 hover:text-indigo-600"
+              }`}
+            >
+              Soluções
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className={`h-3 w-3 transition-transform ${isSolutionsOpen ? "rotate-180" : ""}`}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+
+            {isSolutionsOpen && (
+              <div className="absolute top-full left-0 w-64 bg-white border border-slate-100 rounded-[1.5rem] shadow-2xl p-2 animate-in fade-in slide-in-from-top-2 duration-200">
                 <Link
-                    to="/"
-                    className="flex items-center gap-2 cursor-pointer"
-                    onClick={closeMenu}
+                  to={ROUTES.SOLUTIONS}
+                  onClick={closeMenu}
+                  className="w-full text-left p-3 hover:bg-slate-50 rounded-xl transition-colors mb-1 group block"
                 >
-                    <img src={LogoUnificando} alt="Unificando" className="h-8 w-auto" />
+                  <span className="block text-xs font-black text-slate-900 uppercase tracking-tight group-hover:text-indigo-600">
+                    Ver Todas
+                  </span>
+                  <span className="block text-[10px] text-slate-400 font-bold">
+                    Ecossistema completo
+                  </span>
                 </Link>
-
-                <nav className="hidden md:flex items-center gap-8">
-                    <Link
-                        to={ROUTES.HOME}
-                        className={`text-[10px] font-black uppercase tracking-[0.2em] transition-colors ${pathname === ROUTES.HOME ? 'text-indigo-600' : 'text-slate-500 hover:text-indigo-600'}`}
-                    >
-                        Início
-                    </Link>
-
-                    <div
-                        className="relative"
-                        ref={dropdownRef}
-                        onMouseEnter={openSolutions}
-                        onMouseLeave={closeSolutions}
-                    >
-                        <button
-                            onClick={toggleSolutions}
-                            aria-expanded={isSolutionsOpen}
-                            aria-haspopup="true"
-                            className={`text-[10px] font-black uppercase tracking-[0.2em] transition-colors flex items-center gap-1 py-4 ${isSolutionsActive
-                                ? 'text-indigo-600' : 'text-slate-500 hover:text-indigo-600'
-                                }`}
-                        >
-                            Soluções
-                            <svg xmlns="http://www.w3.org/2000/svg" className={`h-3 w-3 transition-transform ${isSolutionsOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-
-                        {isSolutionsOpen && (
-                            <div className="absolute top-full left-0 w-64 bg-white border border-slate-100 rounded-[1.5rem] shadow-2xl p-2 animate-in fade-in slide-in-from-top-2 duration-200">
-                                <Link
-                                    to={ROUTES.SOLUTIONS}
-                                    onClick={closeMenu}
-                                    className="w-full text-left p-3 hover:bg-slate-50 rounded-xl transition-colors mb-1 group block"
-                                >
-                                    <span className="block text-xs font-black text-slate-900 uppercase tracking-tight group-hover:text-indigo-600">Ver Todas</span>
-                                    <span className="block text-[10px] text-slate-400 font-bold">Ecossistema completo</span>
-                                </Link>
-                                <div className="h-px bg-slate-100 my-1 mx-2" />
-                                {solutionItems.map((item) => (
-                                    <Link
-                                        key={item.path}
-                                        to={item.path}
-                                        onClick={closeMenu}
-                                        className="w-full text-left p-3 hover:bg-slate-50 rounded-xl transition-colors group block"
-                                    >
-                                        <span className="block text-xs font-black text-slate-900 uppercase tracking-tight group-hover:text-indigo-600">{item.label}</span>
-                                        <span className="block text-[10px] text-slate-400 font-bold">{item.desc}</span>
-                                    </Link>
-                                ))}
-                            </div>
-                        )}
-                    </div>
-
-                    {navItems.filter(navItem => navItem.path !== ROUTES.HOME).map((item) => (
-                        <Link
-                            key={item.path}
-                            to={item.path}
-                            className={`text-[10px] font-black uppercase tracking-[0.2em] transition-colors ${pathname === item.path ? 'text-indigo-600' : 'text-slate-500 hover:text-indigo-600'}`}
-                        >
-                            {item.label}
-                        </Link>
-                    ))}
-
-                    <Link
-                        to={ROUTES.CONTACT}
-                        className="bg-slate-900 text-white px-6 py-3 rounded-full text-[10px] font-black uppercase tracking-[0.2em] hover:bg-slate-800 transition-all"
-                    >
-                        Falar com Especialista
-                    </Link>
-                </nav>
-
-                <button
-                    className="md:hidden text-slate-900"
-                    onClick={toggleMenu}
-                    aria-label="Toggle menu"
-                >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
-                    </svg>
-                </button>
-            </div>
-
-            {/* Mobile Nav */}
-            {isMenuOpen && (
-                <div className="md:hidden bg-white border-b border-slate-200 py-6 px-4 flex flex-col gap-2">
-                    <Link to={ROUTES.HOME} onClick={closeMenu} className="text-left text-slate-900 text-[10px] font-black uppercase tracking-[0.2em] py-3 border-b border-slate-50">Início</Link>
-                    <button onClick={toggleMobileSolutions} className="w-full flex justify-between items-center text-left text-slate-900 text-[10px] font-black uppercase tracking-[0.2em] py-3 border-b border-slate-50">
-                        Soluções
-                        <svg xmlns="http://www.w3.org/2000/svg" className={`h-4 w-4 transition-transform ${isMobileSolutionsOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    {isMobileSolutionsOpen && (
-                        <div className="bg-slate-50 rounded-xl px-4 py-2 flex flex-col gap-4 my-2">
-                            <Link to={ROUTES.SOLUTIONS} onClick={closeMenu} className="text-left py-1 text-[10px] font-bold uppercase text-slate-500">Ver Todas</Link>
-                            {solutionItems.map((item) => (
-                                <Link key={item.path} to={item.path} onClick={closeMenu} className="text-left py-1 text-[10px] font-bold uppercase text-slate-500">{item.label}</Link>
-                            ))}
-                        </div>
-                    )}
-                    {navItems.filter(navItem => navItem.path !== ROUTES.HOME).map((item) => (
-                        <Link key={item.path} to={item.path} onClick={closeMenu} className="text-left text-slate-900 text-[10px] font-black uppercase tracking-[0.2em] py-3 border-b border-slate-50">{item.label}</Link>
-                    ))}
-                    <Link to={ROUTES.CONTACT} onClick={closeMenu} className="bg-indigo-600 text-white w-full py-4 rounded-xl font-black uppercase tracking-[0.2em] text-[10px] mt-4 text-center">Falar com Especialista</Link>
-                </div>
+                <div className="h-px bg-slate-100 my-1 mx-2" />
+                {solutionItems.map((item) => (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    onClick={closeMenu}
+                    className="w-full text-left p-3 hover:bg-slate-50 rounded-xl transition-colors group block"
+                  >
+                    <span className="block text-xs font-black text-slate-900 uppercase tracking-tight group-hover:text-indigo-600">
+                      {item.label}
+                    </span>
+                    <span className="block text-[10px] text-slate-400 font-bold">
+                      {item.desc}
+                    </span>
+                  </Link>
+                ))}
+              </div>
             )}
-        </header>
-    );
+          </div>
+
+          {navItems
+            .filter((navItem) => navItem.path !== ROUTES.HOME)
+            .map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`text-xs font-black uppercase tracking-[0.15em] transition-colors ${pathname === item.path ? "text-indigo-600" : "text-slate-500 hover:text-indigo-600"}`}
+              >
+                {item.label}
+              </Link>
+            ))}
+
+          <Link
+            to={ROUTES.CONTACT}
+            className="bg-slate-900 text-white px-8 py-3.5 rounded-full text-xs font-black uppercase tracking-[0.1em] hover:bg-slate-800 transition-all shadow-lg shadow-slate-200"
+          >
+            Falar com Especialista
+          </Link>
+        </nav>
+
+        <button
+          className="md:hidden text-slate-900"
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d={
+                isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"
+              }
+            />
+          </svg>
+        </button>
+      </div>
+
+      {/* Mobile Nav */}
+      {isMenuOpen && (
+        <div className="md:hidden bg-white border-b border-slate-200 py-8 px-6 flex flex-col gap-3 animate-in fade-in slide-in-from-top-4">
+          <Link
+            to={ROUTES.HOME}
+            onClick={closeMenu}
+            className="text-left text-slate-900 text-xs font-black uppercase tracking-widest py-4 border-b border-slate-50"
+          >
+            Início
+          </Link>
+          <button
+            onClick={toggleMobileSolutions}
+            className="w-full flex justify-between items-center text-left text-slate-900 text-xs font-black uppercase tracking-widest py-4 border-b border-slate-50"
+          >
+            Soluções
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className={`h-4 w-4 transition-transform ${isMobileSolutionsOpen ? "rotate-180" : ""}`}
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </button>
+          {isMobileSolutionsOpen && (
+            <div className="bg-slate-50 rounded-2xl px-6 py-4 flex flex-col gap-5 my-2">
+              <Link
+                to={ROUTES.SOLUTIONS}
+                onClick={closeMenu}
+                className="text-left py-1 text-xs font-bold uppercase text-indigo-600 tracking-tight"
+              >
+                Ver Todas Soluções
+              </Link>
+              {solutionItems.map((item) => (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  onClick={closeMenu}
+                  className="text-left py-1 text-xs font-bold uppercase text-slate-500 tracking-tight"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          )}
+          {navItems
+            .filter((navItem) => navItem.path !== ROUTES.HOME)
+            .map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                onClick={closeMenu}
+                className="text-left text-slate-900 text-xs font-black uppercase tracking-widest py-4 border-b border-slate-50"
+              >
+                {item.label}
+              </Link>
+            ))}
+          <Link
+            to={ROUTES.CONTACT}
+            onClick={closeMenu}
+            className="bg-indigo-600 text-white w-full py-5 rounded-2xl font-black uppercase tracking-widest text-xs mt-6 text-center shadow-xl shadow-indigo-100"
+          >
+            Falar com Especialista
+          </Link>
+        </div>
+      )}
+    </header>
+  );
 };

@@ -57,10 +57,10 @@ export const Footer: React.FC = () => {
           </div>
         </div>
         <div className="text-left">
-          <h4 className="text-white text-[10px] font-black uppercase tracking-[0.2em] mb-10">
+          <h4 className="text-white text-xs font-black uppercase tracking-[0.2em] mb-10">
             Ecossistema
           </h4>
-          <ul className="space-y-5 text-[11px] font-bold uppercase tracking-widest">
+          <ul className="space-y-5 text-xs font-bold uppercase tracking-widest">
             <li>
               <Link
                 to={ROUTES.CUSTOMER_SERVICE}
@@ -88,10 +88,10 @@ export const Footer: React.FC = () => {
           </ul>
         </div>
         <div className="text-left">
-          <h4 className="text-white text-[10px] font-black uppercase tracking-[0.2em] mb-10">
+          <h4 className="text-white text-xs font-black uppercase tracking-[0.2em] mb-10">
             Unificando
           </h4>
-          <ul className="space-y-5 text-[11px] font-bold uppercase tracking-widest">
+          <ul className="space-y-5 text-xs font-bold uppercase tracking-widest">
             <li>
               <Link
                 to={ROUTES.ABOUT}
@@ -129,7 +129,7 @@ export const Footer: React.FC = () => {
           </ul>
         </div>
       </div>
-      <div className="max-w-7xl mx-auto px-4 mt-24 pt-8 border-t border-slate-800 text-[10px] font-bold uppercase tracking-widest flex flex-col md:flex-row justify-between items-center gap-4 text-slate-600">
+      <div className="max-w-7xl mx-auto px-4 mt-24 pt-8 border-t border-slate-800 text-xs font-bold uppercase tracking-widest flex flex-col md:flex-row justify-between items-center gap-4 text-slate-600">
         <p>
           © {new Date().getFullYear()} Unificando Digital. Crafted for results.
         </p>
@@ -148,13 +148,13 @@ export const Footer: React.FC = () => {
           </Link>
         </div>
       </div>
-      <div className="max-w-7xl mx-auto px-4 mt-8 pt-8 border-t border-slate-800/50 text-[9px] font-bold uppercase tracking-widest text-slate-500 text-center">
+      <div className="max-w-7xl mx-auto px-4 mt-8 pt-8 border-t border-slate-800/50 text-xs font-bold uppercase tracking-widest text-slate-500 text-center">
         <p>
           Unificando © {new Date().getFullYear()} é operado por 64.630.380 MARIA
           JOSE GOMES DOS SANTOS <br className="md:hidden" /> CNPJ:
           64.630.380/0001-20 • Recife - PE
         </p>
-        <p className="mt-4 text-[9px] text-slate-600 font-medium normal-case tracking-normal max-w-3xl mx-auto leading-relaxed">
+        <p className="mt-4 text-[11px] text-slate-600 font-medium normal-case tracking-normal max-w-3xl mx-auto leading-relaxed">
           Este site não faz parte do site do Facebook ou Facebook Inc. Além
           disso, este site NÃO é endossado pelo Facebook de nenhuma maneira.
           FACEBOOK é uma marca comercial da FACEBOOK, Inc. WhatsApp é uma marca

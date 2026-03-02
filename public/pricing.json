@@ -1,8 +1,8 @@
 {
   "atendimento": {
     "base": {
-      "setup": 300,
-      "monthly": 80,
+      "setup": 297,
+      "monthly": 77,
       "includes": {
         "inboxes": 1,
         "attendants": 1
@@ -10,66 +10,67 @@
     },
     "extras": {
       "inbox": {
-        "priceMonthly": 50,
+        "priceMonthly": 47,
         "description": "Canal adicional (WhatsApp, Instagram, Telegram ou Site)"
       },
       "attendant": {
-        "priceMonthly": 20,
+        "priceMonthly": 19,
         "description": "Usuário adicional no painel"
       }
     }
   },
   "ia": {
     "base": {
-      "setup": 2000,
-      "monthly": 300,
+      "setup": 997,
+      "monthly": 247,
       "features": [
-        "IA conversando por texto",
-        "Respostas automáticas iniciais",
-        "Prompt de apoio",
-        "Organização do atendimento",
-        "Escalonamento para humano"
+        "IA Conversacional (Texto)",
+        "Atendimento 24/7 Imediato",
+        "Conhecimento Personalizado",
+        "Transferência para Humano",
+        "Configuração de Persona"
       ]
     },
     "extras": {
       "channel": {
-        "setupPercentage": 0.3,
+        "setupPercentage": 0.2,
         "monthlyPercentage": 0.1,
         "label": "Canal Adicional"
       },
       "audio": {
         "setupPercentage": 0.3,
-        "monthlyPercentage": 0.1,
+        "monthlyPercentage": 0.15,
         "label": "Interpretação de Áudio"
       },
       "api": {
-        "setupPercentage": 0.3,
-        "monthlyPercentage": 0.1,
-        "label": "Integração via API (DataJud, etc)"
+        "setupPercentage": 0.8,
+        "monthlyPercentage": 0.2,
+        "label": "Integração via API (Sistemas Externos)"
       },
       "google": {
-        "setupPercentage": 0.3,
-        "monthlyPercentage": 0.1,
+        "setupPercentage": 0.5,
+        "monthlyPercentage": 0.15,
         "label": "Integração Google (Sheets, Docs, Agenda)"
       }
     }
   },
   "site": {
     "landing": {
-      "setup": 1300,
+      "setup": 997,
+      "hostingMonthly": 70,
       "pagesIncluded": 1,
       "features": [
-        "Design responsivo",
-        "Alta performance",
-        "SEO básico",
-        "Domínio grátis (1 ano)",
-        "Hospedagem grátis (1 ano)",
-        "Integração com WhatsApp e formulários"
+        "Design Premium Responsivo",
+        "Alta Performance (LCP < 1.5s)",
+        "Estrutura Otimizada para SEO",
+        "Domínio Próprio (Grátis 1 ano)",
+        "Hospedagem Gerenciada (Grátis 1 ano)",
+        "Integração com Ecossistema Unificado"
       ]
     },
     "extraPage": {
-      "setupPercentage": 0.15,
-      "description": "Página adicional (blog, serviços, portfólio)"
+      "setupPercentage": 0.2,
+      "description": "Página adicional estratégica (Serviços, Quem Somos, Blog)"
     }
   },
   "calculadora": {

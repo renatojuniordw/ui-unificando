@@ -58,7 +58,7 @@ const AtendimentoAnimation = () => {
                 repeat: Infinity,
                 delay: item.delay,
               }}
-              className={`absolute w - 10 h - 10 ${item.color} rounded - full flex items - center justify - center text - white font - black text - [10px] shadow - lg`}
+              className={`absolute w-10 h-10 ${item.color} rounded-full flex items-center justify-center text-white font-black text-[10px] shadow-lg`}
             >
               {item.icon}
             </motion.div>
@@ -165,21 +165,21 @@ export const Solutions: React.FC = () => {
       />
 
       {/* Header */}
-      <section className="py-20 bg-slate-50 border-b border-slate-200">
+      <section className="py-24 md:py-32 bg-slate-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <span className="text-indigo-600 font-black uppercase tracking-[0.2em] text-[10px] mb-4 block">
+          <span className="text-indigo-600 font-black uppercase tracking-[0.2em] text-xs mb-4 block">
             Ecossistema Completo
           </span>
-          <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 tracking-tighter uppercase leading-none">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-slate-900 mb-8 tracking-tighter uppercase leading-[1.1]">
             Nossas Soluções.
           </h1>
-          <p className="text-lg text-slate-500 max-w-2xl mx-auto font-medium mb-12">
+          <p className="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto font-medium mb-12 leading-relaxed">
             Ferramentas modulares para transformar sua operação digital. Use
-            uma, combine várias ou monte tudo sob medida.
+            uma, combine várias ou monte seu ecossistema sob medida.
           </p>
           <button
             onClick={() => navigate(ROUTES.PLANS)}
-            className="bg-indigo-600 text-white px-10 py-5 rounded-2xl text-[10px] font-black hover:bg-indigo-500 transition-all shadow-xl uppercase tracking-widest"
+            className="bg-indigo-600 text-white px-12 py-5 rounded-2xl text-xs font-black hover:bg-indigo-500 transition-all shadow-2xl shadow-indigo-100 uppercase tracking-widest"
           >
             Simular minha solução
           </button>
@@ -194,20 +194,20 @@ export const Solutions: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <div className="inline-block bg-indigo-50 text-indigo-700 font-black uppercase tracking-widest text-[10px] px-4 py-1.5 rounded-full mb-6 border border-indigo-100">
+            <div className="inline-block bg-indigo-50 text-indigo-700 font-black uppercase tracking-widest text-xs px-4 py-1.5 rounded-full mb-6 border border-indigo-100">
               Organização
             </div>
-            <h2 className="text-4xl font-black text-slate-900 mb-6 uppercase tracking-tighter">
+            <h2 className="text-4xl lg:text-5xl font-black text-slate-900 mb-6 uppercase tracking-tighter">
               Atendimento Unificado
             </h2>
-            <p className="text-lg text-slate-500 mb-8 font-medium">
+            <p className="text-lg text-slate-500 mb-8 font-medium leading-relaxed">
               Centralize WhatsApp, Instagram, Telegram e chat do site em um
               único painel profissional. Mais controle, menos confusão e
               atendimento em equipe com histórico completo.
             </p>
 
             <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100 mb-10">
-              <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-4 block">
+              <span className="text-xs font-black uppercase tracking-widest text-slate-400 mb-4 block">
                 Quando Usar:
               </span>
               <ul className="space-y-2">
@@ -250,19 +250,20 @@ export const Solutions: React.FC = () => {
             viewport={{ once: true }}
             className="order-1 md:order-2"
           >
-            <div className="inline-block bg-indigo-600 text-white font-black uppercase tracking-widest text-[10px] px-4 py-1.5 rounded-full mb-6">
+            <div className="inline-block bg-indigo-600 text-white font-black uppercase tracking-widest text-xs px-4 py-1.5 rounded-full mb-6 shadow-lg shadow-indigo-100">
               Produtividade
             </div>
-            <h2 className="text-4xl font-black text-slate-900 mb-6 uppercase tracking-tighter">
+            <h2 className="text-4xl lg:text-5xl font-black text-slate-900 mb-6 uppercase tracking-tighter">
               IA no Atendimento
             </h2>
-            <p className="text-lg text-slate-500 mb-8 font-medium">
+            <p className="text-lg text-slate-500 mb-8 font-medium leading-relaxed">
               Agentes inteligentes que atendem, qualificam, agendam e escalam
-              conversas 24/7, seguindo o tom da sua marca e seus processos.
+              conversas 24/7, seguindo o tom da sua marca e seus processos
+              internos.
             </p>
 
-            <div className="bg-white p-6 rounded-2xl border border-slate-200 mb-10">
-              <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-4 block">
+            <div className="bg-white p-6 rounded-2xl border border-slate-200 mb-10 shadow-sm">
+              <span className="text-xs font-black uppercase tracking-widest text-slate-400 mb-4 block">
                 Quando Usar:
               </span>
               <ul className="space-y-2">
@@ -301,20 +302,20 @@ export const Solutions: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <div className="inline-block bg-slate-900 text-white font-black uppercase tracking-widest text-[10px] px-4 py-1.5 rounded-full mb-6">
+            <div className="inline-block bg-slate-900 text-white font-black uppercase tracking-widest text-xs px-4 py-1.5 rounded-full mb-6 shadow-lg shadow-slate-100">
               Presença Digital
             </div>
-            <h2 className="text-4xl font-black text-slate-900 mb-6 uppercase tracking-tighter">
+            <h2 className="text-4xl lg:text-5xl font-black text-slate-900 mb-6 uppercase tracking-tighter">
               Sites & Presença Online
             </h2>
-            <p className="text-lg text-slate-500 mb-8 font-medium">
+            <p className="text-lg text-slate-500 mb-8 font-medium leading-relaxed">
               Construímos sua vitrine profissional para que sua empresa seja
               encontrada no Google, transmita autoridade e converta visitantes
-              em oportunidades.
+              em oportunidades reais.
             </p>
 
             <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100 mb-10">
-              <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-4 block">
+              <span className="text-xs font-black uppercase tracking-widest text-slate-400 mb-4 block">
                 Quando Usar:
               </span>
               <ul className="space-y-2">
@@ -348,17 +349,17 @@ export const Solutions: React.FC = () => {
       </section>
 
       {/* Como funciona */}
-      <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
+      <section className="py-32 bg-slate-900 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-indigo-500/10 blur-[120px] pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
-          <span className="text-indigo-400 font-black uppercase tracking-[0.2em] text-[10px] mb-4 block">
+          <span className="text-indigo-400 font-black uppercase tracking-[0.2em] text-xs mb-4 block">
             Processo Simples
           </span>
-          <h2 className="text-3xl md:text-5xl font-black text-white mb-16 tracking-tighter uppercase">
+          <h2 className="text-4xl md:text-5xl font-black text-white mb-20 tracking-tighter uppercase">
             Como funciona
           </h2>
 
-          <div className="grid md:grid-cols-4 gap-8 text-left">
+          <div className="grid md:grid-cols-4 gap-6 lg:gap-8 text-left">
             {[
               {
                 title: "Escolha as soluções",
@@ -380,12 +381,12 @@ export const Solutions: React.FC = () => {
             ].map((step, index) => (
               <div
                 key={index}
-                className="bg-white/5 border border-white/10 p-8 rounded-[2rem]"
+                className="bg-white/5 border border-white/10 p-8 rounded-[2.5rem] hover:bg-white/[0.08] transition-colors"
               >
-                <span className="text-5xl font-black text-indigo-500/30 mb-4 block">
+                <span className="text-5xl font-black text-indigo-500/30 mb-6 block">
                   {index + 1}
                 </span>
-                <h3 className="text-lg font-black uppercase tracking-tight mb-2">
+                <h3 className="text-lg font-black uppercase tracking-tight mb-3">
                   {step.title}
                 </h3>
                 <p className="text-sm text-slate-400 font-medium leading-relaxed">
@@ -395,10 +396,10 @@ export const Solutions: React.FC = () => {
             ))}
           </div>
 
-          <div className="mt-16">
+          <div className="mt-20">
             <button
               onClick={() => navigate(ROUTES.PLANS)}
-              className="bg-indigo-600 text-white px-12 py-5 rounded-2xl text-[10px] font-black hover:bg-indigo-500 transition-all shadow-2xl uppercase tracking-[0.2em]"
+              className="bg-indigo-600 text-white px-12 py-5 rounded-2xl text-xs font-black hover:bg-indigo-500 transition-all shadow-2xl shadow-indigo-900/20 uppercase tracking-[0.2em]"
             >
               Simular agora
             </button>

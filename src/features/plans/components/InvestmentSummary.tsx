@@ -12,42 +12,42 @@ export const InvestmentSummary: React.FC<InvestmentSummaryProps> = ({
   onContract,
 }) => {
   return (
-    <section className="pt-20 pb-5 bg-white sticky top-0 z-30 shadow-sm border-b border-slate-100">
+    <section className="pt-24 pb-8 bg-white sticky top-0 z-30 shadow-sm border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="bg-slate-900 text-white rounded-[2rem] p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/20 blur-[80px] pointer-events-none"></div>
+        <div className="bg-slate-900 text-white rounded-[2.5rem] p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-10 shadow-3xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-indigo-500/10 blur-[100px] pointer-events-none"></div>
 
-          <div className="relative z-10 text-center md:text-left">
-            <span className="text-indigo-400 font-black uppercase tracking-widest text-[10px] mb-2 block">
+          <div className="relative z-10 text-center md:text-left flex-1">
+            <span className="text-indigo-400 font-black uppercase tracking-[0.2em] text-xs mb-4 block">
               Investimento Estimado
             </span>
-            <div className="flex items-end gap-6 justify-center md:justify-start">
+            <div className="flex flex-col sm:flex-row items-center gap-8 md:gap-12">
               <div>
-                <span className="block text-slate-400 text-[10px] font-bold uppercase tracking-widest mb-1">
+                <span className="block text-slate-500 text-[11px] font-black uppercase tracking-widest mb-2">
                   Configuração e Implementação
                 </span>
-                <span className="text-3xl md:text-4xl font-black tracking-tighter">
+                <span className="text-4xl md:text-5xl font-black tracking-tighter">
                   R$ {setup.toLocaleString("pt-BR")}
                 </span>
               </div>
-              <div className="w-px h-10 bg-white/10"></div>
+              <div className="hidden sm:block w-px h-12 bg-white/10"></div>
               <div>
-                <span className="block text-slate-400 text-[10px] font-bold uppercase tracking-widest mb-1">
-                  Mensalidade
+                <span className="block text-slate-500 text-[11px] font-black uppercase tracking-widest mb-2">
+                  Mensalidade Total
                 </span>
-                <span className="text-3xl md:text-4xl font-black tracking-tighter text-indigo-400">
+                <span className="text-4xl md:text-5xl font-black tracking-tighter text-indigo-400">
                   R$ {monthly.toLocaleString("pt-BR")}
                 </span>
               </div>
             </div>
           </div>
 
-          <div className="relative z-10 flex gap-4 w-full md:w-auto">
+          <div className="relative z-10 w-full md:w-auto">
             <button
               onClick={onContract}
-              className="flex-1 md:flex-none bg-white text-slate-900 px-8 py-4 rounded-xl font-black uppercase tracking-widest text-[10px] hover:bg-indigo-50 transition-all"
+              className="w-full md:w-auto bg-white text-slate-900 px-10 py-5 rounded-2xl font-black uppercase tracking-[0.15em] text-xs hover:bg-slate-100 transition-all shadow-xl"
             >
-              Contratar este Plano
+              VALIDAR PLANO NO WHATSAPP
             </button>
           </div>
         </div>

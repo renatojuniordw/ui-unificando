@@ -4,7 +4,6 @@ import { ROUTES } from "../routes";
 import { motion } from "framer-motion";
 import { SEO } from "../components/common/SEO";
 import { DashboardSimulation } from "../features/customer-service/DashboardSimulation";
-import { PricingCalculator } from "../features/customer-service/PricingCalculator";
 import { IntegrationsSection } from "../features/customer-service/IntegrationsSection";
 import { FAQSection } from "../features/customer-service/FAQSection";
 import { TestimonialsSection } from "../features/customer-service/TestimonialsSection";
@@ -53,10 +52,8 @@ export const CustomerService: React.FC = () => {
               Plataforma de Crescimento
             </div>
             <h1 className="text-5xl md:text-7xl font-black text-slate-900 leading-[1.1] mb-8 uppercase tracking-tighter">
-              Atendimento Unificado no{" "}
-              <span className="text-slate-500 font-normal">
-                WhatsApp e Instagram.
-              </span>
+              Toda sua equipe em um só{" "}
+              <span className="text-indigo-600">WhatsApp.</span>
             </h1>
             <p className="text-lg text-slate-500 mb-10 leading-relaxed max-w-lg font-medium">
               Centralize WhatsApp e Instagram em uma única caixa de entrada
@@ -70,7 +67,7 @@ export const CustomerService: React.FC = () => {
                 onClick={() => navigate(ROUTES.CONTACT)}
                 className="bg-slate-900 text-white px-10 py-5 rounded-2xl text-[10px] font-black shadow-xl uppercase tracking-[0.2em]"
               >
-                Organizar meu negócio
+                Atender com Eficiência
               </motion.button>
             </div>
           </motion.div>
@@ -156,19 +153,49 @@ export const CustomerService: React.FC = () => {
       {/* Social Proof / Testimonials */}
       <TestimonialsSection />
 
-      {/* Pricing Calculator Section */}
-      <section className="py-24 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 uppercase tracking-tighter">
-              Monte seu Plano
-            </h2>
-            <p className="text-slate-500 text-lg font-medium">
-              Configure os recursos ideais para o seu negócio.
-            </p>
-          </div>
+      {/* Pricing CTA Section */}
+      <section className="py-24 bg-slate-50 relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none"></div>
+        <div className="max-w-7xl mx-auto px-4 relative z-10 text-center">
+          <div className="bg-slate-900 rounded-[3.5rem] p-12 md:p-24 shadow-3xl overflow-hidden relative border border-white/5">
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-600/10 blur-[100px] pointer-events-none"></div>
 
-          <PricingCalculator />
+            <div className="max-w-3xl mx-auto">
+              <span className="text-indigo-400 font-black uppercase tracking-[0.25em] text-[10px] mb-6 block">
+                Investimento Sob Medida
+              </span>
+              <h2 className="text-3xl md:text-6xl font-black text-white mb-8 uppercase tracking-tighter leading-tight">
+                Pague apenas pelo que <br />{" "}
+                <span className="text-indigo-400 italic">
+                  realmente utiliza.
+                </span>
+              </h2>
+              <p className="text-slate-400 text-lg md:text-xl mb-12 font-medium leading-relaxed">
+                Nossa estrutura é totalmente modular. Simule agora o
+                investimento ideal para sua empresa e veja como é fácil unificar
+                seu atendimento.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                <motion.button
+                  whileHover={{ scale: 1.02, translateY: -5 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => navigate(ROUTES.PLANS)}
+                  className="bg-indigo-600 text-white px-12 py-5 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] shadow-xl shadow-indigo-600/20"
+                >
+                  Simular meu Plano
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.02, translateY: -5 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => navigate(ROUTES.CONTACT)}
+                  className="bg-transparent border border-white/10 text-white px-12 py-5 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] hover:bg-white/5 transition-all"
+                >
+                  Falar com Consultor
+                </motion.button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -190,7 +217,7 @@ export const CustomerService: React.FC = () => {
             onClick={() => navigate(ROUTES.CONTACT)}
             className="bg-white text-indigo-600 px-12 py-5 rounded-2xl text-xs font-black uppercase tracking-[0.2em] hover:scale-105 transition-transform shadow-2xl"
           >
-            Criar Conta Grátis
+            Falar com Especialista
           </button>
         </div>
       </section>

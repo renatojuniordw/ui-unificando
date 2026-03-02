@@ -9,7 +9,7 @@ export const PrivacyPolicy: React.FC = () => {
     {
       title: "1. Visão Geral",
       content:
-        "O Unificando respeita a privacidade e a proteção dos dados pessoais de usuários e terceiros envolvidos no uso da plataforma. Esta Política explica como os dados são coletados, usados, armazenados e protegidos, em conformidade com a LGPD (Lei nº 13.709/2018). Ao utilizar o Unificando, o usuário concorda com as práticas descritas nesta Política.",
+        "O Unificando (64.630.380 MARIA JOSE GOMES DOS SANTOS) respeita a privacidade e a proteção dos dados pessoais de usuários e terceiros envolvidos no uso da plataforma. Esta Política explica como os dados são coletados, usados, armazenados e protegidos, em conformidade com a LGPD (Lei nº 13.709/2018). Ao utilizar o Unificando, o usuário concorda com as práticas descritas nesta Política.",
     },
     {
       title: "2. A quem esta Política se aplica?",
@@ -187,7 +187,7 @@ export const PrivacyPolicy: React.FC = () => {
     {
       title: "11. Cookies e tecnologias similares",
       content:
-        "Utilizamos cookies para funcionamento básico, autenticação, segurança e análise de uso. Não utilizamos cookies para rastreamento excessivo ou práticas invasivas.",
+        "Utilizamos cookies próprios e de terceiros para funcionamento básico, autenticação e segurança. Além disso, utilizamos ferramentas como Meta Pixel e Google Tag para análise de marketing e audiência. Você pode gerenciar suas preferências de cookies diretamente no seu navegador ou desativar o rastreamento de anúncios de terceiros em suas configurações de privacidade.",
     },
     {
       title: "12. Base legal do tratamento",
