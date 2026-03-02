@@ -33,7 +33,6 @@ export const Productivity: React.FC = () => {
             "@type": "Offer",
             priceCurrency: "BRL",
             price: "497.00",
-            priceValidUntil: "2025-12-31",
           },
         }}
       />

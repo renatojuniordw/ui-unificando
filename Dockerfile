@@ -43,9 +43,18 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 # Copia os arquivos estáticos gerados no build
 COPY --from=builder /app/dist /usr/share/nginx/html
 
+# Ajusta permissões para rodar como usuário não-root (nginx)
+# Como o docker-compose marcará como read_only: true, o nginx 
+# escreverá em volumes tmpfs de memória em /var/run e /var/cache
+RUN touch /var/run/nginx.pid && \
+  chown -R nginx:nginx /var/run/nginx.pid /usr/share/nginx/html /var/cache/nginx /var/log/nginx /etc/nginx/conf.d
+
 # Healthcheck simples para garantir que o Nginx está respondendo
 HEALTHCHECK --interval=30s --timeout=3s \
   CMD curl -f http://localhost/ || exit 1
+
+# Troca para usuário não-privilegiado
+USER nginx
 
 EXPOSE 80
 

@@ -35,6 +35,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
     site: false,
   });
   const [name, setName] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
 
   const [company, setCompany] = useState(""); // Honeypot
 
@@ -108,6 +109,16 @@ export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
       return;
     }
 
+    // Validate Turnstile (only if not a direct simulation redirect)
+    if (!planSelection && !turnstileToken) {
+      showModal(
+        "Verificação Necessária",
+        "Por favor, complete o desafio de segurança para continuar.",
+        "warning",
+      );
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
@@ -136,6 +147,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
     }
   };
 
+  const isButtonDisabled = isSubmitting || (!planSelection && !turnstileToken);
+
   return (
     <div className="bg-slate-900 p-10 md:p-14 rounded-[3.5rem] shadow-2xl border border-slate-800 text-left relative overflow-hidden">
       <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/10 blur-[80px]"></div>
@@ -155,6 +168,19 @@ export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
             placeholder="Como devemos te chamar?"
           />
         </div>
+
+        {/* Cloudflare Turnstile Anti-Bot Challenge */}
+        {!planSelection && (
+          <div className="flex justify-center py-2 bg-white/5 rounded-2xl border border-white/5">
+            <Turnstile
+              siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY}
+              onSuccess={(token) => setTurnstileToken(token)}
+              onExpire={() => setTurnstileToken(null)}
+              onError={() => setTurnstileToken(null)}
+              theme="dark"
+            />
+          </div>
+        )}
 
         {/* Honeypot */}
         <div className="hidden" aria-hidden="true">
@@ -181,10 +207,10 @@ export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
 
         <button
           type="submit"
-          disabled={isSubmitting}
+          disabled={isButtonDisabled}
           className={`w-full py-5 rounded-2xl font-black text-[10px] transition-all shadow-xl uppercase tracking-[0.2em] mt-6 flex items-center justify-center gap-3
               ${
-                !isSubmitting
+                !isButtonDisabled
                   ? "bg-[#25D366] text-white hover:bg-[#20bd5a]"
                   : "bg-slate-700 text-slate-400 cursor-not-allowed"
               }`}

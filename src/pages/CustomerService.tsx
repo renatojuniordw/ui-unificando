@@ -33,7 +33,6 @@ export const CustomerService: React.FC = () => {
             "@type": "Offer",
             priceCurrency: "BRL",
             price: "297.00",
-            priceValidUntil: "2025-12-31",
           },
         }}
       />

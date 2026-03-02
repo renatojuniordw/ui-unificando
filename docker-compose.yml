@@ -12,3 +12,12 @@ services:
     ports:
       - "127.0.0.1:11004:80"
     restart: always
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /tmp
+      - /var/cache/nginx
+      - /var/run
+    cap_drop:
+      - ALL

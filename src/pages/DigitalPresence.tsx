@@ -35,7 +35,6 @@ export const DigitalPresence: React.FC = () => {
             "@type": "Offer",
             priceCurrency: "BRL",
             price: PRICING.site.landing.setup.toString(),
-            priceValidUntil: "2025-12-31",
           },
         }}
       />
