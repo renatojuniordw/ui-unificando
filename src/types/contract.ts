@@ -119,7 +119,6 @@ export interface ContractSubmissionPayload extends ContractData {
     setup: number;
     monthly: number;
   };
-  turnstileToken: string;
   submittedAt: string;
   source: string;
 }

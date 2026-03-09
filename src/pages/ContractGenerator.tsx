@@ -25,7 +25,6 @@ export const ContractGenerator: React.FC = () => {
   const navigate = useNavigate();
   const [step, setStep] = useState(0);
   const [data, setData] = useState<ContractData>(INITIAL_CONTRACT_DATA);
-  const [turnstileToken, setTurnstileToken] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Modal State
@@ -141,20 +140,11 @@ export const ContractGenerator: React.FC = () => {
   };
 
   const handleSubmit = async () => {
-    if (!turnstileToken) {
-      showModal(
-        "Verificação Necessária",
-        "Aguarde a verificação de segurança antes de continuar.",
-        "warning",
-      );
-      return;
-    }
     setIsSubmitting(true);
 
     const submissionData = {
       ...data,
       pricing,
-      turnstileToken,
       submittedAt: new Date().toISOString(),
       source: "contract_generator_form",
     };
@@ -349,11 +339,7 @@ export const ContractGenerator: React.FC = () => {
 
                 {/* STEP: Review */}
                 {currentStepId === "review" && (
-                  <ReviewStep
-                    data={data}
-                    pricing={pricing}
-                    setTurnstileToken={setTurnstileToken}
-                  />
+                  <ReviewStep data={data} pricing={pricing} />
                 )}
               </motion.div>
             </AnimatePresence>
@@ -374,9 +360,9 @@ export const ContractGenerator: React.FC = () => {
                 <button
                   type="button"
                   onClick={handleSubmit}
-                  disabled={!turnstileToken || isSubmitting}
+                  disabled={isSubmitting}
                   className={`px-8 py-3 rounded-xl font-bold text-sm text-white transition-all shadow-lg hover:shadow-indigo-500/25 uppercase tracking-wide
-                                ${!turnstileToken || isSubmitting ? "bg-slate-400 cursor-not-allowed" : "bg-indigo-600 hover:bg-indigo-500 hover:-translate-y-1"}`}
+                                ${isSubmitting ? "bg-slate-400 cursor-not-allowed" : "bg-indigo-600 hover:bg-indigo-500 hover:-translate-y-1"}`}
                 >
                   {isSubmitting ? "ENVIANDO..." : "CONCLUIR E GERAR CONTRATO"}
                 </button>

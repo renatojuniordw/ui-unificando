@@ -1,18 +1,12 @@
 import React from "react";
-import { Turnstile } from "@marsidev/react-turnstile";
 import { ContractData } from "@/types/contract";
 
 interface ReviewStepProps {
   data: ContractData;
   pricing: { setup: number; monthly: number };
-  setTurnstileToken: (token: string) => void;
 }
 
-export const ReviewStep: React.FC<ReviewStepProps> = ({
-  data,
-  pricing,
-  setTurnstileToken,
-}) => {
+export const ReviewStep: React.FC<ReviewStepProps> = ({ data, pricing }) => {
   return (
     <div className="space-y-8">
       <div className="bg-slate-900 rounded-2xl p-6 md:p-8 text-white relative overflow-hidden">
@@ -115,13 +109,6 @@ export const ReviewStep: React.FC<ReviewStepProps> = ({
         </p>
       </div>
 
-      <div className="flex justify-center">
-        <Turnstile
-          siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY}
-          onSuccess={setTurnstileToken}
-          options={{ theme: "light" }}
-        />
-      </div>
     </div>
   );
 };
