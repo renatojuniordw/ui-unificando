@@ -131,27 +131,25 @@ export const TermsOfService: React.FC = () => {
       ),
     },
     {
-      title: "9. Sites, hospedagem e domínio",
+      title: "9. Sites, Hospedagem Inteligente e Domínios",
       content: (
         <>
           <p className="mb-4">
-            O Unificando pode entregar landing pages e sites institucionais.
-            Domínio e hospedagem estão incluídos apenas no primeiro ano,
-            conforme contratado.
+            O Unificando oferece o serviço de Hospedagem Inteligente (DaaS) focado em projetos Front-end estáticos.
           </p>
-          <p className="mb-2 font-bold">Após o primeiro ano:</p>
           <ul className="list-disc pl-5 space-y-2 mb-4">
             <li>
-              Se não houver renovação em até 10 dias, o site pode sair do ar;
+              <strong>Domínios:</strong> O domínio (ex: seunome.com.br) é propriedade e responsabilidade legal do usuário, que deve adquiri-lo e mantê-lo renovado junto a órgãos oficiais (como o Registro.br). O Unificando não atua como registradora, operando apenas o apontamento técnico de DNS para o servidor;
             </li>
             <li>
-              Para manter hospedagem no Unificando, pode haver cobrança mensal
-              específica.
+              <strong>Hospedagem:</strong> A responsabilidade da plataforma restringe-se à estabilidade, uptime do servidor, velocidade de rede e emissão de certificados de segurança (SSL/HTTPS);
+            </li>
+            <li>
+              <strong>Limitações Técnicas:</strong> O Unificando não se responsabiliza por falhas de lógica, crashes ou bugs advindos de códigos gerados pelo usuário via ferramentas automatizadas (ex: IAs como Cursor, Bolt, etc). Também não estão cobertos no escopo da base de hospedagem o provisionamento de bancos de dados estruturados ou desenvolvimento de APIs.
             </li>
           </ul>
-          <p>
-            O site é de propriedade do cliente; a cobrança é apenas pela
-            hospedagem.
+          <p className="font-bold text-sm text-slate-600 mt-4">
+            Nota: A manutenção, correção de erros (debug) e refatoração de códigos não estão inclusos na mensalidade padrão da Hospedagem Inteligente e, caso necessários, estarão sujeitos à orçamentação técnica e prestação de serviço avulsa.
           </p>
         </>
       ),

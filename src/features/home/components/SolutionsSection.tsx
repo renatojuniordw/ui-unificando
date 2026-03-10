@@ -223,26 +223,26 @@ export const SolutionsSection: React.FC<SolutionsSectionProps> = ({
               Hospedagem
             </h3>
             <p className="text-slate-500 mb-8 font-medium text-sm leading-relaxed">
-              Você cria seu sistema ou site com IA, nós colocamos no ar com domínio próprio e SSL. Sem barreiras técnicas.
+              Você cria seu site com IA, nós colocamos no ar com domínio próprio e SSL. Sem barreiras técnicas.
             </p>
             <div className="mb-8 p-5 rounded-2xl bg-white border border-slate-200">
-               <div className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 mb-2">
-                 Oportunidade
-               </div>
-               <div className="flex items-baseline gap-3">
-                 <div className="text-3xl font-black text-slate-900 tracking-tighter">
-                   100%
-                 </div>
-                 <div className="text-xs font-bold text-slate-500 leading-snug">
-                   Gerenciado
-                 </div>
-               </div>
-               <div className="text-[11px] font-medium text-slate-500 mt-2 leading-relaxed">
-                 Foque apenas na criação com ferramentas No-Code/AI.
-               </div>
-               <div className="text-[10px] font-black uppercase tracking-widest text-slate-400 mt-4">
-                 DaaS (Deploy as a Service)
-               </div>
+              <div className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 mb-2">
+                Oportunidade
+              </div>
+              <div className="flex items-baseline gap-3">
+                <div className="text-3xl font-black text-slate-900 tracking-tighter">
+                  100%
+                </div>
+                <div className="text-xs font-bold text-slate-500 leading-snug">
+                  Gerenciado
+                </div>
+              </div>
+              <div className="text-[11px] font-medium text-slate-500 mt-2 leading-relaxed">
+                Foque apenas na criação com ferramentas No-Code/AI.
+              </div>
+              <div className="text-[10px] font-black uppercase tracking-widest text-slate-400 mt-4">
+                DaaS (Deploy as a Service)
+              </div>
             </div>
             <button
               onClick={() => {

@@ -6,22 +6,32 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://unificando.com.br/solucoes</loc>
+    <loc>https://unificando.com.br/servicos</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://unificando.com.br/solucoes/atendimento-whatsapp-instagram</loc>
+    <loc>https://unificando.com.br/servicos/atendimento</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://unificando.com.br/solucoes/inteligencia-artificial-negocios</loc>
+    <loc>https://unificando.com.br/servicos/ia</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://unificando.com.br/solucoes/criacao-sites-profissionais</loc>
+    <loc>https://unificando.com.br/servicos/sites</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://unificando.com.br/para-advogados</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://unificando.com.br/servicos/hospedagem-inteligente</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>

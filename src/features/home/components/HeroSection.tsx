@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { HeroIllustration } from "../HeroIllustration";
 import { CTA } from "../../../constants/cta";
 import { trackCtaClick } from "../../../utils/analytics";
 
@@ -9,33 +8,32 @@ export const HeroSection: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="py-20 md:py-32 overflow-hidden bg-white">
-      <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <section className="py-24 md:py-32 overflow-hidden bg-white text-center">
+      <div className="max-w-4xl mx-auto px-4 flex flex-col items-center">
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-left"
         >
           <div className="inline-flex items-center gap-2 bg-indigo-50 text-indigo-700 px-4 py-1.5 rounded-full text-[11px] font-black uppercase tracking-[0.2em] mb-8">
             RESULTADOS REAIS COM INTELIGÊNCIA ARTIFICIAL
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-slate-900 leading-[1.05] mb-8 uppercase tracking-tighter">
             Transforme seu WhatsApp em um{" "}
-            <span className="block text-indigo-600 italic">
+            <span className="block text-indigo-600 italic mt-2">
               Ativo de Escala.
             </span>{" "}
-            <span className="block text-slate-400">Sem caos, sem falhas.</span>
+            <span className="block text-slate-400 mt-2">Sem caos, sem falhas.</span>
           </h1>
-          <h2 className="text-xs md:text-sm font-black uppercase tracking-[0.2em] text-slate-400 mb-6 max-w-xl">
+          <h2 className="text-xs md:text-sm font-black uppercase tracking-[0.2em] text-slate-400 mb-6 mx-auto max-w-xl">
             Atendimento via WhatsApp, IA e Presença Digital para pequenas e
             médias empresas
           </h2>
-          <p className="text-lg md:text-xl text-slate-500 mb-10 leading-relaxed max-w-lg font-medium">
+          <p className="text-lg md:text-xl text-slate-500 mb-12 leading-relaxed max-w-2xl mx-auto font-medium">
             Centralizamos seu atendimento, automatizamos com IA e construímos
             sua presença no Google — tudo integrado, sem bagunça.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 mb-10">
+          <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
             <motion.button
               whileHover={{ scale: 1.02, translateY: -2 }}
               whileTap={{ scale: 0.98 }}
@@ -68,7 +66,7 @@ export const HeroSection: React.FC = () => {
             </motion.button>
           </div>
 
-          <div className="text-sm">
+          <div className="text-sm border-t border-slate-100 pt-8 mt-12">
             <span className="opacity-80 font-medium text-slate-500">
               Já é cliente?{" "}
               <a
@@ -81,15 +79,6 @@ export const HeroSection: React.FC = () => {
               </a>
             </span>
           </div>
-        </motion.div>
-
-        <motion.div
-          className="relative hidden md:block"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-        >
-          <HeroIllustration />
         </motion.div>
       </div>
     </section>

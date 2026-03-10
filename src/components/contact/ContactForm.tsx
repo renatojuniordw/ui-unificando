@@ -25,6 +25,11 @@ const SERVICE_OPTIONS = [
     label: "Sites & Presença Online",
     emoji: "🌐",
   },
+  {
+    id: "hospedagem" as keyof ServiceSelection,
+    label: "Hospedagem Inteligente",
+    emoji: "🚀",
+  },
 ];
 
 export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
@@ -33,6 +38,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
     atendimento: false,
     ia: false,
     site: false,
+    hospedagem: false,
   });
   const [name, setName] = useState("");
 

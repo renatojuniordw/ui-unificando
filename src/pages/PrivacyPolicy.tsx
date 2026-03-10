@@ -38,7 +38,8 @@ export const PrivacyPolicy: React.FC = () => {
             <li>Organização do atendimento digital;</li>
             <li>Automação responsável de processos;</li>
             <li>Uso de inteligência artificial aplicada;</li>
-            <li>Criação de presença profissional na internet.</li>
+            <li>Criação de presença profissional na internet;</li>
+            <li>Hospedagem Inteligente (Deploy as a Service).</li>
           </ul>
           <p>
             Atuamos no Brasil com soluções modulares. Canal oficial:{" "}
@@ -60,11 +61,14 @@ export const PrivacyPolicy: React.FC = () => {
             <li>Mensagens trocadas nos canais conectados;</li>
             <li>Áudios enviados durante atendimentos, quando aplicável;</li>
             <li>
-              Dados técnicos básicos (IP, data, hora e registros de acesso).
+            Dados técnicos básicos (IP, data, hora e registros de acesso).
             </li>
           </ul>
+          <p className="text-sm font-bold text-slate-500 mb-2">
+            Nota sobre a Hospedagem Inteligente: No serviço de hospedagem de sites estáticos, o Unificando processa apenas os dados de infraestrutura e tráfego (IP, requisições de rede) necessários para garantir a estabilidade e proteção contra ataques (DDoS). Não temos acesso ao conteúdo preenchido pelos clientes finais nos formulários dos sites hospedados.
+          </p>
           <p className="text-sm font-bold text-slate-500">
-            Nota: O Unificando não coleta senhas de redes sociais ou contas
+            Nota Geral: O Unificando não coleta senhas de redes sociais ou contas
             externas, nem dados sensíveis, salvo quando estritamente necessário
             e autorizado.
           </p>
