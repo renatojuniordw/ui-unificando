@@ -29,6 +29,11 @@ const solutionItems = [
     path: ROUTES.DIGITAL_PRESENCE,
     desc: "Presença Digital & Autoridade",
   },
+  {
+    label: "Deploy Inteligente",
+    path: ROUTES.SMART_HOSTING,
+    desc: "Hospedagem Inteligente",
+  },
 ];
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {

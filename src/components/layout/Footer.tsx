@@ -58,7 +58,7 @@ export const Footer: React.FC = () => {
         </div>
         <div className="text-left">
           <h4 className="text-white text-xs font-black uppercase tracking-[0.2em] mb-10">
-            Ecossistema
+            Serviços
           </h4>
           <ul className="space-y-5 text-xs font-bold uppercase tracking-widest">
             <li>
@@ -83,6 +83,14 @@ export const Footer: React.FC = () => {
                 className="hover:text-indigo-400 transition-colors"
               >
                 Sites & Presença Online
+              </Link>
+            </li>
+            <li>
+              <Link
+                to={ROUTES.SMART_HOSTING}
+                className="hover:text-indigo-400 transition-colors"
+              >
+                Hospedagem Inteligente
               </Link>
             </li>
           </ul>

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { ROUTES } from "../routes";
+import { ROUTES } from "../../routes";
 import { motion, AnimatePresence } from "framer-motion";
-import { SEO } from "../components/common/SEO";
-import { PageTransition } from "../components/common/PageTransition";
-import { CTA } from "../constants/cta";
-import { trackCtaClick } from "../utils/analytics";
+import { SEO } from "../../components/common/SEO";
+import { PageTransition } from "../../components/common/PageTransition";
+import { CTA } from "../../constants/cta";
+import { trackCtaClick } from "../../utils/analytics";
 
 const AtendimentoAnimation = () => {
   return (
@@ -139,7 +139,7 @@ export const Solutions: React.FC = () => {
       <SEO
         title="Soluções de Atendimento, IA e Sites | Unificando"
         description="Atendimento via WhatsApp e Instagram, automação com IA e presença digital no Google. Soluções modulares para PMEs."
-        canonical={ROUTES.SOLUTIONS}
+        canonical={ROUTES.SERVICES}
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "CollectionPage",
@@ -161,6 +161,11 @@ export const Solutions: React.FC = () => {
               "@type": "Service",
               name: "Sites & Presença Online",
               description: "Desenvolvimento de sites e landing pages.",
+            },
+            {
+              "@type": "Service",
+              name: "Hospedagem Inteligente",
+              description: "Deploy e Hospedagem de sites desenvolvidos com IA.",
             },
           ],
         }}
@@ -354,6 +359,86 @@ export const Solutions: React.FC = () => {
           <div className="h-full min-h-[400px]">
             <DigitalAnimation />
           </div>
+        </div>
+      </section>
+
+      {/* Hospedagem Inteligente */}
+      <section className="py-24 bg-slate-50 border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-16 items-center text-left">
+          <div className="order-2 md:order-1">
+             <div className="bg-slate-900 rounded-[3rem] p-10 h-full min-h-[400px] border border-slate-800 shadow-2xl relative overflow-hidden flex flex-col justify-center items-center">
+                 <div className="absolute inset-0 bg-indigo-500/10 blur-3xl rounded-full"></div>
+                 <div className="relative z-10 w-full max-w-xs">
+                     <div className="flex justify-between items-center mb-6">
+                        <div className="w-12 h-12 bg-slate-800 rounded-xl border border-slate-700 flex items-center justify-center font-black text-slate-400 text-xl">{"</>"}</div>
+                        <div className="flex gap-2">
+                           <div className="w-2 h-2 rounded-full bg-slate-600 animate-pulse"></div>
+                           <div className="w-2 h-2 rounded-full bg-slate-600 animate-pulse delay-100"></div>
+                           <div className="w-2 h-2 rounded-full bg-slate-600 animate-pulse delay-200"></div>
+                        </div>
+                        <div className="w-12 h-12 bg-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-500/30 font-black text-white text-xl">🌐</div>
+                     </div>
+                     <div className="bg-slate-800 p-4 rounded-2xl border border-slate-700 mb-4 flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center font-black">✓</div>
+                        <div>
+                          <p className="text-white text-xs font-bold">Domínio Conectado</p>
+                          <p className="text-[10px] text-slate-400">meu-site.com.br</p>
+                        </div>
+                     </div>
+                     <div className="bg-slate-800 p-4 rounded-2xl border border-slate-700 flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-black">🔒</div>
+                        <div>
+                          <p className="text-white text-xs font-bold">Certificado SSL Seguro</p>
+                          <p className="text-[10px] text-slate-400">Ativado automaticamente</p>
+                        </div>
+                     </div>
+                 </div>
+             </div>
+          </div>
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="order-1 md:order-2"
+          >
+            <div className="inline-block bg-indigo-100 text-indigo-700 font-black uppercase tracking-widest text-xs px-4 py-1.5 rounded-full mb-6 border border-indigo-200 shadow-sm">
+              Deploy DaaS
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-black text-slate-900 mb-6 uppercase tracking-tighter">
+              Hospedagem Inteligente
+            </h2>
+            <p className="text-lg text-slate-500 mb-8 font-medium leading-relaxed">
+              Desenvolveu um site estático usando Cursor, Lovable ou IA e não sabe como colocar no ar com domínio próprio? Resolva isso em poucas horas sem encostar na infraestrutura.
+            </p>
+
+            <div className="bg-white p-6 rounded-2xl border border-slate-200 mb-10 shadow-sm">
+              <span className="text-xs font-black uppercase tracking-widest text-slate-400 mb-4 block">
+                Quando Usar:
+              </span>
+              <ul className="space-y-2">
+                {[
+                  "Gerou o código com IA e travou no Deploy",
+                  "Não quer a marca d'água de servidores gratuitos",
+                  "Quer repassar uma URL .com.br profissional",
+                ].map((useCase, index) => (
+                  <li
+                    key={index}
+                    className="flex gap-3 text-sm font-bold text-slate-600"
+                  >
+                    <div className="w-1.5 h-1.5 bg-indigo-500 rounded-full mt-1.5"></div>
+                    {useCase}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <button
+              onClick={() => navigate(ROUTES.SMART_HOSTING)}
+              className="bg-indigo-600 text-white px-8 py-4 rounded-2xl text-[10px] font-black hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200 uppercase tracking-widest"
+            >
+              Conhecer Hospedagem (DaaS)
+            </button>
+          </motion.div>
         </div>
       </section>
 

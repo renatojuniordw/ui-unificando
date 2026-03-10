@@ -1,9 +1,9 @@
 export const ROUTES = {
   HOME: "/",
-  SOLUTIONS: "/solucoes",
-  CUSTOMER_SERVICE: "/solucoes/atendimento-whatsapp-instagram",
-  PRODUCTIVITY: "/solucoes/inteligencia-artificial-negocios",
-  DIGITAL_PRESENCE: "/solucoes/criacao-sites-profissionais",
+  SERVICES: "/servicos",
+  CUSTOMER_SERVICE: "/servicos/atendimento",
+  PRODUCTIVITY: "/servicos/ia",
+  DIGITAL_PRESENCE: "/servicos/sites",
   HOW_IT_WORKS: "/metodo-unificando",
   PLANS: "/planos",
   ABOUT: "/sobre",
@@ -14,4 +14,5 @@ export const ROUTES = {
   LINKS: "/links",
   NOT_FOUND: "/404",
   FOR_LAWYERS: "/para-advogados",
+  SMART_HOSTING: "/servicos/hospedagem-inteligente",
 } as const;

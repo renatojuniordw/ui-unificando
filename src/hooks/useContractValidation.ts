@@ -5,7 +5,7 @@ import {
   validateCNPJ,
   validatePhone,
 } from "../utils/validators";
-import { ModalType } from "../components/common/Modal";
+import { ModalType } from "../types";
 
 export type ValidationResult = {
   isValid: boolean;

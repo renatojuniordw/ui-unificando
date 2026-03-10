@@ -8,26 +8,27 @@ import { ROUTES } from "../routes";
 const Home = React.lazy(() =>
   import("../pages/Home").then((module) => ({ default: module.Home })),
 );
+const Services = React.lazy(() =>
+  import("../pages/services/Services").then((module) => ({
+    default: module.Solutions, // Note: the internal export name is still Solutions. We can rename it inside Services later.
+  })),
+);
 const CustomerService = React.lazy(() =>
-  import("../pages/CustomerService").then((module) => ({
+  import("../pages/services/CustomerService").then((module) => ({
     default: module.CustomerService,
   })),
 );
 const Productivity = React.lazy(() =>
-  import("../pages/Productivity").then((module) => ({
+  import("../pages/services/Productivity").then((module) => ({
     default: module.Productivity,
   })),
 );
 const DigitalPresence = React.lazy(() =>
-  import("../pages/DigitalPresence").then((module) => ({
+  import("../pages/services/DigitalPresence").then((module) => ({
     default: module.DigitalPresence,
   })),
 );
-const Solutions = React.lazy(() =>
-  import("../pages/Solutions").then((module) => ({
-    default: module.Solutions,
-  })),
-);
+// Old Solutions import removed.
 const HowItWorks = React.lazy(() =>
   import("../pages/HowItWorks").then((module) => ({
     default: module.HowItWorks,
@@ -70,6 +71,11 @@ const LawLanding = React.lazy(() =>
     default: module.LawLanding,
   })),
 );
+const DeployService = React.lazy(() =>
+  import("../pages/services/DeployService").then((module) => ({
+    default: module.DeployService,
+  })),
+);
 
 export const AppRouter: React.FC = () => {
   const location = useLocation();
@@ -82,7 +88,7 @@ export const AppRouter: React.FC = () => {
           <Route path={ROUTES.CUSTOMER_SERVICE} element={<CustomerService />} />
           <Route path={ROUTES.PRODUCTIVITY} element={<Productivity />} />
           <Route path={ROUTES.DIGITAL_PRESENCE} element={<DigitalPresence />} />
-          <Route path={ROUTES.SOLUTIONS} element={<Solutions />} />
+          <Route path={ROUTES.SERVICES} element={<Services />} />
           <Route path={ROUTES.HOW_IT_WORKS} element={<HowItWorks />} />
           <Route path={ROUTES.PLANS} element={<Plans />} />
           <Route path={ROUTES.ABOUT} element={<About />} />
@@ -92,6 +98,7 @@ export const AppRouter: React.FC = () => {
           <Route path={ROUTES.TERMS} element={<TermsOfService />} />
           <Route path={ROUTES.LINKS} element={<LinksPage />} />
           <Route path={ROUTES.FOR_LAWYERS} element={<LawLanding />} />
+          <Route path={ROUTES.SMART_HOSTING} element={<DeployService />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>

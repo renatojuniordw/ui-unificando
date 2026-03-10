@@ -28,9 +28,9 @@ export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
   } = useHeaderMenu();
 
   // Helper to check active state for solutions dropdown
-  const isSolutionsActive = (
+  const isServicesActive = (
     [
-      ROUTES.SOLUTIONS,
+      ROUTES.SERVICES,
       ROUTES.CUSTOMER_SERVICE,
       ROUTES.PRODUCTIVITY,
       ROUTES.DIGITAL_PRESENCE,
@@ -66,13 +66,12 @@ export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
               onClick={toggleSolutions}
               aria-expanded={isSolutionsOpen}
               aria-haspopup="true"
-              className={`text-xs font-black uppercase tracking-[0.15em] transition-colors flex items-center gap-1 py-4 ${
-                isSolutionsActive
+              className={`text-xs font-black uppercase tracking-[0.15em] transition-colors flex items-center gap-1 py-4 ${isServicesActive
                   ? "text-indigo-600"
                   : "text-slate-500 hover:text-indigo-600"
-              }`}
+                }`}
             >
-              Soluções
+              Serviços
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className={`h-3 w-3 transition-transform ${isSolutionsOpen ? "rotate-180" : ""}`}
@@ -92,7 +91,7 @@ export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
             {isSolutionsOpen && (
               <div className="absolute top-full left-0 w-64 bg-white border border-slate-100 rounded-[1.5rem] shadow-2xl p-2 animate-in fade-in slide-in-from-top-2 duration-200">
                 <Link
-                  to={ROUTES.SOLUTIONS}
+                  to={ROUTES.SERVICES}
                   onClick={closeMenu}
                   className="w-full text-left p-3 hover:bg-slate-50 rounded-xl transition-colors mb-1 group block"
                 >
@@ -181,7 +180,7 @@ export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
             onClick={toggleMobileSolutions}
             className="w-full flex justify-between items-center text-left text-slate-900 text-xs font-black uppercase tracking-widest py-4 border-b border-slate-50"
           >
-            Soluções
+            Serviços
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className={`h-4 w-4 transition-transform ${isMobileSolutionsOpen ? "rotate-180" : ""}`}
@@ -200,11 +199,11 @@ export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
           {isMobileSolutionsOpen && (
             <div className="bg-slate-50 rounded-2xl px-6 py-4 flex flex-col gap-5 my-2">
               <Link
-                to={ROUTES.SOLUTIONS}
+                to={ROUTES.SERVICES}
                 onClick={closeMenu}
                 className="text-left py-1 text-xs font-bold uppercase text-indigo-600 tracking-tight"
               >
-                Ver Todas Soluções
+                Ver Todos Serviços
               </Link>
               {solutionItems.map((item) => (
                 <Link

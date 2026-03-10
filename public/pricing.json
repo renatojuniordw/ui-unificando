@@ -73,6 +73,27 @@
       "description": "Página adicional estratégica (Serviços, Quem Somos, Blog)"
     }
   },
+  "hospedagem": {
+    "base": {
+      "setup": 150,
+      "monthly": 49,
+      "features": [
+        "Hospedagem de Sites Estáticos (Front-end)",
+        "Setup Profissional e Otimizado",
+        "Certificado SSL Grátis (HTTPS)",
+        "Deploy Simplificado via GitHub/Dist",
+        "Performance Global via CDN",
+        "Suporte Técnico Básico"
+      ]
+    },
+    "extras": {
+      "technicalHour": {
+        "price": 70,
+        "hours": 1,
+        "description": "Banco de horas técnicas para manutenção ou refatoração de código front-end gerado por IA."
+      }
+    }
+  },
   "calculadora": {
     "rules": {
       "minimumInboxes": 1,

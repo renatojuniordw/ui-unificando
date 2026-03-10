@@ -11,7 +11,7 @@ export const CTA = {
   },
   solutions: {
     label: "Ver soluções",
-    to: ROUTES.SOLUTIONS,
+    to: ROUTES.SERVICES,
   },
 } as const;
 

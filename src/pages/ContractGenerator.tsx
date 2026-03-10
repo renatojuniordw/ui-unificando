@@ -18,7 +18,8 @@ import { IAStep } from "../features/contract/components/steps/IAStep";
 import { SiteStep } from "../features/contract/components/steps/SiteStep";
 import { ReviewStep } from "../features/contract/components/steps/ReviewStep";
 import { BillingStep } from "../features/contract/components/steps/BillingStep";
-import { Modal, ModalType } from "../components/common/Modal";
+import { Modal } from "../components/common/Modal";
+import { ModalType } from "../types";
 import { WebhookService } from "../services/webhook.service";
 import { ROUTES } from "../routes";
 

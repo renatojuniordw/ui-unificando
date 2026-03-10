@@ -1,15 +1,15 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { ROUTES } from "../routes";
+import { ROUTES } from "../../routes";
 import { motion } from "framer-motion";
-import { SEO } from "../components/common/SEO";
-import { DashboardSimulation } from "../features/customer-service/DashboardSimulation";
-import { IntegrationsSection } from "../features/customer-service/IntegrationsSection";
-import { FAQSection } from "../features/customer-service/FAQSection";
-import { TestimonialsSection } from "../features/customer-service/TestimonialsSection";
-import { PageTransition } from "../components/common/PageTransition";
-import { CTA } from "../constants/cta";
-import { trackCtaClick } from "../utils/analytics";
+import { SEO } from "../../components/common/SEO";
+import { PageTransition } from "../../components/common/PageTransition";
+import { CTA } from "../../constants/cta";
+import { trackCtaClick } from "../../utils/analytics";
+import { DashboardSimulation } from "../../features/customer-service/DashboardSimulation";
+import { IntegrationsSection } from "../../features/customer-service/IntegrationsSection";
+import { FAQSection } from "../../features/customer-service/FAQSection";
+import { TestimonialsSection } from "../../features/customer-service/TestimonialsSection";
 
 export const CustomerService: React.FC = () => {
   const navigate = useNavigate();
@@ -68,7 +68,7 @@ export const CustomerService: React.FC = () => {
                 onClick={() => {
                   trackCtaClick({
                     label: CTA.primary.label,
-                    location: "customer_service_hero_primary",
+                    location: "customer_service_hero",
                     to: CTA.primary.to,
                   });
                   navigate(CTA.primary.to);
