@@ -7,6 +7,7 @@ import { ModalType } from "../../types/ui";
 import { ServiceSelector } from "./ServiceSelector";
 import { SimulationSummary } from "./SimulationSummary";
 import { buildWhatsAppMessage } from "./ContactForm.utils";
+import { pushDataLayer } from "../../utils/analytics";
 
 const SERVICE_OPTIONS = [
   {
@@ -108,6 +109,18 @@ export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
     }
 
     setIsSubmitting(true);
+    pushDataLayer({
+      event: "lead_submit",
+      lead_method: "whatsapp_redirect",
+      lead_source: "contact_form",
+      has_plan_selection: Boolean(planSelection),
+      selected_services: planSelection
+        ? "plan_selection"
+        : Object.entries(selectedServices)
+            .filter(([, v]) => v)
+            .map(([k]) => k)
+            .join(",") || "none",
+    });
 
     try {
       const message = buildWhatsAppMessage({
@@ -120,6 +133,11 @@ export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
 
       window.open(url, "_blank");
       localStorage.removeItem("unificando_plan_selection");
+      pushDataLayer({
+        event: "lead_submit_success",
+        lead_method: "whatsapp_redirect",
+        lead_source: "contact_form",
+      });
 
       showModal(
         "Redirecionando",
@@ -129,6 +147,11 @@ export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
       );
     } catch (error) {
       console.error("Error redirecting:", error);
+      pushDataLayer({
+        event: "lead_submit_error",
+        lead_method: "whatsapp_redirect",
+        lead_source: "contact_form",
+      });
       showModal("Erro", "Não foi possível redirecionar.", "error");
     } finally {
       setIsSubmitting(false);

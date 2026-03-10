@@ -1,22 +1,35 @@
 import React from "react";
 import { SEO } from "../components/common/SEO";
 import { PageTransition } from "../components/common/PageTransition";
+import { ROUTES } from "../routes";
 import { HeroSection } from "../features/home/components/HeroSection";
 import { StatsSection } from "../features/home/components/StatsSection";
 import { ProblemSection } from "../features/home/components/ProblemSection";
 import { SolutionsSection } from "../features/home/components/SolutionsSection";
+import { SocialProofSection } from "@/features/home/components/SocialProofSection";
 import { JourneySection } from "../features/home/components/JourneySection";
 import { CtaSection } from "../features/home/components/CtaSection";
-import { MarketInsights } from "../features/home/components/MarketInsights";
-import { PartnerTech } from "../features/home/components/PartnerTech";
 
 export const Home: React.FC = () => {
+  const [selectedSegment, setSelectedSegment] = React.useState<string | null>(
+    null
+  );
+
+  const handleSelectSegment = (segment: string) => {
+    setSelectedSegment((prev) => (prev === segment ? null : segment));
+    window.setTimeout(() => {
+      document
+        .getElementById("solutions")
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 0);
+  };
+
   return (
     <PageTransition>
       <SEO
-        title="Unificando | Ecossistema de Atendimento e Automação"
-        description="Pare de perder vendas. Centralize seu WhatsApp e Instagram, automatize o atendimento com IA e tenha um site profissional. Teste o ecossistema Unificando."
-        canonical="/"
+        title="Unificando | Atendimento via WhatsApp, IA e Presença Digital"
+        description="Centralize WhatsApp e Instagram, automatize o atendimento com IA e fortaleça sua presença no Google com site profissional. Ideal para PMEs."
+        canonical={ROUTES.HOME}
         jsonLd={{
           "@context": "https://schema.org",
           "@graph": [
@@ -58,11 +71,13 @@ export const Home: React.FC = () => {
       />
 
       <HeroSection />
-      <PartnerTech />
       <StatsSection />
-      <ProblemSection />
-      <SolutionsSection />
-      <MarketInsights />
+      <ProblemSection
+        selectedSegment={selectedSegment}
+        onSelectSegment={handleSelectSegment}
+      />
+      <SolutionsSection selectedSegment={selectedSegment} />
+      {/* <SocialProofSection /> */}
       <JourneySection />
       <CtaSection />
     </PageTransition>

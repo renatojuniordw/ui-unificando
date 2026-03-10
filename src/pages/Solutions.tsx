@@ -4,6 +4,8 @@ import { ROUTES } from "../routes";
 import { motion, AnimatePresence } from "framer-motion";
 import { SEO } from "../components/common/SEO";
 import { PageTransition } from "../components/common/PageTransition";
+import { CTA } from "../constants/cta";
+import { trackCtaClick } from "../utils/analytics";
 
 const AtendimentoAnimation = () => {
   return (
@@ -135,9 +137,9 @@ export const Solutions: React.FC = () => {
   return (
     <PageTransition>
       <SEO
-        title="Nossas Soluções | Ecossistema Unificando"
-        description="Ferramentas modulares para transformar sua operação digital. Atendimento, IA e Presença Digital."
-        canonical="/solucoes"
+        title="Soluções de Atendimento, IA e Sites | Unificando"
+        description="Atendimento via WhatsApp e Instagram, automação com IA e presença digital no Google. Soluções modulares para PMEs."
+        canonical={ROUTES.SOLUTIONS}
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "CollectionPage",
@@ -168,20 +170,27 @@ export const Solutions: React.FC = () => {
       <section className="py-24 md:py-32 bg-slate-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <span className="text-indigo-600 font-black uppercase tracking-[0.2em] text-xs mb-4 block">
-            Ecossistema Completo
+            Estrutura modular
           </span>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-slate-900 mb-8 tracking-tighter uppercase leading-[1.1]">
             Nossas Soluções.
           </h1>
           <p className="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto font-medium mb-12 leading-relaxed">
             Ferramentas modulares para transformar sua operação digital. Use
-            uma, combine várias ou monte seu ecossistema sob medida.
+            uma, combine várias ou monte sua estrutura sob medida.
           </p>
           <button
-            onClick={() => navigate(ROUTES.PLANS)}
+            onClick={() => {
+              trackCtaClick({
+                label: CTA.pricing.label,
+                location: "solutions_hero_pricing",
+                to: CTA.pricing.to,
+              });
+              navigate(CTA.pricing.to);
+            }}
             className="bg-indigo-600 text-white px-12 py-5 rounded-2xl text-xs font-black hover:bg-indigo-500 transition-all shadow-2xl shadow-indigo-100 uppercase tracking-widest"
           >
-            Simular minha solução
+            {CTA.pricing.label}
           </button>
         </div>
       </section>
@@ -398,10 +407,17 @@ export const Solutions: React.FC = () => {
 
           <div className="mt-20">
             <button
-              onClick={() => navigate(ROUTES.PLANS)}
+              onClick={() => {
+                trackCtaClick({
+                  label: CTA.pricing.label,
+                  location: "solutions_howitworks_pricing",
+                  to: CTA.pricing.to,
+                });
+                navigate(CTA.pricing.to);
+              }}
               className="bg-indigo-600 text-white px-12 py-5 rounded-2xl text-xs font-black hover:bg-indigo-500 transition-all shadow-2xl shadow-indigo-900/20 uppercase tracking-[0.2em]"
             >
-              Simular agora
+              {CTA.pricing.label}
             </button>
           </div>
         </div>

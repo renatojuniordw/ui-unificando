@@ -1,4 +1,6 @@
 import React from "react";
+import { CTA } from "../../../constants/cta";
+import { trackCtaClick } from "../../../utils/analytics";
 
 interface InvestmentSummaryProps {
   setup: number;
@@ -44,10 +46,17 @@ export const InvestmentSummary: React.FC<InvestmentSummaryProps> = ({
 
           <div className="relative z-10 w-full md:w-auto">
             <button
-              onClick={onContract}
+              onClick={() => {
+                trackCtaClick({
+                  label: CTA.primary.label,
+                  location: "plans_sticky_summary",
+                  to: CTA.primary.to,
+                });
+                onContract();
+              }}
               className="w-full md:w-auto bg-white text-slate-900 px-10 py-5 rounded-2xl font-black uppercase tracking-[0.15em] text-xs hover:bg-slate-100 transition-all shadow-xl"
             >
-              VALIDAR PLANO NO WHATSAPP
+              {CTA.primary.label}
             </button>
           </div>
         </div>

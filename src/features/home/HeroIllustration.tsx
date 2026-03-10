@@ -2,7 +2,11 @@ import React from 'react';
 
 export const HeroIllustration: React.FC = () => {
     return (
-        <div className="bg-slate-900 rounded-[2.5rem] md:rounded-[3.5rem] aspect-square flex items-center justify-center p-6 md:p-12 shadow-2xl relative z-10 overflow-hidden border border-slate-800">
+        <div
+            className="bg-slate-900 rounded-[2.5rem] md:rounded-[3.5rem] aspect-square flex items-center justify-center p-6 md:p-12 shadow-2xl relative z-10 overflow-hidden border border-slate-800"
+            role="img"
+            aria-label="Painel de atendimento unificado Unificando com múltiplos canais organizados"
+        >
             <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 to-transparent"></div>
             <div className="bg-white/5 backdrop-blur-xl rounded-[2rem] md:rounded-[2.5rem] w-full h-full border border-white/10 flex flex-col p-6 md:p-8 text-white text-left overflow-hidden">
                 <div className="flex justify-between items-center mb-8 md:mb-12">

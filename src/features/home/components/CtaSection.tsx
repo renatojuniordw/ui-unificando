@@ -1,7 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { ROUTES } from "../../../routes";
+import { CTA } from "../../../constants/cta";
+import { trackCtaClick } from "../../../utils/analytics";
 
 export const CtaSection: React.FC = () => {
   const navigate = useNavigate();
@@ -27,19 +28,33 @@ export const CtaSection: React.FC = () => {
             <motion.button
               whileHover={{ scale: 1.02, translateY: -2 }}
               whileTap={{ scale: 0.98 }}
-              onClick={() => navigate(ROUTES.PLANS)}
+              onClick={() => {
+                trackCtaClick({
+                  label: CTA.primary.label,
+                  location: "home_finalcta_primary",
+                  to: CTA.primary.to,
+                });
+                navigate(CTA.primary.to);
+              }}
               className="bg-slate-900 text-white px-12 py-5 rounded-2xl text-xs font-black shadow-2xl shadow-slate-200 uppercase tracking-[0.2em] hover:bg-slate-800 transition-all font-outfit"
             >
-              Simular agora
+              {CTA.primary.label}
             </motion.button>
 
             <motion.button
               whileHover={{ scale: 1.02, translateY: -2 }}
               whileTap={{ scale: 0.98 }}
-              onClick={() => navigate(ROUTES.CONTACT)}
+              onClick={() => {
+                trackCtaClick({
+                  label: CTA.solutions.label,
+                  location: "home_finalcta_secondary",
+                  to: CTA.solutions.to,
+                });
+                navigate(CTA.solutions.to);
+              }}
               className="bg-white border border-slate-200 text-slate-900 px-12 py-5 rounded-2xl text-xs font-black shadow-sm uppercase tracking-[0.2em] hover:bg-slate-50 transition-all"
             >
-              Agendar diagnóstico
+              {CTA.solutions.label}
             </motion.button>
           </div>
         </motion.div>

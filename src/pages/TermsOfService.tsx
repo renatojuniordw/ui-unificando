@@ -276,7 +276,7 @@ export const TermsOfService: React.FC = () => {
       <SEO
         title="Termos de Uso | Unificando"
         description="Regras, direitos e deveres para utilização da plataforma e ecossistema Unificando."
-        canonical="/termos"
+        canonical={ROUTES.TERMS}
       />
 
       <section className="py-20 md:py-32 bg-slate-50 min-h-screen">

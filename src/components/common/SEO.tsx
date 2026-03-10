@@ -8,12 +8,15 @@ export const SEO: React.FC<SEOProps> = ({
   canonical,
   ogImage,
   jsonLd,
+  robots,
 }) => {
-  const siteUrl = "https://unificando.com.br"; // Should ideally be in env
+  const siteUrl =
+    (import.meta as any).env?.VITE_SITE_URL?.toString() ||
+    "https://unificando.com.br";
   const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl;
   const fullImage = ogImage
     ? `${siteUrl}${ogImage}`
-    : `${siteUrl}/og-image.jpg`;
+    : `${siteUrl}/og-image.svg`;
 
   return (
     <Helmet>
@@ -21,6 +24,7 @@ export const SEO: React.FC<SEOProps> = ({
       <title>{title}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={fullCanonical} />
+      {robots ? <meta name="robots" content={robots} /> : null}
 
       {/* Social / Open Graph */}
       <meta property="og:type" content="website" />

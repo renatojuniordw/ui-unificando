@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { ROUTES } from "../../../routes";
+import { CTA } from "../../../constants/cta";
+import { trackCtaClick } from "../../../utils/analytics";
 
 export const JourneySection: React.FC = () => {
   const navigate = useNavigate();
@@ -45,10 +46,17 @@ export const JourneySection: React.FC = () => {
         </p>
 
         <button
-          onClick={() => navigate(ROUTES.PLANS)}
+          onClick={() => {
+            trackCtaClick({
+              label: CTA.primary.label,
+              location: "home_journey_primary",
+              to: CTA.primary.to,
+            });
+            navigate(CTA.primary.to);
+          }}
           className="bg-white text-slate-900 px-12 py-5 rounded-2xl text-xs font-black hover:bg-slate-200 transition-all shadow-2xl uppercase tracking-widest"
         >
-          Simular minha solução
+          {CTA.primary.label}
         </button>
       </div>
     </section>

@@ -66,7 +66,7 @@ export const Plans: React.FC<PlansProps> = () => {
       <SEO
         title="Planos e Preços | Unificando"
         description="Monte a solução ideal para o seu negócio. Atendimento Digital, Inteligência Artificial e Sites."
-        canonical="/planos"
+        canonical={ROUTES.PLANS}
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "OfferCatalog",

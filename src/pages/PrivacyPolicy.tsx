@@ -241,7 +241,7 @@ export const PrivacyPolicy: React.FC = () => {
       <SEO
         title="Política de Privacidade | Unificando"
         description="Termos de uso e práticas de privacidade e proteção de dados do ecossistema Unificando."
-        canonical="/privacidade"
+        canonical={ROUTES.PRIVACY}
       />
 
       <section className="py-20 md:py-32 bg-slate-50 min-h-screen">

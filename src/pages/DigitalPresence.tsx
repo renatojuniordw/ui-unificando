@@ -4,6 +4,8 @@ import { ROUTES } from "../routes";
 import { motion } from "framer-motion";
 import { SEO } from "../components/common/SEO";
 import { PageTransition } from "../components/common/PageTransition";
+import { CTA } from "../constants/cta";
+import { trackCtaClick } from "../utils/analytics";
 
 // Animação de Scroll e Construção de Landing Page
 import { LandingPageAnimation } from "../features/digital-presence/LandingPageAnimation";
@@ -19,7 +21,7 @@ export const DigitalPresence: React.FC = () => {
       <SEO
         title="Sites Profissionais e Presença Digital | Unificando"
         description="Tenha uma casa própria na internet. Sites rápidos, profissionais e otimizados para o Google."
-        canonical="/presenca-digital"
+        canonical={ROUTES.DIGITAL_PRESENCE}
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "Service",
@@ -57,10 +59,17 @@ export const DigitalPresence: React.FC = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <button
-                onClick={() => navigate(ROUTES.CONTACT)}
+                onClick={() => {
+                  trackCtaClick({
+                    label: CTA.primary.label,
+                    location: "digital_presence_hero_primary",
+                    to: CTA.primary.to,
+                  });
+                  navigate(CTA.primary.to);
+                }}
                 className="bg-slate-900 text-white px-8 py-4 rounded-xl text-sm font-black hover:bg-slate-800 transition-all shadow-lg shadow-slate-200 uppercase tracking-widest"
               >
-                Construir minha presença
+                Agendar diagnóstico gratuito
               </button>
             </div>
           </div>
@@ -157,18 +166,32 @@ export const DigitalPresence: React.FC = () => {
                 <motion.button
                   whileHover={{ scale: 1.02, translateY: -5 }}
                   whileTap={{ scale: 0.98 }}
-                  onClick={() => navigate(ROUTES.PLANS)}
+                  onClick={() => {
+                    trackCtaClick({
+                      label: CTA.pricing.label,
+                      location: "digital_presence_pricing_pricing",
+                      to: CTA.pricing.to,
+                    });
+                    navigate(CTA.pricing.to);
+                  }}
                   className="bg-indigo-600 text-white px-12 py-5 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] shadow-xl shadow-indigo-600/20"
                 >
-                  Simular Projeto Completo
+                  Ver planos e preços
                 </motion.button>
                 <motion.button
                   whileHover={{ scale: 1.02, translateY: -5 }}
                   whileTap={{ scale: 0.98 }}
-                  onClick={() => navigate(ROUTES.CONTACT)}
+                  onClick={() => {
+                    trackCtaClick({
+                      label: CTA.primary.label,
+                      location: "digital_presence_pricing_primary",
+                      to: CTA.primary.to,
+                    });
+                    navigate(CTA.primary.to);
+                  }}
                   className="bg-transparent border border-white/10 text-white px-12 py-5 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] hover:bg-white/5 transition-all"
                 >
-                  Solicitar Briefing Gratuito
+                  Agendar diagnóstico gratuito
                 </motion.button>
               </div>
             </div>
@@ -246,10 +269,17 @@ export const DigitalPresence: React.FC = () => {
             <span className="text-indigo-600">Casa Própria na Web?</span>
           </h2>
           <button
-            onClick={() => navigate(ROUTES.CONTACT)}
+            onClick={() => {
+              trackCtaClick({
+                label: CTA.primary.label,
+                location: "digital_presence_finalcta_primary",
+                to: CTA.primary.to,
+              });
+              navigate(CTA.primary.to);
+            }}
             className="bg-slate-900 text-white px-12 py-5 rounded-2xl text-xs font-black hover:bg-slate-800 transition-all shadow-2xl shadow-slate-200 uppercase tracking-widest"
           >
-            Solicitar Orçamento de Site
+            Agendar diagnóstico gratuito
           </button>
         </div>
       </section>

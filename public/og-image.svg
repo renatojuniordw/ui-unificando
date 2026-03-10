@@ -1,0 +1,45 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1220"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(860 210) rotate(120) scale(520 520)">
+      <stop stop-color="#6366F1" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#6366F1" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="860" cy="210" r="520" fill="url(#glow)"/>
+  <circle cx="360" cy="520" r="460" fill="url(#glow)" opacity="0.7"/>
+
+  <g opacity="0.18">
+    <path d="M100 110h1000" stroke="#94A3B8" stroke-width="2"/>
+    <path d="M100 190h1000" stroke="#94A3B8" stroke-width="2"/>
+    <path d="M100 270h1000" stroke="#94A3B8" stroke-width="2"/>
+  </g>
+
+  <rect x="100" y="110" width="92" height="92" rx="24" fill="#6366F1"/>
+  <text x="146" y="171" text-anchor="middle" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto" font-size="44" font-weight="900" fill="white">U</text>
+
+  <text x="220" y="165" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto" font-size="46" font-weight="900" fill="white">
+    Unificando
+  </text>
+  <text x="220" y="220" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto" font-size="28" font-weight="700" fill="#A5B4FC">
+    Atendimento via WhatsApp " IA " Presença Digital
+  </text>
+
+  <text x="100" y="340" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto" font-size="56" font-weight="900" fill="white">
+    Organize. Automatize. Escale.
+  </text>
+  <text x="100" y="410" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto" font-size="28" font-weight="600" fill="#CBD5E1">
+    Estrutura para responder rápido, vender mais e ser encontrado no Google.
+  </text>
+
+  <rect x="100" y="460" width="360" height="64" rx="20" fill="#0F172A" stroke="#334155"/>
+  <text x="280" y="503" text-anchor="middle" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto" font-size="18" font-weight="900" fill="#E2E8F0" letter-spacing="2">
+    DIAGNÓSTICO GRATUITO
+  </text>
+</svg>
+

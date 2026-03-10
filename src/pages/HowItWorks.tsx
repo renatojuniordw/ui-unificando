@@ -2,6 +2,8 @@ import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../routes";
 import { PageTransition } from "../components/common/PageTransition";
 import { SEO } from "../components/common/SEO";
+import { CTA } from "../constants/cta";
+import { trackCtaClick } from "../utils/analytics";
 
 export const HowItWorks: React.FC = () => {
   const navigate = useNavigate();
@@ -10,7 +12,7 @@ export const HowItWorks: React.FC = () => {
       <SEO
         title="Como Funciona o Método Unificando | Crescimento sem Bagunça"
         description="Nosso método dividido em fases: Organização, Evolução e Autoridade. Entre no estágio ideal para o seu negócio."
-        canonical="/como-funciona"
+        canonical={ROUTES.HOW_IT_WORKS}
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "HowTo",
@@ -101,10 +103,17 @@ export const HowItWorks: React.FC = () => {
                 </div>
 
                 <button
-                  onClick={() => navigate(ROUTES.PLANS)}
+                  onClick={() => {
+                    trackCtaClick({
+                      label: CTA.pricing.label,
+                      location: "how_it_works_phase1_pricing",
+                      to: CTA.pricing.to,
+                    });
+                    navigate(CTA.pricing.to);
+                  }}
                   className="bg-slate-900 text-white px-8 py-4 mt-2 rounded-xl text-xs font-black hover:bg-slate-800 transition-all uppercase tracking-widest shadow-lg"
                 >
-                  Simular atendimento
+                  Ver planos e preços
                 </button>
               </div>
 
@@ -162,10 +171,17 @@ export const HowItWorks: React.FC = () => {
                 </div>
 
                 <button
-                  onClick={() => navigate(ROUTES.PLANS)}
+                  onClick={() => {
+                    trackCtaClick({
+                      label: CTA.pricing.label,
+                      location: "how_it_works_phase2_pricing",
+                      to: CTA.pricing.to,
+                    });
+                    navigate(CTA.pricing.to);
+                  }}
                   className="bg-indigo-600 text-white px-8 py-4 mt-2 rounded-xl text-xs font-black hover:bg-indigo-700 transition-all uppercase tracking-widest shadow-lg shadow-indigo-200"
                 >
-                  Simular atendimento com IA
+                  Ver planos e preços
                 </button>
               </div>
             </div>
@@ -211,10 +227,17 @@ export const HowItWorks: React.FC = () => {
                 </div>
 
                 <button
-                  onClick={() => navigate(ROUTES.PLANS)}
+                  onClick={() => {
+                    trackCtaClick({
+                      label: CTA.pricing.label,
+                      location: "how_it_works_phase3_pricing",
+                      to: CTA.pricing.to,
+                    });
+                    navigate(CTA.pricing.to);
+                  }}
                   className="bg-slate-900 text-white px-8 py-4 mt-2 rounded-xl text-xs font-black hover:bg-slate-800 transition-all uppercase tracking-widest shadow-lg"
                 >
-                  Simular site
+                  Ver planos e preços
                 </button>
               </div>
 
@@ -268,10 +291,17 @@ export const HowItWorks: React.FC = () => {
           </p>
 
           <button
-            onClick={() => navigate(ROUTES.PLANS)}
+            onClick={() => {
+              trackCtaClick({
+                label: CTA.pricing.label,
+                location: "how_it_works_final_pricing",
+                to: CTA.pricing.to,
+              });
+              navigate(CTA.pricing.to);
+            }}
             className="bg-white text-slate-900 px-12 py-5 rounded-2xl text-xs font-black hover:bg-slate-200 transition-all shadow-2xl uppercase tracking-widest"
           >
-            Simular minha solução
+            Ver planos e preços
           </button>
         </div>
       </section>

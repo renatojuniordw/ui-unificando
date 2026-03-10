@@ -1,6 +1,7 @@
 import React from "react";
 import { PageTransition } from "../components/common/PageTransition";
 import { SEO } from "../components/common/SEO";
+import { ROUTES } from "../routes";
 
 import { ProductivityHero } from "../features/productivity/components/ProductivityHero";
 import { EcosystemSection } from "../features/productivity/components/EcosystemSection";
@@ -17,7 +18,7 @@ export const Productivity: React.FC = () => {
       <SEO
         title="IA para Negócios | Unificando"
         description="Agentes inteligentes que atendem, vendem e agendam 24/7 no WhatsApp e Instagram."
-        canonical="/produtividade"
+        canonical={ROUTES.PRODUCTIVITY}
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "Service",

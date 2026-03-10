@@ -14,7 +14,15 @@ const itemVariants = {
   visible: { y: 0, opacity: 1 },
 };
 
-export const ProblemSection: React.FC = () => {
+type ProblemSectionProps = {
+  selectedSegment: string | null;
+  onSelectSegment: (segment: string) => void;
+};
+
+export const ProblemSection: React.FC<ProblemSectionProps> = ({
+  selectedSegment,
+  onSelectSegment,
+}) => {
   return (
     <section className="py-24 bg-slate-50">
       <div className="max-w-6xl mx-auto px-4">
@@ -101,14 +109,29 @@ export const ProblemSection: React.FC = () => {
               "Educação",
               "Consultorias",
             ].map((niche) => (
-              <span
+              <button
                 key={niche}
-                className="bg-white px-5 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-600 shadow-sm hover:border-indigo-200 transition-colors"
+                type="button"
+                onClick={() => onSelectSegment(niche)}
+                aria-pressed={selectedSegment === niche}
+                className={[
+                  "px-5 py-2.5 rounded-xl border text-xs font-bold shadow-sm transition-colors",
+                  selectedSegment === niche
+                    ? "bg-indigo-600 border-indigo-600 text-white"
+                    : "bg-white border-slate-200 text-slate-600 hover:border-indigo-200",
+                ].join(" ")}
               >
                 {niche}
-              </span>
+              </button>
             ))}
           </div>
+          {selectedSegment ? (
+            <p className="mt-6 text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400">
+              Mostrando aplicação para:{" "}
+              <span className="text-slate-600">{selectedSegment}</span> (clique
+              novamente para limpar)
+            </p>
+          ) : null}
         </motion.div>
       </div>
     </section>

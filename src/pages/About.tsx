@@ -2,6 +2,7 @@ import React from "react";
 
 import { SEO } from "../components/common/SEO";
 import { PageTransition } from "../components/common/PageTransition";
+import { ROUTES } from "../routes";
 
 export const About: React.FC = () => {
   return (
@@ -9,7 +10,7 @@ export const About: React.FC = () => {
       <SEO
         title="Sobre o Unificado | Manifesto Digital"
         description="Nossa postura: clareza, responsabilidade e tecnologia como estrutura, não espetáculo."
-        canonical="/sobre"
+        canonical={ROUTES.ABOUT}
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "AboutPage",

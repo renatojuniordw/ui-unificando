@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../routes";
 import { PRICING } from "../../constants/pricing";
+import { CTA } from "../../constants/cta";
+import { trackCtaClick } from "../../utils/analytics";
 
 export const PricingCalculator = () => {
   const navigate = useNavigate();
@@ -176,11 +178,16 @@ export const PricingCalculator = () => {
                       date: new Date().toISOString(),
                     }),
                   );
-                  navigate(ROUTES.CONTACT);
+                  trackCtaClick({
+                    label: CTA.primary.label,
+                    location: "customer_service_calculator_primary",
+                    to: CTA.primary.to,
+                  });
+                  navigate(CTA.primary.to);
                 }}
                 className="w-full bg-white text-slate-900 py-5 rounded-2xl font-black mt-12 hover:bg-slate-100 transition-all uppercase tracking-widest text-[10px]"
               >
-                Agendar Diagnóstico
+                {CTA.primary.label}
               </button>
             </div>
           </div>

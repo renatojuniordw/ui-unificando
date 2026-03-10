@@ -1,13 +1,27 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { ROUTES } from "../../../routes";
+import { MARKET_INSIGHTS } from "../../../constants/market-data";
+import { CTA } from "../../../constants/cta";
+import { trackCtaClick } from "../../../utils/analytics";
+import { PartnerTech } from "./PartnerTech";
 
-export const SolutionsSection: React.FC = () => {
+type SolutionsSectionProps = {
+  selectedSegment: string | null;
+};
+
+export const SolutionsSection: React.FC<SolutionsSectionProps> = ({
+  selectedSegment,
+}) => {
   const navigate = useNavigate();
+  const insightsByPillar = React.useMemo(() => {
+    const map = new Map<string, (typeof MARKET_INSIGHTS)[number]>();
+    for (const item of MARKET_INSIGHTS) map.set(item.pilar, item);
+    return map;
+  }, []);
 
   return (
-    <section className="py-24 bg-white">
+    <section id="solutions" className="py-24 bg-white scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-20">
           <span className="text-indigo-600 font-black uppercase tracking-[0.2em] text-xs mb-4 block">
@@ -18,9 +32,17 @@ export const SolutionsSection: React.FC = () => {
           </h2>
           <p className="text-slate-500 font-medium max-w-xl mx-auto leading-relaxed">
             Contrate de forma modular ou completa. Cada solução funciona sozinha
-            — juntas, formam um ecossistema sólido para seu crescimento.
+            — juntas, formam uma estrutura sólida para seu crescimento.
           </p>
         </div>
+
+        {selectedSegment ? (
+          <div className="flex justify-center mb-10">
+            <div className="inline-flex items-center gap-2 bg-indigo-50 text-indigo-700 px-5 py-2.5 rounded-2xl text-[11px] font-black uppercase tracking-[0.2em]">
+              Segmento selecionado: <span className="text-indigo-900">{selectedSegment}</span>
+            </div>
+          </div>
+        ) : null}
 
         <div className="grid md:grid-cols-3 gap-8 lg:gap-10">
           {/* Atendimento */}
@@ -38,11 +60,43 @@ export const SolutionsSection: React.FC = () => {
               Centralize todos os canais em um único painel profissional. Tenha
               controle total do histórico e escale seu atendimento em equipe.
             </p>
+            {(() => {
+              const insight = insightsByPillar.get("Atendimento Unificado");
+              if (!insight) return null;
+              return (
+                <div className="mb-8 p-5 rounded-2xl bg-white border border-slate-200">
+                  <div className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 mb-2">
+                    Dado de mercado
+                  </div>
+                  <div className="flex items-baseline gap-3">
+                    <div className="text-3xl font-black text-slate-900 tracking-tighter">
+                      {insight.stat}
+                    </div>
+                    <div className="text-xs font-bold text-slate-500 leading-snug">
+                      {insight.title}
+                    </div>
+                  </div>
+                  <div className="text-[11px] font-medium text-slate-500 mt-2 leading-relaxed">
+                    {insight.description}
+                  </div>
+                  <div className="text-[10px] font-black uppercase tracking-widest text-slate-400 mt-4">
+                    Fonte: {insight.source}
+                  </div>
+                </div>
+              );
+            })()}
             <button
-              onClick={() => navigate(ROUTES.PLANS)}
+              onClick={() => {
+                trackCtaClick({
+                  label: CTA.primary.label,
+                  location: "home_solutions_card_atendimento",
+                  to: CTA.primary.to,
+                });
+                navigate(CTA.primary.to);
+              }}
               className="text-indigo-600 font-black inline-flex items-center gap-2 group-hover:gap-4 transition-all uppercase text-[11px] tracking-[0.2em]"
             >
-              Simular atendimento <span>→</span>
+              {CTA.primary.label} <span>→</span>
             </button>
           </motion.div>
 
@@ -61,11 +115,43 @@ export const SolutionsSection: React.FC = () => {
               Automatizamos o que faz sentido e implementamos IA com
               responsabilidade, transformando conversas em dados estratégicos.
             </p>
+            {(() => {
+              const insight = insightsByPillar.get("IA no Atendimento");
+              if (!insight) return null;
+              return (
+                <div className="mb-8 p-5 rounded-2xl bg-white border border-slate-200">
+                  <div className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 mb-2">
+                    Dado de mercado
+                  </div>
+                  <div className="flex items-baseline gap-3">
+                    <div className="text-3xl font-black text-slate-900 tracking-tighter">
+                      {insight.stat}
+                    </div>
+                    <div className="text-xs font-bold text-slate-500 leading-snug">
+                      {insight.title}
+                    </div>
+                  </div>
+                  <div className="text-[11px] font-medium text-slate-500 mt-2 leading-relaxed">
+                    {insight.description}
+                  </div>
+                  <div className="text-[10px] font-black uppercase tracking-widest text-slate-400 mt-4">
+                    Fonte: {insight.source}
+                  </div>
+                </div>
+              );
+            })()}
             <button
-              onClick={() => navigate(ROUTES.PLANS)}
+              onClick={() => {
+                trackCtaClick({
+                  label: CTA.primary.label,
+                  location: "home_solutions_card_ia",
+                  to: CTA.primary.to,
+                });
+                navigate(CTA.primary.to);
+              }}
               className="text-indigo-600 font-black inline-flex items-center gap-2 group-hover:gap-4 transition-all uppercase text-[11px] tracking-[0.2em]"
             >
-              Simular com IA <span>→</span>
+              {CTA.primary.label} <span>→</span>
             </button>
           </motion.div>
 
@@ -84,13 +170,49 @@ export const SolutionsSection: React.FC = () => {
               Construímos sua 'casa própria' na internet para que sua empresa
               seja encontrada no Google, respeitada e lembrada pelos clientes.
             </p>
+            {(() => {
+              const insight = insightsByPillar.get("Presença Online");
+              if (!insight) return null;
+              return (
+                <div className="mb-8 p-5 rounded-2xl bg-white border border-slate-200">
+                  <div className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 mb-2">
+                    Dado de mercado
+                  </div>
+                  <div className="flex items-baseline gap-3">
+                    <div className="text-3xl font-black text-slate-900 tracking-tighter">
+                      {insight.stat}
+                    </div>
+                    <div className="text-xs font-bold text-slate-500 leading-snug">
+                      {insight.title}
+                    </div>
+                  </div>
+                  <div className="text-[11px] font-medium text-slate-500 mt-2 leading-relaxed">
+                    {insight.description}
+                  </div>
+                  <div className="text-[10px] font-black uppercase tracking-widest text-slate-400 mt-4">
+                    Fonte: {insight.source}
+                  </div>
+                </div>
+              );
+            })()}
             <button
-              onClick={() => navigate(ROUTES.PLANS)}
+              onClick={() => {
+                trackCtaClick({
+                  label: CTA.primary.label,
+                  location: "home_solutions_card_presenca",
+                  to: CTA.primary.to,
+                });
+                navigate(CTA.primary.to);
+              }}
               className="text-indigo-600 font-black inline-flex items-center gap-2 group-hover:gap-4 transition-all uppercase text-[11px] tracking-[0.2em]"
             >
-              Simular site <span>→</span>
+              {CTA.primary.label} <span>→</span>
             </button>
           </motion.div>
+        </div>
+
+        <div className="mt-20">
+          <PartnerTech />
         </div>
       </div>
     </section>

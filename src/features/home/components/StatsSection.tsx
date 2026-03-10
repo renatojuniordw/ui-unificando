@@ -24,6 +24,9 @@ export const StatsSection: React.FC = () => {
               <div className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500 leading-tight">
                 {stat.label}
               </div>
+              <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-600 mt-2">
+                Média dos nossos clientes ativos
+              </div>
             </div>
           ))}
         </div>

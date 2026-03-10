@@ -18,10 +18,9 @@ export const WhatsAppFloating: React.FC = () => {
       className="fixed bottom-6 right-6 z-50 flex items-center gap-4 group pointer-events-auto"
       aria-label="Falar no WhatsApp"
     >
-      {/* Tooltip Message */}
-      <div className="bg-white px-5 py-3 rounded-2xl border border-slate-100 shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-4 group-hover:translate-x-0 pointer-events-none hidden md:block">
+      <div className="bg-white px-4 py-2.5 rounded-2xl border border-slate-100 shadow-2xl transition-all duration-300 translate-x-2 group-hover:translate-x-0">
         <p className="text-[10px] font-black uppercase text-slate-900 tracking-[0.15em] whitespace-nowrap">
-          Falar com Especialista 👋
+          Fale conosco
         </p>
       </div>
 

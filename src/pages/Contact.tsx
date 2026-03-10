@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { SEO } from "../components/common/SEO";
 import { PageTransition } from "../components/common/PageTransition";
 import { ContactForm } from "../components/contact/ContactForm";
+import { ROUTES } from "../routes";
 
 export const Contact: React.FC = () => {
   const [planSelection, setPlanSelection] = useState<any>(null);
@@ -23,7 +24,7 @@ export const Contact: React.FC = () => {
       <SEO
         title="Fale Conosco | Diagnóstico Gratuito Unificando"
         description="Agende uma conversa com nossos especialistas. Diagnóstico real do seu negócio sem custo e sem compromisso."
-        canonical="/contato"
+        canonical={ROUTES.CONTACT}
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "ContactPage",

@@ -5,6 +5,7 @@ import { SEO } from "../components/common/SEO";
 import { ROUTES } from "../routes";
 import LogoUnificando from "../assets/img/LOGO_UNIFICANDO.svg";
 import { CONTACT_INFO, SOCIAL_LINKS } from "../constants/social";
+import { trackCtaClick } from "../utils/analytics";
 
 export const LinksPage: React.FC = () => {
   const containerVariants: Variants = {
@@ -32,6 +33,8 @@ export const LinksPage: React.FC = () => {
       <SEO
         title="Links | Unificando - Soluções Digitais"
         description="Acesse nossos canais oficiais: WhatsApp, Site e Redes Sociais. Unifique sua presença digital."
+        canonical={ROUTES.LINKS}
+        robots="noindex, follow"
       />
 
       {/* Background with animated gradient mesh - LIGHT THEME */}
@@ -76,6 +79,13 @@ export const LinksPage: React.FC = () => {
               href={`https://wa.me/${CONTACT_INFO.whatsappNumber}`}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() =>
+                trackCtaClick({
+                  label: "Falar no WhatsApp",
+                  location: "links_whatsapp",
+                  to: "external_whatsapp",
+                })
+              }
               className="group w-full flex items-center p-2 rounded-2xl bg-white border border-slate-200 hover:border-emerald-500/50 shadow-lg shadow-slate-200/50 hover:shadow-emerald-500/20 transition-all duration-300 hover:-translate-y-1"
             >
               <div className="h-12 w-12 flex items-center justify-center bg-[#25D366] rounded-xl text-white shadow-md shadow-emerald-500/20 group-hover:scale-110 transition-transform duration-300">
@@ -96,6 +106,13 @@ export const LinksPage: React.FC = () => {
             {/* Website - VIBRANT ICON */}
             <Link
               to={ROUTES.HOME}
+              onClick={() =>
+                trackCtaClick({
+                  label: "Visitar Site Oficial",
+                  location: "links_site",
+                  to: ROUTES.HOME,
+                })
+              }
               className="group w-full flex items-center p-2 rounded-2xl bg-white border border-slate-200 hover:border-indigo-500/50 shadow-lg shadow-slate-200/50 hover:shadow-indigo-500/20 transition-all duration-300 hover:-translate-y-1"
             >
               <div className="h-12 w-12 flex items-center justify-center bg-indigo-600 rounded-xl text-white shadow-md shadow-indigo-500/20 group-hover:scale-110 transition-transform duration-300">
@@ -127,6 +144,13 @@ export const LinksPage: React.FC = () => {
               href={SOCIAL_LINKS.instagram}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() =>
+                trackCtaClick({
+                  label: "Instagram",
+                  location: "links_instagram",
+                  to: "external_instagram",
+                })
+              }
               className="group w-full flex items-center p-2 rounded-2xl bg-white border border-slate-200 hover:border-pink-500/50 shadow-lg shadow-slate-200/50 hover:shadow-pink-500/20 transition-all duration-300 hover:-translate-y-1"
             >
               <div className="h-12 w-12 flex items-center justify-center bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] rounded-xl text-white shadow-md shadow-pink-500/20 group-hover:scale-110 transition-transform duration-300">

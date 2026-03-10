@@ -8,6 +8,8 @@ import { IntegrationsSection } from "../features/customer-service/IntegrationsSe
 import { FAQSection } from "../features/customer-service/FAQSection";
 import { TestimonialsSection } from "../features/customer-service/TestimonialsSection";
 import { PageTransition } from "../components/common/PageTransition";
+import { CTA } from "../constants/cta";
+import { trackCtaClick } from "../utils/analytics";
 
 export const CustomerService: React.FC = () => {
   const navigate = useNavigate();
@@ -17,7 +19,7 @@ export const CustomerService: React.FC = () => {
       <SEO
         title="Atendimento Centralizado WhatsApp e Instagram | Unificando"
         description="Centralize seus canais de atendimento em uma única caixa de entrada profissional. Múltiplos atendentes, histórico salvo e organização total."
-        canonical="/atendimento"
+        canonical={ROUTES.CUSTOMER_SERVICE}
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "Service",
@@ -63,10 +65,17 @@ export const CustomerService: React.FC = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => navigate(ROUTES.CONTACT)}
+                onClick={() => {
+                  trackCtaClick({
+                    label: CTA.primary.label,
+                    location: "customer_service_hero_primary",
+                    to: CTA.primary.to,
+                  });
+                  navigate(CTA.primary.to);
+                }}
                 className="bg-slate-900 text-white px-10 py-5 rounded-2xl text-[10px] font-black shadow-xl uppercase tracking-[0.2em]"
               >
-                Atender com Eficiência
+                {CTA.primary.label}
               </motion.button>
             </div>
           </motion.div>
@@ -170,27 +179,41 @@ export const CustomerService: React.FC = () => {
                 </span>
               </h2>
               <p className="text-slate-400 text-lg md:text-xl mb-12 font-medium leading-relaxed">
-                Nossa estrutura é totalmente modular. Simule agora o
-                investimento ideal para sua empresa e veja como é fácil unificar
-                seu atendimento.
+                Nossa estrutura é totalmente modular. Veja o investimento ideal
+                para sua empresa e entenda como unificar seu atendimento com
+                previsibilidade.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <motion.button
                   whileHover={{ scale: 1.02, translateY: -5 }}
                   whileTap={{ scale: 0.98 }}
-                  onClick={() => navigate(ROUTES.PLANS)}
+                  onClick={() => {
+                    trackCtaClick({
+                      label: CTA.pricing.label,
+                      location: "customer_service_pricing_pricing",
+                      to: CTA.pricing.to,
+                    });
+                    navigate(CTA.pricing.to);
+                  }}
                   className="bg-indigo-600 text-white px-12 py-5 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] shadow-xl shadow-indigo-600/20"
                 >
-                  Simular meu Plano
+                  {CTA.pricing.label}
                 </motion.button>
                 <motion.button
                   whileHover={{ scale: 1.02, translateY: -5 }}
                   whileTap={{ scale: 0.98 }}
-                  onClick={() => navigate(ROUTES.CONTACT)}
+                  onClick={() => {
+                    trackCtaClick({
+                      label: CTA.primary.label,
+                      location: "customer_service_pricing_primary",
+                      to: CTA.primary.to,
+                    });
+                    navigate(CTA.primary.to);
+                  }}
                   className="bg-transparent border border-white/10 text-white px-12 py-5 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] hover:bg-white/5 transition-all"
                 >
-                  Falar com Consultor
+                  {CTA.primary.label}
                 </motion.button>
               </div>
             </div>
@@ -213,10 +236,17 @@ export const CustomerService: React.FC = () => {
             com o Unificando.
           </p>
           <button
-            onClick={() => navigate(ROUTES.CONTACT)}
+            onClick={() => {
+              trackCtaClick({
+                label: CTA.primary.label,
+                location: "customer_service_finalcta_primary",
+                to: CTA.primary.to,
+              });
+              navigate(CTA.primary.to);
+            }}
             className="bg-white text-indigo-600 px-12 py-5 rounded-2xl text-xs font-black uppercase tracking-[0.2em] hover:scale-105 transition-transform shadow-2xl"
           >
-            Falar com Especialista
+            {CTA.primary.label}
           </button>
         </div>
       </section>

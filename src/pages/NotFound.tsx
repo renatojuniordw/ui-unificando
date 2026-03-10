@@ -10,6 +10,8 @@ export const NotFound: React.FC = () => {
       <SEO
         title="Página não encontrada | Unificando"
         description="A página que você está procurando não existe."
+        canonical={ROUTES.NOT_FOUND}
+        robots="noindex, nofollow"
       />
       <div className="min-h-[70vh] flex flex-col items-center justify-center text-center px-4 bg-slate-50">
         <h1 className="text-9xl font-black text-slate-200 mb-4 select-none">

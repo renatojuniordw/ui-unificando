@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../../routes";
 import { WhatsAppSimulation } from "../WhatsAppSimulation";
+import { CTA } from "../../../constants/cta";
+import { trackCtaClick } from "../../../utils/analytics";
 
 export const ProductivityHero: React.FC = () => {
   const navigate = useNavigate();
@@ -51,10 +53,17 @@ export const ProductivityHero: React.FC = () => {
             </ul>
             <div className="flex flex-col sm:flex-row gap-4">
               <button
-                onClick={() => navigate(ROUTES.CONTACT)}
+                onClick={() => {
+                  trackCtaClick({
+                    label: CTA.primary.label,
+                    location: "productivity_hero_primary",
+                    to: CTA.primary.to,
+                  });
+                  navigate(CTA.primary.to);
+                }}
                 className="bg-slate-900 text-white px-10 py-5 rounded-2xl text-[10px] font-black hover:bg-slate-800 transition-all shadow-xl uppercase tracking-widest"
               >
-                Falar com Especialista
+                {CTA.primary.label}
               </button>
             </div>
           </div>

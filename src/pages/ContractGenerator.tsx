@@ -20,6 +20,7 @@ import { ReviewStep } from "../features/contract/components/steps/ReviewStep";
 import { BillingStep } from "../features/contract/components/steps/BillingStep";
 import { Modal, ModalType } from "../components/common/Modal";
 import { WebhookService } from "../services/webhook.service";
+import { ROUTES } from "../routes";
 
 export const ContractGenerator: React.FC = () => {
   const navigate = useNavigate();
@@ -181,6 +182,8 @@ export const ContractGenerator: React.FC = () => {
       <SEO
         title="Gerar Contrato | Unificando - Automação para Prestadores de Serviço"
         description="Configure e gere seu contrato de prestação de serviços de forma automática e profissional. Ideal para freelancers e agências de marketing."
+        canonical={ROUTES.CONTRACT}
+        robots="noindex, nofollow"
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "Service",
@@ -209,7 +212,7 @@ export const ContractGenerator: React.FC = () => {
       <div className="bg-slate-900 text-white py-12 px-4 text-center relative overflow-hidden">
         {/* Back Button */}
         <Link
-          to="/"
+          to={ROUTES.HOME}
           className="absolute top-6 left-6 z-20 flex items-center gap-2 text-slate-500 hover:text-white transition-colors text-xs font-bold uppercase tracking-widest group"
         >
           <span className="group-hover:-translate-x-1 transition-transform">

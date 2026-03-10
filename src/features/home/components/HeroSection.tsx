@@ -1,8 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { ROUTES } from "../../../routes";
 import { HeroIllustration } from "../HeroIllustration";
+import { CTA } from "../../../constants/cta";
+import { trackCtaClick } from "../../../utils/analytics";
 
 export const HeroSection: React.FC = () => {
   const navigate = useNavigate();
@@ -26,30 +27,44 @@ export const HeroSection: React.FC = () => {
             </span>{" "}
             <span className="block text-slate-400">Sem caos, sem falhas.</span>
           </h1>
+          <h2 className="text-xs md:text-sm font-black uppercase tracking-[0.2em] text-slate-400 mb-6 max-w-xl">
+            Atendimento via WhatsApp, IA e Presença Digital para pequenas e
+            médias empresas
+          </h2>
           <p className="text-lg md:text-xl text-slate-500 mb-10 leading-relaxed max-w-lg font-medium">
-            Assuma o controle da sua operação digital com o{" "}
-            <span className="text-slate-900 font-bold">
-              Ecossistema Unificando
-            </span>
-            . Centralizamos seu atendimento e criamos IA personalizada para seu
-            negócio vender enquanto você foca no que importa.
+            Centralizamos seu atendimento, automatizamos com IA e construímos
+            sua presença no Google — tudo integrado, sem bagunça.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mb-10">
             <motion.button
               whileHover={{ scale: 1.02, translateY: -2 }}
               whileTap={{ scale: 0.98 }}
-              onClick={() => navigate(ROUTES.PLANS)}
+              onClick={() => {
+                trackCtaClick({
+                  label: CTA.primary.label,
+                  location: "home_hero_primary",
+                  to: CTA.primary.to,
+                });
+                navigate(CTA.primary.to);
+              }}
               className="bg-slate-900 text-white px-8 lg:px-10 py-5 rounded-2xl text-xs font-black hover:bg-slate-800 transition-all shadow-2xl shadow-slate-200 uppercase tracking-[0.15em]"
             >
-              Simular minha solução
+              {CTA.primary.label}
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.02, translateY: -2 }}
               whileTap={{ scale: 0.98 }}
-              onClick={() => navigate(ROUTES.SOLUTIONS)}
+              onClick={() => {
+                trackCtaClick({
+                  label: CTA.solutions.label,
+                  location: "home_hero_secondary",
+                  to: CTA.solutions.to,
+                });
+                navigate(CTA.solutions.to);
+              }}
               className="bg-white text-slate-900 border border-slate-200 px-8 lg:px-10 py-5 rounded-2xl text-xs font-black hover:bg-slate-50 transition-all uppercase tracking-[0.15em] shadow-sm"
             >
-              Conhecer as soluções
+              {CTA.solutions.label}
             </motion.button>
           </div>
 
