@@ -13,4 +13,5 @@ export const ROUTES = {
   TERMS: "/termos",
   LINKS: "/links",
   NOT_FOUND: "/404",
+  FOR_LAWYERS: "/para-advogados",
 } as const;

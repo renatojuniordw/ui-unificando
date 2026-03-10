@@ -65,6 +65,11 @@ const LinksPage = React.lazy(() =>
     default: module.LinksPage,
   })),
 );
+const LawLanding = React.lazy(() =>
+  import("../pages/landings/LawLanding").then((module) => ({
+    default: module.LawLanding,
+  })),
+);
 
 export const AppRouter: React.FC = () => {
   const location = useLocation();
@@ -86,6 +91,7 @@ export const AppRouter: React.FC = () => {
           <Route path={ROUTES.PRIVACY} element={<PrivacyPolicy />} />
           <Route path={ROUTES.TERMS} element={<TermsOfService />} />
           <Route path={ROUTES.LINKS} element={<LinksPage />} />
+          <Route path={ROUTES.FOR_LAWYERS} element={<LawLanding />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
