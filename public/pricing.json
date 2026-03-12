@@ -57,7 +57,7 @@
   "site": {
     "landing": {
       "setup": 997,
-      "hostingMonthly": 70,
+      "hostingMonthly": 49,
       "pagesIncluded": 1,
       "features": [
         "Design Premium Responsivo",
@@ -75,7 +75,7 @@
   },
   "hospedagem": {
     "base": {
-      "setup": 150,
+      "setup": 149,
       "monthly": 49,
       "features": [
         "Hospedagem de Sites Estáticos (Front-end)",
