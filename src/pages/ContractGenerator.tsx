@@ -71,16 +71,16 @@ export const ContractGenerator: React.FC = () => {
 
   // Determine steps based on selection
   const steps = useMemo(() => {
-    const s = [{ id: "personal", title: "Dados & Serviços" }];
-    s.push({ id: "address", title: "Endereço" });
+    const s = [{ id: "personal", title: "DADOS & SERVIÇOS" }];
+    s.push({ id: "address", title: "ENDEREÇO" });
     if (data.personalData.services.atendimento)
-      s.push({ id: "atendimento", title: "Atendimento" });
+      s.push({ id: "atendimento", title: "ATENDIMENTO" });
     if (data.personalData.services.ia)
-      s.push({ id: "ia", title: "Inteligência Artificial" });
+      s.push({ id: "ia", title: "INTELIGÊNCIA ARTIFICIAL" });
     if (data.personalData.services.site)
-      s.push({ id: "site", title: "Site & Presença" });
-    s.push({ id: "billing", title: "Cobrança" });
-    s.push({ id: "review", title: "Revisão & Contrato" });
+      s.push({ id: "site", title: "SITE & PRESENÇA" });
+    s.push({ id: "billing", title: "COBRANÇA" });
+    s.push({ id: "review", title: "REVISÃO & CONTRATO" });
     return s;
   }, [data.personalData.services]);
 
@@ -179,91 +179,87 @@ export const ContractGenerator: React.FC = () => {
   };
 
   return (
-    <PageTransition className="bg-slate-50 min-h-screen pb-20">
+    <PageTransition className="bg-white min-h-screen pb-20">
       <SEO
-        title="Gerar Contrato | Unificando - Automação para Prestadores de Serviço"
-        description="Configure e gere seu contrato de prestação de serviços de forma automática e profissional. Ideal para freelancers e agências de marketing."
+        title="Gerar Contrato | Unificando Digital - Automação de Serviços"
+        description="Configure e formalize sua operação. Gere seu contrato de prestação de serviços de forma automática, profissional e segura."
         canonical={ROUTES.CONTRACT}
         robots="noindex, nofollow"
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "Service",
-          name: "Gerador de Contrato de Prestação de Serviços",
-          provider: {
+          "name": "Gerador de Contrato de Prestação de Serviços",
+          "provider": {
             "@type": "Organization",
-            name: "Unificando",
+            "name": "Unificando",
+            "url": "https://unificando.com.br"
           },
-          description:
-            "Ferramenta online gratuita para configurar e gerar contratos de prestação de serviços de marketing, tráfego pago, design e desenvolvimento web.",
-          audience: {
-            "@type": "Audience",
-            audienceType:
-              "Freelancers, Agências de Marketing, Gestores de Tráfego",
-          },
-          serviceType: "Legal Service Automation",
-          offers: {
-            "@type": "Offer",
-            price: "0",
-            priceCurrency: "BRL",
-          },
+          "description": "Ferramenta online para formalização de contratos de automação, IA e presença digital.",
+          "serviceType": "Legal Automation",
+          "dateModified": "2026-03-12"
         }}
       />
 
       {/* Header */}
-      <div className="bg-slate-900 text-white py-12 px-4 text-center relative overflow-hidden">
-        {/* Back Button */}
+      <div className="bg-slate-950 text-white py-20 px-6 text-center relative overflow-hidden border-b-8 border-slate-950">
         <Link
           to={ROUTES.HOME}
-          className="absolute top-6 left-6 z-20 flex items-center gap-2 text-slate-500 hover:text-white transition-colors text-xs font-bold uppercase tracking-widest group"
+          className="absolute top-8 left-8 z-20 flex items-center gap-3 text-slate-400 hover:text-[#ccff00] transition-colors text-xs font-black uppercase tracking-widest group bg-slate-900 px-4 py-2 border-2 border-slate-800"
         >
-          <span className="group-hover:-translate-x-1 transition-transform">
-            ←
-          </span>{" "}
-          Voltar
+          <span className="group-hover:-translate-x-1 transition-transform">←</span> 
+          VOLTAR
         </Link>
 
-        <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 blur-[100px] rounded-full pointer-events-none"></div>
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-500/10 blur-[100px] rounded-full pointer-events-none"></div>
-        <h1 className="text-3xl md:text-4xl font-black uppercase tracking-tight mb-4 relative z-10">
-          Configure seu <span className="text-indigo-400">Contrato</span>
-        </h1>
-        <p className="max-w-xl mx-auto text-slate-400 text-sm md:text-base relative z-10">
-          Preencha as informações abaixo para gerar sua proposta personalizada.
-          Todos os dados são protegidos.
-        </p>
+        <div className="max-w-4xl mx-auto relative z-10">
+          <div className="inline-block bg-[#ccff00] text-slate-950 px-3 py-1 font-black uppercase text-[10px] mb-6 border-2 border-slate-950 shadow-[4px_4px_0px_#fff]">
+            AÇÃO NECESSÁRIA
+          </div>
+          <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-6 leading-[0.9]">
+            FORMALIZE SUA <br/>
+            <span className="text-[#ccff00]">OPERAÇÃO.</span>
+          </h1>
+          <p className="max-w-xl mx-auto text-slate-400 text-sm md:text-base font-black uppercase italic tracking-tight">
+            Configure seu contrato personalizado em poucos minutos. <br/>
+            Segurança jurídica para quem foca em escala.
+          </p>
+        </div>
       </div>
 
-      <div className="max-w-4xl mx-auto px-4 -mt-8 relative z-20">
-        <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100">
+      <div className="max-w-5xl mx-auto px-6 -mt-12 relative z-20">
+        <div className="bg-white border-8 border-slate-950 shadow-[24px_24px_0px_#ccff00] overflow-hidden">
           {/* Progress Bar */}
-          <div className="bg-slate-50 px-6 py-4 border-b border-slate-100 flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-                Etapa {step + 1} de {steps.length}
+          <div className="bg-slate-100 px-8 py-6 border-b-4 border-slate-950 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-4">
+              <span className="bg-slate-950 text-white px-3 py-1 text-xs font-black uppercase italic leading-none">
+                PROCESSO 0{step + 1}
+              </span>
+              <div className="h-4 w-px bg-slate-300 hidden md:block"></div>
+              <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">
+                {step + 1} de {steps.length} ETAPAS
               </span>
             </div>
-            <div className="text-sm font-bold text-slate-800">
+            <div className="text-xl font-black text-slate-950 uppercase tracking-tighter">
               {steps[step].title}
             </div>
           </div>
 
-          <div className="h-1 bg-slate-100 w-full">
+          <div className="h-4 bg-slate-200 w-full border-b-4 border-slate-950">
             <motion.div
-              className="h-full bg-indigo-500"
+              className="h-full bg-[#ccff00]"
               initial={{ width: 0 }}
               animate={{ width: `${((step + 1) / steps.length) * 100}%` }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.5, ease: "circOut" }}
             />
           </div>
 
-          <div className="p-6 md:p-10">
+          <div className="p-8 md:p-16">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentStepId}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.3 }}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2 }}
               >
                 {/* STEP 1: Personal Data & Services */}
                 {currentStepId === "personal" && (
@@ -349,15 +345,15 @@ export const ContractGenerator: React.FC = () => {
             </AnimatePresence>
 
             {/* Navigation Buttons */}
-            <div className="mt-10 pt-6 border-t border-slate-100 flex justify-between">
+            <div className="mt-16 pt-10 border-t-4 border-slate-950 flex flex-col sm:flex-row justify-between gap-6">
               <button
                 type="button"
                 onClick={handleBack}
                 disabled={step === 0 || isSubmitting}
-                className={`px-6 py-3 rounded-xl font-bold text-sm transition-all
-                            ${step === 0 ? "opacity-0 pointer-events-none" : "text-slate-500 hover:bg-slate-100"}`}
+                className={`px-10 py-5 border-4 border-slate-950 font-black text-xs uppercase tracking-widest transition-all
+                            ${step === 0 ? "opacity-0 pointer-events-none" : "bg-white text-slate-950 hover:bg-slate-100 shadow-[4px_4px_0px_#000]"}`}
               >
-                VOLTAR
+                ← VOLTAR
               </button>
 
               {currentStepId === "review" ? (
@@ -365,18 +361,18 @@ export const ContractGenerator: React.FC = () => {
                   type="button"
                   onClick={handleSubmit}
                   disabled={isSubmitting}
-                  className={`px-8 py-3 rounded-xl font-bold text-sm text-white transition-all shadow-lg hover:shadow-indigo-500/25 uppercase tracking-wide
-                                ${isSubmitting ? "bg-slate-400 cursor-not-allowed" : "bg-indigo-600 hover:bg-indigo-500 hover:-translate-y-1"}`}
+                  className={`px-12 py-6 border-4 border-slate-950 font-black text-sm text-white bg-slate-950 transition-all shadow-[8px_8px_0px_#ccff00] hover:shadow-[12px_12px_0px_#ccff00] uppercase tracking-[0.2em]
+                                ${isSubmitting ? "opacity-50 cursor-not-allowed" : "hover:-translate-y-1"}`}
                 >
-                  {isSubmitting ? "ENVIANDO..." : "CONCLUIR E GERAR CONTRATO"}
+                  {isSubmitting ? "PROCESSANDO..." : "CONCLUIR E GERAR CONTRATO"}
                 </button>
               ) : (
                 <button
                   type="button"
                   onClick={handleNext}
-                  className="bg-slate-900 text-white px-8 py-3 rounded-xl font-bold text-sm hover:bg-slate-800 hover:-translate-y-1 transition-all shadow-lg uppercase tracking-wide"
+                  className="bg-slate-950 text-white px-12 py-6 border-4 border-slate-950 font-black text-sm hover:bg-slate-900 border-slate-950 hover:-translate-y-1 transition-all shadow-[8px_8px_0px_#ccff00] uppercase tracking-[0.2em]"
                 >
-                  PRÓXIMO
+                  PRÓXIMO PASSO →
                 </button>
               )}
             </div>
@@ -385,21 +381,46 @@ export const ContractGenerator: React.FC = () => {
       </div>
 
       {/* Footer Disclaimer */}
-      <div className="max-w-4xl mx-auto mt-8 px-4 text-center">
-        <p className="text-xs text-slate-400">
-          © {new Date().getFullYear()} Unificando. Todos os direitos reservados.
+      <div className="max-w-4xl mx-auto mt-16 px-6 text-center">
+        <p className="text-[10px] text-slate-400 font-mono font-black uppercase tracking-widest">
+          © {new Date().getFullYear()} UNIFICANDO_DIGITAL // TODOS OS DIREITOS RESERVADOS.
         </p>
       </div>
 
       <style>{`
         .label-text {
-            @apply block text-xs font-bold text-slate-500 mb-2 uppercase tracking-wide;
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 900;
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
         .input-field {
-            @apply w-full bg-slate-50 border border-slate-200 px-4 py-3 rounded-xl text-slate-800 font-medium focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all;
+            width: 100%;
+            background-color: #ffffff;
+            border: 4px solid #0f172a;
+            padding: 1rem;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            font-weight: 700;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            outline: none;
+            transition: all 0.2s;
+        }
+        .input-field:focus {
+            box-shadow: 4px 4px 0px #ccff00;
+            transform: translate(-2px, -2px);
         }
         .step-title {
-            @apply text-xl font-bold text-slate-800 mb-1;
+            font-size: 2rem;
+            font-weight: 900;
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: -0.05em;
+            line-height: 0.9;
         }
       `}</style>
       <Modal

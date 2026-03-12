@@ -14,21 +14,40 @@ export const LawLanding: React.FC = () => {
   return (
     <PageTransition>
       <SEO
-        title="Unificando para Advogados | O Fim do Caos no WhatsApp do Escritório"
-        description="Centralize seu atendimento jurídico, automatize a triagem com IA e pare de perder clientes no WhatsApp. O sistema definitivo para escritórios de advocacia."
+        title="Unificando para Advogados | Atendimento Jurídico Centralizado e IA"
+        description="Escritórios de advocacia perdem contratos por demora no WhatsApp. Centralize seu atendimento, automatize a triagem com IA e triplique sua conversão de leads jurídicos."
         canonical={ROUTES.FOR_LAWYERS}
         jsonLd={{
           "@context": "https://schema.org",
-          "@type": "SoftwareApplication",
-          name: "Unificando para Advogados",
-          applicationCategory: "BusinessApplication",
-          operatingSystem: "Web",
-          offers: {
-            "@type": "Offer",
-            price: "0",
-            priceCurrency: "BRL"
-          },
-          description: "Sistema de triagem jurídica e atendimento centralizado via WhatsApp."
+          "@graph": [
+            {
+              "@type": "Service",
+              "serviceType": "Legal Automation Software",
+              "provider": {
+                "@type": "Organization",
+                "name": "Unificando",
+                "url": "https://unificando.com.br"
+              },
+              "name": "Unificando para Advogados",
+              "description": "Plataforma de centralização de WhatsApp e triagem via Inteligência Artificial para escritórios de advocacia.",
+              "offers": {
+                "@type": "Offer",
+                "priceCurrency": "BRL",
+                "price": "297.00"
+              }
+            },
+            {
+              "@type": "LegalService",
+              "name": "Unificando Digital - Consultoria em Atendimento Jurídico",
+              "description": "Especialistas em digitalizar a operação de atendimento de escritórios de advocacia com foco em OAB Compliance e eficiência.",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Recife",
+                "addressRegion": "PE",
+                "addressCountry": "BR"
+              }
+            }
+          ]
         }}
       />
 

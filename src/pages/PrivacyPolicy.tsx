@@ -14,15 +14,18 @@ export const PrivacyPolicy: React.FC = () => {
     {
       title: "2. A quem esta Política se aplica?",
       content: (
-        <ul className="list-disc pl-5 space-y-2">
-          <li>Usuários da plataforma Unificando (empresas e profissionais);</li>
-          <li>
-            Visitantes de sites e landing pages criados ou mantidos pelo
-            Unificando;
+        <ul className="space-y-4">
+          <li className="flex items-start gap-3">
+            <span className="bg-slate-950 text-[#ccff00] px-2 border-2 border-slate-950 font-black">✓</span>
+            <span>Usuários da plataforma Unificando (empresas e profissionais);</span>
           </li>
-          <li>
-            Dados tratados no contexto do atendimento digital feito por meio da
-            plataforma.
+          <li className="flex items-start gap-3">
+            <span className="bg-slate-950 text-[#ccff00] px-2 border-2 border-slate-950 font-black">✓</span>
+            <span>Visitantes de sites e landing pages criados ou mantidos pelo Unificando;</span>
+          </li>
+          <li className="flex items-start gap-3">
+            <span className="bg-slate-950 text-[#ccff00] px-2 border-2 border-slate-950 font-black">✓</span>
+            <span>Dados tratados no contexto do atendimento digital feito por meio da plataforma.</span>
           </li>
         </ul>
       ),
@@ -30,264 +33,222 @@ export const PrivacyPolicy: React.FC = () => {
     {
       title: "3. Quem é o Unificando?",
       content: (
-        <>
-          <p className="mb-4">
+        <div className="space-y-4">
+          <p className="font-mono font-bold uppercase text-slate-500">
             O Unificando é um ecossistema de soluções voltado à:
           </p>
-          <ul className="list-disc pl-5 space-y-2 mb-4">
-            <li>Organização do atendimento digital;</li>
-            <li>Automação responsável de processos;</li>
-            <li>Uso de inteligência artificial aplicada;</li>
-            <li>Criação de presença profissional na internet;</li>
-            <li>Hospedagem Inteligente (Deploy as a Service).</li>
-          </ul>
-          <p>
-            Atuamos no Brasil com soluções modulares. Canal oficial:{" "}
-            <strong>contato@unificando.com.br</strong>
+          <div className="bg-slate-50 p-6 border-4 border-slate-950 shadow-[4px_4px_0px_#000]">
+            <ul className="grid md:grid-cols-2 gap-4">
+              {[
+                "Organização do atendimento digital",
+                "Automação responsável de processos",
+                "Uso de inteligência artificial aplicada",
+                "Criação de presença profissional",
+                "Hospedagem Inteligente (DaaS)",
+              ].map((item, i) => (
+                <li key={i} className="flex items-center gap-2 text-xs font-black uppercase italic">
+                   <span className="w-2 h-2 bg-slate-950"></span>
+                   {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <p className="text-sm font-black uppercase tracking-tight">
+            Canal oficial: <span className="text-indigo-600 bg-indigo-50 px-2 border-2 border-indigo-600 shadow-[2px_2px_0px_#000]">contato@unificando.com.br</span>
           </p>
-        </>
+        </div>
       ),
     },
     {
       title: "4. Quais dados pessoais são coletados?",
       content: (
-        <>
-          <p className="mb-4">
-            Os dados coletados variam conforme o uso do serviço e podem incluir:
-          </p>
-          <ul className="list-disc pl-5 space-y-2 mb-4">
-            <li>Nome, e-mail, telefone e número de WhatsApp;</li>
-            <li>Dados de login e autenticação;</li>
-            <li>Mensagens trocadas nos canais conectados;</li>
-            <li>Áudios enviados durante atendimentos, quando aplicável;</li>
-            <li>
-            Dados técnicos básicos (IP, data, hora e registros de acesso).
-            </li>
-          </ul>
-          <p className="text-sm font-bold text-slate-500 mb-2">
-            Nota sobre a Hospedagem Inteligente: No serviço de hospedagem de sites estáticos, o Unificando processa apenas os dados de infraestrutura e tráfego (IP, requisições de rede) necessários para garantir a estabilidade e proteção contra ataques (DDoS). Não temos acesso ao conteúdo preenchido pelos clientes finais nos formulários dos sites hospedados.
-          </p>
-          <p className="text-sm font-bold text-slate-500">
-            Nota Geral: O Unificando não coleta senhas de redes sociais ou contas
-            externas, nem dados sensíveis, salvo quando estritamente necessário
-            e autorizado.
-          </p>
-        </>
+        <div className="space-y-6">
+          <p>Os dados coletados variam conforme o uso do serviço e podem incluir:</p>
+          <div className="grid sm:grid-cols-2 gap-4">
+             {[
+               "Nome, e-mail, telefone e WhatsApp",
+               "Dados de login e autenticação",
+               "Mensagens trocadas nos canais",
+               "Áudios enviados (quando aplicável)",
+               "Dados técnicos (IP, Data, Hora)",
+             ].map((d, i) => (
+               <div key={i} className="bg-white p-4 border-2 border-slate-950 shadow-[4px_4px_0px_#000] font-mono font-bold text-xs uppercase">
+                 {d}
+               </div>
+             ))}
+          </div>
+          <div className="bg-amber-100 p-6 border-4 border-slate-950 shadow-[6px_6px_0px_#000]">
+            <p className="text-sm font-black uppercase mb-4 leading-none">NOTA SOBRE HOSPEDAGEM (DaaS):</p>
+            <p className="text-xs leading-relaxed font-mono font-bold">
+              Processamos apenas dados de infraestrutura (IP, requisições) necessários para estabilidade e proteção. Não acessamos o conteúdo preenchido nos formulários dos sites hospedados.
+            </p>
+          </div>
+        </div>
       ),
     },
     {
-      title: "5. Uso de Dados de Serviços Google (Google User Data)",
+      title: "5. Uso de Dados Google (User Data)",
       content: (
-        <>
-          <p className="mb-4">
-            Em conformidade com a Política de Dados do Usuário dos Serviços de
-            API do Google, detalhamos o uso das integrações:
-          </p>
-          <ul className="list-disc pl-5 space-y-2 mb-4">
-            <li>
-              <strong>Acesso:</strong> A plataforma acessa dados do Google
-              Sheets, Docs, Drive e Calendar apenas mediante autorização
-              explícita (OAuth) para executar automações solicitadas pelo
-              usuário.
-            </li>
-            <li>
-              <strong>Uso:</strong> Os dados são usados estritamente para ler
-              informações de processos (Sheets), gerar documentos modelos
-              (Docs/Drive) e agendar compromissos (Calendar).
-            </li>
-            <li>
-              <strong>Limited Use Disclosure:</strong> O uso e a transferência
-              de informações recebidas das APIs do Google para qualquer outro
-              aplicativo aderirão à{" "}
-              <a
-                href="https://developers.google.com/terms/api-services-user-data-policy"
-                target="_blank"
-                rel="noreferrer"
-                className="text-indigo-600 hover:text-indigo-800 underline"
-              >
-                Política de Dados do Usuário dos Serviços de API do Google
-              </a>
-              , incluindo os requisitos de Uso Limitado.
-            </li>
-          </ul>
-          <p className="font-bold">
-            Não utilizamos dados obtidos via APIs do Google Workspace para
-            treinar modelos de Inteligência Artificial.
-          </p>
-        </>
+        <div className="space-y-6">
+          <p>Em conformidade com a Política de Dados do Usuário dos Serviços de API do Google:</p>
+          <div className="space-y-4">
+            <div className="p-6 bg-slate-950 text-white border-4 border-slate-950 shadow-[8px_8px_0px_#ccff00]">
+               <h4 className="font-black uppercase mb-2 text-[#ccff00]">ACESSO & USO</h4>
+               <p className="text-xs font-mono font-bold leading-relaxed">
+                 Acessamos Sheets, Docs, Drive e Calendar apenas via OAuth para executar automações solicitadas. <br/><br/>
+                 O USO E TRANSFERÊNCIA DE INFORMAÇÕES ADERIRÃO ÀS POLÍTICAS DO GOOGLE, INCLUINDO REQUISITOS DE USO LIMITADO.
+               </p>
+            </div>
+            <p className="text-sm font-black uppercase text-red-600 italic">
+              *NÃO UTILIZAMOS DADOS DAS APIs DO GOOGLE PARA TREINAR MODELOS DE IA.
+            </p>
+          </div>
+        </div>
       ),
     },
     {
       title: "6. Como os dados são coletados?",
       content: (
-        <ul className="list-disc pl-5 space-y-2">
-          <li>Formulários de cadastro e contato;</li>
-          <li>Uso do painel de atendimento;</li>
-          <li>
-            Mensagens enviadas por canais integrados (WhatsApp, Instagram,
-            Telegram e chat do site);
-          </li>
-          <li>Integrações autorizadas diretamente pelo usuário;</li>
-          <li>Ferramentas básicas de análise, segurança e monitoramento.</li>
-        </ul>
+        <div className="flex flex-wrap gap-4">
+          {[
+            "Formulários de Lead",
+            "Painel de Atendimento",
+            "Canais Integrados",
+            "Integrações OAuth",
+            "Monitoramento de Segurança",
+          ].map((c, i) => (
+            <span key={i} className="bg-white px-4 py-2 border-4 border-slate-950 text-[10px] font-black uppercase tracking-widest shadow-[4px_4px_0px_#000]">
+              {c}
+            </span>
+          ))}
+        </div>
       ),
     },
     {
       title: "7. Para que usamos os dados?",
       content: (
-        <ul className="list-disc pl-5 space-y-2">
-          <li>Criar e gerenciar contas;</li>
-          <li>Viabilizar o atendimento digital;</li>
-          <li>Executar automações configuradas pelo usuário;</li>
-          <li>Operar agentes de IA conforme regras definidas;</li>
-          <li>Manter histórico de atendimentos;</li>
-          <li>Prestar suporte técnico e operacional;</li>
-          <li>Processar cobranças e pagamentos;</li>
-          <li>Garantir segurança e estabilidade;</li>
-          <li>Cumprir obrigações legais.</li>
-        </ul>
-      ),
-    },
-    {
-      title: "8. Compartilhamento com terceiros",
-      content: (
-        <>
-          <p className="mb-4">
-            Os dados são compartilhados apenas quando necessário, com:
-          </p>
-          <ul className="list-disc pl-5 space-y-2 mb-4">
-            <li>Plataformas de mensageria (ex: WhatsApp / Meta);</li>
-            <li>Provedores de hospedagem e infraestrutura;</li>
-            <li>Intermediadores de pagamento;</li>
-            <li>Serviços de monitoramento, segurança e análise.</li>
+        <div className="bg-white p-8 border-4 border-slate-950 shadow-[10px_10px_0px_#000]">
+          <ul className="space-y-3 font-mono text-sm font-bold uppercase">
+            {[
+              "Gerenciar contas e logins",
+              "Viabilizar o atendimento digital",
+              "Executar automações configuradas",
+              "Operar agentes de IA com segurança",
+              "Prestar suporte técnico real",
+              "Garantir estabilidade da plataforma",
+            ].map((u, i) => (
+              <li key={i} className="flex gap-4 items-center border-b-2 border-slate-100 pb-2 last:border-0">
+                <span className="text-indigo-600 font-black">#0{i+1}</span>
+                {u}
+              </li>
+            ))}
           </ul>
-          <p className="font-bold">O Unificando não vende dados pessoais.</p>
-        </>
+        </div>
       ),
     },
     {
-      title: "9. Papel do Unificando no tratamento de dados",
+      title: "8. Compartilhamento",
+      content:
+        "Os dados são compartilhados apenas com parceiros essenciais (Meta/WhatsApp, Provedores de Infraestrutura, Gateways de Pagamento). O Unificando nunca vende seus dados.",
+    },
+    {
+      title: "9. Uso de IA",
+      content:
+        "A IA do Unificando serve como apoio. Ela não toma decisões críticas sozinha, não atua fora das regras definidas pelo usuário e todos os processos são rastreáveis. Foco em automação responsável, não substituição humana.",
+    },
+    {
+      title: "10. Segurança & Direitos",
       content: (
-        <ul className="list-disc pl-5 space-y-2">
-          <li>
-            Dependendo do cenário, o usuário atua como controlador dos dados de
-            seus clientes;
-          </li>
-          <li>
-            O Unificando atua como operador, seguindo as instruções do usuário.
-          </li>
-          <li className="font-bold mt-2 list-none">
-            Cabe ao usuário garantir a base legal para os dados de terceiros
-            tratados na plataforma.
-          </li>
-        </ul>
+        <div className="bg-[#ccff00] p-6 border-4 border-slate-950 shadow-[8px_8px_0px_#000]">
+           <p className="font-black uppercase mb-4 leading-none">SEUS DIREITOS (LGPD):</p>
+           <p className="text-sm font-mono font-bold leading-relaxed mb-6">
+             Acesso, correção, exclusão e portabilidade podem ser solicitados a qualquer momento via canal oficial.
+           </p>
+           <div className="bg-white p-4 border-2 border-slate-950">
+             <p className="text-[10px] font-black uppercase italic">
+               DADOS SÃO ARMAZENADOS COM CRIPTOGRAFIA E MEDIDAS TÉCNICAS RÍGIDAS.
+             </p>
+           </div>
+        </div>
       ),
-    },
-    {
-      title: "10. Uso de Inteligência Artificial",
-      content:
-        "A IA do Unificando apoia o atendimento humano, segue regras definidas pelo usuário e pode tratar texto e áudio, escalando para humano quando necessário. A IA não substitui atendentes, não toma decisões críticas sozinha e não atua fora das regras configuradas.",
-    },
-    {
-      title: "11. Cookies e tecnologias similares",
-      content:
-        "Utilizamos cookies próprios e de terceiros para funcionamento básico, autenticação e segurança. Além disso, utilizamos ferramentas como Meta Pixel e Google Tag para análise de marketing e audiência. Você pode gerenciar suas preferências de cookies diretamente no seu navegador ou desativar o rastreamento de anúncios de terceiros em suas configurações de privacidade.",
-    },
-    {
-      title: "12. Base legal do tratamento",
-      content: (
-        <ul className="list-disc pl-5 space-y-2">
-          <li>Execução de contrato;</li>
-          <li>Cumprimento de obrigações legais;</li>
-          <li>Legítimo interesse, quando aplicável;</li>
-          <li>Consentimento, quando exigido.</li>
-        </ul>
-      ),
-    },
-    {
-      title: "13. Direitos do titular de dados",
-      content: (
-        <>
-          <p className="mb-4">O titular pode solicitar:</p>
-          <ul className="list-disc pl-5 space-y-2 mb-4">
-            <li>Confirmação de tratamento e acesso aos dados;</li>
-            <li>Correção de informações;</li>
-            <li>Anonimização, bloqueio ou exclusão, quando aplicável;</li>
-            <li>Portabilidade e informações sobre compartilhamento;</li>
-            <li>Revogação de consentimento.</li>
-          </ul>
-          <p>
-            Solicitações devem ser enviadas para{" "}
-            <strong>contato@unificando.com.br</strong>.
-          </p>
-        </>
-      ),
-    },
-    {
-      title: "14. Segurança da informação",
-      content:
-        "Adotamos medidas técnicas e organizacionais para proteger os dados contra acesso não autorizado, vazamentos, perda ou uso indevido. Trabalhamos continuamente para manter padrões elevados de segurança.",
-    },
-    {
-      title: "15. Retenção e exclusão de dados",
-      content:
-        "Os dados são armazenados pelo tempo necessário para execução do serviço, cumprimento de obrigações legais ou até solicitação de exclusão. Em caso de inadimplência superior a 30 dias, os dados poderão ser apagados conforme regras do serviço.",
-    },
-    {
-      title: "16. Alterações nesta Política",
-      content:
-        "Esta Política pode ser atualizada a qualquer momento. A versão vigente estará sempre disponível nos canais oficiais do Unificando. O uso contínuo da plataforma indica concordância com a versão atualizada.",
     },
   ];
 
   return (
     <PageTransition>
       <SEO
-        title="Política de Privacidade | Unificando"
-        description="Termos de uso e práticas de privacidade e proteção de dados do ecossistema Unificando."
+        title="Privacidade | Unificando Digital"
+        description="Termos de proteção de dados e práticas de privacidade do ecossistema Unificando."
         canonical={ROUTES.PRIVACY}
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Política de Privacidade - Unificando",
+          "description": "Explicação completa sobre como tratamos seus dados sob a LGPD.",
+          "datePublished": "2024-01-01",
+          "dateModified": "2026-03-12",
+          "breadcrumb": {
+             "@type": "BreadcrumbList",
+             "itemListElement": [{
+               "@type": "ListItem",
+               "position": 1,
+               "name": "Início",
+               "item": "https://unificando.com.br"
+             },{
+               "@type": "ListItem",
+               "position": 2,
+               "name": "Privacidade"
+             }]
+          }
+        }}
       />
 
-      <section className="py-20 md:py-32 bg-slate-50 min-h-screen">
-        <div className="max-w-3xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h1 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 uppercase tracking-tighter">
-              Política de Privacidade
+      <section className="py-24 md:py-32 bg-white min-h-screen">
+        <div className="max-w-4xl mx-auto px-6 lg:px-12">
+          
+          <div className="mb-24 text-left border-b-8 border-slate-950 pb-12">
+            <h1 className="text-5xl md:text-8xl font-black text-slate-950 mb-8 uppercase tracking-tighter leading-none">
+              DADOS E <br/>
+              <span className="bg-[#ccff00] px-4 -rotate-1 inline-block border-8 border-slate-950 shadow-[10px_10px_0px_#000]">PRIVACIDADE.</span>
             </h1>
-            <p className="text-slate-500 font-medium text-lg">
-              Última atualização: {new Date().getFullYear()}
-            </p>
+            <div className="flex items-center gap-4">
+               <span className="bg-slate-950 text-white px-3 py-1 font-black uppercase text-xs">ATUALIZADO MAR/2026</span>
+               <span className="font-mono font-black text-xs uppercase text-slate-400 italic">LGPD COMPLIANT_</span>
+            </div>
           </div>
 
-          <div className="space-y-12 bg-white p-8 md:p-12 rounded-[2rem] shadow-sm border border-slate-100">
+          <div className="space-y-16">
             {sections.map((section, index) => (
-              <div key={index} className="scroll-mt-24" id={`section-${index}`}>
-                <h2 className="text-xl font-black text-slate-800 mb-4 uppercase tracking-tight">
+              <div key={index} className="scroll-mt-32" id={`section-${index}`}>
+                <div className="inline-block bg-white text-slate-950 border-4 border-slate-950 px-4 py-1 font-black uppercase tracking-tighter text-xl mb-6 shadow-[4px_4px_0px_#000]">
                   {section.title}
-                </h2>
-                <div className="text-slate-600 leading-relaxed font-medium">
+                </div>
+                <div className="text-slate-800 leading-relaxed font-black uppercase tracking-tight text-lg md:text-xl">
                   {section.content}
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="mt-12 text-center text-slate-500 text-sm font-medium">
-            Dúvidas? Entre em contato pelo e-mail{" "}
+          <div className="mt-32 border-8 border-slate-950 p-12 bg-slate-950 text-white shadow-[20px_20px_0px_#ccff00]">
+            <h3 className="text-3xl font-black uppercase mb-6 leading-none">TEM DÚVIDAS?</h3>
+            <p className="font-mono font-bold text-slate-400 mb-10 uppercase text-sm leading-relaxed">
+              Respeitamos a sua soberania sobre seus dados. Se precisar de uma cópia das suas informações ou da exclusão completa, fale diretamente com a equipe técnica.
+            </p>
             <a
               href="mailto:contato@unificando.com.br"
-              className="text-indigo-600 hover:text-indigo-700 font-bold"
+              className="bg-[#ccff00] text-slate-950 px-10 py-5 border-4 border-slate-950 text-sm font-black uppercase tracking-[0.2em] shadow-[6px_6px_0px_#fff] hover:shadow-[10px_10px_0px_#fff] transition-all inline-block"
             >
-              contato@unificando.com.br
+              FALAR COM O DPO
             </a>
           </div>
 
-          <div className="mt-8 text-center">
+          <div className="mt-16 text-center">
             <Link
               to={ROUTES.HOME}
-              className="text-sm font-bold text-slate-400 hover:text-slate-600 transition-colors uppercase tracking-widest"
+              className="text-xs font-black text-slate-400 hover:text-slate-950 transition-colors uppercase tracking-[0.3em] italic"
             >
-              ← Voltar para o início
+              ← RETORNAR AO INÍCIO
             </Link>
           </div>
         </div>

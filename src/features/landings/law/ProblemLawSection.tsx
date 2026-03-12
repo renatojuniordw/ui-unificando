@@ -16,23 +16,24 @@ const itemVariants = {
 
 export const ProblemLawSection: React.FC = () => {
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-6xl mx-auto px-4">
+    <section className="py-24 bg-white border-b-8 border-slate-950">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 text-left">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="mb-20"
         >
-          <span className="text-indigo-600 font-black uppercase tracking-[0.2em] text-xs mb-4 block">
-            O Diagnóstico
-          </span>
-          <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 uppercase tracking-tighter leading-tight">
-            Você é Advogado, não Telefonista.
+          <div className="inline-block bg-slate-950 text-white px-3 py-1 font-black uppercase text-xs mb-6 border-2 border-slate-950 shadow-[4px_4px_0px_#ccff00]">
+            O DIAGNÓSTICO DO CAOS
+          </div>
+          <h2 className="text-5xl md:text-7xl font-black text-slate-950 mb-8 uppercase tracking-tighter leading-[0.9]">
+            VOCÊ É ADVOGADO, <br/>
+            <span className="bg-red-600 text-white px-2 inline-block -rotate-1 border-4 border-slate-950">NÃO TELEFONISTA.</span>
           </h2>
-          <p className="text-lg text-slate-500 max-w-2xl mx-auto font-medium leading-relaxed">
-            Escritórios de advocacia perdem até 40% das oportunidades porque demoram a responder. Se o seu cliente não recebe suporte rápido, ele vai para o Google procurar outro escritório.
+          <p className="text-xl md:text-2xl text-slate-950 max-w-3xl font-mono font-bold uppercase leading-tight">
+            Escritórios de advocacia perdem até 40% das oportunidades porque demoram a responder. Se o seu cliente não recebe suporte imediato, ele vai para o Google procurar seu concorrente.
           </p>
         </motion.div>
 
@@ -45,36 +46,36 @@ export const ProblemLawSection: React.FC = () => {
         >
           {[
             {
-              title: "Atendimento Caótico",
+              title: "ATENDIMENTO CAÓTICO",
               description:
-                "Celular do escritório passando de mão em mão. Você nunca sabe se o cliente foi respondido corretamente ou ignorado.",
+                "Celular do escritório passando de mão em mão. Você nunca sabe se o cliente foi respondido corretamente ou totalmente ignorado.",
               icon: "✕",
             },
             {
-              title: "Triagem Inexistente",
+              title: "TRIAGEM INEXISTENTE",
               description:
-                "Advogados especialistas perdendo tempo coletando documentação básica e fazendo perguntas repetitivas.",
+                "Sua equipe de especialistas perde tempo coletando documentação básica e fazendo perguntas repetitivas que uma IA já deveria ter resolvido.",
               icon: "↻",
             },
             {
-              title: "Falta de Posicionamento",
+              title: "FALTA DE POSICIONAMENTO",
               description:
-                "Prospectar clientes corporativos com atendimento amador e sem uma presença digital sólida destrói sua autoridade.",
+                "Tentar prospectar clientes de alto ticket com um atendimento amador via WhatsApp pessoal destrói sua autoridade instantaneamente.",
               icon: "∅",
             },
           ].map((item, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
-              className="p-8 md:p-12 rounded-[2.5rem] bg-slate-50 border border-slate-200 shadow-sm group hover:border-indigo-400 transition-all text-left"
+              className="p-8 bg-white border-4 border-slate-950 shadow-[8px_8px_0px_#000] hover:bg-[#ccff00] transition-all group flex flex-col"
             >
-              <div className="w-12 h-12 bg-white group-hover:bg-indigo-50 text-slate-900 group-hover:text-indigo-600 rounded-2xl flex items-center justify-center mb-8 font-black text-xl transition-colors shadow-sm">
+              <div className="w-16 h-16 bg-slate-950 text-white border-4 border-slate-950 flex items-center justify-center mb-8 font-black text-3xl shadow-[4px_4px_0px_#ccff00] group-hover:shadow-[4px_4px_0px_#000]">
                 {item.icon}
               </div>
-              <h3 className="font-black text-slate-900 mb-3 text-xs uppercase tracking-[0.2em]">
+              <h3 className="font-black text-slate-950 mb-4 text-2xl uppercase tracking-tighter leading-none">
                 {item.title}
               </h3>
-              <p className="text-slate-500 text-sm leading-relaxed font-medium">
+              <p className="text-slate-950 text-sm leading-relaxed font-mono font-bold uppercase bg-slate-50 p-4 border-2 border-slate-950 group-hover:bg-white transition-colors">
                 {item.description}
               </p>
             </motion.div>

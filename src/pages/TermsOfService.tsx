@@ -9,262 +9,90 @@ export const TermsOfService: React.FC = () => {
     {
       title: "1. Visão Geral",
       content:
-        "Estes Termos regulam o uso da plataforma Unificando (propriedade de 64.630.380 MARIA JOSE GOMES DOS SANTOS - CNPJ 64.630.380/0001-20), um ecossistema de soluções para atendimento digital, automação responsável e inteligência artificial aplicada. Ao utilizar os serviços, o usuário declara concordância integral com estes Termos.",
+        "ESTES TERMOS REGULAM O USO DA PLATAFORMA UNIFICANDO (64.630.380/0001-20). UM ECOSSISTEMA DE SOLUÇÕES PARA ATENDIMENTO DIGITAL, AUTOMAÇÃO RESPONSÁVEL E IA APLICADA. AO UTILIZAR OS SERVIÇOS, O USUÁRIO DECLARA CONCORDÂNCIA INTEGRAL COM ESTAS REGRAS.",
     },
     {
-      title: "2. Aceitação dos Termos",
+      title: "2. Aceitação",
       content:
-        "O uso do Unificando está condicionado à aceitação destes Termos. Caso o usuário não concorde, deve interromper imediatamente o uso da plataforma.",
+        "O USO ESTÁ CONDICIONADO À ACEITAÇÃO DESTES TERMOS. EM CASO DE DISCORDÂNCIA, O ACESSO DEVE SER INTERROMPIDO IMEDIATAMENTE.",
     },
     {
-      title: "3. O que o Unificando oferece",
+      title: "3. O Escopo",
       content: (
-        <>
-          <p className="mb-4">
-            O Unificando oferece soluções modulares, contratadas de forma
-            individual ou integrada, incluindo:
-          </p>
-          <ul className="list-disc pl-5 space-y-2">
-            <li>Painel de atendimento digital multicanal;</li>
-            <li>Organização e histórico de conversas;</li>
-            <li>Automações de processos;</li>
-            <li>Uso de inteligência artificial no atendimento;</li>
-            <li>Criação de landing pages e sites institucionais;</li>
-            <li>Hospedagem de sites, conforme plano contratado.</li>
-          </ul>
-          <p className="mt-4 text-sm font-bold text-slate-500">
-            As funcionalidades dependem do que foi contratado.
-          </p>
-        </>
+        <div className="space-y-4">
+          <p className="font-mono font-bold uppercase text-slate-500">O UNIFICANDO OFERECE SOLUÇÕES MODULARES:</p>
+          <div className="grid md:grid-cols-2 gap-4">
+             {[
+               "Painel de Atendimento Multicanal",
+               "Automação e IA de Atendimento",
+               "Landing Pages Profissionais",
+               "Hospedagem Inteligente (DaaS)",
+             ].map((s, i) => (
+               <div key={i} className="bg-slate-50 p-4 border-2 border-slate-950 shadow-[4px_4px_0px_#000] text-xs font-black uppercase">
+                 {s}
+               </div>
+             ))}
+          </div>
+        </div>
       ),
     },
     {
-      title: "4. Público-alvo e elegibilidade",
-      content: (
-        <ul className="list-disc pl-5 space-y-2">
-          <li>Pessoas jurídicas;</li>
-          <li>Profissionais autônomos;</li>
-          <li>
-            Negócios que realizam atendimento ou vendas no ambiente digital.
-          </li>
-        </ul>
-      ),
-    },
-    {
-      title: "5. Criação de conta e acesso",
-      content: (
-        <>
-          <p className="mb-4">Para utilizar a plataforma, o usuário deve:</p>
-          <ul className="list-disc pl-5 space-y-2 mb-4">
-            <li>Fornecer informações verdadeiras e atualizadas;</li>
-            <li>Manter a confidencialidade dos dados de acesso;</li>
-            <li>
-              Assumir responsabilidade por todas as ações realizadas na conta.
-            </li>
-          </ul>
-          <p className="font-bold">
-            O Unificando não se responsabiliza por acessos indevidos causados
-            por negligência do usuário.
-          </p>
-        </>
-      ),
-    },
-    {
-      title: "6. Estrutura do atendimento e canais",
-      content: (
-        <ul className="list-disc pl-5 space-y-2">
-          <li>Cada canal conectado corresponde a uma caixa de entrada;</li>
-          <li>
-            O Unificando não fornece números de WhatsApp nem contas de redes
-            sociais;
-          </li>
-          <li>
-            O usuário utiliza seus próprios números e contas, autorizando
-            conexões por meios oficiais.
-          </li>
-        </ul>
-      ),
-    },
-    {
-      title: "7. Inteligência Artificial (IA)",
-      content: (
-        <ul className="list-disc pl-5 space-y-2">
-          <li>
-            A IA atua como apoio ao atendimento humano, não como substituição;
-          </li>
-          <li>
-            Pode responder mensagens iniciais, qualificar contatos, agendar
-            atendimentos e escalar para humanos;
-          </li>
-          <li>Projetos com IA passam por diagnóstico antes da ativação;</li>
-          <li>
-            A IA segue regras definidas e não opera de forma autônoma
-            irrestrita.
-          </li>
-        </ul>
-      ),
-    },
-    {
-      title: "8. Automações e Integrações (Google e Terceiros)",
-      content: (
-        <>
-          <p className="mb-4">
-            Ao utilizar automações integradas a serviços de terceiros (como
-            Google Workspace), o usuário:
-          </p>
-          <ul className="list-disc pl-5 space-y-2 mb-4">
-            <li>
-              Autoriza explicitamente o acesso aos escopos necessários (ex: ler
-              planilhas, criar documentos);
-            </li>
-            <li>
-              Reconhece que a revogação de permissões pode interromper o
-              funcionamento das automações;
-            </li>
-            <li>
-              Declara estar ciente de que o Unificando age como operador das
-              ferramentas, não tendo controle sobre mudanças nas APIs de
-              terceiros.
-            </li>
-          </ul>
-        </>
-      ),
-    },
-    {
-      title: "9. Sites, Hospedagem Inteligente e Domínios",
-      content: (
-        <>
-          <p className="mb-4">
-            O Unificando oferece o serviço de Hospedagem Inteligente (DaaS) focado em projetos Front-end estáticos.
-          </p>
-          <ul className="list-disc pl-5 space-y-2 mb-4">
-            <li>
-              <strong>Domínios:</strong> O domínio (ex: seunome.com.br) é propriedade e responsabilidade legal do usuário, que deve adquiri-lo e mantê-lo renovado junto a órgãos oficiais (como o Registro.br). O Unificando não atua como registradora, operando apenas o apontamento técnico de DNS para o servidor;
-            </li>
-            <li>
-              <strong>Hospedagem:</strong> A responsabilidade da plataforma restringe-se à estabilidade, uptime do servidor, velocidade de rede e emissão de certificados de segurança (SSL/HTTPS);
-            </li>
-            <li>
-              <strong>Limitações Técnicas:</strong> O Unificando não se responsabiliza por falhas de lógica, crashes ou bugs advindos de códigos gerados pelo usuário via ferramentas automatizadas (ex: IAs como Cursor, Bolt, etc). Também não estão cobertos no escopo da base de hospedagem o provisionamento de bancos de dados estruturados ou desenvolvimento de APIs.
-            </li>
-          </ul>
-          <p className="font-bold text-sm text-slate-600 mt-4">
-            Nota: A manutenção, correção de erros (debug) e refatoração de códigos não estão inclusos na mensalidade padrão da Hospedagem Inteligente e, caso necessários, estarão sujeitos à orçamentação técnica e prestação de serviço avulsa.
-          </p>
-        </>
-      ),
-    },
-    {
-      title: "10. Cobrança, prazos e início do serviço",
-      content: (
-        <>
-          <p className="mb-4">
-            A cobrança é composta por setup único + mensalidade. O serviço
-            inicia somente após:
-          </p>
-          <ul className="list-disc pl-5 space-y-2 mb-4">
-            <li>Contrato assinado;</li>
-            <li>Pagamento do setup.</li>
-          </ul>
-          <p>
-            O prazo de entrega é de até 15 dias úteis, salvo exceções acordadas.
-          </p>
-        </>
-      ),
-    },
-    {
-      title: "11. Cancelamento e reembolso",
-      content: (
-        <>
-          <p className="mb-4">
-            O cancelamento pode ser feito a qualquer momento. Não existe
-            fidelidade.
-          </p>
-          <p className="font-bold mb-2">Reembolso:</p>
-          <ul className="list-disc pl-5 space-y-2">
-            <li>Integral se solicitado em até 7 dias úteis após a entrega;</li>
-            <li>Após esse prazo, não há reembolso.</li>
-          </ul>
-        </>
-      ),
-    },
-    {
-      title: "12. Atraso no pagamento",
-      content: (
-        <ul className="list-disc pl-5 space-y-2">
-          <li>Até 7 dias de atraso: acesso suspenso temporariamente;</li>
-          <li>Após 30 dias de atraso: dados podem ser apagados;</li>
-          <li>Retorno após 30 dias exige novo pagamento de setup.</li>
-        </ul>
-      ),
-    },
-    {
-      title: "13. Responsabilidades do usuário",
-      content: (
-        <>
-          <p className="mb-4">O usuário se compromete a:</p>
-          <ul className="list-disc pl-5 space-y-2 mb-4">
-            <li>Usar a plataforma de forma lícita e ética;</li>
-            <li>
-              Garantir base legal para dados de terceiros inseridos no sistema;
-            </li>
-            <li>Não praticar atos ilegais, abusivos ou fraudulentos;</li>
-            <li>Não tentar acessar áreas ou dados sem autorização.</li>
-          </ul>
-          <p className="font-bold text-red-500">
-            Todo o conteúdo das mensagens, automações e atendimentos é
-            responsabilidade do usuário.
-          </p>
-        </>
-      ),
-    },
-    {
-      title: "14. Limitação de responsabilidade",
-      content: (
-        <>
-          <p className="mb-4">O Unificando não se responsabiliza por:</p>
-          <ul className="list-disc pl-5 space-y-2 mb-4">
-            <li>Resultados comerciais ou financeiros;</li>
-            <li>Perdas por mau uso da plataforma;</li>
-            <li>Falhas de serviços de terceiros;</li>
-            <li>Conteúdos gerados ou enviados pelos usuários.</li>
-          </ul>
-          <p>O serviço é fornecido conforme disponibilidade técnica.</p>
-        </>
-      ),
-    },
-    {
-      title: "15. Propriedade intelectual",
+      title: "4. Acesso & Contas",
       content:
-        "Todos os direitos sobre a plataforma, software, marca, identidade visual e materiais pertencem exclusivamente ao Unificando. É proibido uso não autorizado.",
+        "O USUÁRIO É O ÚNICO RESPONSÁVEL POR SUAS CREDENCIAIS E PELA VERACIDADE DOS DADOS. O UNIFICANDO NÃO SE RESPONSABILIZA POR ACESSOS INDEVIDOS CAUSADOS POR NEGLIGÊNCIA DO CLIENTE.",
     },
     {
-      title: "16. Suspensão ou encerramento do acesso",
-      content:
-        "O Unificando pode suspender ou encerrar o acesso em caso de violação dos Termos, uso indevido, inadimplência ou risco à plataforma, a terceiros ou ao próprio serviço.",
-    },
-    {
-      title: "17. Alterações dos Termos",
-      content:
-        "Os Termos podem ser alterados a qualquer momento. A versão vigente estará sempre disponível nos canais oficiais. O uso contínuo indica concordância com a versão atualizada.",
-    },
-    {
-      title: "18. Legislação e foro",
-      content:
-        "Os Termos são regidos pelas leis brasileiras. Fica eleito o foro do domicílio do Unificando, salvo disposição legal em contrário.",
-    },
-    {
-      title: "19. Contato oficial",
+      title: "5. Canais & WhatsApp",
       content: (
-        <p>
-          Para dúvidas, suporte ou questões contratuais:{" "}
-          <a
-            href="mailto:contato@unificando.com.br"
-            className="text-indigo-600 hover:text-indigo-700 font-bold"
-          >
-            contato@unificando.com.br
-          </a>
-        </p>
+        <div className="bg-white p-6 border-4 border-slate-950 shadow-[6px_6px_0px_#000]">
+          <p className="font-mono font-bold text-sm uppercase leading-relaxed">
+            O UNIFICANDO NÃO FORNECE NÚMEROS DE WHATSAPP OU CONTAS DE REDES SOCIAIS. O CLIENTE UTILIZA SEUS PRÓPRIOS CANAIS, AUTORIZANDO A CONEXÃO VIA MÉTODOS OFICIAIS.
+          </p>
+        </div>
+      ),
+    },
+    {
+      title: "6. Automação & IA",
+      content:
+        "A IA ATUA COMO APOIO. PROJETOS COM IA PASSAM POR DIAGNÓSTICO. O UNIFICANDO NÃO SE RESPONSABILIZA POR RESPOSTAS DA IA QUE DIVIRJAM DAS REGRAS CONFIGURADAS PELO CLIENTE — O MONITORAMENTO É DEVER DO CONTRATANTE.",
+    },
+    {
+      title: "7. Hospedagem Inteligente (DaaS)",
+      content: (
+        <div className="space-y-4">
+          <p>INFRAESTRUTURA FOCADA EM PROJETOS FRONT-END:</p>
+          <ul className="space-y-3 font-mono text-xs font-bold uppercase">
+             <li>- DOMÍNIO É PROPRIEDADE E RESPONSABILIDADE DO CLIENTE.</li>
+             <li>- NÃO INCLUI BANCO DE DADOS OU DESENVOLVIMENTO DE BACK-END.</li>
+             <li>- NÃO COBRE DEBUG DE CÓDIGO GERADO POR FERRAMENTAS EXTERNAS.</li>
+          </ul>
+        </div>
+      ),
+    },
+    {
+      title: "8. Pagamento & Prazos",
+      content:
+         "SETUP + MENSALIDADE. SERVIÇO INICIA APÓS CONTRATO ASSINADO E SETUP PAGO. PRAZO PADRÃO: 15 DIAS ÚTEIS.",
+    },
+    {
+      title: "9. Cancelamento",
+      content:
+        "SEM FIDELIDADE. CANCELAMENTO A QUALQUER MOMENTO. REEMBOLSO INTEGRAL APENAS SE SOLICITADO EM ATÉ 7 DIAS ÚTEIS APÓS A ENTREGA DO PROJETO.",
+    },
+    {
+      title: "10. Inadimplência",
+      content:
+        "7 DIAS DE ATRASO: SUSPENSÃO. 30 DIAS: EXCLUSÃO DE DADOS E NECESSIDADE DE NOVO SETUP PARA RETORNO.",
+    },
+    {
+      title: "11. Responsabilidades",
+      content: (
+        <div className="bg-red-600 text-white p-8 border-4 border-slate-950 shadow-[10px_10px_0px_#000]">
+           <p className="font-black uppercase text-xl leading-none mb-4">ALERTA DE SEGURANÇA:</p>
+           <p className="font-mono font-bold text-sm uppercase leading-relaxed">
+             TODO CONTEÚDO ENVIADO, MENSAGENS E REGRAS DE AUTOMAÇÃO SÃO RESPONSABILIDADE EXCLUSIVA DO USUÁRIO. O UNIFICANDO NÃO SE RESPONSABILIZA POR RESULTADOS COMERCIAIS OU PENALIDADES DE PLATAFORMAS (META/WHATSAPP).
+           </p>
+        </div>
       ),
     },
   ];
@@ -272,52 +100,64 @@ export const TermsOfService: React.FC = () => {
   return (
     <PageTransition>
       <SEO
-        title="Termos de Uso | Unificando"
+        title="Termos de Uso | Unificando Digital"
         description="Regras, direitos e deveres para utilização da plataforma e ecossistema Unificando."
         canonical={ROUTES.TERMS}
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Termos de Uso e Condições - Unificando",
+          "datePublished": "2024-01-01",
+          "dateModified": "2026-03-12",
+        }}
       />
 
-      <section className="py-20 md:py-32 bg-slate-50 min-h-screen">
-        <div className="max-w-3xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h1 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 uppercase tracking-tighter">
-              Termos de Uso
+      <section className="py-24 md:py-32 bg-white min-h-screen">
+        <div className="max-w-4xl mx-auto px-6 lg:px-12">
+          
+          <div className="mb-24 text-left border-b-8 border-slate-950 pb-12">
+            <h1 className="text-5xl md:text-8xl font-black text-slate-950 mb-8 uppercase tracking-tighter leading-none">
+              REGRAS E <br/>
+              <span className="bg-[#ccff00] px-4 rotate-1 inline-block border-8 border-slate-950 shadow-[10px_10px_0px_#000]">TERMOS.</span>
             </h1>
-            <p className="text-slate-500 font-medium text-lg">
-              Última atualização: {new Date().getFullYear()}
-            </p>
+            <div className="flex items-center gap-4">
+               <span className="bg-slate-950 text-white px-3 py-1 font-black uppercase text-xs">VERSÃO 2026.03</span>
+               <span className="font-mono font-black text-xs uppercase text-slate-400 italic">LEGAL_FRAMEWORK_</span>
+            </div>
           </div>
 
-          <div className="space-y-12 bg-white p-8 md:p-12 rounded-[2rem] shadow-sm border border-slate-100">
+          <div className="space-y-16">
             {sections.map((section, index) => (
-              <div key={index} className="scroll-mt-24" id={`section-${index}`}>
-                <h2 className="text-xl font-black text-slate-800 mb-4 uppercase tracking-tight">
+              <div key={index} className="scroll-mt-32" id={`section-${index}`}>
+                <div className="inline-block bg-white text-slate-950 border-4 border-slate-950 px-4 py-1 font-black uppercase tracking-tighter text-xl mb-6 shadow-[4px_4px_0px_#000]">
                   {section.title}
-                </h2>
-                <div className="text-slate-600 leading-relaxed font-medium">
+                </div>
+                <div className="text-slate-800 leading-relaxed font-black uppercase tracking-tight text-lg md:text-xl">
                   {section.content}
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="mt-12 text-center text-slate-500 text-sm font-medium">
-            Precisa de ajuda com o contrato?
-            <br />
+          <div className="mt-32 p-12 border-8 border-slate-950 bg-slate-50 shadow-[20px_20px_0px_#000]">
+            <h3 className="text-3xl font-black uppercase mb-6 leading-none">DÚVIDA JURÍDICA?</h3>
+            <p className="font-mono font-bold text-slate-500 mb-10 uppercase text-sm leading-relaxed">
+              Trabalhamos com transparência total. Se precisar de esclarecimentos sobre o contrato ou SLA, fale diretamente com nosso canal oficial.
+            </p>
             <a
               href="mailto:contato@unificando.com.br"
-              className="text-indigo-600 hover:text-indigo-700 font-bold"
+              className="bg-slate-950 text-[#ccff00] px-10 py-5 border-4 border-slate-950 text-sm font-black uppercase tracking-[0.2em] shadow-[6px_6px_0px_#ccff00] hover:shadow-[10px_10px_0px_#ccff00] transition-all inline-block"
             >
-              Fale com o Jurídico
+              FALAR COM O JURÍDICO
             </a>
           </div>
 
-          <div className="mt-8 text-center">
+          <div className="mt-16 text-center">
             <Link
               to={ROUTES.HOME}
-              className="text-sm font-bold text-slate-400 hover:text-slate-600 transition-colors uppercase tracking-widest"
+              className="text-xs font-black text-slate-400 hover:text-slate-950 transition-colors uppercase tracking-[0.3em] italic"
             >
-              ← Voltar para o início
+              ← RETORNAR AO INÍCIO
             </Link>
           </div>
         </div>

@@ -8,88 +8,98 @@ export const HeroLawSection: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden bg-slate-900 border-b border-slate-800">
-      <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <section className="pt-24 pb-20 md:pt-32 md:pb-28 overflow-hidden bg-slate-950 border-b-8 border-slate-950 relative">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-12 items-center relative z-10">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
           className="text-left"
         >
-          <div className="inline-flex items-center gap-2 bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 px-4 py-1.5 rounded-full text-[11px] font-black uppercase tracking-[0.2em] mb-8 shadow-sm">
-            SISTEMA PARA ESCRITÓRIOS DE ADVOCACIA
+          <div className="inline-flex items-center gap-2 bg-[#ccff00] text-slate-950 px-4 py-2 border-4 border-slate-950 shadow-[4px_4px_0px_#fff] mb-8">
+            <span className="text-[10px] font-black uppercase tracking-[0.2em]">
+              SISTEMA PARA ESCRITÓRIOS DE ADVOCACIA
+            </span>
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.05] mb-6 uppercase tracking-tighter">
-            O WhatsApp não pode ser um gargalo no seu <span className="text-indigo-500 italic">faturamento.</span>
+          
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[0.9] mb-8 uppercase tracking-tighter">
+            O WHATSAPP NÃO PODE <br/>
+            <span className="text-slate-950 bg-[#ccff00] px-3 inline-block -rotate-1 border-4 border-slate-950 shadow-[8px_8px_0px_#fff]">MATAR</span> <br/>
+            O SEU ESCRITÓRIO.
           </h1>
-          <p className="text-lg md:text-xl text-slate-400 mb-10 leading-relaxed max-w-lg font-medium">
-            Centralize o atendimento do escritório, faça triagem de clientes com IA e organize sua operação. Pare de perder contratos porque a equipe demorou a responder.
+
+          <p className="text-xl md:text-2xl text-slate-300 mb-12 leading-none font-bold uppercase p-6 border-l-8 border-[#ccff00] bg-slate-900/50 max-w-xl">
+            Centralize atendimentos, automatize a triagem com IA e pare de perder contratos por demora. 
+            <span className="text-[#ccff00] block mt-2">ESTRUTURA JURÍDICA DE ALTA PERFORMANCE.</span>
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 mb-8">
+
+          <div className="flex flex-col sm:flex-row gap-6 mb-12">
             <motion.button
-              whileHover={{ scale: 1.02, translateY: -2 }}
-              whileTap={{ scale: 0.98 }}
+              whileHover={{ scale: 1.05, translateX: 5 }}
+              whileTap={{ scale: 0.95 }}
               onClick={() => {
                 trackCtaClick({
                   label: "AGENDAR DEMONSTRAÇÃO",
-                  location: "law_home_hero_primary",
+                  location: "law_hero_primary",
                   to: CTA.primary.to,
                 });
-                navigate(CTA.primary.to);
+                window.open(CTA.primary.to, "_blank");
               }}
-              className="bg-indigo-600 text-white px-8 lg:px-10 py-5 rounded-2xl text-xs font-black hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-900/50 uppercase tracking-[0.15em]"
+              className="bg-[#ccff00] text-slate-950 px-10 py-6 border-4 border-slate-950 text-base font-black uppercase tracking-widest shadow-[8px_8px_0px_#fff] hover:shadow-[12px_12px_0px_#fff] transition-all"
             >
               AGENDAR DEMONSTRAÇÃO
             </motion.button>
           </div>
 
-          <div className="text-sm">
-            <span className="opacity-80 font-medium text-slate-500">
-              Transformando a gestão de atendimento Jurídico.
-            </span>
+          <div className="flex items-center gap-4">
+             <div className="flex -space-x-4">
+                {[1,2,3,4].map(i => (
+                  <div key={i} className="w-10 h-10 rounded-none border-2 border-slate-950 bg-slate-800 flex items-center justify-center text-[10px] font-black text-white">
+                    {i}
+                  </div>
+                ))}
+             </div>
+             <p className="text-[10px] font-black uppercase text-slate-500 tracking-widest">
+               +200 escritórios digitalizados
+             </p>
           </div>
         </motion.div>
 
         <motion.div
-          className="relative hidden md:block"
-          initial={{ opacity: 0, scale: 0.8 }}
+          className="relative hidden lg:block"
+          initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
         >
           {/* Abstract representation of Organized UI for Law Firms */}
-          <div className="relative w-full aspect-square max-w-lg mx-auto">
-            <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/20 to-purple-500/20 rounded-[3rem] transform -rotate-6 blur-2xl"></div>
-            <div className="absolute inset-0 bg-slate-800 rounded-[3rem] border border-slate-700 shadow-2xl overflow-hidden flex flex-col">
-              {/* Fake UI Header */}
-              <div className="h-16 border-b border-slate-700/50 bg-slate-800/80 flex items-center px-6 gap-4">
-                 <div className="flex gap-2">
-                   <div className="w-3 h-3 rounded-full bg-slate-600"></div>
-                   <div className="w-3 h-3 rounded-full bg-slate-600"></div>
-                   <div className="w-3 h-3 rounded-full bg-slate-600"></div>
-                 </div>
-                 <div className="h-4 w-32 bg-slate-700 rounded-full ml-4"></div>
-              </div>
-              
-              {/* Fake UI Body */}
-              <div className="flex-1 p-6 flex flex-col gap-4">
-                 <div className="flex justify-between items-center mb-4">
-                    <div className="h-5 w-48 bg-slate-700 rounded-full"></div>
-                    <div className="h-8 w-24 bg-indigo-500/20 rounded-lg"></div>
-                 </div>
-                 
-                 {[1, 2, 3].map((i) => (
-                   <div key={i} className="p-4 rounded-xl border border-slate-700/50 bg-slate-700/20 flex gap-4 items-center">
-                     <div className="w-10 h-10 rounded-full bg-slate-600 flex-shrink-0"></div>
-                     <div className="flex-1">
-                        <div className="h-4 w-24 bg-slate-600 rounded-full mb-2"></div>
-                        <div className="h-3 w-48 bg-slate-700 rounded-full"></div>
-                     </div>
-                     <div className="w-16 h-6 rounded-full bg-indigo-500/20 flex items-center justify-center">
-                        <div className="w-8 h-2 bg-indigo-500/50 rounded-full"></div>
-                     </div>
+          <div className="relative w-full aspect-square max-w-lg mx-auto p-4 border-8 border-slate-950 bg-[#ccff00] shadow-[16px_16px_0px_#fff]">
+            <div className="absolute -top-12 -right-12 bg-white text-slate-950 p-6 border-8 border-slate-950 shadow-[8px_8px_0px_#000] rotate-12 z-20">
+              <p className="text-2xl font-black uppercase tracking-tighter leading-none">
+                TRIAGEM <br/> COM IA
+              </p>
+            </div>
+            
+            <div className="bg-slate-950 w-full h-full p-8 flex flex-col gap-6">
+               <div className="h-12 border-4 border-[#ccff00] flex items-center px-4 justify-between">
+                  <div className="flex gap-2">
+                    <div className="w-3 h-3 bg-[#ccff00]"></div>
+                    <div className="w-3 h-3 bg-[#ccff00]"></div>
+                  </div>
+                  <div className="h-2 w-24 bg-[#ccff00]/30"></div>
+               </div>
+
+               {[1, 2, 3].map((i) => (
+                 <div key={i} className="p-4 border-4 border-[#ccff00]/20 flex gap-4 items-center bg-slate-900 shadow-[4px_4px_0px_#ccff0010]">
+                   <div className="w-10 h-10 bg-[#ccff00] border-2 border-slate-950"></div>
+                   <div className="flex-1">
+                      <div className="h-3 w-24 bg-[#ccff00] mb-2"></div>
+                      <div className="h-2 w-48 bg-[#ccff00]/30"></div>
                    </div>
-                 ))}
-              </div>
+                   <div className="px-3 py-1 bg-white text-slate-950 text-[8px] font-black uppercase border-2 border-slate-950">
+                     CASO ATIVO
+                   </div>
+                 </div>
+               ))}
             </div>
           </div>
         </motion.div>

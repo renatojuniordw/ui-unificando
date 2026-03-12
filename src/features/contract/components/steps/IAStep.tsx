@@ -9,17 +9,22 @@ interface IAStepProps {
 
 export const IAStep: React.FC<IAStepProps> = ({ data, handleInputChange }) => {
   return (
-    <div className="space-y-6">
-      <h2 className="text-xl font-bold text-slate-800 mb-6 flex items-center gap-2">
-        Configuração de Inteligência Artificial
-      </h2>
-      <p className="text-slate-400 mb-6">Onde a IA deve atuar?</p>
+    <div className="space-y-12">
+      <div>
+        <h2 className="text-3xl font-black text-slate-950 uppercase tracking-tighter leading-none mb-2">
+          CÉREBRO ARTIFICIAL
+        </h2>
+        <div className="flex items-center gap-2">
+           <div className="bg-slate-950 text-white px-2 py-0.5 text-[10px] font-black uppercase">LLM_DEPLOYMENT</div>
+           <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest italic text-left">Configure os pontos de ativação da inteligência.</p>
+        </div>
+      </div>
 
-      <div className="space-y-4">
-        <label className="block text-[15px] font-black text-slate-400 mb-3 uppercase tracking-widest">
-          Canais de Atuação
+      <div className="space-y-6">
+        <label className="label-text">
+          CANAIS DE ATUAÇÃO
         </label>
-        <div className="grid md:grid-cols-2 gap-3">
+        <div className="grid md:grid-cols-2 gap-6">
           <Checkbox
             label="WhatsApp"
             checked={data.aiChannels.whatsapp}
@@ -63,11 +68,11 @@ export const IAStep: React.FC<IAStepProps> = ({ data, handleInputChange }) => {
         </div>
       </div>
 
-      <div className="space-y-4 pt-4 border-t border-slate-100">
-        <label className="block text-[15px] font-black text-slate-400 mb-3 uppercase tracking-widest">
-          Extras & Integrações
+      <div className="space-y-6 pt-10 border-t-4 border-slate-950">
+        <label className="label-text">
+          EXTRAS & INTEGRAÇÕES
         </label>
-        <div className="grid md:grid-cols-2 gap-3">
+        <div className="grid md:grid-cols-2 gap-6">
           <Checkbox
             label="Interpretação de Áudio"
             checked={data.aiAddons.audio}

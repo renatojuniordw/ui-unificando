@@ -32,20 +32,61 @@ export const DigitalPresence: React.FC = () => {
         canonical={ROUTES.DIGITAL_PRESENCE}
         jsonLd={{
           "@context": "https://schema.org",
-          "@type": "Service",
-          serviceType: "Web Development",
-          provider: {
-            "@type": "Organization",
-            name: "Unificando",
-          },
-          name: "Sites e Presença Digital",
-          description:
-            "Desenvolvimento de sites profissionais, landing pages e otimização SEO.",
-          offers: {
-            "@type": "Offer",
-            priceCurrency: "BRL",
-            price: PRICING.site.landing.setup.toString(),
-          },
+          "@graph": [
+            {
+              "@type": "Service",
+              serviceType: "Web Development",
+              provider: {
+                "@type": "Organization",
+                name: "Unificando",
+              },
+              name: "Sites e Presença Digital",
+              description:
+                "Desenvolvimento de sites profissionais, landing pages e otimização SEO.",
+              offers: {
+                "@type": "Offer",
+                priceCurrency: "BRL",
+                price: "997.00",
+              },
+            },
+            {
+              "@type": "FAQPage",
+              mainEntity: [
+                {
+                  "@type": "Question",
+                  name: "O site é 'alugado' ou é meu?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "O site é seu. Desenvolvemos o projeto para o seu negócio. Após o primeiro ano, a única cobrança recorrente é a de hospedagem (para mantê-lo no ar), mas você tem total posse sobre a criação.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "O que está incluso no primeiro ano?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Além da criação do site, entregamos 1 ano de hospedagem grátis e o registro do seu domínio (ex: suaempresa.com.br) por nossa conta.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "Qual o custo após o primeiro ano?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Para manter o site seguro e online em nossos servidores, cobramos uma taxa de manutenção de hospedagem (atualmente R$ 70/mês). Se não renovar, o site sai do ar, mas os arquivos continuam sendo seus.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "Qual o prazo de entrega?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Para Landing Pages e Sites Institucionais padrão, o prazo médio é de até 15 dias úteis após o envio de todo o material (textos e fotos) e aprovação do briefing.",
+                  },
+                },
+              ],
+            },
+          ],
         }}
       />
 

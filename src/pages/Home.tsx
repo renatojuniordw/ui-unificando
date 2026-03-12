@@ -35,35 +35,38 @@ export const Home: React.FC = () => {
           "@graph": [
             {
               "@type": "WebSite",
-              name: "Unificando",
-              url: "https://unificando.com.br",
-              potentialAction: {
+              "@id": "https://unificando.com.br/#website",
+              "name": "Unificando",
+              "url": "https://unificando.com.br",
+              "datePublished": "2024-01-01",
+              "dateModified": "2026-03-12",
+              "potentialAction": {
                 "@type": "SearchAction",
-                target:
-                  "https://unificando.com.br/search?q={search_term_string}",
+                target: "https://unificando.com.br/search?q={search_term_string}",
                 "query-input": "required name=search_term_string",
               },
             },
             {
               "@type": "Organization",
-              name: "Unificando",
-              url: "https://unificando.com.br",
-              logo: "https://unificando.com.br/assets/LOGO_UNIFICANDO-D8bsxGgc.svg",
-              legalName: "64.630.380 MARIA JOSE GOMES DOS SANTOS",
-              taxID: "64.630.380/0001-20",
-              address: {
+              "@id": "https://unificando.com.br/#organization",
+              "name": "Unificando",
+              "url": "https://unificando.com.br",
+              "logo": "https://unificando.com.br/assets/img/LOGO_UNIFICANDO.svg",
+              "legalName": "64.630.380 MARIA JOSE GOMES DOS SANTOS",
+              "taxID": "64.630.380/0001-20",
+              "address": {
                 "@type": "PostalAddress",
-                addressLocality: "Recife",
-                addressRegion: "PE",
-                addressCountry: "BR",
+                "addressLocality": "Recife",
+                "addressRegion": "PE",
+                "addressCountry": "BR",
               },
-              sameAs: ["https://instagram.com/unificando.digital"],
-              contactPoint: {
+              "sameAs": ["https://instagram.com/unificando.digital"],
+              "contactPoint": {
                 "@type": "ContactPoint",
-                telephone: "+55 81 99555-7302",
-                contactType: "customer service",
-                areaServed: "BR",
-                availableLanguage: "Portuguese",
+                "telephone": "+55 81 99555-7302",
+                "contactType": "customer service",
+                "areaServed": "BR",
+                "availableLanguage": "Portuguese",
               },
             },
           ],

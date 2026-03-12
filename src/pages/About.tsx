@@ -14,18 +14,29 @@ export const About: React.FC = () => {
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "AboutPage",
-          mainEntity: {
+          "datePublished": "2024-01-01",
+          "dateModified": "2026-03-12",
+          "mainEntity": {
+            "@id": "https://unificando.com.br/#organization",
             "@type": "Organization",
-            name: "Unificando",
-            foundingDate: "2024",
-            description:
-              "Ecossistema de organização e automação de atendimento digital.",
-            knowsAbout: [
+            "name": "Unificando Digital",
+            "foundingDate": "2024",
+            "description": "Ecossistema de organização e automação de atendimento digital para PMEs.",
+            "url": "https://unificando.com.br",
+            "logo": "https://unificando.com.br/assets/img/LOGO_UNIFICANDO.svg",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Recife",
+              "addressRegion": "PE",
+              "addressCountry": "BR"
+            },
+            "knowsAbout": [
               "Automação de WhatsApp",
-              "IA para Atendimento",
-              "Desenvolvimento Web",
-            ],
-          },
+              "Inteligência Artificial para Negócios",
+              "Desenvolvimento Web de Alta Conversão",
+              "Sistemas de Atendimento Multicanal"
+            ]
+          }
         }}
       />
 

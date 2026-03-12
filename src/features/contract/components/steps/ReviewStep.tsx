@@ -8,31 +8,36 @@ interface ReviewStepProps {
 
 export const ReviewStep: React.FC<ReviewStepProps> = ({ data, pricing }) => {
   return (
-    <div className="space-y-8">
-      <div className="bg-slate-900 rounded-2xl p-6 md:p-8 text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/20 blur-[60px] rounded-full"></div>
+    <div className="space-y-12 animate-in">
+      <div className="bg-slate-950 border-8 border-slate-950 shadow-[20px_20px_0px_#ccff00] p-10 md:p-16 text-white relative overflow-hidden">
+        {/* Decorative Grid */}
+        <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#ccff00 1px, transparent 0)', backgroundSize: '24px 24px' }}></div>
 
-        <h2 className="text-xl font-bold text-white mb-6 text-center">
-          Resumo do Investimento
-        </h2>
+        <div className="relative z-10 mb-12 border-b-4 border-[#ccff00] pb-6 flex flex-col md:flex-row justify-between items-baseline gap-4">
+          <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter leading-none">
+            DEMONSTRATIVO <br/>
+            <span className="text-[#ccff00]">FINANCEIRO.</span>
+          </h2>
+          <div className="text-[10px] font-black uppercase tracking-[0.3em] opacity-60">ID://GEN_CONTRATO_2026</div>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mb-8">
-          <div className="text-center p-4 rounded-xl bg-white/5 border border-white/10">
-            <div className="text-xs text-slate-400 uppercase tracking-widest mb-1">
-              Configuração e Implementação (Único)
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12">
+          <div className="bg-slate-900 p-8 border-4 border-slate-800 shadow-[8px_8px_0px_#000]">
+            <div className="text-[10px] font-black uppercase tracking-widest text-[#ccff00] mb-4 border-b border-white/10 pb-2">
+              SETUP_INITIAL_DEPLOY (ÚNICO)
             </div>
-            <div className="text-2xl md:text-3xl font-black text-indigo-400">
+            <div className="text-4xl md:text-5xl font-black text-white tracking-tighter">
               {pricing.setup.toLocaleString("pt-BR", {
                 style: "currency",
                 currency: "BRL",
               })}
             </div>
           </div>
-          <div className="text-center p-4 rounded-xl bg-white/5 border border-white/10">
-            <div className="text-xs text-slate-400 uppercase tracking-widest mb-1">
-              Mensalidade
+          <div className="bg-[#ccff00] p-8 border-4 border-slate-950 shadow-[8px_8px_0px_#000]">
+            <div className="text-[10px] font-black uppercase tracking-widest text-slate-950 mb-4 border-b border-slate-950/20 pb-2">
+              RECURRING_MONTHLY (MENSAL)
             </div>
-            <div className="text-2xl md:text-3xl font-black text-white">
+            <div className="text-4xl md:text-5xl font-black text-slate-950 tracking-tighter">
               {pricing.monthly.toLocaleString("pt-BR", {
                 style: "currency",
                 currency: "BRL",
@@ -41,74 +46,54 @@ export const ReviewStep: React.FC<ReviewStepProps> = ({ data, pricing }) => {
           </div>
         </div>
 
-        <div className="space-y-2 text-sm text-slate-400 border-t border-white/10 pt-4">
-          <div className="flex justify-between">
-            <span>Cliente</span>
-            <span className="text-white">{data.personalData.name}</span>
-          </div>
-          <div className="flex justify-between">
-            <span>Documento</span>
-            <span className="text-white">{data.personalData.document}</span>
-          </div>
-          <div className="flex justify-between">
-            <span>Endereço</span>
-            <span className="text-white text-right max-w-[200px] leading-tight">
-              {data.addressData.street}, {data.addressData.number}
-              {data.addressData.complement &&
-                ` - ${data.addressData.complement}`}
-              <br />
-              {data.addressData.neighborhood} - {data.addressData.city}/
-              {data.addressData.state}
-            </span>
-          </div>
-          <div className="flex justify-between">
-            <span>Serviços</span>
-            <span className="text-white">
-              {[
-                data.personalData.services.atendimento && "Atendimento",
-                data.personalData.services.ia && "IA",
-                data.personalData.services.site && "Site",
-              ]
-                .filter(Boolean)
-                .join(", ")}
-            </span>
-          </div>
-          <div className="flex justify-between">
-            <span>Pagamento Setup</span>
-            <span className="text-white">
-              {data.billingData.billingSetupMethod === "credit_card"
-                ? "Cartão de Crédito"
-                : "PIX (À Vista)"}
-            </span>
-          </div>
-          <div className="flex justify-between border-t border-white/5 pt-2 mt-2">
-            <span>Vencimento Mensal</span>
-            <span className="text-white">
-              Dia {data.billingData.billingDueDay}
-            </span>
-          </div>
-          <div className="flex justify-between">
-            <span>Pagamento Mensal</span>
-            <span className="text-white">
-              {data.billingData.billingMethod === "credit_card"
-                ? "Cartão de Crédito"
-                : data.billingData.billingMethod === "boleto"
-                  ? "Boleto"
-                  : "PIX Automático"}
-            </span>
-          </div>
+        {/* Technical Data Sheet */}
+        <div className="bg-white/5 border border-white/10 p-8 space-y-4 font-mono">
+           <div className="text-[#ccff00] font-black uppercase text-xs mb-6 border-b border-white/10 pb-2">FOLHA_TECNICA_VALIDAÇÃO</div>
+          
+           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4 text-[11px] uppercase font-bold tracking-tight">
+             <div className="flex justify-between border-b border-white/5 pb-2">
+               <span className="opacity-50">ENTIDADE:</span>
+               <span className="text-[#ccff00]">{data.personalData.name}</span>
+             </div>
+             <div className="flex justify-between border-b border-white/5 pb-2">
+               <span className="opacity-50">DOC_ID:</span>
+               <span className="text-white">{data.personalData.document}</span>
+             </div>
+             <div className="flex justify-between border-b border-white/5 pb-2">
+               <span className="opacity-50">LOCAL:</span>
+               <span className="text-white truncate max-w-[150px]">{data.addressData.city}/{data.addressData.state}</span>
+             </div>
+             <div className="flex justify-between border-b border-white/5 pb-2">
+               <span className="opacity-50">MODULOS:</span>
+               <span className="text-white">
+                 {[
+                   data.personalData.services.atendimento && "ATT",
+                   data.personalData.services.ia && "IA",
+                   data.personalData.services.site && "SITE",
+                 ].filter(Boolean).join("++")}
+               </span>
+             </div>
+             <div className="flex justify-between border-b border-white/5 pb-2">
+               <span className="opacity-50">METODO:</span>
+               <span className="text-white">{data.billingData.billingMethod.toUpperCase()}</span>
+             </div>
+             <div className="flex justify-between border-b border-white/5 pb-2">
+               <span className="opacity-50">VENCIMENTO:</span>
+               <span className="text-white">DIA_{data.billingData.billingDueDay}</span>
+             </div>
+           </div>
         </div>
       </div>
 
-      <div className="border border-yellow-100 bg-yellow-50 p-4 rounded-xl flex gap-3 items-start">
-        <span className="text-yellow-600 mt-1">⚠️</span>
-        <p className="text-sm text-yellow-800">
-          Por favor, revise todos os dados com atenção. Estas informações serão
-          utilizadas para a <strong>geração automática do seu contrato</strong>{" "}
-          de prestação de serviços.
-        </p>
+      <div className="bg-[#ccff00] p-8 border-4 border-slate-950 shadow-[10px_10px_0px_#000] flex gap-4 items-start">
+        <div className="bg-slate-950 text-[#ccff00] rounded-full p-2 text-xl leading-none">⚠️</div>
+        <div>
+          <h4 className="font-black uppercase tracking-tighter text-slate-950 mb-1">PROTOCOLO DE VERIFICAÇÃO</h4>
+          <p className="text-[10px] text-slate-800 font-bold uppercase leading-relaxed max-w-2xl">
+            A GERAÇÃO DO CONTRATO É IRREVERSÍVEL APÓS O ENVIO. SEUS DADOS SERÃO UTILIZADOS EXATAMENTE COMO INFORMADOS ACIMA. CASO HAJA ALGUMA DIVERGÊNCIA, VOLTE E CORRIJA ANTES DE PROSSEGUIR.
+          </p>
+        </div>
       </div>
-
     </div>
   );
 };

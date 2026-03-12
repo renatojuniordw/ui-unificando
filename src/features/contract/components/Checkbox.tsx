@@ -10,17 +10,17 @@ export const Checkbox = ({
   onChange: () => void;
 }) => (
   <label
-    className={`flex items-center gap-3 p-4 rounded-xl border cursor-pointer transition-all ${checked ? "border-indigo-500 bg-indigo-50/50" : "border-slate-200 bg-slate-50 hover:bg-white"}`}
+    className={`flex items-center gap-4 p-5 border-4 cursor-pointer transition-all relative ${checked ? "border-slate-950 bg-[#ccff00] shadow-[6px_6px_0px_#000] -translate-y-1" : "border-slate-950 bg-white hover:bg-slate-50 shadow-[4px_4px_0px_#000] hover:shadow-[6px_6px_0px_#000]"}`}
   >
     <div
-      className={`w-5 h-5 rounded border flex items-center justify-center transition-colors ${checked ? "bg-indigo-500 border-indigo-500" : "bg-white border-slate-300"}`}
+      className={`w-6 h-6 border-4 flex items-center justify-center transition-colors ${checked ? "bg-slate-950 border-slate-950" : "bg-white border-slate-950"}`}
     >
       {checked && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="currentColor"
-          className="w-3.5 h-3.5 text-white"
+          className="w-4 h-4 text-[#ccff00]"
         >
           <path
             fillRule="evenodd"
@@ -31,7 +31,7 @@ export const Checkbox = ({
       )}
     </div>
     <span
-      className={`font-medium text-sm ${checked ? "text-indigo-900" : "text-slate-600"}`}
+      className={`font-black uppercase tracking-tighter text-sm ${checked ? "text-slate-950" : "text-slate-600"}`}
     >
       {label}
     </span>

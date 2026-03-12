@@ -28,20 +28,93 @@ export const CustomerService: React.FC = () => {
         canonical={ROUTES.CUSTOMER_SERVICE}
         jsonLd={{
           "@context": "https://schema.org",
-          "@type": "Service",
-          serviceType: "Customer Support Automation",
-          provider: {
-            "@type": "Organization",
-            name: "Unificando",
-          },
-          name: "Atendimento Unificado WhatsApp e Instagram",
-          description:
-            "Plataforma para centralizar atendimento de múltiplos canais com múltiplos atendentes.",
-          offers: {
-            "@type": "Offer",
-            priceCurrency: "BRL",
-            price: "297.00",
-          },
+          "@graph": [
+            {
+              "@type": "Service",
+              serviceType: "Customer Support Automation",
+              provider: {
+                "@type": "Organization",
+                name: "Unificando",
+              },
+              name: "Atendimento Unificado WhatsApp e Instagram",
+              description:
+                "Plataforma para centralizar atendimento de múltiplos canais com múltiplos atendentes.",
+              offers: {
+                "@type": "Offer",
+                priceCurrency: "BRL",
+                price: "297.00",
+              },
+            },
+            {
+              "@type": "FAQPage",
+              mainEntity: [
+                {
+                  "@type": "Question",
+                  name: "Posso cancelar quando quiser?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Sim! Não temos fidelidade. Você pode cancelar sua assinatura a qualquer momento diretamente pelo painel, sem burocracia.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "Preciso de um celular ligado?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Não. Como utilizamos a API (ou conexão em nuvem estável), seu celular não precisa estar conectado à internet o tempo todo.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "Consigo usar o mesmo número para vários atendentes?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Com certeza! Essa é a principal função do Unificando. Todos os seus atendentes acessam o mesmo número de WhatsApp simultaneamente, cada um no seu computador.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "O Unificando fornece número de WhatsApp ou conta de Instagram?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Não. Os canais utilizados são sempre do próprio cliente. Nós apenas realizamos a integração e organização do atendimento.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "Pode causar banimento ou bloqueio de contas?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Não. Bloqueios e banimentos podem ocorrer por uso indevido das plataformas. O Unificando não se responsabiliza por penalidades aplicadas pelo WhatsApp, Instagram, Telegram ou outros canais.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "O Unificando envia mensagens automaticamente?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Somente quando o cliente autoriza e configura automações, sempre respeitando as regras das plataformas.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "O Unificando garante vendas ou resultados?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Não. A plataforma ajuda a organizar e agilizar o atendimento, mas não garante vendas ou faturamento.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "Meus dados e conversas ficam seguros?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Sim. Cada cliente possui um ambiente isolado e seguro, com acesso restrito aos seus usuários.",
+                  },
+                },
+              ],
+            },
+          ],
         }}
       />
 

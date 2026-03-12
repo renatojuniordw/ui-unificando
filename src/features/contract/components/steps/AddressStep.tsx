@@ -12,7 +12,6 @@ export const AddressStep: React.FC<AddressStepProps> = ({
 }) => {
   const [loadingCep, setLoadingCep] = useState(false);
 
-  // Simple CEP fetcher
   const handleBlurCep = async () => {
     const cep = data.zipCode.replace(/\D/g, "");
     if (cep.length === 8) {
@@ -37,27 +36,25 @@ export const AddressStep: React.FC<AddressStepProps> = ({
   };
 
   return (
-    <div className="space-y-8 animate-in">
+    <div className="space-y-12 animate-in">
       <div>
-        <h2 className="text-xl font-bold text-slate-800 mb-2 flex items-center gap-2">
-          <span className="w-8 h-8 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center text-sm">
-            📍
-          </span>
-          Endereço Completo
+        <h2 className="text-3xl font-black text-slate-950 uppercase tracking-tighter leading-none mb-2 flex items-center gap-3">
+          LOCALIZAÇÃO
         </h2>
-        <p className="text-slate-500 text-sm font-medium ml-10">
-          Necessário para a qualificação contratual e emissão de Nota Fiscal.
-        </p>
+        <div className="flex items-center gap-2">
+           <div className="bg-[#ccff00] text-slate-950 px-2 py-0.5 text-[10px] font-black uppercase border border-slate-950">DOMICÍLIO_FISCAL</div>
+           <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest italic">Informe o endereço que constará no contrato.</p>
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ml-0 md:ml-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="md:col-span-1">
-          <label className="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-3">
-            CEP <span className="text-red-500">*</span>
+          <label className="label-text">
+            CEP <span className="text-red-600">*</span>
           </label>
           <div className="relative">
             <input
-              className="w-full bg-slate-50 border-2 border-slate-200 text-slate-900 px-4 py-3 rounded-2xl focus:border-indigo-500 focus:ring-0 outline-none font-medium transition-all placeholder:text-slate-400"
+              className="input-field"
               value={data.zipCode}
               onChange={(e) => {
                 const val = e.target.value.replace(/\D/g, "").slice(0, 8);
@@ -69,7 +66,7 @@ export const AddressStep: React.FC<AddressStepProps> = ({
               inputMode="numeric"
             />
             {loadingCep && (
-              <div className="absolute right-3 top-3 text-indigo-500 animate-spin">
+              <div className="absolute right-4 top-4 text-slate-950 animate-spin">
                 ⏳
               </div>
             )}
@@ -77,73 +74,72 @@ export const AddressStep: React.FC<AddressStepProps> = ({
         </div>
 
         <div className="md:col-span-2">
-          <label className="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-3">
-            Rua / Logradouro <span className="text-red-500">*</span>
+          <label className="label-text">
+            Rua / Logradouro <span className="text-red-600">*</span>
           </label>
           <input
-            className="w-full bg-slate-50 border-2 border-slate-200 text-slate-900 px-4 py-3 rounded-2xl focus:border-indigo-500 focus:ring-0 outline-none font-medium transition-all placeholder:text-slate-400"
+            className="input-field"
             value={data.street}
             onChange={(e) => handleInputChange("street", e.target.value)}
-            placeholder="Ex: Av. Paulista"
+            placeholder="EX: AVENIDA PAULISTA"
           />
         </div>
 
         <div>
-          <label className="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-3">
-            Número <span className="text-red-500">*</span>
+          <label className="label-text">
+            Número <span className="text-red-600">*</span>
           </label>
           <input
-            className="w-full bg-slate-50 border-2 border-slate-200 text-slate-900 px-4 py-3 rounded-2xl focus:border-indigo-500 focus:ring-0 outline-none font-medium transition-all placeholder:text-slate-400"
+            className="input-field"
             value={data.number}
             onChange={(e) => handleInputChange("number", e.target.value)}
-            placeholder="Ex: 1000"
+            placeholder="Nº"
             inputMode="numeric"
-            type="number"
           />
         </div>
 
         <div>
-          <label className="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-3">
+          <label className="label-text">
             Complemento
           </label>
           <input
-            className="w-full bg-slate-50 border-2 border-slate-200 text-slate-900 px-4 py-3 rounded-2xl focus:border-indigo-500 focus:ring-0 outline-none font-medium transition-all placeholder:text-slate-400"
+            className="input-field"
             value={data.complement}
             onChange={(e) => handleInputChange("complement", e.target.value)}
-            placeholder="Ex: Sala 42, Bloco B"
+            placeholder="EX: SALA 12"
           />
         </div>
 
         <div>
-          <label className="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-3">
-            Bairro <span className="text-red-500">*</span>
+          <label className="label-text">
+            Bairro <span className="text-red-600">*</span>
           </label>
           <input
-            className="w-full bg-slate-50 border-2 border-slate-200 text-slate-900 px-4 py-3 rounded-2xl focus:border-indigo-500 focus:ring-0 outline-none font-medium transition-all placeholder:text-slate-400"
+            className="input-field"
             value={data.neighborhood}
             onChange={(e) => handleInputChange("neighborhood", e.target.value)}
-            placeholder="Ex: Centro"
+            placeholder="EX: CENTRO"
           />
         </div>
 
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-3 gap-6">
           <div className="col-span-2">
-            <label className="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-3">
-              Cidade <span className="text-red-500">*</span>
+            <label className="label-text">
+              Cidade <span className="text-red-600">*</span>
             </label>
             <input
-              className="w-full bg-slate-50 border-2 border-slate-200 text-slate-900 px-4 py-3 rounded-2xl focus:border-indigo-500 focus:ring-0 outline-none font-medium transition-all placeholder:text-slate-400"
+              className="input-field"
               value={data.city}
               onChange={(e) => handleInputChange("city", e.target.value)}
-              placeholder="Cidade"
+              placeholder="CIDADE"
             />
           </div>
           <div>
-            <label className="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-3">
-              UF <span className="text-red-500">*</span>
+            <label className="label-text">
+              UF <span className="text-red-600">*</span>
             </label>
             <input
-              className="w-full bg-slate-50 border-2 border-slate-200 text-slate-900 px-4 py-3 rounded-2xl focus:border-indigo-500 focus:ring-0 outline-none font-medium transition-all placeholder:text-slate-400 uppercase"
+              className="input-field"
               value={data.state}
               onChange={(e) => handleInputChange("state", e.target.value)}
               placeholder="UF"
