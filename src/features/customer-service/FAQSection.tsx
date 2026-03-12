@@ -9,9 +9,9 @@ const ChevronDownIcon = ({ className }: { className?: string }) => (
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
+    strokeWidth="3"
+    strokeLinecap="square"
+    strokeLinejoin="miter"
     className={className}
   >
     <polyline points="6 9 12 15 18 9"></polyline>
@@ -29,22 +29,19 @@ const FAQItem = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="border-b border-slate-200 last:border-0">
+    <div className="bg-white border-4 border-slate-950 shadow-[8px_8px_0px_#000] hover:bg-[#ccff00] transition-colors group mb-6 last:mb-0">
       <button
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
         aria-controls={id}
-        className="w-full py-6 flex items-center justify-between text-left focus:outline-none group"
+        className="w-full flex items-center justify-between p-8 text-left focus:outline-none"
       >
-        <span className="text-base font-bold text-slate-900 group-hover:text-indigo-600 transition-colors uppercase tracking-tight">
+        <span className="text-xl md:text-2xl font-black text-slate-950 uppercase tracking-widest leading-snug pr-4">
           {question}
         </span>
-        <motion.div
-          animate={{ rotate: isOpen ? 180 : 0 }}
-          transition={{ duration: 0.2 }}
-        >
-          <ChevronDownIcon className="text-slate-400 group-hover:text-indigo-600 transition-colors" />
-        </motion.div>
+        <div className={`w-12 h-12 shrink-0 border-4 border-slate-950 bg-white flex items-center justify-center transition-all shadow-[4px_4px_0px_#000] group-hover:bg-slate-950 group-hover:text-[#ccff00] ${isOpen ? 'rotate-180 bg-slate-950 text-[#ccff00]' : 'text-slate-950'}`}>
+          <ChevronDownIcon />
+        </div>
       </button>
       <AnimatePresence>
         {isOpen && (
@@ -52,14 +49,16 @@ const FAQItem = ({
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="overflow-hidden"
+            className="overflow-hidden bg-white group-hover:bg-[#ccff00]"
             id={id}
             role="region"
             aria-labelledby={id}
           >
-            <p className="pb-6 text-slate-500 text-sm leading-relaxed font-medium max-w-2xl">
-              {answer}
-            </p>
+            <div className="px-8 pb-8 pt-4 border-t-4 border-slate-950 mt-2">
+               <p className="text-slate-950 text-lg leading-relaxed font-mono font-bold">
+                 {answer}
+               </p>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -69,15 +68,12 @@ const FAQItem = ({
 
 export const FAQSection = () => {
   return (
-    <section className="py-24 bg-white border-t border-slate-100">
-      <div className="max-w-3xl mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-black text-slate-900 mb-4 uppercase tracking-tighter">
-            Perguntas Frequentes
+    <section className="py-24 bg-white border-b-4 border-slate-950">
+      <div className="max-w-4xl mx-auto px-6 lg:px-12">
+        <div className="text-center mb-20">
+          <h2 className="text-5xl md:text-7xl font-black text-slate-950 uppercase tracking-tighter leading-[0.9]">
+            DÚVIDAS FREQUENTES
           </h2>
-          <p className="text-slate-500 text-sm font-medium">
-            Tire suas dúvidas antes de começar.
-          </p>
         </div>
         <div className="space-y-2">
           <FAQItem
@@ -102,7 +98,7 @@ export const FAQSection = () => {
           />
           <FAQItem
             id="faq-ban"
-            question="O Unificando pode causar banimento ou bloqueio de contas?"
+            question="Pode causar banimento ou bloqueio de contas?"
             answer="Não. Bloqueios e banimentos podem ocorrer por uso indevido das plataformas. O Unificando não se responsabiliza por penalidades aplicadas pelo WhatsApp, Instagram, Telegram ou outros canais."
           />
           <FAQItem

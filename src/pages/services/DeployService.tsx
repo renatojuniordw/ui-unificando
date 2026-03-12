@@ -4,13 +4,20 @@ import { SEO } from "../../components/common/SEO";
 import { PageTransition } from "../../components/common/PageTransition";
 import { ROUTES } from "../../routes";
 import { PRICING } from "../../constants/pricing";
+import { CTA } from "../../constants/cta";
+import { trackCtaClick } from "../../utils/analytics";
 
 export const DeployService: React.FC = () => {
   const handleWhatsAppClick = () => {
+    trackCtaClick({
+      label: "Hospedagem Inteligente",
+      location: "deploy_service_cta",
+      to: CTA.primary.to,
+    });
     const message = encodeURIComponent(
       "Olá! Gostaria de contratar a Hospedagem Inteligente. Meu site já está pronto e preciso colocá-lo no ar no meu domínio .com.br."
     );
-    window.open(`https://wa.me/5581995557302?text=${message}`, "_blank");
+    window.open(`${CTA.primary.to}?text=${message}`, "_blank");
   };
 
   return (
@@ -21,29 +28,29 @@ export const DeployService: React.FC = () => {
         canonical={ROUTES.SMART_HOSTING}
       />
 
-      <main className="bg-slate-50 min-h-screen">
+      <main className="bg-white min-h-screen">
         {/* HERO */}
-        <section className="pt-24 pb-16 md:pt-32 md:pb-24 border-b border-slate-200">
-          <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
+        <section className="pt-24 pb-16 md:pt-32 md:pb-24 border-b-2 border-slate-950">
+          <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="inline-flex items-center gap-2 bg-indigo-100 text-indigo-700 px-4 py-1.5 rounded-full text-[11px] font-black uppercase tracking-[0.2em] mb-6">
+              <div className="inline-block bg-[#ccff00] text-slate-950 px-3 py-1 font-black uppercase tracking-[0.2em] text-[10px] border-2 border-slate-950 shadow-[4px_4px_0px_#000] mb-8">
                 DEPLOY INTELIGENTE
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.05] mb-6 uppercase tracking-tighter">
-                Você criou com IA. <br />
-                <span className="text-indigo-600 italic">Nós colocamos no ar.</span>
+              <h1 className="text-5xl md:text-7xl font-black text-slate-950 leading-[0.9] mb-8 uppercase tracking-tighter">
+                VOCÊ CRIOU.<br/>
+                NÓS HOSPEDAMOS.
               </h1>
-              <p className="text-lg text-slate-500 mb-10 leading-relaxed font-medium">
-                Chega de links como <span className="text-slate-400">"seu-site.vercel.app"</span>. Tenha seu próprio domínio profissional (.com.br) com cadeado de segurança, rapidez e sem precisar entender nada de infraestrutura.
+              <p className="text-xl text-slate-950 mb-10 leading-relaxed font-bold border-l-4 border-[#ccff00] pl-4">
+                Chega de links genéricos. Tenha seu próprio domínio profissional (.com.br) com cadeado de segurança em alta velocidade, sem tocar na infraestrutura.
               </p>
               
               <button
                 onClick={handleWhatsAppClick}
-                className="bg-slate-900 text-white px-8 py-5 rounded-2xl font-black hover:bg-slate-800 transition-all shadow-xl shadow-slate-200 uppercase tracking-widest text-sm w-full md:w-auto text-center"
+                className="bg-slate-950 text-[#ccff00] px-8 py-5 border-2 border-slate-950 font-black hover:bg-[#ccff00] hover:text-slate-950 transition-colors shadow-[6px_6px_0px_#000] hover:shadow-[6px_6px_0px_#000] uppercase tracking-widest text-xs w-max block"
               >
                 Colocar meu site no ar agora
               </button>
@@ -55,28 +62,27 @@ export const DeployService: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="relative"
             >
-               <div className="absolute inset-0 bg-indigo-500/10 rounded-[3rem] blur-2xl transform rotate-3"></div>
-               <div className="bg-white border border-slate-200 rounded-[3rem] p-8 shadow-2xl relative overflow-hidden">
-                 <div className="flex items-center gap-4 border-b border-slate-100 pb-6 mb-6">
-                    <div className="w-12 h-12 bg-green-100 text-green-600 rounded-2xl flex items-center justify-center font-black">✓</div>
+               <div className="bg-white border-4 border-slate-950 p-8 shadow-[12px_12px_0px_#ccff00] relative overflow-hidden">
+                 <div className="flex items-center gap-4 border-b-2 border-slate-950 pb-6 mb-6">
+                    <div className="w-12 h-12 bg-slate-950 text-[#ccff00] flex items-center justify-center font-black border-2 border-slate-950 shadow-[2px_2px_0px_#000]">✓</div>
                     <div>
-                      <h3 className="font-bold text-slate-900">Site Ativo e Seguro</h3>
-                      <p className="text-xs text-slate-500">https://seu-dominio.com.br</p>
+                      <h3 className="font-black text-slate-950 uppercase tracking-wider text-sm">Site Ativo e Seguro</h3>
+                      <p className="text-[10px] text-slate-500 font-mono tracking-widest mt-1">https://seu-dominio.com.br</p>
                     </div>
                  </div>
                  
-                 <div className="space-y-4">
-                   <div className="flex justify-between items-center bg-slate-50 p-4 rounded-2xl border border-slate-100">
-                     <span className="font-bold text-slate-600 text-sm">Status do Domínio</span>
-                     <span className="text-xs font-black text-green-600 bg-green-100 px-3 py-1 rounded-full uppercase">Conectado</span>
+                 <div className="space-y-4 font-mono text-xs uppercase font-bold text-slate-950 tracking-widest">
+                   <div className="flex justify-between items-center p-4 border-2 border-slate-950 shadow-[2px_2px_0px_#000] bg-white">
+                     <span>Status do Domínio</span>
+                     <span className="bg-[#ccff00] px-2 py-1 border border-slate-950">Conectado</span>
                    </div>
-                   <div className="flex justify-between items-center bg-slate-50 p-4 rounded-2xl border border-slate-100">
-                     <span className="font-bold text-slate-600 text-sm">Segurança SSL</span>
-                     <span className="text-xs font-black text-green-600 bg-green-100 px-3 py-1 rounded-full uppercase">Ativo</span>
+                   <div className="flex justify-between items-center p-4 border-2 border-slate-950 shadow-[2px_2px_0px_#000] bg-white">
+                     <span>Segurança SSL</span>
+                     <span className="bg-[#ccff00] px-2 py-1 border border-slate-950">Ativo</span>
                    </div>
-                   <div className="flex justify-between items-center bg-slate-50 p-4 rounded-2xl border border-slate-100">
-                     <span className="font-bold text-slate-600 text-sm">Performance Global</span>
-                     <span className="text-xs font-black text-indigo-600 bg-indigo-100 px-3 py-1 rounded-full uppercase">Otimizada</span>
+                   <div className="flex justify-between items-center p-4 border-2 border-slate-950 shadow-[2px_2px_0px_#000] bg-white">
+                     <span>Performance</span>
+                     <span className="bg-slate-950 text-white px-2 py-1 border border-slate-950">Otimizada</span>
                    </div>
                  </div>
                </div>
@@ -85,24 +91,25 @@ export const DeployService: React.FC = () => {
         </section>
 
         {/* DETAILS */}
-        <section className="py-24 bg-white border-b border-slate-100">
-          <div className="max-w-5xl mx-auto px-4">
+        <section className="py-24 bg-white border-b-2 border-slate-950">
+          <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-5xl font-black text-slate-900 uppercase tracking-tighter">
-                Feito para quem não quer <br className="hidden md:block"/> perder tempo com telas pretas.
+              <h2 className="text-4xl md:text-6xl font-black text-slate-950 uppercase tracking-tighter leading-[0.9]">
+                FOCO NO RESULTADO.<br/>
+                NÃO NA TELA PRETA.
               </h2>
             </div>
             
             <div className="grid md:grid-cols-3 gap-8">
               {[
-                { title: "Domínio Profissional", desc: "Nós fazemos a configuração chata de apontamento de DNS (Registro.br) para o seu site.", icon: "🌐" },
-                { title: "Cadeado de Segurança", desc: "Certificado SSL (HTTPS) configurado e renovado automaticamente contra invasões.", icon: "🔒" },
-                { title: "Servidor Dedicado", desc: "Nada de servidores gratuitos e lentos. Seu site roda em máquinas parrudas e preparadas.", icon: "🚀" },
+                { title: "Domínio Profissional", desc: "Configuração do apontamento DNS (Registro.br) para o seu novo IP.", icon: "🌐" },
+                { title: "Segurança SSL", desc: "Certificado HTTPS emitido e renovado automaticamente no servidor.", icon: "🔒" },
+                { title: "Servidor Dedicado", desc: "Nada de tiers gratuitos. Seu site hospedado em ambiente de produção rápido.", icon: "🚀" },
               ].map((b, i) => (
-                <div key={i} className="bg-slate-50 border border-slate-200 p-8 rounded-[2rem] text-center hover:border-indigo-300 transition-colors">
-                  <div className="w-16 h-16 mx-auto bg-white rounded-2xl shadow-sm border border-slate-100 flex items-center justify-center text-3xl mb-6">{b.icon}</div>
-                  <h3 className="font-black text-slate-900 mb-3">{b.title}</h3>
-                  <p className="text-sm font-medium text-slate-500 leading-relaxed">{b.desc}</p>
+                <div key={i} className="bg-white border-2 border-slate-950 p-8 shadow-[6px_6px_0px_#000] hover:bg-[#ccff00] transition-colors group">
+                  <div className="w-16 h-16 bg-slate-950 text-white flex items-center justify-center text-3xl mb-8 border-2 border-transparent group-hover:border-slate-950 group-hover:bg-white group-hover:text-slate-950 transition-colors">{b.icon}</div>
+                  <h3 className="font-black text-slate-950 mb-3 uppercase tracking-wider text-lg">{b.title}</h3>
+                  <p className="text-sm font-bold text-slate-800 leading-relaxed font-mono">{b.desc}</p>
                 </div>
               ))}
             </div>
@@ -110,62 +117,62 @@ export const DeployService: React.FC = () => {
         </section>
 
          {/* DISCLAMERS & SCOPE */}
-        <section className="py-24 bg-white border-t border-slate-100">
-          <div className="max-w-4xl mx-auto px-4">
-             <div className="text-center mb-12">
-                <span className="text-indigo-600 font-black uppercase tracking-[0.2em] text-[10px] mb-4 block">Transparência Radical</span>
-                <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tighter">
-                  O que está (e o que não está) incluso
+        <section className="py-24 bg-slate-950 text-white border-b-2 border-slate-950">
+          <div className="max-w-7xl mx-auto px-6 lg:px-12">
+             <div className="text-center mb-16">
+                <span className="inline-block bg-[#ccff00] text-slate-950 px-3 py-1 font-black uppercase tracking-[0.2em] text-[10px] mb-6">TRANSPARÊNCIA RADICAL</span>
+                <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter leading-[0.9]">
+                  O Escopo
                 </h2>
-                <p className="text-slate-500 mt-4 leading-relaxed font-medium">
-                  Para mantermos a alta performance e o valor acessível, nosso escopo é focado estritamente na <strong>infraestrutura e estabilidade</strong>.
+                <p className="text-[#ccff00] mt-6 leading-relaxed font-mono font-bold max-w-2xl mx-auto">
+                  Para mantermos a alta performance e o valor acessível, nosso escopo é focado estritamente na estabilidade da infraestrutura.
                 </p>
              </div>
 
-             <div className="grid md:grid-cols-2 gap-8">
-               <div className="bg-emerald-50/50 border border-emerald-100 p-8 rounded-[2rem]">
-                 <h3 className="font-black text-emerald-800 flex items-center gap-2 mb-6 uppercase tracking-wide text-xs">
-                   <span className="text-xl">✅</span> Nossa Responsabilidade
+             <div className="grid md:grid-cols-2 gap-8 mb-16">
+               <div className="bg-white text-slate-950 border-4 border-[#ccff00] p-8 shadow-[8px_8px_0px_#ccff00]">
+                 <h3 className="font-black text-slate-950 flex items-center gap-4 mb-8 uppercase tracking-widest text-xl border-b-2 border-slate-950 pb-4">
+                   <span className="w-8 h-8 bg-[#ccff00] border-2 border-slate-950 flex items-center justify-center text-sm">✓</span> 
+                   Incluso
                  </h3>
-                 <ul className="space-y-4 text-sm font-medium text-emerald-700/80">
-                   <li className="flex gap-3 items-start"><span className="text-emerald-500 mt-0.5">✓</span> <div>Ambiente de produção configurado e servidor otimizado.</div></li>
-                   <li className="flex gap-3 items-start"><span className="text-emerald-500 mt-0.5">✓</span> <div>Apontamento de Domínio e certificado SSL (Cadeado).</div></li>
-                   <li className="flex gap-3 items-start"><span className="text-emerald-500 mt-0.5">✓</span> <div>Uptime, performance de rede e disponibilidade.</div></li>
-                   <li className="flex gap-3 items-start"><span className="text-emerald-500 mt-0.5">✓</span> <div>Suporte técnico focado exclusivamente em infraestrutura.</div></li>
+                 <ul className="space-y-6 text-sm font-bold font-mono">
+                   <li className="flex gap-4 items-start"><span className="text-[#ccff00] mt-0.5 bg-slate-950 w-5 h-5 flex items-center justify-center flex-shrink-0 border border-slate-950">✓</span> <div>Ambiente de produção configurado e otimizado.</div></li>
+                   <li className="flex gap-4 items-start"><span className="text-[#ccff00] mt-0.5 bg-slate-950 w-5 h-5 flex items-center justify-center flex-shrink-0 border border-slate-950">✓</span> <div>Apontamento de Domínio e certificado SSL.</div></li>
+                   <li className="flex gap-4 items-start"><span className="text-[#ccff00] mt-0.5 bg-slate-950 w-5 h-5 flex items-center justify-center flex-shrink-0 border border-slate-950">✓</span> <div>Uptime e CDN para roteamento.</div></li>
+                   <li className="flex gap-4 items-start"><span className="text-[#ccff00] mt-0.5 bg-slate-950 w-5 h-5 flex items-center justify-center flex-shrink-0 border border-slate-950">✓</span> <div>Suporte direcionado para rotas e DNS.</div></li>
                  </ul>
                </div>
 
-               <div className="bg-red-50/50 border border-red-100 p-8 rounded-[2rem]">
-                 <h3 className="font-black text-red-800 flex items-center gap-2 mb-6 uppercase tracking-wide text-xs">
-                   <span className="text-xl">❌</span> Fora do Escopo
+               <div className="bg-slate-900 border-2 border-slate-800 p-8">
+                 <h3 className="font-black text-slate-500 flex items-center gap-4 mb-8 uppercase tracking-widest text-xl border-b-2 border-slate-800 pb-4">
+                   <span className="w-8 h-8 bg-slate-800 border-2 border-slate-700 flex items-center justify-center text-sm">✕</span> 
+                   Fora do Escopo
                  </h3>
-                 <ul className="space-y-4 text-sm font-medium text-red-700/80">
-                   <li className="flex gap-3 items-start"><span className="text-red-500 mt-0.5">✕</span> <div><strong>Back-ends e Bancos de Dados:</strong> Hospedamos apenas o front-end estático (React, Vite, HTML/JS). Não subimos APIs estruturadas ou bancos de dados.</div></li>
-                   <li className="flex gap-3 items-start"><span className="text-red-500 mt-0.5">✕</span> <div><strong>Bugs no código:</strong> Se a IA gerou um código quebrado, a resolução é por sua conta.</div></li>
-                   <li className="flex gap-3 items-start"><span className="text-red-500 mt-0.5">✕</span> <div><strong>Erros de Deploy:</strong> Falhas causadas por dependências do NPM ausentes ou repositórios corrompidos.</div></li>
-                   <li className="flex gap-3 items-start"><span className="text-red-500 mt-0.5">✕</span> <div><strong>Edição de Conteúdo:</strong> Não alteramos textos, cores ou imagens do projeto.</div></li>
-                   <li className="flex gap-3 items-start"><span className="text-red-500 mt-0.5">✕</span> <div><strong>Manutenção Lógica:</strong> Refatoração e atualização de pacotes (ex: React) não inclusos.</div></li>
+                 <ul className="space-y-6 text-sm font-bold font-mono text-slate-400">
+                   <li className="flex gap-4 items-start"><span className="mt-0.5 bg-slate-800 text-slate-500 w-5 h-5 flex items-center justify-center flex-shrink-0">✕</span> <div>Hospedamos apenas front-end estático (React, Vite, HTML). APIs/DB externos por sua conta.</div></li>
+                   <li className="flex gap-4 items-start"><span className="mt-0.5 bg-slate-800 text-slate-500 w-5 h-5 flex items-center justify-center flex-shrink-0">✕</span> <div>Se a IA gerou um código quebrado/bugeado, a resolução no código é sua.</div></li>
+                   <li className="flex gap-4 items-start"><span className="mt-0.5 bg-slate-800 text-slate-500 w-5 h-5 flex items-center justify-center flex-shrink-0">✕</span> <div>Não editamos conteúdo textuais, cores nem refatoramos pacotes Node.js nativamente nesse serviço.</div></li>
                  </ul>
                </div>
              </div>
 
-             <div className="mt-8 bg-slate-900 border border-slate-800 p-8 rounded-[2rem] flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
+             <div className="bg-[#ccff00] text-slate-950 border-4 border-slate-950 p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 shadow-[12px_12px_0px_#fff]">
                <div>
-                 <h4 className="text-white font-bold text-lg mb-2 flex items-center gap-2">
-                   <span className="text-xl">🛠️</span> Precisa de ajuda com o código?
+                 <h4 className="font-black text-2xl mb-4 uppercase tracking-tighter">
+                   PRESO NO CÓDIGO DA IA?
                  </h4>
-                 <p className="text-slate-400 text-sm font-medium max-w-xl leading-relaxed">
-                   Sabemos que IAs podem gerar bugs confusos. Caso seu projeto precise de manutenção no front-end ou refatoração, oferecemos <strong className="text-white">orçamentos avulsos ou banco de horas técnicas (a partir de R$ {PRICING.hospedagem.extras.technicalHour.price} por {PRICING.hospedagem.extras.technicalHour.hours} horas)</strong> para resolver seu problema.
+                 <p className="text-slate-950 text-sm font-bold font-mono max-w-xl leading-relaxed">
+                   Vendemos <strong className="bg-slate-950 text-[#ccff00] px-1">Hora Técnica (R$ {PRICING.hospedagem.extras.technicalHour.price} / {PRICING.hospedagem.extras.technicalHour.hours}h)</strong> para debugar e refatorar o front-end travado e garantir que você conseguirá finalizar o projeto antes do deploy.
                  </p>
                </div>
                <button
                  onClick={() => {
                    const message = encodeURIComponent(
-                     "Olá! Tenho interesse na Hospedagem Inteligente, mas estou com um código/deploy quebrado e precisarei de um orçamento para a Hora Técnica."
+                     "Olá! Quero a Hospedagem, mas preciso de ajuda técnica para debugar meu código travado."
                    );
                    window.open(`https://wa.me/5581995557302?text=${message}`, "_blank");
                  }}
-                 className="shrink-0 bg-white text-slate-900 px-8 py-4 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-slate-100 transition-all shadow-xl shadow-white/10"
+                 className="shrink-0 bg-slate-950 text-white px-8 py-5 text-xs font-black uppercase tracking-widest border-2 border-slate-950 shadow-[4px_4px_0px_#000] hover:bg-white hover:text-slate-950 transition-colors"
                >
                  Consultar Hora Técnica
                </button>
@@ -174,74 +181,73 @@ export const DeployService: React.FC = () => {
         </section>
 
         {/* PRICING */}
-        <section className="py-24 bg-slate-900">
-          <div className="max-w-3xl mx-auto px-4 text-center">
-            <span className="text-indigo-400 font-black uppercase tracking-[0.2em] text-xs mb-4 block">
-              INVESTIMENTO
-            </span>
-            <h2 className="text-3xl md:text-5xl font-black text-white mb-16 uppercase tracking-tighter">
-              Claro e Simples.
+        <section className="py-24 bg-white border-b-2 border-slate-950">
+          <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center">
+            <h2 className="text-4xl md:text-6xl font-black text-slate-950 mb-16 uppercase tracking-tighter leading-[0.9]">
+              INVESTIMENTO.
             </h2>
             
-            <div className="bg-slate-800 border border-slate-700 rounded-[3rem] p-10 md:p-16 shadow-2xl relative overflow-hidden">
-               <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
+            <div className="bg-slate-950 text-white border-4 border-slate-950 p-10 md:p-16 shadow-[16px_16px_0px_#ccff00] relative overflow-hidden">
                
-               <div className="flex flex-col md:flex-row items-center justify-between border-b border-slate-700/50 pb-10 mb-10 gap-8 text-center md:text-left">
+               <div className="flex flex-col md:flex-row items-center justify-between border-b-2 border-white/20 pb-10 mb-10 gap-8 text-center md:text-left">
                   <div>
-                    <h3 className="text-xl md:text-2xl font-bold text-white mb-2">Setup Inicial</h3>
-                    <p className="text-slate-400 text-sm font-medium">Configuração completa (Domínio, SSL, Servidor e Deploy inicial).</p>
+                    <h3 className="text-2xl md:text-3xl font-black mb-4 uppercase tracking-tighter text-[#ccff00]">Setup Inicial</h3>
+                    <p className="text-slate-400 text-sm font-bold font-mono">Configuração do Domínio, SSL e Deploy Base.</p>
                   </div>
-                  <div className="text-4xl font-black text-white shrink-0 tracking-tighter">R$ {PRICING.hospedagem.base.setup} <span className="text-lg font-normal text-slate-500">/único</span></div>
+                  <div className="text-5xl font-black shrink-0 tracking-tighter">
+                    R$ {PRICING.hospedagem.base.setup}
+                    <span className="text-sm font-bold font-mono text-slate-500 block uppercase mt-2"> / TARIFA ÚNICA</span>
+                  </div>
                </div>
                
                <div className="flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left mb-12">
                   <div>
-                    <h3 className="text-xl md:text-2xl font-bold text-white mb-2">Mensalidade</h3>
-                    <p className="text-slate-400 text-sm font-medium">Hospedagem de alta performance focada em sites estáticos estruturados com React/Vite/HTML.</p>
+                    <h3 className="text-2xl md:text-3xl font-black mb-4 uppercase tracking-tighter text-[#ccff00]">Mensalidade</h3>
+                    <p className="text-slate-400 text-sm font-bold font-mono">Servidor focado em Front-Ends Estáticos.</p>
                   </div>
-                  <div className="text-4xl font-black text-indigo-400 shrink-0 tracking-tighter">R$ {PRICING.hospedagem.base.monthly} <span className="text-lg font-normal text-slate-500">/mês</span></div>
+                  <div className="text-5xl font-black shrink-0 tracking-tighter">
+                    R$ {PRICING.hospedagem.base.monthly}
+                    <span className="text-sm font-bold font-mono text-slate-500 block uppercase mt-2"> / MENSAL</span>
+                  </div>
                </div>
 
                <button
                  onClick={handleWhatsAppClick}
-                 className="bg-indigo-600 text-white w-full py-6 rounded-2xl font-black uppercase tracking-widest hover:bg-indigo-500 transition-all shadow-[0_0_40px_rgba(79,70,229,0.4)]"
+                 className="bg-[#ccff00] text-slate-950 w-full py-6 font-black uppercase tracking-widest hover:bg-white transition-colors shadow-[6px_6px_0px_#000] border-2 border-slate-950 text-sm md:text-base"
                >
-                 QUERO CONTRATAR AGORA
+                 QUERO FECHAR AGORA
                </button>
             </div>
           </div>
         </section>
 
         {/* FAQ - DOMÍNIO */}
-        <section className="py-24 bg-slate-50 border-t border-slate-200">
-          <div className="max-w-3xl mx-auto px-4">
-            <div className="text-center mb-16">
-              <span className="text-indigo-600 font-black uppercase tracking-[0.2em] text-[10px] mb-4 block">Dúvidas Comuns</span>
-              <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tighter">
-                Sobre o Domínio
+        <section className="py-24 bg-[#ccff00] border-b-2 border-slate-950">
+          <div className="max-w-4xl mx-auto px-6 lg:px-12">
+            <div className="text-center md:text-left mb-16">
+              <span className="bg-slate-950 text-white font-black uppercase tracking-[0.2em] text-[10px] px-3 py-1 mb-6 inline-block border-2 border-slate-950 shadow-[4px_4px_0px_#000]">FAQ</span>
+              <h2 className="text-4xl md:text-6xl font-black text-slate-950 uppercase tracking-tighter leading-[0.9]">
+                SOBRE O DOMÍNIO
               </h2>
             </div>
 
-            <div className="bg-white border border-slate-200 rounded-[2rem] p-8 md:p-12 shadow-sm">
-              <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-start gap-4">
-                <span className="text-2xl mt-1">🌍</span> 
-                <span>O domínio já vem incluso na Hospedagem?</span>
+            <div className="bg-white border-4 border-slate-950 p-8 md:p-12 shadow-[12px_12px_0px_#000]">
+              <h3 className="text-2xl font-black text-slate-950 mb-8 uppercase tracking-tighter border-b-2 border-slate-950 pb-6">
+                O DOMÍNIO VEM INCLUSO?
               </h3>
-              <div className="space-y-5 text-slate-600 font-medium text-sm leading-relaxed md:ml-12">
+              <div className="space-y-6 text-slate-950 font-bold font-mono text-sm leading-relaxed">
                 <p>
-                  <strong>Não. O domínio (ex: <span className="text-slate-400">suaempresa.com.br</span>) é a sua propriedade intelectual.</strong> Ele deve ser comprado e registrado no seu próprio CPF ou CNPJ. Nós não registramos domínios em nosso nome para garantir que você tenha 100% de posse e liberdade sobre a sua marca na internet.
+                  <span className="bg-slate-950 text-white px-2 uppercase">NÃO.</span> O domínio é a sua patente online. Deve ser comprado e registrado no seu próprio CPF ou CNPJ (ex: Registro.br) para assegurar que você tem o poder absoluto sobre a propriedade.
                 </p>
                 <p>
-                  Recomendamos fortemente a compra direta pelo órgão oficial brasileiro: <a href="https://registro.br" target="_blank" rel="noopener noreferrer" className="text-indigo-600 font-bold hover:underline">Registro.br</a> (o custo padrão Nacional é de apenas R$ 40/ano).
+                  O custo padrão Nacional é em torno de R$ 40/ano direto pelo órgão regulador.
                 </p>
-                
-                <div className="bg-indigo-50 border border-indigo-100 p-6 rounded-2xl mt-6 relative overflow-hidden">
-                  <div className="absolute top-0 left-0 w-2 h-full bg-indigo-500"></div>
-                  <h4 className="font-bold text-indigo-900 mb-2 text-xs uppercase tracking-wider flex items-center gap-2">
-                    ✅ Onde nós entramos?
+                <div className="mt-8 p-6 bg-slate-950 text-white border-2 border-slate-950 relative">
+                  <h4 className="font-black text-[#ccff00] mb-4 text-xs uppercase tracking-widest">
+                    ONDE NÓS ENTRAMOS
                   </h4>
-                  <p className="text-indigo-800/80">
-                    A taxa de <strong>Setup Inicial</strong> já inclui o nosso suporte total nessa etapa. Após você criar sua conta e pagar os R$ 40 no Registro.br, nós guiamos você na configuração dos "Apontamentos de DNS". Nós fazemos a conexão técnica entre o seu domínio recém-comprado e os nossos servidores de alta performance, ativando também o certificado SSL (cadeado de segurança).
+                  <p className="text-slate-300">
+                    Nossa taxa de Setup orienta e cobre toda a configuração dos Apontamentos DNS que conectam o seu painel do Registro.br com a nossa infraestrutura na nuvem.
                   </p>
                 </div>
               </div>

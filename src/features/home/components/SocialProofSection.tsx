@@ -42,19 +42,19 @@ const avatarFromName = (name: string) =>
 
 export const SocialProofSection: React.FC = () => {
   return (
-    <section className="py-24 bg-white border-y border-slate-100">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-16">
-          <span className="text-indigo-600 font-black uppercase tracking-[0.2em] text-xs mb-4 block">
-            Prova social
-          </span>
-          <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 uppercase tracking-tighter">
-            Resultados com rosto e contexto
-          </h2>
-          <p className="text-slate-500 font-medium max-w-2xl mx-auto leading-relaxed">
-            Se você ainda não conhece a Unificando, estes são exemplos do tipo de
-            ganho que buscamos entregar ao organizar atendimento, automação e
-            presença digital.
+    <section className="py-24 bg-white border-y-2 border-slate-950">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="text-center md:text-left mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+          <div>
+            <span className="inline-block bg-slate-950 text-[#ccff00] font-black uppercase tracking-[0.2em] text-[10px] px-3 py-1 mb-6">
+              Prova Social
+            </span>
+            <h2 className="text-4xl md:text-6xl font-black text-slate-950 uppercase tracking-tighter leading-[0.9]">
+              Resultados<br/>com contexto
+            </h2>
+          </div>
+          <p className="text-slate-700 font-medium max-w-sm leading-relaxed border-l-4 border-[#ccff00] pl-4 text-left">
+            Estes são exemplos do tipo de ganho absoluto que entregamos: mais conversão, menos caos.
           </p>
         </div>
 
@@ -66,34 +66,31 @@ export const SocialProofSection: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08, duration: 0.45 }}
-              className="p-10 rounded-[3rem] bg-slate-50 border border-slate-200 hover:border-indigo-200 hover:bg-white hover:shadow-2xl transition-all duration-300 text-left flex flex-col"
+              className="p-8 md:p-10 bg-white border-2 border-slate-950 hover:bg-[#ccff00] transition-colors duration-300 text-left flex flex-col shadow-[6px_6px_0px_rgba(0,0,0,1)] group"
             >
-              <div className="flex items-center gap-4 mb-8">
-                <div className="w-12 h-12 rounded-2xl bg-slate-900 text-white flex items-center justify-center font-black text-xs uppercase tracking-widest">
+              <div className="flex justify-between items-start mb-8 gap-4">
+                <div>
+                  <div className="text-xs font-black uppercase tracking-[0.2em] text-slate-950 bg-white border border-slate-900 group-hover:border-transparent inline-block px-2 py-1 mb-2">
+                    {t.segment}
+                  </div>
+                </div>
+                <div className="w-12 h-12 border-2 border-slate-950 bg-white group-hover:bg-slate-950 group-hover:text-[#ccff00] text-slate-950 flex items-center justify-center font-black text-xs uppercase tracking-widest transition-colors flex-shrink-0">
                   {avatarFromName(t.name)}
                 </div>
-                <div>
-                  <div className="text-xs font-black uppercase tracking-[0.2em] text-slate-900">
-                    {t.name}
-                  </div>
-                  <div className="text-[11px] font-bold text-slate-500">
-                    {t.roleCompany}
-                  </div>
+              </div>
+
+              <div className="flex-grow">
+                <p className="text-slate-950 text-base md:text-lg leading-relaxed font-bold font-mono">
+                  {t.result}
+                </p>
+              </div>
+
+              <div className="mt-8 pt-6 border-t-2 border-slate-950/20">
+                <div className="text-xs font-black uppercase tracking-[0.2em] text-slate-950">
+                  {t.name}
                 </div>
-              </div>
-
-              <div className="text-[11px] font-black uppercase tracking-[0.2em] text-indigo-600 mb-4">
-                Segmento: {t.segment}
-              </div>
-
-              <p className="text-slate-600 text-sm leading-relaxed font-medium">
-                {t.result}
-              </p>
-
-              <div className="mt-10 pt-6 border-t border-slate-200">
-                <div className="text-[10px] font-black uppercase tracking-widest text-slate-400">
-                  * Troque por depoimentos reais (nome/foto/empresa) quando
-                  disponíveis
+                <div className="text-[10px] font-bold text-slate-700 uppercase tracking-widest mt-1">
+                  {t.roleCompany}
                 </div>
               </div>
             </motion.div>

@@ -19,14 +19,14 @@ export const AiModule: React.FC<AiModuleProps> = ({
 }) => {
   return (
     <div
-      className={`rounded-[2.5rem] p-8 border-2 transition-all ${
+      className={`p-8 border-4 border-slate-950 transition-all ${
         aiEnabled
-          ? "bg-slate-50 border-indigo-600"
-          : "bg-white border-slate-200"
+          ? "bg-[#ccff00] shadow-[8px_8px_0px_#000]"
+          : "bg-white opacity-90 shadow-none border-dashed"
       }`}
     >
       <div className="flex justify-between items-start mb-8">
-        <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-2xl shadow-sm">
+        <div className="w-12 h-12 bg-slate-950 text-white flex items-center justify-center text-2xl shadow-[4px_4px_0px_#000] border-2 border-slate-950">
           🤖
         </div>
         <button
@@ -42,40 +42,40 @@ export const AiModule: React.FC<AiModuleProps> = ({
               setAiChannels((prev) => ({ ...prev, whatsapp: true }));
             }
           }}
-          className={`w-12 h-7 rounded-full transition-all relative ${
-            aiEnabled ? "bg-indigo-600" : "bg-slate-300"
+          className={`w-14 h-8 border-2 border-slate-950 transition-all relative ${
+            aiEnabled ? "bg-slate-950" : "bg-white"
           }`}
         >
           <div
-            className={`absolute top-1 w-5 h-5 rounded-full bg-white transition-all shadow-sm ${
-              aiEnabled ? "right-1" : "left-1"
+            className={`absolute top-1 w-5 h-5 border-2 border-slate-950 transition-all ${
+              aiEnabled ? "right-1 bg-[#ccff00]" : "left-1 bg-slate-300"
             }`}
           ></div>
         </button>
       </div>
-      <h3 className="text-xl font-black uppercase tracking-tight text-slate-900 mb-2">
-        IA no Atendimento
+      <h3 className="text-2xl font-black uppercase tracking-tighter text-slate-950 mb-2 leading-none">
+        IA NO <br/> ATENDIMENTO
       </h3>
-      <p className="text-xs text-slate-500 font-medium mb-8">
+      <p className="text-sm font-mono font-bold text-slate-950 mb-8 uppercase">
         IA treinada com a voz da sua marca e as suas regras de negócio.
-        <span className="block mt-1 text-indigo-600 font-bold italic">
-          Nada de respostas engessadas ou genéricas.
+        <span className="block mt-2 bg-slate-950 text-white inline-block px-2 py-1 border-2 border-slate-950 font-black shadow-[2px_2px_0px_#000]">
+          SEM RESPOSTAS GENÉRICAS.
         </span>
       </p>
 
       <div className="space-y-4 animate-in fade-in slide-in-from-bottom-4">
         <div
-          className={`w-full p-4 rounded-xl border-2 text-left transition-all shadow-md ${
+          className={`w-full p-6 border-4 border-slate-950 text-left transition-all ${
             aiEnabled
-              ? "bg-white border-indigo-600"
-              : "bg-slate-50 border-slate-200"
+              ? "bg-white shadow-[4px_4px_0px_#000]"
+              : "bg-slate-50 opacity-50"
           }`}
         >
           {/* Channels Selection */}
-          <p className="text-xs uppercase font-black text-slate-900 mb-4 tracking-[0.15em]">
+          <p className="text-xs uppercase font-black text-slate-950 mb-4 tracking-[0.15em] bg-[#ccff00] border-2 border-slate-950 inline-block px-2 py-1 shadow-[2px_2px_0px_#000]">
             Canais Automatizados
           </p>
-          <div className="grid grid-cols-1 gap-3 mb-4">
+          <div className="grid grid-cols-1 gap-3 mb-6">
             {[
               {
                 id: "whatsapp",
@@ -90,28 +90,29 @@ export const AiModule: React.FC<AiModuleProps> = ({
               {
                 id: "instagram_comments",
                 label: "Comentários",
-                desc: "Responde em todos os posts. Sem limites de posts ou contatos.",
+                desc: "Responde em todos os posts. Sem limites de contatos.",
               },
             ].map((channel) => (
               <label
                 key={channel.id}
-                className={`flex items-start gap-3 cursor-pointer p-3 rounded-xl border transition-all ${
+                className={`flex items-start gap-4 cursor-pointer p-4 border-2 border-slate-950 transition-all ${
                   // @ts-ignore - indexing strictly typed interface
-                  (aiChannels as any)[channel.id]
-                    ? "bg-indigo-50 border-indigo-200"
-                    : "hover:bg-slate-50 border-transparent bg-slate-50/50"
+                  (aiChannels as any)[channel.id] && aiEnabled
+                    ? "bg-[#ccff00] shadow-[2px_2px_0px_#000]"
+                    : "bg-white hover:bg-slate-100"
                 }`}
               >
                 <div
-                  className={`mt-0.5 p-0.5 rounded text-white flex items-center justify-center transition-colors ${
+                  className={`mt-0.5 w-5 h-5 border-2 border-slate-950 flex items-center justify-center transition-colors ${
                     // @ts-ignore
-                    (aiChannels as any)[channel.id]
-                      ? "bg-indigo-600"
-                      : "bg-slate-300"
+                    (aiChannels as any)[channel.id] && aiEnabled
+                      ? "bg-slate-950 text-[#ccff00]"
+                      : "bg-white text-transparent"
                   }`}
                 >
                   <input
                     type="checkbox"
+                    disabled={!aiEnabled}
                     // @ts-ignore
                     checked={(aiChannels as any)[channel.id]}
                     onChange={(e) =>
@@ -124,15 +125,15 @@ export const AiModule: React.FC<AiModuleProps> = ({
                   />
                   {/* Check icon */}
                   <svg
-                    className="w-3 h-3"
+                    className="w-4 h-4"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
-                    strokeWidth={3}
+                    strokeWidth={4}
                   >
                     <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
+                      strokeLinecap="square"
+                      strokeLinejoin="miter"
                       d="M5 13l4 4L19 7"
                     />
                   </svg>
@@ -140,21 +141,21 @@ export const AiModule: React.FC<AiModuleProps> = ({
 
                 <div>
                   <span
-                    className={`block text-xs font-bold leading-none mb-1 ${
+                    className={`block text-sm font-black uppercase tracking-widest leading-none mb-2 ${
                       // @ts-ignore
-                      (aiChannels as any)[channel.id]
-                        ? "text-indigo-900"
-                        : "text-slate-700"
+                      (aiChannels as any)[channel.id] && aiEnabled
+                        ? "text-slate-950"
+                        : "text-slate-500"
                     }`}
                   >
                     {channel.label}
                   </span>
                   {channel.desc && (
                     <span
-                      className={`block text-[11px] leading-tight font-bold uppercase tracking-tight ${
+                      className={`block text-[10px] leading-tight font-mono font-bold uppercase tracking-tight ${
                         // @ts-ignore
-                        (aiChannels as any)[channel.id]
-                          ? "text-indigo-700/80"
+                        (aiChannels as any)[channel.id] && aiEnabled
+                          ? "text-slate-950"
                           : "text-slate-400"
                       }`}
                     >
@@ -166,19 +167,27 @@ export const AiModule: React.FC<AiModuleProps> = ({
             ))}
           </div>
 
-          <p className="text-xs uppercase font-black text-slate-900 mb-4 mt-8 tracking-[0.15em]">
+          <p className="text-xs uppercase font-black text-slate-950 mb-4 tracking-[0.15em] bg-slate-950 text-white border-2 border-slate-950 inline-block px-2 py-1 shadow-[2px_2px_0px_#ccff00]">
             Recursos Extras
           </p>
-          <div className="space-y-2 mb-4">
+          <div className="space-y-3 mb-6">
             <label
-              className={`flex items-center gap-2 cursor-pointer p-2 rounded-lg border transition-all ${
-                aiAddons.audio
-                  ? "bg-indigo-50 border-indigo-200"
-                  : "hover:bg-white border-transparent"
+              className={`flex items-center gap-3 cursor-pointer p-3 border-2 border-slate-950 transition-all ${
+                aiAddons.audio && aiEnabled
+                  ? "bg-[#ccff00] shadow-[2px_2px_0px_#000]"
+                  : "bg-white hover:bg-slate-100"
               }`}
             >
+              <div
+                  className={`w-4 h-4 border-2 border-slate-950 flex items-center justify-center transition-colors ${
+                    aiAddons.audio && aiEnabled
+                      ? "bg-slate-950 text-[#ccff00]"
+                      : "bg-white text-transparent"
+                  }`}
+                >
               <input
                 type="checkbox"
+                disabled={!aiEnabled}
                 checked={aiAddons.audio}
                 onChange={(e) =>
                   setAiAddons((prev) => ({
@@ -186,25 +195,47 @@ export const AiModule: React.FC<AiModuleProps> = ({
                     audio: e.target.checked,
                   }))
                 }
-                className="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 w-4 h-4"
+                className="hidden"
               />
+               <svg
+                    className="w-3 h-3"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={4}
+                  >
+                    <path
+                      strokeLinecap="square"
+                      strokeLinejoin="miter"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </div>
               <span
-                className={`text-[10px] font-bold ${
-                  aiAddons.audio ? "text-indigo-700" : "text-slate-500"
+                className={`text-[11px] font-black uppercase tracking-widest ${
+                  aiAddons.audio && aiEnabled ? "text-slate-950" : "text-slate-500"
                 }`}
               >
                 Interpretação de Áudio
               </span>
             </label>
             <label
-              className={`flex items-center gap-2 cursor-pointer p-2 rounded-lg border transition-all ${
-                aiAddons.api
-                  ? "bg-indigo-50 border-indigo-200"
-                  : "hover:bg-white border-transparent"
+              className={`flex items-center gap-3 cursor-pointer p-3 border-2 border-slate-950 transition-all ${
+                aiAddons.api && aiEnabled
+                  ? "bg-[#ccff00] shadow-[2px_2px_0px_#000]"
+                  : "bg-white hover:bg-slate-100"
               }`}
             >
+              <div
+                  className={`w-4 h-4 border-2 border-slate-950 flex items-center justify-center transition-colors ${
+                    aiAddons.api && aiEnabled
+                      ? "bg-slate-950 text-[#ccff00]"
+                      : "bg-white text-transparent"
+                  }`}
+                >
               <input
                 type="checkbox"
+                disabled={!aiEnabled}
                 checked={aiAddons.api}
                 onChange={(e) =>
                   setAiAddons((prev) => ({
@@ -212,25 +243,47 @@ export const AiModule: React.FC<AiModuleProps> = ({
                     api: e.target.checked,
                   }))
                 }
-                className="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 w-4 h-4"
+                className="hidden"
               />
+               <svg
+                    className="w-3 h-3"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={4}
+                  >
+                    <path
+                      strokeLinecap="square"
+                      strokeLinejoin="miter"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </div>
               <span
-                className={`text-[10px] font-bold ${
-                  aiAddons.api ? "text-indigo-700" : "text-slate-500"
+                className={`text-[11px] font-black uppercase tracking-widest ${
+                  aiAddons.api && aiEnabled ? "text-slate-950" : "text-slate-500"
                 }`}
               >
-                Integração API
+                Integração API Própria
               </span>
             </label>
             <label
-              className={`flex items-center gap-2 cursor-pointer p-2 rounded-lg border transition-all ${
-                aiAddons.google
-                  ? "bg-indigo-50 border-indigo-200"
-                  : "hover:bg-white border-transparent"
+              className={`flex items-center gap-3 cursor-pointer p-3 border-2 border-slate-950 transition-all ${
+                aiAddons.google && aiEnabled
+                  ? "bg-[#ccff00] shadow-[2px_2px_0px_#000]"
+                  : "bg-white hover:bg-slate-100"
               }`}
             >
+             <div
+                  className={`w-4 h-4 border-2 border-slate-950 flex items-center justify-center transition-colors ${
+                    aiAddons.google && aiEnabled
+                      ? "bg-slate-950 text-[#ccff00]"
+                      : "bg-white text-transparent"
+                  }`}
+                >
               <input
                 type="checkbox"
+                disabled={!aiEnabled}
                 checked={aiAddons.google}
                 onChange={(e) =>
                   setAiAddons((prev) => ({
@@ -238,46 +291,57 @@ export const AiModule: React.FC<AiModuleProps> = ({
                     google: e.target.checked,
                   }))
                 }
-                className="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 w-4 h-4"
+                className="hidden"
               />
+              <svg
+                    className="w-3 h-3"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={4}
+                  >
+                    <path
+                      strokeLinecap="square"
+                      strokeLinejoin="miter"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </div>
               <span
-                className={`text-[11px] font-black uppercase tracking-tight ${
-                  aiAddons.google ? "text-indigo-700" : "text-slate-500"
+                className={`text-[11px] font-black uppercase tracking-tighter ${
+                  aiAddons.google && aiEnabled ? "text-slate-950" : "text-slate-500"
                 }`}
               >
-                Integração Google (Sheets, Agenda)
+                Google (Sheets, Agenda)
               </span>
             </label>
           </div>
 
           {aiEnabled && (
-            <>
-              <div className="flex justify-between items-center mb-3 pt-6 border-t border-slate-100">
-                <span className="font-black text-xs uppercase tracking-[0.15em] text-slate-900">
-                  Plano IA Base
+            <div className="bg-slate-950 text-white p-4 border-4 border-slate-950 shadow-[4px_4px_0px_#ccff00] mt-8">
+              <div className="flex justify-between items-center mb-4 pb-4 border-b-2 border-slate-800">
+                <span className="font-black text-xs uppercase tracking-[0.15em] text-[#ccff00]">
+                  PLANO IA BASE
                 </span>
-                <span className="text-indigo-600 font-black text-lg tracking-tighter">
-                  R${" "}
-                  {PRICING.ia.base.monthly.toLocaleString("pt-BR", {
-                    minimumFractionDigits: 2,
-                  })}
+                <span className="text-white font-black text-2xl tracking-tighter bg-slate-800 px-2 border-2 border-slate-700">
+                  R$ {PRICING.ia.base.monthly.toLocaleString("pt-BR")}
                   <span className="text-[10px] text-slate-400 font-bold uppercase ml-1">
-                    /mês
+                    /MÊS
                   </span>
                 </span>
               </div>
-              <ul className="grid grid-cols-2 gap-x-4 gap-y-2 max-h-[1000px] opacity-100 transition-all">
+              <ul className="grid grid-cols-1 gap-3 max-h-[1000px] opacity-100 transition-all">
                 {PRICING.ia.base.features.map((feature, index) => (
                   <li
                     key={index}
-                    className="flex gap-2 items-center text-[10px] font-black uppercase tracking-tight text-slate-500"
+                    className="flex gap-3 items-center text-[10px] md:text-xs font-mono font-bold uppercase tracking-tight text-white"
                   >
-                    <span className="text-indigo-600 font-black">✓</span>{" "}
+                    <span className="text-slate-950 bg-[#ccff00] border-2 border-slate-950 font-black w-5 h-5 flex items-center justify-center shrink-0">✓</span>{" "}
                     {feature}
                   </li>
                 ))}
               </ul>
-            </>
+            </div>
           )}
         </div>
       </div>

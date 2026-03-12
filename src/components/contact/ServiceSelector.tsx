@@ -22,25 +22,25 @@ export const ServiceSelector: React.FC<ServiceSelectorProps> = ({
 }) => {
   return (
     <div>
-      <label className="block text-[10px] font-black text-slate-400 mb-3 uppercase tracking-widest">
-        Sobre quais serviços você tem dúvida?{" "}
-        <span className="text-indigo-500">*</span>
+      <label className="inline-block bg-slate-950 text-white text-[10px] font-black mb-4 uppercase tracking-widest px-2 py-1 border-2 border-slate-950 shadow-[2px_2px_0px_#ccff00]">
+        SOBRE QUAIS SERVIÇOS VOCÊ TEM DÚVIDA?{" "}
+        <span className="text-red-500">*</span>
       </label>
-      <div className="space-y-3">
+      <div className="space-y-4">
         {options.map((service) => (
           <label
             key={service.id}
-            className={`flex items-start gap-4 cursor-pointer p-4 rounded-2xl border-2 transition-all ${
+            className={`flex items-start gap-4 cursor-pointer p-4 border-4 transition-all ${
               selectedServices[service.id]
-                ? "bg-indigo-500/10 border-indigo-500/30"
-                : "bg-white/5 border-white/10 hover:border-white/20"
+                ? "bg-[#ccff00] border-slate-950 shadow-[4px_4px_0px_#000]"
+                : "bg-white border-slate-950 hover:bg-slate-50 hover:-translate-y-1 hover:shadow-[4px_4px_0px_#000]"
             } ${disabled ? "opacity-50 cursor-not-allowed" : ""}`}
           >
             <div
-              className={`mt-0.5 w-5 h-5 rounded-md flex items-center justify-center transition-all ${
+              className={`mt-0.5 w-6 h-6 border-4 flex items-center justify-center transition-all shrink-0 ${
                 selectedServices[service.id]
-                  ? "bg-indigo-600"
-                  : "bg-white/5 border border-white/10"
+                  ? "bg-slate-950 border-slate-950 text-[#ccff00]"
+                  : "bg-white border-slate-950"
               }`}
             >
               <input
@@ -51,30 +51,20 @@ export const ServiceSelector: React.FC<ServiceSelectorProps> = ({
                 className="hidden"
               />
               {selectedServices[service.id] && (
-                <svg
-                  className="w-3 h-3 text-white"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={3}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
+                <span className="font-black text-xs">✓</span>
               )}
             </div>
 
             <div className="flex-1">
-              <div className="flex items-center gap-2">
-                <span className="text-lg">{service.emoji}</span>
+              <div className="flex items-center gap-3">
+                <span className="text-xl bg-white border-2 border-slate-950 w-8 h-8 flex items-center justify-center shadow-[2px_2px_0px_#000] shrink-0">
+                  {service.emoji}
+                </span>
                 <span
-                  className={`text-sm font-bold ${
+                  className={`text-sm md:text-base font-black uppercase tracking-tighter ${
                     selectedServices[service.id]
-                      ? "text-indigo-100"
-                      : "text-white"
+                      ? "text-slate-950"
+                      : "text-slate-950"
                   }`}
                 >
                   {service.label}

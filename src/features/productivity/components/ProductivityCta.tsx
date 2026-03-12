@@ -1,28 +1,28 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import { CTA } from "../../../constants/cta";
 import { trackCtaClick } from "../../../utils/analytics";
 
 export const ProductivityCta: React.FC = () => {
-  const navigate = useNavigate();
+
+  const handleCtaClick = () => {
+    trackCtaClick({
+      label: CTA.primary.label,
+      location: "productivity_finalcta_primary",
+      to: CTA.primary.to,
+    });
+    window.open(CTA.primary.to, "_blank");
+  };
 
   return (
-    <section className="py-24 bg-indigo-600 text-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-white/5 blur-[120px] pointer-events-none"></div>
-      <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
-        <h2 className="text-3xl md:text-5xl font-black mb-12 uppercase tracking-tighter leading-none">
-          Pronto para <span className="text-indigo-200 font-normal italic">ganhar tempo</span>?
+    <section className="py-24 bg-[#ccff00] text-slate-950 border-b-4 border-slate-950 overflow-hidden">
+      <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center relative z-10">
+        <h2 className="text-4xl md:text-6xl font-black mb-12 uppercase tracking-tighter leading-[0.9]">
+          PRONTO PARA <br/>
+          <span className="text-white bg-slate-950 px-2 inline-block rotate-1 border-2 border-slate-950 shadow-[6px_6px_0px_#fff]">GANHAR TEMPO?</span>
         </h2>
         <button
-          onClick={() => {
-            trackCtaClick({
-              label: CTA.primary.label,
-              location: "productivity_finalcta_primary",
-              to: CTA.primary.to,
-            });
-            navigate(CTA.primary.to);
-          }}
-          className="bg-white text-indigo-600 px-12 py-5 rounded-2xl text-[10px] font-black hover:bg-indigo-50 transition-all shadow-2xl uppercase tracking-[0.2em]"
+          onClick={handleCtaClick}
+          className="bg-slate-950 text-white border-4 border-slate-950 px-12 py-6 text-xl font-black hover:bg-white hover:text-slate-950 transition-colors shadow-[8px_8px_0px_#000] hover:shadow-[8px_8px_0px_#000] uppercase tracking-widest block mx-auto w-full md:w-auto"
         >
           {CTA.primary.label}
         </button>

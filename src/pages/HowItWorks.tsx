@@ -1,18 +1,24 @@
-import { useNavigate } from "react-router-dom";
-import { ROUTES } from "../routes";
 import { PageTransition } from "../components/common/PageTransition";
 import { SEO } from "../components/common/SEO";
 import { CTA } from "../constants/cta";
 import { trackCtaClick } from "../utils/analytics";
 
 export const HowItWorks: React.FC = () => {
-  const navigate = useNavigate();
+  const handleCtaClick = (locationStr: string) => {
+    trackCtaClick({
+      label: CTA.primary.label,
+      location: locationStr,
+      to: CTA.primary.to,
+    });
+    window.open(CTA.primary.to, "_blank");
+  };
+
   return (
     <PageTransition>
       <SEO
         title="Como Funciona o Método Unificando | Crescimento sem Bagunça"
         description="Nosso método dividido em fases: Organização, Evolução e Autoridade. Entre no estágio ideal para o seu negócio."
-        canonical={ROUTES.HOW_IT_WORKS}
+        canonical="/como-funciona"
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "HowTo",
@@ -37,20 +43,21 @@ export const HowItWorks: React.FC = () => {
         }}
       />
 
-      <section className="py-32 bg-slate-50 border-b border-slate-200 text-center">
-        <div className="max-w-4xl mx-auto px-4">
-          <span className="text-indigo-600 font-black uppercase tracking-[0.2em] text-xs mb-4 block">
-            Nossa forma de atuar
+      <section className="py-32 bg-white border-b-4 border-slate-950 text-center relative overflow-hidden">
+        <div className="max-w-4xl mx-auto px-6 lg:px-12 relative z-10">
+          <span className="inline-block bg-slate-950 text-white font-black uppercase tracking-[0.2em] text-[10px] px-3 py-1 mb-6 border-2 border-slate-950 shadow-[4px_4px_0px_#ccff00]">
+            A NOSSA FORMA DE ATUAR
           </span>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-slate-900 mb-10 uppercase tracking-tighter leading-[1.05]">
-            Crescimento sem bagunça, <br /> no seu tempo.
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-slate-950 mb-10 uppercase tracking-tighter leading-[0.9]">
+            CRESCIMENTO <br />
+            SEM <span className="text-white bg-red-600 px-2 inline-block rotate-1 border-4 border-slate-950 shadow-[6px_6px_0px_#000]">BAGUNÇA.</span>
           </h1>
-          <p className="text-xl md:text-2xl text-slate-500 font-medium leading-relaxed mb-8">
-            Todo negócio passa por fases distintas.
+          <p className="text-xl md:text-3xl text-slate-950 font-black uppercase tracking-tight mb-8">
+            NO SEU TEMPO.
           </p>
-          <div className="bg-indigo-600/5 border border-indigo-100 py-4 px-8 rounded-2xl inline-block">
-            <p className="text-lg text-indigo-900 font-bold max-w-2xl mx-auto">
-              Nós entramos exatamente onde você está — e evoluímos junto.
+          <div className="bg-[#ccff00] border-4 border-slate-950 p-6 shadow-[8px_8px_0px_#000] inline-block mt-4">
+            <p className="text-lg md:text-xl text-slate-950 font-mono font-bold max-w-2xl mx-auto uppercase">
+              Todo negócio passa por fases distintas. Nós entramos onde você está — e evoluímos junto.
             </p>
           </div>
         </div>
@@ -58,67 +65,60 @@ export const HowItWorks: React.FC = () => {
 
       {/* Phases Timeline */}
       <section className="py-24 bg-white relative">
-        <div className="max-w-6xl mx-auto px-4 relative">
-          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-slate-100 hidden md:block -translate-x-1/2"></div>
+        <div className="max-w-6xl mx-auto px-6 lg:px-12 relative">
+          <div className="absolute left-1/2 top-0 bottom-0 w-2 bg-slate-950 hidden md:block -translate-x-1/2"></div>
 
           <div className="space-y-32">
             {/* PHASE 1: ANTES */}
             <div className="grid md:grid-cols-2 gap-12 items-center relative">
               <div className="md:pr-12 md:text-right">
-                <div className="inline-block bg-slate-100 text-slate-600 px-3 py-1 rounded-lg text-xs font-black uppercase tracking-widest mb-4">
-                  Antes - Fase 01
+                <div className="inline-block bg-white border-2 border-slate-950 text-slate-950 px-3 py-1 text-xs font-black uppercase tracking-widest mb-4 shadow-[4px_4px_0px_#000]">
+                  ANTES - FASE 01
                 </div>
-                <h3 className="text-3xl lg:text-4xl font-black text-slate-900 mb-6 uppercase tracking-tighter">
-                  Organização Total
+                <h3 className="text-4xl lg:text-5xl font-black text-slate-950 mb-6 uppercase tracking-tighter leading-[0.9]">
+                  ORGANIZAÇÃO<br/>TOTAL
                 </h3>
-                <div className="bg-slate-50 p-8 rounded-3xl border border-slate-100 mb-8 inline-block md:ml-auto text-left lg:max-w-md">
-                  <p className="text-sm font-bold text-slate-700 mb-3 uppercase tracking-wide">
+                <div className="bg-[#ccff00] p-8 border-4 border-slate-950 mb-8 inline-block md:ml-auto text-left lg:max-w-md shadow-[8px_8px_0px_#000]">
+                  <p className="text-sm font-black text-slate-950 mb-3 uppercase tracking-widest">
                     Quando o atendimento está confuso
                   </p>
-                  <p className="text-sm md:text-base text-slate-500 font-medium leading-relaxed">
+                  <p className="text-sm md:text-base text-slate-950 font-mono font-bold leading-relaxed">
                     Mensagens espalhadas, respostas perdidas, mais de uma pessoa
                     atendendo sem controle. Aqui, o foco é organizar a base e
-                    centralizar os canais.
+                    centralizar tudo.
                   </p>
                 </div>
 
                 <div className="space-y-4 mb-8">
-                  <span className="text-xs font-black uppercase tracking-widest text-slate-400 block">
-                    O que fazemos:
+                  <span className="text-xs font-black uppercase tracking-widest text-slate-950 block bg-[#ccff00] inline-block px-2 py-1 border-2 border-slate-950">
+                    O QUE FAZEMOS:
                   </span>
-                  <ul className="space-y-3 text-sm font-bold text-slate-600 md:justify-end">
-                    <li className="flex md:justify-end gap-2 items-center">
-                      Centralizamos WhatsApp, Instagram e site{" "}
-                      <span className="text-indigo-600 font-black">✓</span>
+                  <ul className="space-y-3 text-sm md:text-base font-mono font-bold text-slate-950 md:flex md:flex-col md:items-end">
+                    <li className="flex gap-4 items-center md:flex-row-reverse">
+                      <span className="text-slate-950 bg-[#ccff00] border-2 border-slate-950 w-6 h-6 flex items-center justify-center font-black">✓</span>
+                      <span>Centralizamos WhatsApp, Instagram e site</span>
                     </li>
-                    <li className="flex md:justify-end gap-2 items-center">
-                      Organizamos atendimento em equipe{" "}
-                      <span className="text-indigo-600 font-black">✓</span>
+                    <li className="flex gap-4 items-center md:flex-row-reverse">
+                      <span className="text-slate-950 bg-[#ccff00] border-2 border-slate-950 w-6 h-6 flex items-center justify-center font-black">✓</span>
+                      <span>Organizamos atendimento em equipe</span>
                     </li>
-                    <li className="flex md:justify-end gap-2 items-center">
-                      Criamos controle e histórico completo{" "}
-                      <span className="text-indigo-600 font-black">✓</span>
+                    <li className="flex gap-4 items-center md:flex-row-reverse">
+                      <span className="text-slate-950 bg-[#ccff00] border-2 border-slate-950 w-6 h-6 flex items-center justify-center font-black">✓</span>
+                      <span>Criamos controle e histórico completo</span>
                     </li>
                   </ul>
                 </div>
 
                 <button
-                  onClick={() => {
-                    trackCtaClick({
-                      label: CTA.pricing.label,
-                      location: "how_it_works_phase1_pricing",
-                      to: CTA.pricing.to,
-                    });
-                    navigate(CTA.pricing.to);
-                  }}
-                  className="bg-slate-900 text-white px-8 py-4 mt-2 rounded-xl text-xs font-black hover:bg-slate-800 transition-all uppercase tracking-widest shadow-lg"
+                  onClick={() => handleCtaClick("how_it_works_phase1")}
+                  className="bg-slate-950 text-white border-4 border-slate-950 px-8 py-4 mt-2 text-sm font-black hover:bg-[#ccff00] hover:text-slate-950 transition-colors uppercase tracking-widest shadow-[6px_6px_0px_#000] inline-block w-full md:w-auto text-center"
                 >
-                  Ver planos e preços
+                  Falar com Especialista
                 </button>
               </div>
 
-              <div className="hidden md:flex justify-start pl-12">
-                <div className="w-24 h-24 bg-slate-900 text-white rounded-3xl flex items-center justify-center text-3xl shadow-2xl z-10 border-8 border-white">
+              <div className="hidden md:flex justify-start pl-12 z-10">
+                <div className="w-24 h-24 bg-slate-950 text-white flex items-center justify-center text-4xl shadow-[8px_8px_0px_#ccff00] border-4 border-slate-950">
                   📂
                 </div>
               </div>
@@ -126,24 +126,24 @@ export const HowItWorks: React.FC = () => {
 
             {/* PHASE 2: DURANTE */}
             <div className="grid md:grid-cols-2 gap-12 items-center relative">
-              <div className="hidden md:flex justify-end pr-12 order-1">
-                <div className="w-24 h-24 bg-indigo-600 text-white rounded-3xl flex items-center justify-center text-3xl shadow-2xl z-10 border-8 border-white">
+              <div className="hidden md:flex justify-end pr-12 order-1 z-10">
+                <div className="w-24 h-24 bg-[#ccff00] text-slate-950 flex items-center justify-center text-4xl shadow-[8px_8px_0px_#000] border-4 border-slate-950">
                   ⚡
                 </div>
               </div>
 
               <div className="md:pl-12 order-2 md:text-left">
-                <div className="inline-block bg-indigo-50 text-indigo-600 px-3 py-1 rounded-lg text-xs font-black uppercase tracking-widest mb-4">
-                  Durante - Fase 02
+                <div className="inline-block bg-slate-950 text-[#ccff00] border-2 border-slate-950 px-3 py-1 text-xs font-black uppercase tracking-widest mb-4 shadow-[4px_4px_0px_#000]">
+                  DURANTE - FASE 02
                 </div>
-                <h3 className="text-3xl lg:text-4xl font-black text-slate-900 mb-6 uppercase tracking-tighter">
-                  Evolução Responsável
+                <h3 className="text-4xl lg:text-5xl font-black text-slate-950 mb-6 uppercase tracking-tighter leading-[0.9]">
+                  EVOLUÇÃO<br/>INTELIGENTE
                 </h3>
-                <div className="bg-slate-50 p-8 rounded-3xl border border-slate-100 mb-8 inline-block md:mr-auto lg:max-w-md">
-                  <p className="text-sm font-bold text-slate-700 mb-3 uppercase tracking-wide">
+                <div className="bg-white p-8 border-4 border-slate-950 mb-8 md:mr-auto lg:max-w-md shadow-[8px_8px_0px_#000]">
+                  <p className="text-sm font-black text-slate-950 mb-3 uppercase tracking-widest">
                     Quando organizar já não basta
                   </p>
-                  <p className="text-sm md:text-base text-slate-500 font-medium leading-relaxed">
+                  <p className="text-sm md:text-base text-slate-950 font-mono font-bold leading-relaxed">
                     O volume cresce, o tempo aperta e tarefas repetitivas viram
                     gargalo. É hora de automatizar com critério e inteligência
                     artificial.
@@ -151,37 +151,30 @@ export const HowItWorks: React.FC = () => {
                 </div>
 
                 <div className="space-y-4 mb-8">
-                  <span className="text-xs font-black uppercase tracking-widest text-slate-400 block">
-                    O que fazemos:
+                  <span className="text-xs font-black uppercase tracking-widest text-white block bg-slate-950 inline-block px-2 py-1 border-2 border-slate-950">
+                    O QUE FAZEMOS:
                   </span>
-                  <ul className="space-y-3 text-sm font-bold text-slate-600">
-                    <li className="flex gap-2 items-center">
-                      <span className="text-indigo-600 font-black">✓</span>{" "}
-                      Identificamos gargalos operacionais
+                  <ul className="space-y-3 text-sm md:text-base font-mono font-bold text-slate-950">
+                    <li className="flex gap-4 items-center">
+                      <span className="text-white bg-slate-950 border-2 border-slate-950 w-6 h-6 flex items-center justify-center font-black">✓</span>{" "}
+                      <span>Identificamos gargalos operacionais</span>
                     </li>
-                    <li className="flex gap-2 items-center">
-                      <span className="text-indigo-600 font-black">✓</span>{" "}
-                      Criamos fluxos inteligentes
+                    <li className="flex gap-4 items-center">
+                      <span className="text-white bg-slate-950 border-2 border-slate-950 w-6 h-6 flex items-center justify-center font-black">✓</span>{" "}
+                      <span>Criamos fluxos inteligentes de triagem</span>
                     </li>
-                    <li className="flex gap-2 items-center">
-                      <span className="text-indigo-600 font-black">✓</span> IA
-                      sem perder o toque humano
+                    <li className="flex gap-4 items-center">
+                      <span className="text-white bg-slate-950 border-2 border-slate-950 w-6 h-6 flex items-center justify-center font-black">✓</span>
+                      <span>IA sem perder o toque humano na negociação</span>
                     </li>
                   </ul>
                 </div>
 
                 <button
-                  onClick={() => {
-                    trackCtaClick({
-                      label: CTA.pricing.label,
-                      location: "how_it_works_phase2_pricing",
-                      to: CTA.pricing.to,
-                    });
-                    navigate(CTA.pricing.to);
-                  }}
-                  className="bg-indigo-600 text-white px-8 py-4 mt-2 rounded-xl text-xs font-black hover:bg-indigo-700 transition-all uppercase tracking-widest shadow-lg shadow-indigo-200"
+                  onClick={() => handleCtaClick("how_it_works_phase2")}
+                  className="bg-[#ccff00] text-slate-950 border-4 border-slate-950 px-8 py-4 mt-2 text-sm font-black hover:bg-slate-950 hover:text-[#ccff00] transition-colors uppercase tracking-widest shadow-[6px_6px_0px_#000] inline-block w-full md:w-auto text-center"
                 >
-                  Ver planos e preços
+                  Falar com Especialista
                 </button>
               </div>
             </div>
@@ -189,17 +182,17 @@ export const HowItWorks: React.FC = () => {
             {/* PHASE 3: DEPOIS */}
             <div className="grid md:grid-cols-2 gap-12 items-center relative">
               <div className="md:pr-12 md:text-right">
-                <div className="inline-block bg-slate-100 text-slate-600 px-3 py-1 rounded-lg text-xs font-black uppercase tracking-widest mb-4">
-                  Depois - Fase 03
+                <div className="inline-block bg-white border-2 border-slate-950 text-slate-950 px-3 py-1 text-xs font-black uppercase tracking-widest mb-4 shadow-[4px_4px_0px_#000]">
+                  DEPOIS - FASE 03
                 </div>
-                <h3 className="text-3xl lg:text-4xl font-black text-slate-900 mb-6 uppercase tracking-tighter">
-                  Autoridade de Marca
+                <h3 className="text-4xl lg:text-5xl font-black text-slate-950 mb-6 uppercase tracking-tighter leading-[0.9]">
+                  AUTORIDADE<br/>DE MARCA
                 </h3>
-                <div className="bg-slate-50 p-8 rounded-3xl border border-slate-100 mb-8 inline-block md:ml-auto text-left lg:max-w-md">
-                  <p className="text-sm font-bold text-slate-700 mb-3 uppercase tracking-wide">
+                <div className="bg-[#ccff00] p-8 border-4 border-slate-950 mb-8 inline-block md:ml-auto text-left lg:max-w-md shadow-[8px_8px_0px_#000]">
+                  <p className="text-sm font-black text-slate-950 mb-3 uppercase tracking-widest">
                     Quando a operação está sólida
                   </p>
-                  <p className="text-sm md:text-base text-slate-500 font-medium leading-relaxed">
+                  <p className="text-sm md:text-base text-slate-950 font-mono font-bold leading-relaxed">
                     Agora o negócio precisa ser encontrado, respeitado e
                     lembrado. Construímos sua presença digital para sustentar o
                     crescimento exponencial.
@@ -207,42 +200,35 @@ export const HowItWorks: React.FC = () => {
                 </div>
 
                 <div className="space-y-4 mb-8">
-                  <span className="text-xs font-black uppercase tracking-widest text-slate-400 block">
-                    O que fazemos:
+                  <span className="text-xs font-black uppercase tracking-widest text-slate-950 block bg-[#ccff00] inline-block px-2 py-1 border-2 border-slate-950">
+                    O QUE FAZEMOS:
                   </span>
-                  <ul className="space-y-3 text-sm font-bold text-slate-600 md:justify-end">
-                    <li className="flex md:justify-end gap-2 items-center">
-                      Vitrine profissional e perfomance{" "}
-                      <span className="text-indigo-600 font-black">✓</span>
+                  <ul className="space-y-3 text-sm md:text-base font-mono font-bold text-slate-950 md:flex md:flex-col md:items-end">
+                    <li className="flex gap-4 items-center md:flex-row-reverse">
+                       <span className="text-slate-950 bg-[#ccff00] border-2 border-slate-950 w-6 h-6 flex items-center justify-center font-black">✓</span>
+                      <span>Vitrine online profissional e perfomática</span>
                     </li>
-                    <li className="flex md:justify-end gap-2 items-center">
-                      Estrutura de SEO robusta (Google){" "}
-                      <span className="text-indigo-600 font-black">✓</span>
+                    <li className="flex gap-4 items-center md:flex-row-reverse">
+                       <span className="text-slate-950 bg-[#ccff00] border-2 border-slate-950 w-6 h-6 flex items-center justify-center font-black">✓</span>
+                      <span>Estrutura de SEO robusta (Google)</span>
                     </li>
-                    <li className="flex md:justify-end gap-2 items-center">
-                      Integração Site + Atendimento + IA{" "}
-                      <span className="text-indigo-600 font-black">✓</span>
+                    <li className="flex gap-4 items-center md:flex-row-reverse">
+                       <span className="text-slate-950 bg-[#ccff00] border-2 border-slate-950 w-6 h-6 flex items-center justify-center font-black">✓</span>
+                      <span>Integração Site + Atendimento + IA</span>
                     </li>
                   </ul>
                 </div>
 
                 <button
-                  onClick={() => {
-                    trackCtaClick({
-                      label: CTA.pricing.label,
-                      location: "how_it_works_phase3_pricing",
-                      to: CTA.pricing.to,
-                    });
-                    navigate(CTA.pricing.to);
-                  }}
-                  className="bg-slate-900 text-white px-8 py-4 mt-2 rounded-xl text-xs font-black hover:bg-slate-800 transition-all uppercase tracking-widest shadow-lg"
+                  onClick={() => handleCtaClick("how_it_works_phase3")}
+                  className="bg-slate-950 text-white border-4 border-slate-950 px-8 py-4 mt-2 text-sm font-black hover:bg-[#ccff00] hover:text-slate-950 transition-colors uppercase tracking-widest shadow-[6px_6px_0px_#000] inline-block w-full md:w-auto text-center"
                 >
-                  Ver planos e preços
+                  Falar com Especialista
                 </button>
               </div>
 
-              <div className="hidden md:flex justify-start pl-12">
-                <div className="w-24 h-24 bg-slate-900 text-white rounded-3xl flex items-center justify-center text-3xl shadow-2xl z-10 border-8 border-white">
+              <div className="hidden md:flex justify-start pl-12 z-10">
+                <div className="w-24 h-24 bg-white text-slate-950 flex items-center justify-center text-4xl shadow-[8px_8px_0px_#000] border-4 border-slate-950">
                   🌐
                 </div>
               </div>
@@ -251,77 +237,62 @@ export const HowItWorks: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-32 bg-slate-900 text-white relative overflow-hidden text-center">
-        <div className="absolute inset-0 bg-indigo-600/10 blur-[100px] pointer-events-none"></div>
-        <div className="max-w-5xl mx-auto px-4 relative z-10">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-16 uppercase tracking-tighter">
-            🚀 Uma jornada contínua
+      <section className="py-32 bg-[#ccff00] text-slate-950 border-y-4 border-slate-950 relative overflow-hidden text-center">
+        <div className="max-w-5xl mx-auto px-6 lg:px-12 relative z-10">
+          <span className="inline-block bg-white border-2 border-slate-950 px-3 py-1 text-xs font-black uppercase tracking-widest mb-6 shadow-[4px_4px_0px_#000]">
+            O CICLO NÃO PARA
+          </span>
+          <h2 className="text-5xl md:text-7xl font-black mb-16 uppercase tracking-tighter leading-[0.9]">
+            UMA JORNADA<br/> CONTÍNUA
           </h2>
 
           <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mb-20 text-left">
-            <div className="bg-white/5 border border-white/10 p-8 rounded-[2rem] hover:bg-white/[0.08] transition-colors">
-              <span className="text-xs font-black uppercase tracking-widest text-indigo-400 block mb-4">
-                01. FLEXIBILIDADE
+            <div className="bg-white border-4 border-slate-950 p-8 shadow-[8px_8px_0px_#000] hover:bg-slate-950 hover:text-white group transition-colors">
+              <span className="text-xl font-black uppercase tracking-widest text-[#ccff00] bg-slate-950 inline-block px-2 group-hover:bg-white group-hover:text-slate-950 border-2 border-slate-950 mb-4 block w-max">
+                01. FLEXÍVEL
               </span>
-              <p className="text-base font-bold text-white">
-                Comece em qualquer fase do seu negócio.
+              <p className="text-base font-mono font-bold text-inherit mt-4">
+                Comece em qualquer fase. O ecossistema se molda de acordo com o tamanho do seu gargalo.
               </p>
             </div>
-            <div className="bg-white/5 border border-white/10 p-8 rounded-[2rem] hover:bg-white/[0.08] transition-colors">
-              <span className="text-xs font-black uppercase tracking-widest text-indigo-400 block mb-4">
-                02. AGILIDADE
+            <div className="bg-white border-4 border-slate-950 p-8 shadow-[8px_8px_0px_#000] hover:bg-slate-950 hover:text-white group transition-colors">
+              <span className="text-xl font-black uppercase tracking-widest text-[#ccff00] bg-slate-950 inline-block px-2 group-hover:bg-white group-hover:text-slate-950 border-2 border-slate-950 mb-4 block w-max">
+                02. RÁPIDO
               </span>
-              <p className="text-base font-bold text-white">
-                Pule etapas ou acelere o processo se precisar.
+              <p className="text-base font-mono font-bold text-inherit mt-4">
+                Pule etapas ou acelere o processo se precisar de resultados mais agressivos imediatamente.
               </p>
             </div>
-            <div className="bg-white/5 border border-white/10 p-8 rounded-[2rem] hover:bg-white/[0.08] transition-colors">
-              <span className="text-xs font-black uppercase tracking-widest text-indigo-400 block mb-4">
-                03. CUSTOMIZAÇÃO
+            <div className="bg-white border-4 border-slate-950 p-8 shadow-[8px_8px_0px_#000] hover:bg-slate-950 hover:text-white group transition-colors">
+              <span className="text-xl font-black uppercase tracking-widest text-[#ccff00] bg-slate-950 inline-block px-2 group-hover:bg-white group-hover:text-slate-950 border-2 border-slate-950 mb-4 block w-max">
+                03. SOB MEDIDA
               </span>
-              <p className="text-base font-bold text-white">
-                Combine soluções conforme sua necessidade.
+              <p className="text-base font-mono font-bold text-inherit mt-4">
+                Combine automações e fluxos conforme sua necessidade. Nada é imposto, tudo é testado.
               </p>
             </div>
           </div>
 
-          <p className="text-slate-400 text-xs font-bold mb-12 uppercase tracking-[0.2em] max-w-lg mx-auto leading-loose">
-            Nada é engessado. O ecossistema Unificando se adapta à sua
-            realidade.
-          </p>
-
           <button
-            onClick={() => {
-              trackCtaClick({
-                label: CTA.pricing.label,
-                location: "how_it_works_final_pricing",
-                to: CTA.pricing.to,
-              });
-              navigate(CTA.pricing.to);
-            }}
-            className="bg-white text-slate-900 px-12 py-5 rounded-2xl text-xs font-black hover:bg-slate-200 transition-all shadow-2xl uppercase tracking-widest"
+            onClick={() => handleCtaClick("how_it_works_final_cta")}
+            className="bg-slate-950 text-white border-4 border-slate-950 px-12 py-6 text-xl font-black hover:bg-white hover:text-slate-950 transition-colors shadow-[8px_8px_0px_#000] hover:shadow-[8px_8px_0px_#000] uppercase tracking-widest block mx-auto w-full md:w-auto"
           >
-            Ver planos e preços
+            Começar Agora
           </button>
         </div>
       </section>
 
       {/* Footer / Transparency */}
-      <section className="py-16 bg-white border-t border-slate-100">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <div className="inline-flex items-center gap-2 mb-6 opacity-50">
-            <span className="w-2 h-2 bg-slate-400 rounded-full"></span>
-            <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500">
-              Transparência desde o início
-            </span>
+      <section className="py-16 bg-white border-b-4 border-slate-950">
+        <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center">
+          <div className="inline-flex items-center gap-2 mb-6 p-2 bg-slate-950 text-[#ccff00] border-2 border-slate-950 uppercase tracking-widest font-black text-[10px] shadow-[4px_4px_0px_#000]">
+            TRANSPARÊNCIA COMO BASE
           </div>
 
-          <div className="flex flex-wrap justify-center gap-8 text-xs font-bold text-slate-400 uppercase tracking-wide">
-            <span>Veja o valor antes de falar</span>
-            <span className="text-slate-200">•</span>
-            <span>Escolha apenas o que precisa</span>
-            <span className="text-slate-200">•</span>
-            <span>Sem promessas mágicas</span>
+          <div className="flex flex-wrap justify-center gap-4 text-xs font-black text-slate-950 uppercase tracking-wide">
+            <span className="bg-[#ccff00] px-3 py-1 border-2 border-slate-950 shadow-[2px_2px_0px_#000]">Foque no Gargalo</span>
+            <span className="bg-[#ccff00] px-3 py-1 border-2 border-slate-950 shadow-[2px_2px_0px_#000]">Apenas o que Precisa</span>
+            <span className="bg-[#ccff00] px-3 py-1 border-2 border-slate-950 shadow-[2px_2px_0px_#000]">Sem Promessas Mágicas</span>
           </div>
         </div>
       </section>

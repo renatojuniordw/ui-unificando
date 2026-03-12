@@ -20,7 +20,7 @@ export const Contact: React.FC = () => {
   }, []);
 
   return (
-    <PageTransition>
+    <PageTransition className="bg-[#ccff00]">
       <SEO
         title="Fale Conosco | Diagnóstico Gratuito Unificando"
         description="Agende uma conversa com nossos especialistas. Diagnóstico real do seu negócio sem custo e sem compromisso."
@@ -42,52 +42,54 @@ export const Contact: React.FC = () => {
           },
         }}
       />
-      <section className="py-24 bg-slate-50 min-h-[80vh] flex items-center text-left border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-16">
-          <div>
-            <span className="text-indigo-600 font-black uppercase tracking-[0.2em] text-[10px] mb-6 block">
-              Vamos Conversar
+      <section className="py-24 bg-[#ccff00] min-h-[80vh] flex items-center text-left border-b-8 border-slate-950">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16">
+          <div className="flex flex-col justify-center">
+            <span className="inline-block bg-white text-slate-950 border-2 border-slate-950 font-black uppercase tracking-widest text-[10px] sm:text-xs mb-8 px-4 py-2 w-max shadow-[4px_4px_0px_#000]">
+              VAMOS CONVERSAR
             </span>
-            <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-8 uppercase tracking-tighter leading-tight">
-              Entenda o próximo passo{" "}
-              <span className="text-indigo-600">certo.</span>
+            <h1 className="text-5xl md:text-7xl font-black text-slate-950 mb-8 uppercase tracking-tighter leading-[0.9]">
+              ENTENDA O PRÓXIMO <br/>
+              <span className="inline-block bg-slate-950 text-[#ccff00] px-4 -rotate-1 border-4 border-slate-950 shadow-[6px_6px_0px_#fff] mt-2">
+                PASSO CERTO.
+              </span>
             </h1>
-            <p className="text-lg text-slate-500 mb-12 leading-relaxed font-medium max-w-lg">
-              Oferecemos um diagnóstico gratuito para identificar em que fase do
-              ecossistema seu negócio está e o que realmente faz sentido
-              implementar agora.
+            <p className="text-xl md:text-2xl text-slate-950 mb-12 leading-tight font-black uppercase tracking-tight max-w-lg">
+              <span className="bg-white px-2 border-2 border-slate-950 mr-1 shadow-[2px_2px_0px_#000] inline-block mb-1">
+                DIAGNÓSTICO GRATUITO
+              </span> PARA IDENTIFICAR EM QUE FASE DO ECOSSISTEMA SEU NEGÓCIO ESTÁ.
             </p>
 
             <div className="space-y-6">
               {[
                 {
-                  title: "Diagnóstico real",
+                  title: "DIAGNÓSTICO REAL",
                   description:
                     "Análise do seu atendimento, processos e presença digital, sem custo.",
                 },
                 {
-                  title: "Postura consultiva",
+                  title: "POSTURA CONSULTIVA",
                   description:
                     "Foco no seu cenário atual, sem pressão, sem promessa vazia.",
                 },
                 {
-                  title: "Atendimento Imediato",
+                  title: "ATENDIMENTO IMEDIATO",
                   description:
                     "Resposta instantânea via Inteligência Artificial, disponível 24 horas por dia.",
                 },
               ].map((benefit, index) => (
                 <div
                   key={index}
-                  className="flex gap-4 items-start p-6 bg-white border border-slate-200 rounded-[2rem] shadow-sm"
+                  className="flex gap-6 items-start p-6 bg-white border-4 border-slate-950 shadow-[6px_6px_0px_#000] hover:-translate-y-1 transition-transform"
                 >
-                  <div className="w-8 h-8 bg-indigo-50 text-indigo-600 rounded-full flex items-center justify-center flex-shrink-0 font-black text-xs">
+                  <div className="w-10 h-10 bg-slate-950 text-[#ccff00] border-2 border-slate-950 flex items-center justify-center font-black text-lg shrink-0">
                     ✓
                   </div>
                   <div>
-                    <h4 className="font-black text-slate-900 uppercase text-[10px] tracking-widest mb-1">
+                    <h4 className="font-black text-slate-950 uppercase text-xs md:text-sm tracking-widest mb-2 leading-none">
                       {benefit.title}
                     </h4>
-                    <p className="text-[11px] text-slate-500 font-medium">
+                    <p className="text-xs text-slate-950 font-mono font-bold leading-relaxed uppercase">
                       {benefit.description}
                     </p>
                   </div>
@@ -96,21 +98,24 @@ export const Contact: React.FC = () => {
             </div>
 
             {planSelection && (
-              <div className="mt-8 p-6 bg-indigo-50 border border-indigo-100 rounded-[2rem]">
-                <span className="text-[10px] font-black uppercase tracking-widest text-indigo-500 mb-2 block">
-                  Seleção Prévia:
+              <div className="mt-8 p-6 bg-slate-950 text-white border-4 border-slate-950 shadow-[8px_8px_0px_#fff]">
+                <span className="inline-block bg-white text-slate-950 border-2 border-slate-950 px-2 py-1 text-[10px] font-black uppercase tracking-widest mb-4">
+                  SELEÇÃO DE PLANO PRÉVIA
                 </span>
-                <p className="text-indigo-900 font-bold text-sm">
-                  Plano Personalizado (R$ {planSelection.totals?.monthly}/mês)
+                <p className="text-[#ccff00] font-black text-xl md:text-2xl tracking-tighter mb-2">
+                  PLANO PERSONALIZADO <br/>
+                  (R$ {planSelection.totals?.monthly}/MÊS)
                 </p>
-                <p className="text-indigo-400 text-xs font-medium mt-1">
-                  Seus dados de simulação já estão anexados ao contato.
+                <p className="text-slate-400 text-[10px] font-mono font-bold uppercase tracking-widest mt-4 border-t-2 border-slate-800 pt-4">
+                  OS DADOS DA SIMULAÇÃO JÁ SERÃO ENVIADOS PARA NOSSA EQUIPE.
                 </p>
               </div>
             )}
           </div>
 
-          <ContactForm planSelection={planSelection} />
+          <div className="relative">
+             <ContactForm planSelection={planSelection} />
+          </div>
         </div>
       </section>
     </PageTransition>

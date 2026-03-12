@@ -15,6 +15,15 @@ import { FAQSection } from "../../features/digital-presence/FAQSection";
 export const DigitalPresence: React.FC = () => {
   const navigate = useNavigate();
 
+  const handleCTA = () => {
+    trackCtaClick({
+      label: CTA.primary.label,
+      location: "digital_presence_cta",
+      to: CTA.primary.to,
+    });
+    window.open(CTA.primary.to, "_blank");
+  };
+
   return (
     <PageTransition>
       <SEO
@@ -41,34 +50,26 @@ export const DigitalPresence: React.FC = () => {
       />
 
       {/* 1. Hero Section */}
-      <section className="py-16 md:py-24 bg-white relative overflow-hidden text-left border-b border-slate-50">
-        <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center relative z-10">
+      <section className="py-16 md:py-24 bg-white relative overflow-hidden text-left border-b-4 border-slate-950">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-center relative z-10">
           <div>
-            <div className="inline-flex items-center gap-2 bg-slate-100 text-slate-800 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider mb-6">
-              Presença Digital & Autoridade
+            <div className="inline-block bg-[#ccff00] text-slate-950 font-black uppercase tracking-[0.2em] text-[10px] px-3 py-1 mb-6 border-2 border-slate-950 shadow-[4px_4px_0px_#000]">
+              PRESENÇA DIGITAL
             </div>
-            <h1 className="text-4xl md:text-6xl font-black text-slate-900 leading-[1.1] mb-8 uppercase tracking-tighter">
-              Seu negócio precisa de uma{" "}
-              <span className="text-indigo-600">casa própria na internet.</span>
+            <h1 className="text-5xl md:text-7xl font-black text-slate-950 leading-[0.9] mb-8 uppercase tracking-tighter">
+              A SUA CASA<br/>
+              PRÓPRIA<br/>
+              NA INTERNET.
             </h1>
-            <p className="text-xl text-slate-600 mb-10 leading-relaxed max-w-lg">
-              Redes sociais são terrenos alugados. O site é a sua vitrine
-              oficial, onde sua marca é encontrada no Google, transmite
-              confiança e trabalha por você 24 horas por dia.
+            <p className="text-xl text-slate-950 mb-10 leading-relaxed font-bold border-l-4 border-[#ccff00] pl-4">
+              Redes sociais são terrenos alugados. Seu site é a vitrine oficial para transmitir autoridade e converter sem depender de algoritmo.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <button
-                onClick={() => {
-                  trackCtaClick({
-                    label: CTA.primary.label,
-                    location: "digital_presence_hero_primary",
-                    to: CTA.primary.to,
-                  });
-                  navigate(CTA.primary.to);
-                }}
-                className="bg-slate-900 text-white px-8 py-4 rounded-xl text-sm font-black hover:bg-slate-800 transition-all shadow-lg shadow-slate-200 uppercase tracking-widest"
+                onClick={handleCTA}
+                className="bg-slate-950 text-[#ccff00] px-8 py-5 text-xs font-black border-2 border-slate-950 hover:bg-[#ccff00] hover:text-slate-950 transition-colors shadow-[6px_6px_0px_#000] hover:shadow-[6px_6px_0px_#000] uppercase tracking-widest w-max"
               >
-                Agendar diagnóstico gratuito
+                Agendar diagnóstico
               </button>
             </div>
           </div>
@@ -80,15 +81,14 @@ export const DigitalPresence: React.FC = () => {
       </section>
 
       {/* 2. O Que Entregamos */}
-      <section className="py-24 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4">
+      <section className="py-24 bg-white border-b-4 border-slate-950">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-black text-slate-900 uppercase tracking-tighter mb-4">
-              O que entregamos
+            <h2 className="text-4xl md:text-6xl font-black text-slate-950 uppercase tracking-tighter mb-4 leading-[0.9]">
+              ENTREGAMOS PERFORMANCE.
             </h2>
-            <p className="text-slate-500 text-lg max-w-2xl mx-auto font-medium">
-              Criamos sites rápidos, profissionais e focados em resultado — sem
-              excesso, sem complicação.
+            <p className="text-slate-950 text-xl font-bold font-mono">
+              Sites rápidos e profissionais. Sem excessos ou complicação.
             </p>
           </div>
 
@@ -96,41 +96,41 @@ export const DigitalPresence: React.FC = () => {
             {[
               { title: "Landing pages profissionais", icon: "🚀" },
               { title: "Sites institucionais estáticos", icon: "🏢" },
-              { title: "Performance e carregamento rápido", icon: "⚡" },
-              { title: "Estrutura pensada para SEO (Google)", icon: "🔍" },
-              { title: "Visual alinhado à sua marca", icon: "🎨" },
-              { title: "Foco em conversão", icon: "🎯" },
+              { title: "Carregamento extremamente rápido", icon: "⚡" },
+              { title: "Estrutura pronta para o Google (SEO)", icon: "🔍" },
+              { title: "Branding alinhado", icon: "🎨" },
+              { title: "Foco absoluto em conversão", icon: "🎯" },
             ].map((feature, index) => (
               <div
                 key={index}
-                className="flex items-center gap-4 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm"
+                className="flex items-center gap-4 bg-white p-6 border-4 border-slate-950 shadow-[8px_8px_0px_#000] hover:bg-[#ccff00] transition-colors group"
               >
-                <div className="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center text-2xl">
+                <div className="w-12 h-12 bg-slate-950 border-2 border-transparent group-hover:bg-white flex items-center justify-center text-2xl transition-all">
                   {feature.icon}
                 </div>
-                <span className="font-bold text-slate-900 uppercase tracking-tight text-sm">
+                <span className="font-black text-slate-950 uppercase tracking-tight text-sm">
                   {feature.title}
                 </span>
               </div>
             ))}
           </div>
 
-          <div className="mt-12 text-center">
-            <p className="text-slate-400 font-bold uppercase tracking-widest text-xs mb-4">
-              Ideal Para:
+          <div className="mt-16 bg-[#ccff00] border-4 border-slate-950 p-8 shadow-[12px_12px_0px_#000] text-center max-w-4xl mx-auto">
+            <p className="text-slate-950 font-black uppercase tracking-widest text-xs mb-6">
+              O KIT DE SOBREVIVÊNCIA DE QUALQUER EMPRESA SÉRIA:
             </p>
-            <div className="flex flex-wrap justify-center gap-3">
+            <div className="flex flex-wrap justify-center gap-4 text-sm font-bold font-mono">
               {[
-                "Apresentar sua empresa",
-                "Divulgar serviços",
-                "Captar contatos",
-                "Fortalecer autoridade online",
+                "Captação de leads",
+                "Conversão via Ads",
+                "Divulgação de produtos",
+                "Autoridade de marca",
               ].map((tag, index) => (
                 <span
                   key={index}
-                  className="bg-white border border-slate-200 px-4 py-2 rounded-full text-xs font-bold text-slate-600"
+                  className="bg-white border-2 border-slate-950 px-4 py-2 text-slate-950 uppercase"
                 >
-                  {tag}
+                  ✓ {tag}
                 </span>
               ))}
             </div>
@@ -139,59 +139,27 @@ export const DigitalPresence: React.FC = () => {
       </section>
 
       {/* 3. Investimento & Escala CTA */}
-      <section className="py-24 bg-slate-50 relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none"></div>
-        <div className="max-w-7xl mx-auto px-4 relative z-10 text-center">
-          <div className="bg-slate-900 rounded-[3.5rem] p-12 md:p-24 shadow-3xl overflow-hidden relative border border-white/5">
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-600/10 blur-[100px] pointer-events-none"></div>
-
+      <section className="py-24 bg-white border-b-4 border-slate-950 text-center">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="bg-slate-950 border-4 border-slate-950 p-12 md:p-24 shadow-[24px_24px_0px_#ccff00]">
             <div className="max-w-3xl mx-auto">
-              <span className="text-indigo-400 font-black uppercase tracking-[0.25em] text-[10px] mb-6 block">
-                Investimento Estratégico
+              <span className="text-[#ccff00] font-black uppercase tracking-[0.25em] text-[10px] mb-6 block border-b-2 border-[#ccff00] pb-2 max-w-max mx-auto">
+                TAXAS SOB MEDIDA
               </span>
-              <h2 className="text-3xl md:text-6xl font-black text-white mb-8 uppercase tracking-tighter leading-tight">
-                Sua presença digital <br />{" "}
-                <span className="text-indigo-400 italic">
-                  sem custos surpresa.
-                </span>
+              <h2 className="text-4xl md:text-7xl font-black text-white mb-8 uppercase tracking-tighter leading-[0.9]">
+                SEM SURPRESAS<br/> NO FATURAMENTO.
               </h2>
-              <p className="text-slate-400 text-lg md:text-xl mb-12 font-medium leading-relaxed">
-                Trabalhamos com uma estrutura de investimento modular e
-                transparente. Você investe na base profissional e escala novos
-                recursos conforme a necessidade real do seu negócio.
+              <p className="text-white text-lg md:text-xl mb-12 font-mono font-bold leading-relaxed">
+                Você financia a base profissional e pode escalar recursos assim que o faturamento da sua empresa pedir. Tudo modular, tudo no seu tempo.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <motion.button
-                  whileHover={{ scale: 1.02, translateY: -5 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => {
-                    trackCtaClick({
-                      label: CTA.pricing.label,
-                      location: "digital_presence_pricing_pricing",
-                      to: CTA.pricing.to,
-                    });
-                    navigate(CTA.pricing.to);
-                  }}
-                  className="bg-indigo-600 text-white px-12 py-5 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] shadow-xl shadow-indigo-600/20"
+                <button
+                  onClick={handleCTA}
+                  className="bg-[#ccff00] text-slate-950 px-12 py-5 text-sm font-black uppercase tracking-[0.2em] shadow-[8px_8px_0px_transparent] border-2 border-transparent hover:border-slate-950 hover:shadow-[8px_8px_0px_#fff] transition-all w-full sm:w-auto"
                 >
-                  Ver planos e preços
-                </motion.button>
-                <motion.button
-                  whileHover={{ scale: 1.02, translateY: -5 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => {
-                    trackCtaClick({
-                      label: CTA.primary.label,
-                      location: "digital_presence_pricing_primary",
-                      to: CTA.primary.to,
-                    });
-                    navigate(CTA.primary.to);
-                  }}
-                  className="bg-transparent border border-white/10 text-white px-12 py-5 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] hover:bg-white/5 transition-all"
-                >
-                  Agendar diagnóstico gratuito
-                </motion.button>
+                  Agendar Raio-X Gratuito
+                </button>
               </div>
             </div>
           </div>
@@ -199,60 +167,38 @@ export const DigitalPresence: React.FC = () => {
       </section>
 
       {/* 4. Integração */}
-      <section className="py-24 bg-indigo-600 text-white overflow-hidden relative">
-        <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
-          <h2 className="text-3xl md:text-5xl font-black mb-8 uppercase tracking-tighter">
-            Integração Total
+      <section className="py-24 bg-[#ccff00] text-slate-950 overflow-hidden relative border-b-4 border-slate-950">
+        <div className="max-w-5xl mx-auto px-6 lg:px-12 text-center relative z-10">
+          <h2 className="text-4xl md:text-6xl font-black mb-8 uppercase tracking-tighter leading-[0.9]">
+            MÁQUINA INTEGRADA
           </h2>
-          <p className="text-indigo-100 text-lg font-medium mb-12 max-w-2xl mx-auto">
-            Conecte seu site diretamente aos seus canais de atendimento e
-            converta mais visitantes.
+          <p className="text-slate-950 text-lg font-bold font-mono mb-16 max-w-2xl mx-auto border-4 border-slate-950 p-4 bg-white shadow-[8px_8px_0px_#000]">
+            Conecte o tráfego do site diretamente com os canais reais de atendimento (WhatsApp). O funil brutalmente eficiente.
           </p>
 
-          <div className="grid md:grid-cols-2 gap-6 text-left max-w-3xl mx-auto mb-12">
-            <div className="bg-white/10 backdrop-blur-sm p-8 rounded-[2rem] border border-white/20 transition-all hover:bg-white/20">
-              <span className="text-3xl mb-4 block">🔗</span>
-              <h3 className="font-black uppercase tracking-wide text-sm mb-3">
-                Redes Sociais
+          <div className="grid md:grid-cols-2 gap-8 text-left max-w-3xl mx-auto mb-16">
+            <div className="bg-white p-8 border-4 border-slate-950 shadow-[12px_12px_0px_#000]">
+              <span className="text-4xl mb-6 block">🔗</span>
+              <h3 className="font-black uppercase tracking-wide text-xl mb-3">
+                LINKS ENCURTADOS
               </h3>
-              <p className="text-sm text-indigo-100 font-medium leading-relaxed">
-                Botões de conversão que levam seu cliente direto para o
-                WhatsApp, Instagram ou qualquer outra rede social.
+              <p className="text-sm text-slate-950 font-mono font-bold leading-relaxed">
+                Botões flutuantes e copys otimizados que levam o cliente num clique direto pro checkout ou WhatsApp.
               </p>
             </div>
 
-            <div className="bg-white/10 backdrop-blur-sm p-8 rounded-[2rem] border border-white/20 relative overflow-hidden transition-all hover:bg-white/20">
-              <div className="absolute top-0 right-0 bg-white text-indigo-600 text-[10px] font-black px-3 py-1.5 rounded-bl-xl uppercase tracking-widest shadow-lg">
-                Grátis*
+            <div className="bg-slate-950 text-white p-8 border-4 border-slate-950 shadow-[12px_12px_0px_#fff] relative">
+              <div className="absolute -top-4 -right-4 bg-[#ccff00] border-2 border-slate-950 text-slate-950 text-[10px] font-black px-4 py-2 uppercase tracking-widest shadow-[4px_4px_0px_#000] rotate-3">
+                GRÁTIS*
               </div>
-              <span className="text-3xl mb-4 block">💬</span>
-              <h3 className="font-black uppercase tracking-wide text-sm mb-3">
-                Chat para Site
+              <span className="text-4xl mb-6 block">💬</span>
+              <h3 className="font-black text-[#ccff00] uppercase tracking-wide text-xl mb-3">
+                WIDGET DE CHAT
               </h3>
-              <p className="text-sm text-indigo-100 font-medium leading-relaxed">
-                Assinantes do plano{" "}
-                <strong className="text-white">Atendimento Digital</strong>{" "}
-                ganham nosso widget de chat profissional integrado ao site sem
-                custo extra.
+              <p className="text-sm font-mono font-bold leading-relaxed">
+                Empresas no plano Atendimento Digital levam nosso Widget nativo para o site, permitindo chatear direto do navegador, sem custo extra.
               </p>
             </div>
-          </div>
-
-          <div className="flex flex-wrap justify-center gap-3">
-            {[
-              "WhatsApp",
-              "Instagram",
-              "Telegram",
-              "Atendimento Centralizado",
-              "IA no Atendimento",
-            ].map((channel, index) => (
-              <div
-                key={index}
-                className="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-[10px] font-bold uppercase tracking-wider text-indigo-200"
-              >
-                {channel}
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -261,24 +207,17 @@ export const DigitalPresence: React.FC = () => {
       <FAQSection />
 
       {/* CTA Final */}
-      <section className="py-24 bg-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-8 uppercase tracking-tighter">
-            Pronto para ter sua <br />
-            <span className="text-indigo-600">Casa Própria na Web?</span>
+      <section className="py-24 bg-white text-center">
+        <div className="max-w-4xl mx-auto px-6 lg:px-12">
+          <h2 className="text-4xl md:text-6xl font-black text-slate-950 mb-12 uppercase tracking-tighter leading-[0.9]">
+            SUA CASA <br/>
+            DIGITAL ESTÁ PRONTA?
           </h2>
           <button
-            onClick={() => {
-              trackCtaClick({
-                label: CTA.primary.label,
-                location: "digital_presence_finalcta_primary",
-                to: CTA.primary.to,
-              });
-              navigate(CTA.primary.to);
-            }}
-            className="bg-slate-900 text-white px-12 py-5 rounded-2xl text-xs font-black hover:bg-slate-800 transition-all shadow-2xl shadow-slate-200 uppercase tracking-widest"
+            onClick={handleCTA}
+            className="bg-slate-950 text-[#ccff00] px-12 py-6 text-sm font-black border-4 border-slate-950 hover:bg-[#ccff00] hover:text-slate-950 transition-colors shadow-[8px_8px_0px_#000] uppercase tracking-widest inline-block"
           >
-            Agendar diagnóstico gratuito
+            Falar pelo WhatsApp
           </button>
         </div>
       </section>

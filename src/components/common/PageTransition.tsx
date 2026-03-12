@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 import { PageTransitionProps } from "../../types/ui";
 
 const pageVariants = {
-  initial: { opacity: 0, y: 15 },
-  animate: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: -15 },
+  initial: { opacity: 0, filter: "grayscale(100%) blur(10px)" },
+  animate: { opacity: 1, filter: "grayscale(0%) blur(0px)" },
+  exit: { opacity: 0 },
 };
 
 export const PageTransition: React.FC<PageTransitionProps> = ({
@@ -18,7 +18,7 @@ export const PageTransition: React.FC<PageTransitionProps> = ({
       initial="initial"
       animate="animate"
       exit="exit"
-      transition={{ duration: 0.4, ease: "easeOut" }}
+      transition={{ duration: 0.2, ease: "linear" }}
       className={className}
     >
       {children}

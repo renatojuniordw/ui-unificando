@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const StatIcon = () => (
-  <div className="w-12 h-12 bg-indigo-600/20 rounded-2xl flex items-center justify-center text-indigo-400 mb-6">
+  <div className="w-12 h-12 bg-[#ccff00] border-2 border-slate-950 flex items-center justify-center text-slate-950 mb-6 shadow-[4px_4px_0px_#000]">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"
@@ -11,8 +11,8 @@ const StatIcon = () => (
       fill="none"
       stroke="currentColor"
       strokeWidth="3"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      strokeLinecap="square"
+      strokeLinejoin="miter"
     >
       <line x1="12" y1="20" x2="12" y2="10"></line>
       <line x1="18" y1="20" x2="18" y2="4"></line>
@@ -25,7 +25,7 @@ export const TestimonialsSection = () => {
   const marketInsights = [
     {
       stat: "78%",
-      title: "Vantagem do Primeiro Contato",
+      title: "Vantagem Inicial",
       text: "Dos consumidores compram da primeira empresa que responde. No digital, velocidade não é luxo, é sobrevivência.",
       source: "Harvard Business Review",
     },
@@ -37,64 +37,60 @@ export const TestimonialsSection = () => {
     },
     {
       stat: "3.5x",
-      title: "Conversão com Centralização",
-      text: "Empresas que centralizam canais e usam múltiplos atendentes vendem até 3.5 vezes mais que as que usam celulares isolados.",
+      title: "Conversão Unificada",
+      text: "Empresas que centralizam canais e usam múltiplos atendentes vendem até 3.5 vezes mais.",
       source: "Gartner",
     },
     {
       stat: "90%",
-      title: "Expectativa de Histórico",
-      text: "Dos consumidores esperam que a empresa saiba quem eles são e o que falaram em atendimentos anteriores, independente do canal.",
+      title: "Expectativa Real",
+      text: "Esperam que a empresa saiba quem eles são e o que falaram em atendimentos anteriores, independente do canal.",
       source: "Salesforce",
     },
   ];
 
   return (
-    <section className="py-24 bg-slate-900 text-white border-y border-slate-800 relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-600/20 blur-[120px] rounded-full pointer-events-none"></div>
-      <div className="max-w-7xl mx-auto px-4 relative z-10">
+    <section className="py-24 bg-slate-950 text-white border-y-4 border-slate-950 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
         <div className="text-center mb-16">
-          <span className="text-indigo-400 font-black uppercase tracking-[0.2em] text-xs mb-4 block">
-            Por que centralizar?
+          <span className="inline-block bg-[#ccff00] text-slate-950 font-black uppercase tracking-[0.2em] text-[10px] px-3 py-1 mb-4 border-2 border-slate-950 shadow-[4px_4px_0px_#fff]">
+            POR QUE CENTRALIZAR?
           </span>
-          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">
-            O custo da desorganização
+          <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-[0.9]">
+            O CUSTO DA<br/>
+            <span className="text-[#ccff00]">DESORGANIZAÇÃO</span>
           </h2>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {marketInsights.map((insight, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-slate-800/50 p-8 rounded-[2.5rem] border border-white/5 backdrop-blur-sm flex flex-col hover:border-indigo-500/50 transition-colors group"
+              className="bg-white text-slate-950 p-8 border-4 border-slate-950 flex flex-col hover:bg-[#ccff00] transition-colors shadow-[8px_8px_0px_#ccff00] group"
             >
               <StatIcon />
-              <div className="text-4xl font-black text-white mb-2 tracking-tighter group-hover:text-indigo-400 transition-colors">
+              <div className="text-5xl font-black mb-2 tracking-tighter">
                 {insight.stat}
               </div>
-              <h3 className="font-black text-slate-200 uppercase tracking-tight text-sm mb-4">
+              <h3 className="font-black uppercase tracking-tight text-sm mb-4">
                 {insight.title}
               </h3>
-              <p className="text-slate-400 mb-8 text-xs leading-relaxed font-medium">
+              <p className="text-slate-950 mb-8 text-xs leading-relaxed font-mono font-bold">
                 "{insight.text}"
               </p>
-              <div className="mt-auto pt-6 border-t border-white/5">
-                <div className="text-[10px] font-black uppercase tracking-widest text-slate-500">
-                  Fonte: {insight.source}
+              <div className="mt-auto pt-6 border-t-2 border-slate-950">
+                <div className="text-[10px] font-black uppercase tracking-widest">
+                  FONTE: {insight.source}
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         <div className="mt-16 text-center">
-          <p className="text-slate-500 text-sm font-medium italic">
-            * Dados baseados em relatórios globais de comportamento do
-            consumidor digital (2023-24).
+          <p className="text-[#ccff00] text-xs font-mono font-bold uppercase">
+            * DADOS BASEADOS EM RELATÓRIOS GLOBAIS DE COMPORTAMENTO DO
+            CONSUMIDOR DIGITAL (2023-24).
           </p>
         </div>
       </div>

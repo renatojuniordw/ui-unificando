@@ -27,39 +27,39 @@ export const FAQSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 bg-slate-50">
-      <div className="max-w-3xl mx-auto px-4">
-        <h2 className="text-3xl font-black text-slate-900 text-center mb-12 uppercase tracking-tight">
-          Dúvidas Frequentes
+    <section className="py-24 bg-[#ccff00] border-y-4 border-slate-950">
+      <div className="max-w-3xl mx-auto px-6 lg:px-12">
+        <h2 className="text-4xl md:text-5xl font-black text-slate-950 text-center mb-12 uppercase tracking-tighter leading-[0.9]">
+          DÚVIDAS FREQUENTES
         </h2>
-        <div className="space-y-4 text-left">
+        <div className="space-y-6 text-left">
           {faqItems.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white border border-slate-100 rounded-[2rem] overflow-hidden shadow-sm"
+              className="bg-white border-4 border-slate-950 shadow-[8px_8px_0px_#000] hover:bg-slate-950 group transition-colors"
             >
               <button
                 onClick={() => setActiveFaq(activeFaq === idx ? null : idx)}
                 aria-expanded={activeFaq === idx}
                 aria-controls={`digital-faq-${idx}`}
-                className="w-full flex justify-between items-center p-7 text-left hover:bg-slate-50 transition-colors"
+                className="w-full flex justify-between items-center p-8 text-left"
               >
-                <span className="font-black text-slate-800 text-sm uppercase tracking-wide">
+                <span className="font-black text-slate-950 group-hover:text-white text-lg uppercase tracking-wide">
                   {item.question}
                 </span>
                 <div
-                  className={`w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 transition-all ${activeFaq === idx ? "rotate-180 bg-slate-900 text-white" : ""} `}
+                  className={`w-10 h-10 border-2 border-slate-950 bg-slate-950 text-white flex items-center justify-center transition-all shadow-[2px_2px_0px_#000] group-hover:bg-[#ccff00] group-hover:text-slate-950 group-hover:shadow-[2px_2px_0px_#fff] ${activeFaq === idx ? "rotate-180 bg-[#ccff00] text-slate-950 shadow-[2px_2px_0px_#fff]" : ""} `}
                 >
                   <svg
-                    className="w-4 h-4"
+                    className="w-5 h-5"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                   >
                     <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
+                      strokeLinecap="square"
+                      strokeLinejoin="miter"
+                      strokeWidth={3}
                       d="M19 9l-7 7-7-7"
                     />
                   </svg>
@@ -69,7 +69,7 @@ export const FAQSection: React.FC = () => {
                 <div
                   id={`digital-faq-${idx}`}
                   role="region"
-                  className="px-7 pb-7 text-slate-500 text-sm leading-relaxed font-medium"
+                  className="px-8 pb-8 text-slate-300 group-hover:text-slate-300 text-base leading-relaxed font-mono font-bold"
                 >
                   {item.answer}
                 </div>

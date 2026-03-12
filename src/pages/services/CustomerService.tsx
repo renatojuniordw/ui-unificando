@@ -1,9 +1,8 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import { ROUTES } from "../../routes";
 import { motion } from "framer-motion";
 import { SEO } from "../../components/common/SEO";
 import { PageTransition } from "../../components/common/PageTransition";
+import { ROUTES } from "../../routes";
 import { CTA } from "../../constants/cta";
 import { trackCtaClick } from "../../utils/analytics";
 import { DashboardSimulation } from "../../features/customer-service/DashboardSimulation";
@@ -12,7 +11,14 @@ import { FAQSection } from "../../features/customer-service/FAQSection";
 import { TestimonialsSection } from "../../features/customer-service/TestimonialsSection";
 
 export const CustomerService: React.FC = () => {
-  const navigate = useNavigate();
+  const handlePrimaryCta = () => {
+    trackCtaClick({
+      label: CTA.primary.label,
+      location: "customer_service_cta",
+      to: CTA.primary.to,
+    });
+    window.open(CTA.primary.to, "_blank");
+  };
 
   return (
     <PageTransition>
@@ -40,43 +46,33 @@ export const CustomerService: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <section className="relative pt-24 pb-20 md:pt-32 md:pb-28 bg-slate-50 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(#e0e7ff_1px,transparent_1px)] [background-size:16px_16px] opacity-50"></div>
-        <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+      <section className="relative pt-24 pb-20 md:pt-32 md:pb-28 bg-white overflow-hidden border-b-4 border-slate-950">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-12 items-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-left"
           >
-            <div className="inline-flex items-center gap-2 bg-white border border-indigo-100 shadow-sm text-indigo-700 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.15em] mb-8">
-              <span className="w-2 h-2 bg-indigo-500 rounded-full animate-pulse"></span>
-              Plataforma de Crescimento
+            <div className="inline-block bg-[#ccff00] text-slate-950 font-black uppercase tracking-[0.2em] text-[10px] px-3 py-1 mb-6 border-2 border-slate-950 shadow-[4px_4px_0px_#000]">
+              <span className="inline-block w-2 h-2 bg-slate-950 mr-2 -translate-y-px"></span>
+              PLATAFORMA BASE
             </div>
-            <h1 className="text-5xl md:text-7xl font-black text-slate-900 leading-[1.1] mb-8 uppercase tracking-tighter">
-              Toda sua equipe em um só{" "}
-              <span className="text-indigo-600">WhatsApp.</span>
+            <h1 className="text-5xl md:text-7xl font-black text-slate-950 leading-[0.9] mb-8 uppercase tracking-tighter">
+              TODA A<br/>
+              EQUIPE NO<br/>
+              MESMO NÚMERO.
             </h1>
-            <p className="text-lg text-slate-500 mb-10 leading-relaxed max-w-lg font-medium">
-              Centralize WhatsApp e Instagram em uma única caixa de entrada
-              profissional com o Unificando. Tenha controle total e sincronia
-              com sua equipe.
+            <p className="text-xl text-slate-950 mb-10 leading-relaxed font-bold border-l-4 border-[#ccff00] pl-4 max-w-lg">
+              Centralize WhatsApp e Instagram em uma caixa de entrada
+              profissional. Controle absoluto, histórico permanente e nenhuma venda perdida no esquecimento.
             </p>
             <div className="flex flex-wrap gap-4">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => {
-                  trackCtaClick({
-                    label: CTA.primary.label,
-                    location: "customer_service_hero",
-                    to: CTA.primary.to,
-                  });
-                  navigate(CTA.primary.to);
-                }}
-                className="bg-slate-900 text-white px-10 py-5 rounded-2xl text-[10px] font-black shadow-xl uppercase tracking-[0.2em]"
+              <button
+                onClick={handlePrimaryCta}
+                className="bg-slate-950 text-[#ccff00] px-10 py-5 text-xs font-black border-2 border-slate-950 shadow-[6px_6px_0px_#000] hover:bg-[#ccff00] hover:text-slate-950 hover:shadow-[6px_6px_0px_#000] transition-colors uppercase tracking-[0.2em]"
               >
                 {CTA.primary.label}
-              </motion.button>
+              </button>
             </div>
           </motion.div>
 
@@ -85,26 +81,26 @@ export const CustomerService: React.FC = () => {
             animate={{ opacity: 1, x: 0 }}
             className="relative hidden md:block"
           >
-            <div className="absolute -inset-4 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-[3rem] opacity-20 blur-2xl"></div>
-            <DashboardSimulation />
+            <div className="border-4 border-slate-950 bg-white p-2 shadow-[16px_16px_0px_#ccff00]">
+              <DashboardSimulation />
+            </div>
           </motion.div>
         </div>
       </section>
 
       {/* Features Grid */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-20 max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 uppercase tracking-tighter">
-              Uma nova era para seu atendimento.
+      <section className="py-24 bg-[#ccff00] border-b-4 border-slate-950">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="text-center mb-20 max-w-3xl mx-auto bg-white p-8 border-4 border-slate-950 shadow-[12px_12px_0px_#000]">
+            <h2 className="text-4xl md:text-6xl font-black text-slate-950 mb-6 uppercase tracking-tighter leading-[0.9]">
+              ATENDIMENTO <br/> ESCALÁVEL.
             </h2>
-            <p className="text-slate-500 text-lg font-medium">
-              Ferramentas intuitivas reimaginadas para converter leads e tornar
-              seu negócio escalável.
+            <p className="text-slate-950 font-mono font-bold text-lg">
+              Perca os grupos genéricos. Assuma o controle.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
                 title: "Canais Unificados",
@@ -122,34 +118,26 @@ export const CustomerService: React.FC = () => {
                 title: "Notas Internas",
                 desc: "Converse com o time dentro do chat.",
               },
-              { title: "Relatórios", desc: "Saiba quem atende mais e melhor." },
+              { title: "Relatórios de Performance", desc: "Saiba quem atende mais e melhor." },
               {
                 title: "Filas de Espera",
                 desc: "Distribua atendimentos automaticamente.",
               },
-              {
-                title: "Histórico Eterno",
-                desc: "Nunca mais perca uma conversa.",
-              },
             ].map((feature, i) => (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
+              <div
                 key={i}
-                className="p-8 bg-slate-50 rounded-[2rem] hover:bg-indigo-50/50 hover:scale-[1.02] transition-all border border-slate-100 hover:border-indigo-100 group"
+                className="p-8 bg-white border-4 border-slate-950 hover:bg-slate-950 hover:text-[#ccff00] transition-colors shadow-[8px_8px_0px_#000] group"
               >
-                <div className="w-10 h-10 bg-white rounded-xl mb-6 hidden md:flex items-center justify-center text-indigo-600 shadow-sm group-hover:bg-indigo-600 group-hover:text-white transition-colors">
-                  <div className="w-2 h-2 rounded-full bg-current"></div>
+                <div className="w-12 h-12 bg-[#ccff00] border-2 border-slate-950 mb-6 flex items-center justify-center font-black group-hover:bg-white group-hover:text-slate-950 transition-colors shadow-[4px_4px_0px_#000]">
+                  ✓
                 </div>
-                <h3 className="font-black text-slate-900 uppercase tracking-wide text-xs mb-3">
+                <h3 className="font-black text-inherit uppercase tracking-widest text-sm mb-3">
                   {feature.title}
                 </h3>
-                <p className="text-slate-500 text-xs leading-relaxed font-medium">
+                <p className="text-inherit text-sm font-mono font-bold">
                   {feature.desc}
                 </p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -162,59 +150,28 @@ export const CustomerService: React.FC = () => {
       <TestimonialsSection />
 
       {/* Pricing CTA Section */}
-      <section className="py-24 bg-slate-50 relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none"></div>
-        <div className="max-w-7xl mx-auto px-4 relative z-10 text-center">
-          <div className="bg-slate-900 rounded-[3.5rem] p-12 md:p-24 shadow-3xl overflow-hidden relative border border-white/5">
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-600/10 blur-[100px] pointer-events-none"></div>
-
+      <section className="py-24 bg-white border-y-4 border-slate-950 text-center">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="bg-slate-950 border-4 border-slate-950 p-12 md:p-24 shadow-[24px_24px_0px_#ccff00]">
             <div className="max-w-3xl mx-auto">
-              <span className="text-indigo-400 font-black uppercase tracking-[0.25em] text-[10px] mb-6 block">
-                Investimento Sob Medida
+              <span className="text-[#ccff00] font-black uppercase tracking-[0.25em] text-[10px] mb-6 block border-b-2 border-[#ccff00] pb-2 max-w-max mx-auto">
+                INVESTIMENTO MODULAR
               </span>
-              <h2 className="text-3xl md:text-6xl font-black text-white mb-8 uppercase tracking-tighter leading-tight">
-                Pague apenas pelo que <br />{" "}
-                <span className="text-indigo-400 italic">
-                  realmente utiliza.
-                </span>
+              <h2 className="text-4xl md:text-7xl font-black text-white mb-8 uppercase tracking-tighter leading-[0.9]">
+                PAGUE APENAS<br/>PELO QUE USAR.
               </h2>
-              <p className="text-slate-400 text-lg md:text-xl mb-12 font-medium leading-relaxed">
-                Nossa estrutura é totalmente modular. Veja o investimento ideal
-                para sua empresa e entenda como unificar seu atendimento com
-                previsibilidade.
+              <p className="text-white text-lg md:text-xl mb-12 font-mono font-bold leading-relaxed">
+                Nossa estrutura é brutalmente modular. Veja o investimento ideal
+                para sua empresa e entenda como unificar seu atendimento com previsibilidade.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <motion.button
-                  whileHover={{ scale: 1.02, translateY: -5 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => {
-                    trackCtaClick({
-                      label: CTA.pricing.label,
-                      location: "customer_service_pricing_pricing",
-                      to: CTA.pricing.to,
-                    });
-                    navigate(CTA.pricing.to);
-                  }}
-                  className="bg-indigo-600 text-white px-12 py-5 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] shadow-xl shadow-indigo-600/20"
+                <button
+                  onClick={handlePrimaryCta}
+                  className="bg-[#ccff00] text-slate-950 px-12 py-5 text-sm font-black uppercase tracking-[0.2em] shadow-[8px_8px_0px_transparent] border-2 border-transparent hover:border-slate-950 hover:shadow-[8px_8px_0px_#fff] transition-all w-full sm:w-auto"
                 >
-                  {CTA.pricing.label}
-                </motion.button>
-                <motion.button
-                  whileHover={{ scale: 1.02, translateY: -5 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => {
-                    trackCtaClick({
-                      label: CTA.primary.label,
-                      location: "customer_service_pricing_primary",
-                      to: CTA.primary.to,
-                    });
-                    navigate(CTA.primary.to);
-                  }}
-                  className="bg-transparent border border-white/10 text-white px-12 py-5 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] hover:bg-white/5 transition-all"
-                >
-                  {CTA.primary.label}
-                </motion.button>
+                  Consultar Valores
+                </button>
               </div>
             </div>
           </div>
@@ -225,28 +182,19 @@ export const CustomerService: React.FC = () => {
       <FAQSection />
 
       {/* Final CTA */}
-      <section className="py-24 bg-indigo-600 text-white text-center px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
-        <div className="relative z-10 max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-6xl font-black mb-8 uppercase tracking-tighter">
-            Pronto para vender mais?
+      <section className="py-24 bg-[#ccff00] text-slate-950 text-center px-6 lg:px-12">
+        <div className="max-w-4xl mx-auto bg-white border-4 border-slate-950 p-12 shadow-[16px_16px_0px_#000]">
+          <h2 className="text-4xl md:text-6xl font-black mb-8 uppercase tracking-tighter leading-[0.9]">
+            VENDA<br/> MAIS E MELHOR.
           </h2>
-          <p className="text-indigo-100 text-lg mb-10 max-w-2xl mx-auto font-medium">
-            Junte-se a centenas de empresas que transformaram seu atendimento
-            com o Unificando.
+          <p className="text-slate-950 text-lg mb-10 max-w-2xl mx-auto font-mono font-bold">
+            Junte-se a empresas que tratam o atendimento como funil de vendas, não como dor de cabeça.
           </p>
           <button
-            onClick={() => {
-              trackCtaClick({
-                label: CTA.primary.label,
-                location: "customer_service_finalcta_primary",
-                to: CTA.primary.to,
-              });
-              navigate(CTA.primary.to);
-            }}
-            className="bg-white text-indigo-600 px-12 py-5 rounded-2xl text-xs font-black uppercase tracking-[0.2em] hover:scale-105 transition-transform shadow-2xl"
+            onClick={handlePrimaryCta}
+            className="bg-slate-950 text-[#ccff00] px-12 py-5 border-2 border-slate-950 text-xs font-black uppercase tracking-[0.2em] hover:bg-white hover:text-slate-950 transition-colors shadow-[6px_6px_0px_#000] inline-block"
           >
-            {CTA.primary.label}
+            Falar com a Equipe
           </button>
         </div>
       </section>

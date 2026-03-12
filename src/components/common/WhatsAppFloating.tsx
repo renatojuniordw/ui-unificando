@@ -18,19 +18,16 @@ export const WhatsAppFloating: React.FC = () => {
       className="fixed bottom-6 right-6 z-50 flex items-center gap-4 group pointer-events-auto"
       aria-label="Falar no WhatsApp"
     >
-      <div className="bg-white px-4 py-2.5 rounded-2xl border border-slate-100 shadow-2xl transition-all duration-300 translate-x-2 group-hover:translate-x-0">
-        <p className="text-[10px] font-black uppercase text-slate-900 tracking-[0.15em] whitespace-nowrap">
-          Fale conosco
+      <div className="bg-white px-4 py-2 border-4 border-slate-950 shadow-[4px_4px_0px_#000] transition-all duration-300 translate-x-2 group-hover:translate-x-0 hidden md:block">
+        <p className="text-xs font-black uppercase text-slate-950 tracking-widest whitespace-nowrap">
+          FALE CONOSCO
         </p>
       </div>
 
       {/* WhatsApp Icon Container */}
-      <div className="w-16 h-16 bg-[#25D366] rounded-[1.25rem] flex items-center justify-center shadow-[0_15px_45px_-10px_rgba(37,211,102,0.6)] relative overflow-hidden transition-transform group-hover:shadow-[0_20px_50px_-10px_rgba(37,211,102,0.8)]">
-        {/* Subtle Glow Pulse */}
-        <div className="absolute inset-0 bg-white/20 animate-pulse"></div>
-
+      <div className="w-16 h-16 bg-[#ccff00] border-4 border-slate-950 flex items-center justify-center shadow-[4px_4px_0px_#000] relative overflow-hidden transition-all group-hover:shadow-[8px_8px_0px_#000] group-hover:bg-white">
         <svg
-          className="w-9 h-9 text-white relative z-10"
+          className="w-10 h-10 text-slate-950 relative z-10"
           fill="currentColor"
           viewBox="0 0 24 24"
         >

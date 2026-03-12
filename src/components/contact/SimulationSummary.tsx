@@ -2,16 +2,15 @@ import React from "react";
 
 export const SimulationSummary: React.FC = () => {
   return (
-    <div className="p-6 bg-indigo-500/10 border border-indigo-500/20 rounded-2xl">
-      <div className="flex items-center gap-3 mb-3">
-        <span className="w-2.5 h-2.5 rounded-full bg-indigo-400 animate-pulse"></span>
-        <p className="text-xs font-black uppercase tracking-widest text-indigo-300">
-          Simulação Pronta
+    <div className="p-6 bg-[#ccff00] border-4 border-slate-950 shadow-[4px_4px_0px_#000]">
+      <div className="flex items-center gap-3 mb-4 border-b-2 border-slate-950 pb-2">
+        <span className="w-4 h-4 rounded-none bg-slate-950 animate-pulse border-2 border-white shadow-[2px_2px_0px_#000]"></span>
+        <p className="text-sm font-black uppercase tracking-widest text-slate-950">
+          SIMULAÇÃO PRONTA
         </p>
       </div>
-      <p className="text-sm text-indigo-100 font-medium leading-relaxed">
-        Configuração anexada. Nossa equipe técnica está preparada para validar
-        seu plano e tirar suas dúvidas agora mesmo via WhatsApp.
+      <p className="text-sm text-slate-950 font-mono font-bold leading-relaxed uppercase">
+        CONFIGURAÇÃO DO PLANO ANEXADA. NOSSA EQUIPE ESTÁ PREPARADA PARA VALIDAR SEU PACOTE E TIRAR DÚVIDAS AGORA MESMO VIA WHATSAPP.
       </p>
     </div>
   );

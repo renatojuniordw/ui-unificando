@@ -2,8 +2,10 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { NavItem } from "../../types";
 import { ROUTES } from "../../routes";
+import { CTA } from "../../constants/cta";
 import LogoUnificando from "../../assets/img/LOGO_UNIFICANDO.svg";
 import { useHeaderMenu } from "../../hooks/useHeaderMenu";
+import { trackCtaClick } from "../../utils/analytics";
 
 interface HeaderProps {
   navItems: NavItem[];
@@ -13,7 +15,6 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
   const { pathname } = useLocation();
 
-  // Custom hook for menu state
   const {
     isMenuOpen,
     isSolutionsOpen,
@@ -27,7 +28,6 @@ export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
     closeSolutions,
   } = useHeaderMenu();
 
-  // Helper to check active state for solutions dropdown
   const isServicesActive = (
     [
       ROUTES.SERVICES,
@@ -37,23 +37,32 @@ export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
     ] as string[]
   ).includes(pathname);
 
+  const handleCtaClick = () => {
+    trackCtaClick({
+      label: CTA.primary.label,
+      location: "header_primary",
+      to: CTA.primary.to,
+    });
+    window.open(CTA.primary.to as string, "_blank", "noopener,noreferrer");
+  };
+
   return (
-    <header className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md border-b border-slate-200 z-50">
-      <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 bg-slate-950 border-b-4 border-[#ccff00] z-50">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
         <Link
           to="/"
-          className="flex items-center gap-2 cursor-pointer"
+          className="flex items-center gap-2 cursor-pointer bg-[#ccff00] p-2 border-2 border-slate-950 shadow-[4px_4px_0px_#fff] hover:-translate-y-1 hover:shadow-[6px_6px_0px_#fff] transition-all"
           onClick={closeMenu}
         >
-          <img src={LogoUnificando} alt="Unificando" className="h-8 w-auto" />
+          <img src={LogoUnificando} alt="Unificando" className="h-6 w-auto" />
         </Link>
 
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-8">
           <Link
             to={ROUTES.HOME}
-            className={`text-xs font-black uppercase tracking-[0.15em] transition-colors ${pathname === ROUTES.HOME ? "text-indigo-600" : "text-slate-500 hover:text-indigo-600"}`}
+            className={`text-xs font-black uppercase tracking-widest transition-colors hover:bg-[#ccff00] hover:text-slate-950 py-2 px-3 border-2 border-transparent hover:border-[#ccff00] ${pathname === ROUTES.HOME ? "bg-[#ccff00] text-slate-950 border-[#ccff00]" : "text-white"}`}
           >
-            Início
+            INÍCIO
           </Link>
 
           <div
@@ -66,54 +75,48 @@ export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
               onClick={toggleSolutions}
               aria-expanded={isSolutionsOpen}
               aria-haspopup="true"
-              className={`text-xs font-black uppercase tracking-[0.15em] transition-colors flex items-center gap-1 py-4 ${isServicesActive
-                  ? "text-indigo-600"
-                  : "text-slate-500 hover:text-indigo-600"
+              className={`text-xs font-black uppercase tracking-widest transition-colors flex items-center gap-2 py-2 px-3 border-2 border-transparent hover:bg-[#ccff00] hover:text-slate-950 hover:border-[#ccff00] ${isServicesActive
+                  ? "bg-[#ccff00] text-slate-950 border-[#ccff00]"
+                  : "text-white"
                 }`}
             >
-              Serviços
+              SOLUÇÕES
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className={`h-3 w-3 transition-transform ${isSolutionsOpen ? "rotate-180" : ""}`}
+                className={`h-4 w-4 transition-transform ${isSolutionsOpen ? "rotate-180" : ""}`}
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 9l-7 7-7-7"
-                />
+                <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={3} d="M19 9l-7 7-7-7" />
               </svg>
             </button>
 
             {isSolutionsOpen && (
-              <div className="absolute top-full left-0 w-64 bg-white border border-slate-100 rounded-[1.5rem] shadow-2xl p-2 animate-in fade-in slide-in-from-top-2 duration-200">
+              <div className="absolute top-full left-0 mt-4 w-72 bg-white border-4 border-slate-950 shadow-[8px_8px_0px_#ccff00] p-4 animate-in fade-in slide-in-from-top-2 duration-200">
                 <Link
                   to={ROUTES.SERVICES}
                   onClick={closeMenu}
-                  className="w-full text-left p-3 hover:bg-slate-50 rounded-xl transition-colors mb-1 group block"
+                  className="w-full text-left p-4 bg-slate-950 text-white hover:bg-[#ccff00] hover:text-slate-950 transition-colors mb-4 block border-2 border-slate-950 shadow-[4px_4px_0px_#000] group"
                 >
-                  <span className="block text-xs font-black text-slate-900 uppercase tracking-tight group-hover:text-indigo-600">
-                    Ver Todas
+                  <span className="block text-sm font-black uppercase tracking-widest">
+                    VISÃO GERAL
                   </span>
-                  <span className="block text-[10px] text-slate-400 font-bold">
-                    Ecossistema completo
+                  <span className="block text-[10px] font-mono font-bold mt-1 opacity-80 uppercase">
+                    O ECOSSISTEMA COMPLETO
                   </span>
                 </Link>
-                <div className="h-px bg-slate-100 my-1 mx-2" />
                 {solutionItems.map((item) => (
                   <Link
                     key={item.path}
                     to={item.path}
                     onClick={closeMenu}
-                    className="w-full text-left p-3 hover:bg-slate-50 rounded-xl transition-colors group block"
+                    className="w-full text-left p-3 hover:bg-slate-100 text-slate-950 transition-colors block border-b-2 border-slate-200 last:border-b-0 group"
                   >
-                    <span className="block text-xs font-black text-slate-900 uppercase tracking-tight group-hover:text-indigo-600">
+                    <span className="block text-xs font-black uppercase tracking-widest group-hover:text-indigo-600">
                       {item.label}
                     </span>
-                    <span className="block text-[10px] text-slate-400 font-bold">
+                    <span className="block text-[10px] font-mono font-bold mt-1 text-slate-500 uppercase">
                       {item.desc}
                     </span>
                   </Link>
@@ -128,36 +131,36 @@ export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-xs font-black uppercase tracking-[0.15em] transition-colors ${pathname === item.path ? "text-indigo-600" : "text-slate-500 hover:text-indigo-600"}`}
+                className={`text-xs font-black uppercase tracking-widest transition-colors hover:bg-[#ccff00] hover:text-slate-950 py-2 px-3 border-2 border-transparent hover:border-[#ccff00] ${pathname === item.path ? "bg-[#ccff00] text-slate-950 border-[#ccff00]" : "text-white"}`}
               >
                 {item.label}
               </Link>
             ))}
 
-          <Link
-            to={ROUTES.CONTACT}
-            className="bg-slate-900 text-white px-8 py-3.5 rounded-full text-xs font-black uppercase tracking-[0.1em] hover:bg-slate-800 transition-all shadow-lg shadow-slate-200"
+          <button
+            onClick={handleCtaClick}
+            className="bg-[#ccff00] ml-4 text-slate-950 px-6 py-3 text-xs font-black uppercase tracking-widest hover:bg-white transition-all border-4 border-[#ccff00] shadow-[4px_4px_0px_#fff] hover:-translate-y-1 hover:shadow-[6px_6px_0px_#fff]"
           >
-            Falar com Especialista
-          </Link>
+            FALAR COM ESPECIALISTA
+          </button>
         </nav>
 
         <button
-          className="md:hidden text-slate-900"
+          className="lg:hidden text-white bg-slate-900 border-2 border-slate-800 p-2 hover:bg-[#ccff00] hover:text-slate-950 transition-colors"
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
+            className="h-8 w-8"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
           >
             <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
+              strokeLinecap="square"
+              strokeLinejoin="miter"
+              strokeWidth={3}
               d={
                 isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"
               }
@@ -167,56 +170,53 @@ export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
       </div>
 
       {/* Mobile Nav */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-white border-b border-slate-200 py-8 px-6 flex flex-col gap-3 animate-in fade-in slide-in-from-top-4">
+      <div className={`fixed inset-0 top-20 bg-slate-950 z-40 lg:hidden overflow-y-auto transition-transform duration-300 ${isMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
+        <div className="flex flex-col p-6 min-h-full pb-24">
           <Link
             to={ROUTES.HOME}
             onClick={closeMenu}
-            className="text-left text-slate-900 text-xs font-black uppercase tracking-widest py-4 border-b border-slate-50"
+            className="text-left text-[#ccff00] text-2xl font-black uppercase tracking-tighter py-6 border-b-2 border-slate-800 hover:bg-slate-900 px-2"
           >
-            Início
+            INÍCIO
           </Link>
           <button
             onClick={toggleMobileSolutions}
-            className="w-full flex justify-between items-center text-left text-slate-900 text-xs font-black uppercase tracking-widest py-4 border-b border-slate-50"
+            className="w-full flex justify-between items-center text-left text-[#ccff00] text-2xl font-black uppercase tracking-tighter py-6 border-b-2 border-slate-800 hover:bg-slate-900 px-2"
           >
-            Serviços
+            SOLUÇÕES
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className={`h-4 w-4 transition-transform ${isMobileSolutionsOpen ? "rotate-180" : ""}`}
+              className={`h-6 w-6 transition-transform ${isMobileSolutionsOpen ? "rotate-180" : ""}`}
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 9l-7 7-7-7"
-              />
+              <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={3} d="M19 9l-7 7-7-7" />
             </svg>
           </button>
-          {isMobileSolutionsOpen && (
-            <div className="bg-slate-50 rounded-2xl px-6 py-4 flex flex-col gap-5 my-2">
+          
+          <div className={`overflow-hidden transition-all duration-300 ${isMobileSolutionsOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"}`}>
+            <div className="bg-slate-900 p-4 flex flex-col gap-4 border-l-4 border-[#ccff00] mt-2 mb-4 ml-2">
               <Link
                 to={ROUTES.SERVICES}
                 onClick={closeMenu}
-                className="text-left py-1 text-xs font-bold uppercase text-indigo-600 tracking-tight"
+                className="text-left text-sm font-black uppercase text-white bg-slate-950 border-2 border-[#ccff00] p-3 inline-block shadow-[4px_4px_0px_#ccff00]"
               >
-                Ver Todos Serviços
+                VISÃO GERAL
               </Link>
               {solutionItems.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
                   onClick={closeMenu}
-                  className="text-left py-1 text-xs font-bold uppercase text-slate-500 tracking-tight"
+                  className="text-left text-sm font-bold uppercase text-slate-300 hover:text-[#ccff00] tracking-widest block pt-2 border-t border-slate-800"
                 >
                   {item.label}
                 </Link>
               ))}
             </div>
-          )}
+          </div>
+
           {navItems
             .filter((navItem) => navItem.path !== ROUTES.HOME)
             .map((item) => (
@@ -224,20 +224,20 @@ export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
                 key={item.path}
                 to={item.path}
                 onClick={closeMenu}
-                className="text-left text-slate-900 text-xs font-black uppercase tracking-widest py-4 border-b border-slate-50"
+                className="text-left text-[#ccff00] text-2xl font-black uppercase tracking-tighter py-6 border-b-2 border-slate-800 hover:bg-slate-900 px-2"
               >
                 {item.label}
               </Link>
             ))}
-          <Link
-            to={ROUTES.CONTACT}
-            onClick={closeMenu}
-            className="bg-indigo-600 text-white w-full py-5 rounded-2xl font-black uppercase tracking-widest text-xs mt-6 text-center shadow-xl shadow-indigo-100"
+            
+          <button
+            onClick={handleCtaClick}
+            className="bg-[#ccff00] text-slate-950 w-full py-6 font-black uppercase tracking-tighter text-xl mt-8 border-4 border-transparent text-center hover:bg-white transition-all shadow-[8px_8px_0px_#fff]"
           >
-            Falar com Especialista
-          </Link>
+            FALAR COM ESPECIALISTA
+          </button>
         </div>
-      )}
+      </div>
     </header>
   );
 };
