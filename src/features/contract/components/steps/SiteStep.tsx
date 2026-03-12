@@ -12,16 +12,21 @@ export const SiteStep: React.FC<SiteStepProps> = ({
   handleInputChange,
 }) => {
   return (
-    <div className="space-y-6">
-      <h2 className="text-xl font-bold text-slate-800 mb-6 flex items-center gap-2">
-        Site & Presença Online
-      </h2>
-      <p className="text-slate-500 mb-6">Estrutura do seu site.</p>
+    <div className="space-y-12">
+      <div>
+        <h2 className="text-3xl font-black text-slate-950 uppercase tracking-tighter leading-none mb-2">
+          PRESENÇA DIGITAL
+        </h2>
+        <div className="flex items-center gap-2">
+           <div className="bg-slate-950 text-white px-2 py-0.5 text-[10px] font-black uppercase">DaaS_HOSTING</div>
+           <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest italic text-left">Quantidade de páginas estáticas hospedadas.</p>
+        </div>
+      </div>
 
-      <div className="grid md:grid-cols-2 gap-8">
+      <div className="grid md:grid-cols-2 gap-10">
         <Counter
           label="Número de Páginas"
-          sublabel="Landing Page conta como 1"
+          sublabel="LANDING PAGE CONTA COMO 01 UNIDADE"
           value={data.sitePages}
           onChange={(v) => handleInputChange("sitePages", v)}
           min={1}
