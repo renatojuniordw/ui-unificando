@@ -3,7 +3,7 @@ import { PRICING } from "../../../constants/pricing";
 
 export const PlansHeader: React.FC = () => {
   return (
-    <section className="py-24 md:py-32 bg-[#ccff00] border-b-4 border-slate-950">
+    <section className="py-12 md:py-32 bg-[#ccff00] border-b-4 border-slate-950">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 text-center">
         <span className="inline-block bg-white text-slate-950 border-2 border-slate-950 px-3 py-1 text-xs font-black uppercase tracking-widest mb-6 shadow-[4px_4px_0px_#000]">
           PLANOS UNIFICANDO

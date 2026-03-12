@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../routes";
 import { PageTransition } from "../components/common/PageTransition";
@@ -16,6 +16,7 @@ interface PlansProps {}
 
 export const Plans: React.FC<PlansProps> = () => {
   const navigate = useNavigate();
+  const [activeTab, setActiveTab] = useState<"support" | "ai" | "site">("support");
   const {
     // State
     includeSupport,
@@ -106,31 +107,63 @@ export const Plans: React.FC<PlansProps> = () => {
       />
 
       {/* CONFIGURATOR */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-3 gap-8">
-          <SupportModule
-            includeSupport={includeSupport}
-            setIncludeSupport={setIncludeSupport}
-            inboxes={inboxes}
-            setInboxes={setInboxes}
-            attendants={attendants}
-            setAttendants={setAttendants}
-          />
+      <section className="py-12 md:py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-12">
+          {/* Mobile Tabs */}
+          <div className="flex lg:hidden overflow-x-auto gap-2 mb-8 pb-4 no-scrollbar">
+            {[
+              { id: "support", label: "Atendimento", icon: "💬" },
+              { id: "ai", label: "Inteligência", icon: "🤖" },
+              { id: "site", label: "Web/Sites", icon: "🌐" },
+            ].map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id as any)}
+                className={`flex-1 flex flex-col items-center gap-2 p-4 border-4 transition-all min-w-[120px] ${
+                  activeTab === tab.id
+                    ? "bg-[#ccff00] border-slate-950 shadow-[4px_4px_0px_#000] -translate-y-1"
+                    : "bg-white border-slate-200 text-slate-400"
+                }`}
+              >
+                <span className="text-2xl">{tab.icon}</span>
+                <span className="text-[10px] font-black uppercase tracking-widest whitespace-nowrap">
+                  {tab.label}
+                </span>
+              </button>
+            ))}
+          </div>
 
-          <AiModule
-            aiEnabled={aiEnabled}
-            aiChannels={aiChannels}
-            setAiChannels={setAiChannels}
-            aiAddons={aiAddons}
-            setAiAddons={setAiAddons}
-          />
+          <div className="grid lg:grid-cols-3 gap-8">
+            <div className={activeTab === "support" ? "block" : "hidden lg:block"}>
+              <SupportModule
+                includeSupport={includeSupport}
+                setIncludeSupport={setIncludeSupport}
+                inboxes={inboxes}
+                setInboxes={setInboxes}
+                attendants={attendants}
+                setAttendants={setAttendants}
+              />
+            </div>
 
-          <SiteModule
-            siteEnabled={siteEnabled}
-            setSiteEnabled={setSiteEnabled}
-            sitePages={sitePages}
-            setSitePages={setSitePages}
-          />
+            <div className={activeTab === "ai" ? "block" : "hidden lg:block"}>
+              <AiModule
+                aiEnabled={aiEnabled}
+                aiChannels={aiChannels}
+                setAiChannels={setAiChannels}
+                aiAddons={aiAddons}
+                setAiAddons={setAiAddons}
+              />
+            </div>
+
+            <div className={activeTab === "site" ? "block" : "hidden lg:block"}>
+              <SiteModule
+                siteEnabled={siteEnabled}
+                setSiteEnabled={setSiteEnabled}
+                sitePages={sitePages}
+                setSitePages={setSitePages}
+              />
+            </div>
+          </div>
         </div>
       </section>
 

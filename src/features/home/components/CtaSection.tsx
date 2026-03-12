@@ -4,7 +4,6 @@ import { CTA } from "../../../constants/cta";
 import { trackCtaClick } from "../../../utils/analytics";
 
 export const CtaSection: React.FC = () => {
-
   const handlePrimaryClick = () => {
     trackCtaClick({
       label: CTA.primary.label,
@@ -16,9 +15,12 @@ export const CtaSection: React.FC = () => {
 
   return (
     <section className="py-24 md:py-32 bg-[#ccff00] text-slate-950 overflow-hidden relative">
-      <div 
+      <div
         className="absolute inset-0 opacity-10 pointer-events-none mix-blend-overlay"
-        style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}
+        style={{
+          backgroundImage:
+            'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")',
+        }}
       ></div>
 
       <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center relative z-10 flex flex-col items-center">
@@ -34,11 +36,13 @@ export const CtaSection: React.FC = () => {
           </div>
 
           <h2 className="text-5xl md:text-7xl font-black mb-8 uppercase tracking-tighter leading-[0.9]">
-            Acelere Suas Vendas.<br />
+            Acelere Suas Vendas.
+            <br />
             Sem Complicar.
           </h2>
           <p className="text-lg md:text-2xl text-slate-800 mb-12 max-w-2xl mx-auto font-medium tracking-wide">
-            A estrutura exata que grandes marcas usam para automatizar atendimento, agora para você.
+            A estrutura exata que grandes marcas usam para automatizar
+            atendimento, agora para você.
           </p>
 
           <div className="flex flex-col gap-6 items-center w-full">
@@ -51,11 +55,23 @@ export const CtaSection: React.FC = () => {
             >
               <span className="flex items-center justify-center gap-4">
                 {CTA.primary.label}
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="square" strokeLinejoin="miter" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="square"
+                    strokeLinejoin="miter"
+                    strokeWidth="2.5"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  ></path>
+                </svg>
               </span>
             </motion.button>
             <span className="text-xs font-mono font-bold tracking-widest text-slate-700 uppercase mt-4">
-              IMPLEMENTAÇÃO EM 48H • SUPORTE HUMANO • ZERO FIDELIDADE
+              SUPORTE HUMANO • ZERO FIDELIDADE
             </span>
           </div>
         </motion.div>
