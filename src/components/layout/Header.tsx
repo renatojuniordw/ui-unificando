@@ -26,6 +26,8 @@ export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
     closeMenu,
     openSolutions,
     closeSolutions,
+    closeAll,
+    cancelClose,
   } = useHeaderMenu();
 
   const isServicesActive = (
@@ -52,7 +54,7 @@ export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
         <Link
           to="/"
           className="flex items-center gap-2 cursor-pointer bg-[#ccff00] p-2 border-2 border-slate-950 shadow-[4px_4px_0px_#fff] hover:-translate-y-1 hover:shadow-[6px_6px_0px_#fff] transition-all"
-          onClick={closeMenu}
+          onClick={closeAll}
         >
           <img src={LogoUnificando} alt="Unificando" className="h-6 w-auto" />
         </Link>
@@ -93,10 +95,14 @@ export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
             </button>
 
             {isSolutionsOpen && (
-              <div className="absolute top-full left-0 mt-4 w-72 bg-white border-4 border-slate-950 shadow-[8px_8px_0px_#ccff00] p-4 animate-in fade-in slide-in-from-top-2 duration-200">
+              <div
+                className="absolute top-full left-0 mt-4 w-72 bg-white border-4 border-slate-950 shadow-[8px_8px_0px_#ccff00] p-4 animate-in fade-in slide-in-from-top-2 duration-200"
+                onMouseEnter={cancelClose}
+                onMouseLeave={closeSolutions}
+              >
                 <Link
                   to={ROUTES.SERVICES}
-                  onClick={closeMenu}
+                  onClick={closeAll}
                   className="w-full text-left p-4 bg-slate-950 text-white hover:bg-[#ccff00] hover:text-slate-950 transition-colors mb-4 block border-2 border-slate-950 shadow-[4px_4px_0px_#000] group"
                 >
                   <span className="block text-sm font-black uppercase tracking-widest">
@@ -110,7 +116,7 @@ export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
                   <Link
                     key={item.path}
                     to={item.path}
-                    onClick={closeMenu}
+                    onClick={closeAll}
                     className="w-full text-left p-3 hover:bg-slate-100 text-slate-950 transition-colors block border-b-2 border-slate-200 last:border-b-0 group"
                   >
                     <span className="block text-xs font-black uppercase tracking-widest group-hover:text-indigo-600">
