@@ -4,7 +4,6 @@ import { CTA } from "../../../constants/cta";
 import { trackCtaClick } from "../../../utils/analytics";
 
 export const HeroSection: React.FC = () => {
-
   const handlePrimaryClick = () => {
     trackCtaClick({
       label: CTA.primary.label,
@@ -17,11 +16,13 @@ export const HeroSection: React.FC = () => {
 
   return (
     <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-slate-950 text-white selection:bg-[#ccff00] selection:text-slate-950">
-      
       {/* Abstract Noise/Grain Background Texture */}
-      <div 
+      <div
         className="absolute inset-0 opacity-20 pointer-events-none mix-blend-overlay"
-        style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}
+        style={{
+          backgroundImage:
+            'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")',
+        }}
       ></div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10 w-full flex flex-col items-start text-left">
@@ -39,16 +40,20 @@ export const HeroSection: React.FC = () => {
 
           {/* Massive Typographic Hero */}
           <h1 className="text-5xl md:text-7xl lg:text-[7rem] font-bold tracking-tighter leading-[0.9] text-white uppercase mb-8 break-words">
-            Transforme seu<br/>
-            WhatsApp em <br/>
+            Transforme seu
+            <br />
+            WhatsApp em <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-100 to-slate-600 block sm:inline">
               um ativo de escala
             </span>
           </h1>
 
           <p className="text-lg md:text-2xl text-slate-400 max-w-2xl font-light tracking-wide leading-relaxed mb-12">
-            Centralizamos seu atendimento, implementamos IA inteligente e destruímos o caos financeiro do seu inbox.
-            <strong className="text-white font-medium block mt-2">Sem falhas. Resultados em 48h.</strong>
+            Centralizamos seu atendimento, implementamos IA inteligente e
+            destruímos o caos do seu inbox.
+            <strong className="text-white font-medium block mt-2">
+              Sem falhas. Resultados em 48h.
+            </strong>
           </p>
 
           <div className="flex flex-col sm:flex-row items-start lg:items-center gap-6 mb-12 border-l-2 pl-4 border-slate-800">
@@ -63,26 +68,48 @@ export const HeroSection: React.FC = () => {
               {/* Shine effect on hover */}
               <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_0.8s_forwards] bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12"></div>
               <span className="relative z-10 flex items-center gap-3">
-                {CTA.primary.label} 
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="square" strokeLinejoin="miter" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                {CTA.primary.label}
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="square"
+                    strokeLinejoin="miter"
+                    strokeWidth="2.5"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  ></path>
+                </svg>
               </span>
             </motion.button>
-            
+
             {/* Direct Social Proof beneath/beside */}
             <div className="flex flex-col">
               <div className="flex -space-x-3 mb-2">
-                {[1, 2, 3].map(i => (
-                  <div key={i} className="w-10 h-10 rounded-full border-2 border-slate-950 bg-slate-800 flex items-center justify-center text-[10px] font-bold">★</div>
+                {[1, 2, 3].map((i) => (
+                  <div
+                    key={i}
+                    className="w-10 h-10 rounded-full border-2 border-slate-950 bg-slate-800 flex items-center justify-center text-[10px] font-bold"
+                  >
+                    ★
+                  </div>
                 ))}
               </div>
-              <span className="text-xs font-mono text-slate-500 uppercase tracking-widest">+ DE 5.000 LEADS SALVOS</span>
+              <span className="text-xs font-mono text-slate-500 uppercase tracking-widest">
+                + DE 5.000 LEADS SALVOS
+              </span>
             </div>
           </div>
-          
+
           <div className="text-sm border-t border-slate-900 pt-8 max-w-xl">
-             <a href="#solutions" className="text-slate-500 uppercase tracking-widest font-bold text-[10px] hover:text-white transition-colors duration-300 flex items-center gap-2 w-max">
-               ↓ Explorar mecanismo
-             </a>
+            <a
+              href="#solutions"
+              className="text-slate-500 uppercase tracking-widest font-bold text-[10px] hover:text-white transition-colors duration-300 flex items-center gap-2 w-max"
+            >
+              ↓ Explorar mecanismo
+            </a>
           </div>
         </motion.div>
       </div>
