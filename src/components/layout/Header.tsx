@@ -151,29 +151,38 @@ export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
           </button>
         </nav>
 
-        <button
-          className="lg:hidden text-white bg-slate-900 border-2 border-slate-800 p-2 hover:bg-[#ccff00] hover:text-slate-950 transition-colors"
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-8 w-8"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+         <div className="flex items-center gap-3 lg:hidden">
+          <button
+            onClick={handleCtaClick}
+            className="bg-[#ccff00] text-slate-950 px-3 py-1.5 text-[10px] font-black uppercase tracking-widest border-2 border-slate-950 shadow-[2px_2px_0px_#fff] active:translate-y-0.5 active:shadow-none transition-all"
           >
-            <path
-              strokeLinecap="square"
-              strokeLinejoin="miter"
-              strokeWidth={3}
-              d={
-                isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"
-              }
-            />
-          </svg>
-        </button>
+            Falar
+          </button>
+          <button
+            className="text-white bg-slate-900 border-2 border-slate-800 p-2 hover:bg-[#ccff00] hover:text-slate-950 transition-colors"
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="square"
+                strokeLinejoin="miter"
+                strokeWidth={3}
+                d={
+                  isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"
+                }
+              />
+            </svg>
+          </button>
+        </div>
       </div>
+
 
       {/* Mobile Nav */}
       <div className={`fixed inset-0 top-20 bg-slate-950 z-40 lg:hidden overflow-y-auto transition-transform duration-300 ${isMenuOpen ? "translate-x-0" : "translate-x-full"}`}>

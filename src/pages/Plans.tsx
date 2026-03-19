@@ -107,33 +107,38 @@ export const Plans: React.FC<PlansProps> = () => {
       />
 
       {/* CONFIGURATOR */}
-      <section className="py-12 md:py-16 bg-white">
+      <section className="py-4 md:py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-12">
-          {/* Mobile Tabs */}
-          <div className="flex lg:hidden overflow-x-auto gap-2 mb-8 pb-4 no-scrollbar">
-            {[
-              { id: "support", label: "Atendimento", icon: "💬" },
-              { id: "ai", label: "Inteligência", icon: "🤖" },
-              { id: "site", label: "Web/Sites", icon: "🌐" },
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id as any)}
-                className={`flex-1 flex flex-col items-center gap-2 p-4 border-4 transition-all min-w-[120px] ${
-                  activeTab === tab.id
-                    ? "bg-[#ccff00] border-slate-950 shadow-[4px_4px_0px_#000] -translate-y-1"
-                    : "bg-white border-slate-200 text-slate-400"
-                }`}
-              >
-                <span className="text-2xl">{tab.icon}</span>
-                <span className="text-[10px] font-black uppercase tracking-widest whitespace-nowrap">
-                  {tab.label}
-                </span>
-              </button>
-            ))}
+          {/* Mobile Tabs Header */}
+          <div className="lg:hidden mb-4">
+            <span className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400 block mb-3">
+              1. Selecione o módulo para configurar:
+            </span>
+            <div className="flex overflow-x-auto gap-3 pb-4 no-scrollbar snap-x snap-mandatory px-0.5">
+              {[
+                { id: "support", label: "Atendimento", icon: "💬" },
+                { id: "ai", label: "Inteligência", icon: "🤖" },
+                { id: "site", label: "Web/Sites", icon: "🌐" },
+              ].map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id as any)}
+                  className={`flex-1 flex flex-col items-center gap-2 p-4 border-4 transition-all min-w-[120px] snap-center ${
+                    activeTab === tab.id
+                      ? "bg-[#ccff00] border-slate-950 shadow-[4px_4px_0px_#000] -translate-y-1"
+                      : "bg-white border-slate-200 text-slate-400 hover:border-slate-300"
+                  }`}
+                >
+                  <span className="text-2xl">{tab.icon}</span>
+                  <span className="text-[10px] font-black uppercase tracking-widest whitespace-nowrap">
+                    {tab.label}
+                  </span>
+                </button>
+              ))}
+            </div>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-3 gap-6">
             <div className={activeTab === "support" ? "block" : "hidden lg:block"}>
               <SupportModule
                 includeSupport={includeSupport}
@@ -167,8 +172,8 @@ export const Plans: React.FC<PlansProps> = () => {
         </div>
       </section>
 
-      <ServiceBreakdown />
       <PlanFooterInfo />
+
     </PageTransition>
   );
 };
