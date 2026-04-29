@@ -29,8 +29,8 @@ export const ProblemLawSection: React.FC = () => {
             O DIAGNÓSTICO DO CAOS
           </div>
           <h2 className="text-5xl md:text-7xl font-black text-slate-950 mb-8 uppercase tracking-tighter leading-[0.9]">
-            VOCÊ É ADVOGADO, <br/>
-            <span className="bg-red-600 text-white px-2 inline-block -rotate-1 border-4 border-slate-950">NÃO TELEFONISTA.</span>
+            O WHATSAPP NÃO PODE <br/>
+            <span className="bg-red-600 text-white px-2 inline-block -rotate-1 border-4 border-slate-950">MATAR O SEU ESCRITÓRIO.</span>
           </h2>
           <p className="text-xl md:text-2xl text-slate-950 max-w-3xl font-mono font-bold uppercase leading-tight">
             Escritórios de advocacia perdem até 40% das oportunidades porque demoram a responder. Se o seu cliente não recebe suporte imediato, ele vai para o Google procurar seu concorrente.

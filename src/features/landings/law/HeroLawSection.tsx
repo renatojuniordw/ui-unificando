@@ -23,9 +23,8 @@ export const HeroLawSection: React.FC = () => {
           </div>
           
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[0.9] mb-8 uppercase tracking-tighter">
-            O WHATSAPP NÃO PODE <br/>
-            <span className="text-slate-950 bg-[#ccff00] px-3 inline-block -rotate-1 border-4 border-slate-950 shadow-[8px_8px_0px_#fff]">MATAR</span> <br/>
-            O SEU ESCRITÓRIO.
+            VOCÊ É ADVOGADO, <br/>
+            <span className="text-slate-950 bg-[#ccff00] px-3 inline-block -rotate-1 border-4 border-slate-950 shadow-[8px_8px_0px_#fff]">NÃO TELEFONISTA.</span>
           </h1>
 
           <p className="text-xl md:text-2xl text-slate-300 mb-12 leading-none font-bold uppercase p-6 border-l-8 border-[#ccff00] bg-slate-900/50 max-w-xl">

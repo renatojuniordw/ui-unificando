@@ -11,6 +11,7 @@ import { AiModule } from "../features/plans/components/AiModule";
 import { SiteModule } from "../features/plans/components/SiteModule";
 import { ServiceBreakdown } from "../features/plans/components/ServiceBreakdown";
 import { PlanFooterInfo } from "../features/plans/components/PlanFooterInfo";
+import { trackPlanSimulation } from "../utils/analytics";
 
 interface PlansProps {}
 
@@ -54,6 +55,12 @@ export const Plans: React.FC<PlansProps> = () => {
         monthly,
       },
     };
+
+    trackPlanSimulation({
+      name: `Plano Personalizado`,
+      price: monthly,
+      cycle: "monthly"
+    });
 
     localStorage.setItem(
       "unificando_plan_selection",

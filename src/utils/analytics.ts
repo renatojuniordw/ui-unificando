@@ -25,3 +25,19 @@ export function trackCtaClick(params: {
   });
 }
 
+export function trackWhatsAppClick(location: string = "floating_button") {
+  pushDataLayer({
+    event: "whatsapp_click",
+    location: location,
+  });
+}
+
+export function trackPlanSimulation(planData: any) {
+  pushDataLayer({
+    event: "begin_checkout",
+    plan_name: planData.name,
+    plan_price: planData.price,
+    billing_cycle: planData.cycle,
+  });
+}
+

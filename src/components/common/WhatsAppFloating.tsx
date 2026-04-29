@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { SOCIAL_LINKS } from "../../constants/social";
+import { trackWhatsAppClick } from "../../utils/analytics";
 
 export const WhatsAppFloating: React.FC = () => {
   const whatsappMessage =
@@ -10,6 +11,7 @@ export const WhatsAppFloating: React.FC = () => {
       href={`${SOCIAL_LINKS.whatsapp}?text=${encodeURIComponent(whatsappMessage)}`}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={() => trackWhatsAppClick("floating_button")}
       initial={{ opacity: 0, scale: 0.8, y: 20 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ delay: 1.5, duration: 0.5 }}
