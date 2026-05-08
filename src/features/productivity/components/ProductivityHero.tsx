@@ -1,13 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
 import { WhatsAppSimulation } from "../WhatsAppSimulation";
 import { CTA } from "../../../constants/cta";
 import { trackCtaClick } from "../../../utils/analytics";
 
 export const ProductivityHero: React.FC = () => {
-  const navigate = useNavigate();
-
   return (
     <section className="py-20 md:py-32 bg-white relative overflow-hidden border-b-2 border-slate-950">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 grid md:grid-cols-2 gap-16 items-center">

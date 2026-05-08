@@ -1,6 +1,3 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-
 export const IntegrationsSection = () => {
     return (
         <section className="py-24 bg-white border-b-4 border-slate-950">

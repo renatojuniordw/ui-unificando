@@ -50,7 +50,7 @@ export const useHeaderMenu = () => {
   }, [scheduleClose]);
 
   const toggleSolutions = useCallback(
-    (e?: React.MouseEvent) => {
+    () => {
       cancelClose();
       setIsSolutionsOpen((prev) => !prev);
     },

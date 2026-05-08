@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { MARKET_INSIGHTS } from "../../../constants/market-data";
 import { CTA } from "../../../constants/cta";
 import { trackCtaClick } from "../../../utils/analytics";
 import { PartnerTech } from "./PartnerTech";
@@ -23,12 +22,6 @@ export const SolutionsSection: React.FC<SolutionsSectionProps> = ({
       navigate(to);
     }
   };
-
-  const insightsByPillar = React.useMemo(() => {
-    const map = new Map<string, (typeof MARKET_INSIGHTS)[number]>();
-    for (const item of MARKET_INSIGHTS) map.set(item.pilar, item);
-    return map;
-  }, []);
 
   return (
     <section id="solutions" className="py-24 bg-white scroll-mt-24 border-b-2 border-slate-950">

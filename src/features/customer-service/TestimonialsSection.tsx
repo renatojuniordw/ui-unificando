@@ -1,6 +1,3 @@
-import React from "react";
-import { motion } from "framer-motion";
-
 const StatIcon = () => (
   <div className="w-12 h-12 bg-[#ccff00] border-2 border-slate-950 flex items-center justify-center text-slate-950 mb-6 shadow-[4px_4px_0px_#000]">
     <svg

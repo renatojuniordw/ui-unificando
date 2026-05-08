@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { CTA } from "../../../constants/cta";
 import { trackCtaClick } from "../../../utils/analytics";
 
@@ -101,4 +101,3 @@ export const InvestmentSummary: React.FC<InvestmentSummaryProps> = ({
 
   );
 };
-

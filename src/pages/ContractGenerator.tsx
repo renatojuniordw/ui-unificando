@@ -2,7 +2,6 @@ import React, { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { PageTransition } from "../components/common/PageTransition";
 import { SEO } from "../components/common/SEO";
-import { PRICING } from "../constants/pricing";
 import { useNavigate, Link } from "react-router-dom";
 import {
   ContractData,

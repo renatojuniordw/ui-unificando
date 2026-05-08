@@ -1,12 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
 import { CTA } from "../../../constants/cta";
 import { trackCtaClick } from "../../../utils/analytics";
 
 export const CtaLawSection: React.FC = () => {
-  const navigate = useNavigate();
-
   return (
     <section className="py-24 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10 text-center">

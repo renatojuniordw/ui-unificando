@@ -9,7 +9,6 @@ import { InvestmentSummary } from "../features/plans/components/InvestmentSummar
 import { SupportModule } from "../features/plans/components/SupportModule";
 import { AiModule } from "../features/plans/components/AiModule";
 import { SiteModule } from "../features/plans/components/SiteModule";
-import { ServiceBreakdown } from "../features/plans/components/ServiceBreakdown";
 import { PlanFooterInfo } from "../features/plans/components/PlanFooterInfo";
 import { trackPlanSimulation } from "../utils/analytics";
 

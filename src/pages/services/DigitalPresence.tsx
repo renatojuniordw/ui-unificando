@@ -1,7 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../routes";
-import { motion } from "framer-motion";
 import { SEO } from "../../components/common/SEO";
 import { PageTransition } from "../../components/common/PageTransition";
 import { CTA } from "../../constants/cta";
@@ -9,12 +7,9 @@ import { trackCtaClick } from "../../utils/analytics";
 
 // Animação de Scroll e Construção de Landing Page
 import { LandingPageAnimation } from "../../features/digital-presence/LandingPageAnimation";
-import { PRICING } from "../../constants/pricing";
 import { FAQSection } from "../../features/digital-presence/FAQSection";
 
 export const DigitalPresence: React.FC = () => {
-  const navigate = useNavigate();
-
   const handleCTA = () => {
     trackCtaClick({
       label: CTA.primary.label,

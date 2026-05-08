@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import { ModalType, ModalProps } from "../../types/ui";
+import { ModalProps } from "../../types/ui";
 
 export const Modal: React.FC<ModalProps> = ({
   isOpen,
@@ -135,5 +135,3 @@ export const Modal: React.FC<ModalProps> = ({
     </AnimatePresence>
   );
 };
-
-// export { ModalType };

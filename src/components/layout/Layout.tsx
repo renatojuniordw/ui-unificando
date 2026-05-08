@@ -54,7 +54,6 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
 
       {!shouldHideLayout && <Footer />}
       {!shouldHideLayout && <WhatsAppFloating />}
-      {/* <ChatwootWidget /> */}
     </div>
   );
 };

@@ -6,7 +6,6 @@ import { HeroSection } from "../features/home/components/HeroSection";
 import { StatsSection } from "../features/home/components/StatsSection";
 import { ProblemSection } from "../features/home/components/ProblemSection";
 import { SolutionsSection } from "../features/home/components/SolutionsSection";
-import { SocialProofSection } from "@/features/home/components/SocialProofSection";
 import { JourneySection } from "../features/home/components/JourneySection";
 import { CtaSection } from "../features/home/components/CtaSection";
 
@@ -80,7 +79,6 @@ export const Home: React.FC = () => {
         onSelectSegment={handleSelectSegment}
       />
       <SolutionsSection selectedSegment={selectedSegment} />
-      {/* <SocialProofSection /> */}
       <JourneySection />
       <CtaSection />
     </PageTransition>
