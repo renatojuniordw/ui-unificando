@@ -34,11 +34,18 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   return (
     <div className="min-h-screen flex flex-col selection:bg-indigo-100 selection:text-indigo-900">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-white focus:text-slate-950 focus:px-6 focus:py-3 focus:border-4 focus:border-slate-950 focus:font-black focus:uppercase focus:text-sm"
+      >
+        PULAR PARA O CONTEÚDO
+      </a>
+
       {!shouldHideLayout && (
         <Header navItems={navItems} solutionItems={solutionItems} />
       )}
 
-      <main className={`flex-grow ${!shouldHideLayout ? "pt-20" : ""}`}>
+      <main id="main-content" className={`flex-grow ${!shouldHideLayout ? "pt-20" : ""}`}>
         {children}
       </main>
 

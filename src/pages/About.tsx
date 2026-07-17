@@ -158,9 +158,9 @@ export const About: React.FC = () => {
                 <span className="absolute -top-6 -right-6 bg-white text-slate-950 text-4xl font-black border-4 border-slate-950 w-16 h-16 flex items-center justify-center shadow-[4px_4px_0px_#000]">
                   {principle.id}
                 </span>
-                <h4 className="font-black text-slate-950 text-2xl uppercase tracking-tighter mb-4 pr-12 leading-none">
+                <h3 className="font-black text-slate-950 text-2xl uppercase tracking-tighter mb-4 pr-12 leading-none">
                   {principle.title}
-                </h4>
+                </h3>
                 <p className="text-sm text-slate-950 font-mono font-bold leading-relaxed uppercase bg-white p-4 border-2 border-slate-950 mt-auto shadow-[4px_4px_0px_#000]">
                   {principle.description}
                 </p>

@@ -214,9 +214,9 @@ export const PrivacyPolicy: React.FC = () => {
           <div className="space-y-16">
             {sections.map((section, index) => (
               <div key={index} className="scroll-mt-32" id={`section-${index}`}>
-                <div className="inline-block bg-white text-slate-950 border-4 border-slate-950 px-4 py-1 font-black uppercase tracking-tighter text-xl mb-6 shadow-[4px_4px_0px_#000]">
+                <h2 className="inline-block bg-white text-slate-950 border-4 border-slate-950 px-4 py-1 font-black uppercase tracking-tighter text-xl mb-6 shadow-[4px_4px_0px_#000]">
                   {section.title}
-                </div>
+                </h2>
                 <div className="text-slate-800 leading-relaxed font-black uppercase tracking-tight text-lg md:text-xl">
                   {section.content}
                 </div>

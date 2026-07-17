@@ -223,6 +223,7 @@ export const ContractGenerator: React.FC = () => {
         }}
       />
 
+      <main>
       {/* Header */}
       <div className="bg-slate-950 text-white py-20 px-6 text-center relative overflow-hidden border-b-8 border-slate-950">
         <Link
@@ -455,6 +456,7 @@ export const ContractGenerator: React.FC = () => {
         confirmText={modal.confirmText}
         onConfirm={modal.onConfirm}
       />
+      </main>
     </PageTransition>
   );
 };

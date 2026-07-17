@@ -28,7 +28,7 @@ export class ErrorBoundary extends React.Component<
     if (this.state.hasError) {
       return (
         this.props.fallback || (
-          <div className="min-h-screen flex items-center justify-center bg-slate-50 p-8">
+          <div className="min-h-screen flex items-center justify-center bg-slate-50 p-8" role="alert">
             <div className="text-center max-w-md">
               <h2 className="text-2xl font-black text-slate-950 mb-4 uppercase">
                 Algo deu errado

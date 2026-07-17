@@ -150,10 +150,11 @@ export const ContactForm: React.FC = () => {
       </div>
       <form onSubmit={handleSubmit} className="space-y-8 mt-6">
         <div>
-          <label className="inline-block bg-[#ccff00] text-slate-950 text-[10px] font-black mb-3 uppercase tracking-widest px-2 py-1 border-2 border-slate-950 shadow-[2px_2px_0px_#000]">
+          <label htmlFor="contact-name" className="inline-block bg-[#ccff00] text-slate-950 text-[10px] font-black mb-3 uppercase tracking-widest px-2 py-1 border-2 border-slate-950 shadow-[2px_2px_0px_#000]">
             SEU NOME <span className="text-red-600">*</span>
           </label>
           <input
+            id="contact-name"
             required
             type="text"
             value={name}

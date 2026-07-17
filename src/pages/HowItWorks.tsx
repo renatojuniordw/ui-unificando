@@ -67,9 +67,9 @@ export const HowItWorks: React.FC = () => {
                 <div className="inline-block bg-white border-2 border-slate-950 text-slate-950 px-3 py-1 text-xs font-black uppercase tracking-widest mb-4 shadow-[4px_4px_0px_#000]">
                   FASE 01
                 </div>
-                <h3 className="text-4xl lg:text-5xl font-black text-slate-950 mb-6 uppercase tracking-tighter leading-[0.9]">
+                <h2 className="text-4xl lg:text-5xl font-black text-slate-950 mb-6 uppercase tracking-tighter leading-[0.9]">
                   PROTOTIPAGEM
-                </h3>
+                </h2>
                 <div className="bg-[#ccff00] p-8 border-4 border-slate-950 mb-8 inline-block md:ml-auto text-left lg:max-w-md shadow-[8px_8px_0px_#000]">
                   <p className="text-sm font-black text-slate-950 mb-3 uppercase tracking-widest">
                     Fase de descoberta e ideação
@@ -126,9 +126,9 @@ export const HowItWorks: React.FC = () => {
                 <div className="inline-block bg-slate-950 text-[#ccff00] border-2 border-slate-950 px-3 py-1 text-xs font-black uppercase tracking-widest mb-4 shadow-[4px_4px_0px_#000]">
                   FASE 02
                 </div>
-                <h3 className="text-4xl lg:text-5xl font-black text-slate-950 mb-6 uppercase tracking-tighter leading-[0.9]">
+                <h2 className="text-4xl lg:text-5xl font-black text-slate-950 mb-6 uppercase tracking-tighter leading-[0.9]">
                   VALIDAÇÃO
-                </h3>
+                </h2>
                 <div className="bg-white p-8 border-4 border-slate-950 mb-8 md:mr-auto lg:max-w-md shadow-[8px_8px_0px_#000]">
                   <p className="text-sm font-black text-slate-950 mb-3 uppercase tracking-widest">
                     Fase de teste e iteração
@@ -173,9 +173,9 @@ export const HowItWorks: React.FC = () => {
                 <div className="inline-block bg-white border-2 border-slate-950 text-slate-950 px-3 py-1 text-xs font-black uppercase tracking-widest mb-4 shadow-[4px_4px_0px_#000]">
                   FASE 03
                 </div>
-                <h3 className="text-4xl lg:text-5xl font-black text-slate-950 mb-6 uppercase tracking-tighter leading-[0.9]">
+                <h2 className="text-4xl lg:text-5xl font-black text-slate-950 mb-6 uppercase tracking-tighter leading-[0.9]">
                   DEPLOY
-                </h3>
+                </h2>
                 <div className="bg-[#ccff00] p-8 border-4 border-slate-950 mb-8 inline-block md:ml-auto text-left lg:max-w-md shadow-[8px_8px_0px_#000]">
                   <p className="text-sm font-black text-slate-950 mb-3 uppercase tracking-widest">
                     Fase de produção e entrega
@@ -228,9 +228,9 @@ export const HowItWorks: React.FC = () => {
           <span className="inline-block bg-white border-2 border-slate-950 px-3 py-1 text-xs font-black uppercase tracking-widest mb-6 shadow-[4px_4px_0px_#000]">
             O CICLO NÃO PARA
           </span>
-          <h2 className="text-5xl md:text-7xl font-black mb-16 uppercase tracking-tighter leading-[0.9]">
+          <h3 className="text-5xl md:text-7xl font-black mb-16 uppercase tracking-tighter leading-[0.9]">
             UMA JORNADA<br/> CONTÍNUA
-          </h2>
+          </h3>
 
           <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mb-20 text-left">
             <div className="bg-white border-4 border-slate-950 p-8 shadow-[8px_8px_0px_#000] hover:bg-slate-950 hover:text-white group transition-colors">
@@ -259,7 +259,7 @@ export const HowItWorks: React.FC = () => {
             </div>
           </div>
 
-          <p className="text-white font-bold mb-12 max-w-lg mx-auto text-[11px] uppercase tracking-[0.2em] leading-loose">
+          <p            className="text-slate-950 font-bold mb-12 max-w-lg mx-auto text-[11px] uppercase tracking-[0.2em] leading-loose">
             Projetos autorais, produtos utilitários ou sistemas sob medida — o processo é o mesmo.
           </p>
 

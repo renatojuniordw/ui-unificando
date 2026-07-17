@@ -72,9 +72,9 @@ export const Contact: React.FC = () => {
                     ✓
                   </div>
                   <div>
-                    <h4 className="font-black text-slate-950 uppercase text-xs md:text-sm tracking-widest mb-2 leading-none">
+                    <h2 className="font-black text-slate-950 uppercase text-xs md:text-sm tracking-widest mb-2 leading-none">
                       {benefit.title}
-                    </h4>
+                    </h2>
                     <p className="text-xs text-slate-950 font-mono font-bold leading-relaxed uppercase">
                       {benefit.description}
                     </p>
