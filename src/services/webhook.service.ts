@@ -1,23 +1,7 @@
 import { WebhookResponse } from "../types/webhook";
 import { ContractSubmissionPayload } from "../types/contract";
-import { ContactWebhookData } from "../types/contact";
 
 export const WebhookService = {
-  /**
-   * Envia dados do formulário de contato para o Webhook
-   */
-  async sendContact(data: ContactWebhookData): Promise<WebhookResponse> {
-    const baseUrl = import.meta.env.VITE_N8N_WEBHOOK_URL;
-    if (!baseUrl) {
-      console.error("URL do Webhook de contato não definida.");
-      throw new Error(
-        "Erro de configuração: URL do Webhook de contato não definida.",
-      );
-    }
-    const url = `${this.ensureProtocol(baseUrl)}/api/contact`;
-    return this.postRequest(url, data);
-  },
-
   /**
    * Envia dados do gerador de contrato para o Webhook
    */
@@ -45,37 +29,58 @@ export const WebhookService = {
   /**
    * Método privado genérico para envio (interno)
    */
-  async postRequest(url: string, data: any): Promise<WebhookResponse> {
-    const idem = crypto.randomUUID();
+  async postRequest(
+    url: string,
+    data: any,
+    retries = 2,
+  ): Promise<WebhookResponse> {
+    const TIMEOUT = 15000;
 
-    try {
-      const response = await fetch(url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Idempotency-Key": idem,
-        },
-        body: JSON.stringify(data),
-      });
+    for (let attempt = 0; attempt <= retries; attempt++) {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), TIMEOUT);
 
-      if (!response.ok) {
-        throw new Error(
-          `Erro na requisição: ${response.status} - ${response.statusText}`,
-        );
+      try {
+        const response = await fetch(url, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Idempotency-Key": crypto.randomUUID(),
+          },
+          body: JSON.stringify(data),
+          signal: controller.signal,
+        });
+        clearTimeout(timeoutId);
+
+        if (!response.ok) {
+          if (response.status >= 500 && attempt < retries) {
+            await new Promise((r) => setTimeout(r, 1000 * (attempt + 1)));
+            continue;
+          }
+          throw new Error(
+            `Erro na requisição: ${response.status} - ${response.statusText}`,
+          );
+        }
+
+        const responseData = await response
+          .text()
+          .then((text) => (text ? JSON.parse(text) : {}));
+
+        return {
+          success: true,
+          data: responseData,
+        };
+      } catch (error) {
+        clearTimeout(timeoutId);
+        if (attempt < retries) {
+          await new Promise((r) => setTimeout(r, 1000 * (attempt + 1)));
+          continue;
+        }
+        console.error("WebhookService Error:", error);
+        throw error;
       }
-
-      // Tenta fazer o parse do JSON, mas não falha se não tiver corpo de resposta
-      const responseData = await response
-        .text()
-        .then((text) => (text ? JSON.parse(text) : {}));
-
-      return {
-        success: true,
-        data: responseData,
-      };
-    } catch (error) {
-      console.error("WebhookService Error:", error);
-      throw error;
     }
+
+    throw new Error("Falha na requisição após todas as tentativas.");
   },
 };

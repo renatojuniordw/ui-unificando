@@ -11,24 +11,33 @@ export const AddressStep: React.FC<AddressStepProps> = ({
   handleInputChange,
 }) => {
   const [loadingCep, setLoadingCep] = useState(false);
+  const [cepError, setCepError] = useState("");
 
   const handleBlurCep = async () => {
     const cep = data.zipCode.replace(/\D/g, "");
+    setCepError("");
     if (cep.length === 8) {
       setLoadingCep(true);
       try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 10000);
         const response = await fetch(
           `https://brasilapi.com.br/api/cep/v1/${cep}`,
+          { signal: controller.signal },
         );
+        clearTimeout(timeoutId);
         if (response.ok) {
           const address = await response.json();
           handleInputChange("street", address.street);
           handleInputChange("neighborhood", address.neighborhood);
           handleInputChange("city", address.city);
           handleInputChange("state", address.state);
+        } else {
+          setCepError("CEP não encontrado. Digite o endereço manualmente.");
         }
       } catch (error) {
         console.error("Erro ao buscar CEP", error);
+        setCepError("Erro ao buscar CEP. Digite o endereço manualmente.");
       } finally {
         setLoadingCep(false);
       }
@@ -66,9 +75,14 @@ export const AddressStep: React.FC<AddressStepProps> = ({
               inputMode="numeric"
             />
             {loadingCep && (
-              <div className="absolute right-4 top-4 text-slate-950 animate-spin">
+              <div className="absolute right-4 top-4 text-slate-950 animate-spin text-lg">
                 ⏳
               </div>
+            )}
+            {cepError && (
+              <p className="text-red-600 text-[10px] font-black uppercase mt-2" role="alert">
+                {cepError}
+              </p>
             )}
           </div>
         </div>

@@ -6,6 +6,11 @@ interface ReviewStepProps {
   pricing: { setup: number; monthly: number };
 }
 
+const currencyFormatter = new Intl.NumberFormat("pt-BR", {
+  style: "currency",
+  currency: "BRL",
+});
+
 export const ReviewStep: React.FC<ReviewStepProps> = ({ data, pricing }) => {
   return (
     <div className="space-y-12 animate-in">
@@ -27,10 +32,7 @@ export const ReviewStep: React.FC<ReviewStepProps> = ({ data, pricing }) => {
               SETUP_INITIAL_DEPLOY (ÚNICO)
             </div>
             <div className="text-4xl md:text-5xl font-black text-white tracking-tighter">
-              {pricing.setup.toLocaleString("pt-BR", {
-                style: "currency",
-                currency: "BRL",
-              })}
+              {currencyFormatter.format(pricing.setup)}
             </div>
           </div>
           <div className="bg-[#ccff00] p-8 border-4 border-slate-950 shadow-[8px_8px_0px_#000]">
@@ -38,10 +40,7 @@ export const ReviewStep: React.FC<ReviewStepProps> = ({ data, pricing }) => {
               RECURRING_MONTHLY (MENSAL)
             </div>
             <div className="text-4xl md:text-5xl font-black text-slate-950 tracking-tighter">
-              {pricing.monthly.toLocaleString("pt-BR", {
-                style: "currency",
-                currency: "BRL",
-              })}
+              {currencyFormatter.format(pricing.monthly)}
             </div>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../../../routes";
 
 export const HeroSection: React.FC = () => {
   const navigate = useNavigate();
@@ -68,7 +69,7 @@ export const HeroSection: React.FC = () => {
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              onClick={() => navigate("/contato")}
+              onClick={() => navigate(ROUTES.CONTACT)}
               className="border-2 border-white text-white px-8 py-5 md:px-10 md:py-6 text-sm md:text-base font-black uppercase tracking-[0.2em] hover:bg-white hover:text-slate-950 transition-all"
               style={{ borderRadius: "1px" }}
             >

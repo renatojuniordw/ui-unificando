@@ -151,7 +151,7 @@ export const PersonalDataStep: React.FC<PersonalDataStepProps> = ({
               <label className="label-text">
                 WhatsApp <span className="text-red-600">*</span>
               </label>
-              <div className="brutalist-phone">
+              <div>
                 <PhoneInput
                   defaultCountry="br"
                   value={data.whatsapp}

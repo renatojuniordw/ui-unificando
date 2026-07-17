@@ -1,3 +1,5 @@
+export const CONTACT_EMAIL = "contato@unificando.com.br";
+
 export const CONTACT_INFO = {
   whatsappNumber: "5581995557302",
 };

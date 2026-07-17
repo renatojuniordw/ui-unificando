@@ -12,7 +12,7 @@ interface HeaderProps {
   solutionItems: { label: string; path: string; desc: string }[];
 }
 
-export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
+export const Header: React.FC<HeaderProps> = React.memo(({ navItems, solutionItems }) => {
   const { pathname } = useLocation();
 
   const {
@@ -93,7 +93,7 @@ export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
 
             {isSolutionsOpen && (
               <div
-                className="absolute top-full left-0 mt-4 w-72 bg-white border-4 border-slate-950 shadow-[8px_8px_0px_#ccff00] p-4 animate-in fade-in slide-in-from-top-2 duration-200"
+                className="absolute top-full left-0 mt-4 w-72 bg-white border-4 border-slate-950 shadow-[8px_8px_0px_#ccff00] p-4 animate-in duration-200"
                 onMouseEnter={cancelClose}
                 onMouseLeave={closeSolutions}
               >
@@ -252,4 +252,4 @@ export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
       </div>
     </header>
   );
-};
+});

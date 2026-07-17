@@ -41,8 +41,8 @@ export const LinksPage: React.FC = () => {
       <div className="min-h-screen bg-slate-50 flex flex-col items-center justify-center relative overflow-hidden px-6 py-12 selection:bg-indigo-100 selection:text-indigo-900">
         {/* Ambient Background Effects */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-indigo-200/40 rounded-full blur-[120px] animate-pulse-slow"></div>
-          <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-blue-200/40 rounded-full blur-[120px] animate-pulse-slow delay-700"></div>
+          <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-indigo-200/40 rounded-full blur-[120px] animate-pulse"></div>
+          <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-blue-200/40 rounded-full blur-[120px] animate-pulse delay-700"></div>
           <div className="absolute top-[40%] left-[50%] transform -translate-x-1/2 w-[60%] h-[60%] bg-indigo-100/40 rounded-full blur-[100px]"></div>
         </div>
 

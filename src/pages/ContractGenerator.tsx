@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { PageTransition } from "../components/common/PageTransition";
 import { SEO } from "../components/common/SEO";
@@ -25,8 +25,32 @@ import { ROUTES } from "../routes";
 export const ContractGenerator: React.FC = () => {
   const navigate = useNavigate();
   const [step, setStep] = useState(0);
-  const [data, setData] = useState<ContractData>(INITIAL_CONTRACT_DATA);
+  const [data, setData] = useState<ContractData>(() => {
+    const saved = sessionStorage.getItem("contract_draft");
+    if (saved) {
+      try {
+        return JSON.parse(saved);
+      } catch {
+        return INITIAL_CONTRACT_DATA;
+      }
+    }
+    return INITIAL_CONTRACT_DATA;
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Persist draft on changes
+  useEffect(() => {
+    sessionStorage.setItem("contract_draft", JSON.stringify(data));
+  }, [data]);
+
+  // Warn on navigate away
+  useEffect(() => {
+    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+      e.preventDefault();
+    };
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    return () => window.removeEventListener("beforeunload", handleBeforeUnload);
+  }, []);
 
   // Modal State
   const [modal, setModal] = useState<{

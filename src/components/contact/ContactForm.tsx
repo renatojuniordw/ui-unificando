@@ -5,8 +5,7 @@ import { ServiceSelection } from "../../types/contact";
 import { ModalType } from "../../types/ui";
 import { ServiceSelector } from "./ServiceSelector";
 import { pushDataLayer } from "../../utils/analytics";
-
-const CONTACT_EMAIL = "contato@unificando.com.br";
+import { CONTACT_EMAIL } from "../../constants/social";
 
 const SERVICE_OPTIONS = [
   {

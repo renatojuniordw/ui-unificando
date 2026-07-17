@@ -1,12 +1,10 @@
 import { useMemo } from "react";
 import { ContractData } from "../types/contract";
 import { PRICING } from "../constants/pricing";
+import { clampInt } from "../utils/validators";
 
 export const useContractPricing = (data: ContractData) => {
   return useMemo(() => {
-    const clampInt = (value: number, min: number) =>
-      Math.max(min, Number.isFinite(value) ? Math.floor(value) : min);
-
     let setupTotal = 0;
     let monthlyTotal = 0;
 

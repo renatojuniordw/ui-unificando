@@ -1,19 +1,12 @@
 @import "tailwindcss";
 @theme {
   --color-neon-yellow: #ccff00;
-  --color-neon-green: #00ff66;
-  --color-brutalist-red: #ff4d4d;
   --color-brutalist-black: #020617;
-  
-  --shadow-hard-lg: 8px 8px 0px #000;
-  --shadow-hard-md: 4px 4px 0px #000;
-  --shadow-hard-sm: 2px 2px 0px #000;
-  --shadow-hard-neon: 8px 8px 0px #ccff00;
-  --shadow-modal: 12px 12px 0px #000;
 }
 
 body {
     font-family: 'Inter', sans-serif;
+    font-display: swap;
     scroll-behavior: smooth;
 }
 

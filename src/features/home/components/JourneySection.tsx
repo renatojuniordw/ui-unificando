@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../../../routes";
 
 export const JourneySection: React.FC = () => {
   const navigate = useNavigate();
@@ -48,7 +49,7 @@ export const JourneySection: React.FC = () => {
         </p>
 
         <button
-          onClick={() => navigate("/contato")}
+          onClick={() => navigate(ROUTES.CONTACT)}
           className="bg-[#ccff00] text-slate-950 px-10 py-5 text-sm md:text-base font-black hover:bg-white transition-all uppercase tracking-[0.2em] shadow-[6px_6px_0px_#fff]"
           style={{ borderRadius: "0px" }}
         >

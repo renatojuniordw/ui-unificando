@@ -5,16 +5,7 @@ import {
   validateCNPJ,
   validatePhone,
 } from "../utils/validators";
-import { ModalType } from "../types";
-
-export type ValidationResult = {
-  isValid: boolean;
-  error?: {
-    title: string;
-    message: string;
-    type: ModalType;
-  };
-};
+import { ValidationResult } from "../types/form";
 
 export const useContractValidation = () => {
   const validateStep = (

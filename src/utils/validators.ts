@@ -72,6 +72,9 @@ export const validateCNPJ = (cnpj: string): boolean => {
   return true;
 };
 
+export const clampInt = (value: number, min: number): number =>
+  Math.max(min, Number.isFinite(value) ? Math.floor(value) : min);
+
 export const validatePhone = (phone: string): boolean => {
   // Expecting format +55... or just digits
   // Minimal length for BR numbers:

@@ -1,7 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import { PageTransition } from "../components/common/PageTransition";
 import { SEO } from "../components/common/SEO";
+import { ROUTES } from "../routes";
 
 export const HowItWorks: React.FC = () => {
+  const navigate = useNavigate();
   return (
     <PageTransition>
       <SEO
@@ -97,7 +100,7 @@ export const HowItWorks: React.FC = () => {
                 </div>
 
                 <button
-                  onClick={() => window.location.href = '/contato'}
+                  onClick={() => navigate(ROUTES.CONTACT)}
                   className="bg-slate-950 text-white border-4 border-slate-950 px-8 py-4 mt-2 text-sm font-black hover:bg-[#ccff00] hover:text-slate-950 transition-colors uppercase tracking-widest shadow-[6px_6px_0px_#000] inline-block w-full md:w-auto text-center"
                 >
                   Agendar Consultoria
@@ -156,7 +159,7 @@ export const HowItWorks: React.FC = () => {
                 </div>
 
                 <button
-                  onClick={() => window.location.href = '/contato'}
+                  onClick={() => navigate(ROUTES.CONTACT)}
                   className="bg-[#ccff00] text-slate-950 border-4 border-slate-950 px-8 py-4 mt-2 text-sm font-black hover:bg-slate-950 hover:text-[#ccff00] transition-colors uppercase tracking-widest shadow-[6px_6px_0px_#000] inline-block w-full md:w-auto text-center"
                 >
                   Agendar Consultoria
@@ -203,7 +206,7 @@ export const HowItWorks: React.FC = () => {
                 </div>
 
                 <button
-                  onClick={() => window.location.href = '/contato'}
+                  onClick={() => navigate(ROUTES.CONTACT)}
                   className="bg-slate-950 text-white border-4 border-slate-950 px-8 py-4 mt-2 text-sm font-black hover:bg-[#ccff00] hover:text-slate-950 transition-colors uppercase tracking-widest shadow-[6px_6px_0px_#000] inline-block w-full md:w-auto text-center"
                 >
                   Agendar Consultoria
@@ -261,7 +264,7 @@ export const HowItWorks: React.FC = () => {
           </p>
 
           <button
-            onClick={() => window.location.href = '/contato'}
+            onClick={() => navigate(ROUTES.CONTACT)}
             className="bg-[#ccff00] text-slate-950 px-10 py-5 text-sm md:text-base font-black hover:bg-white transition-all uppercase tracking-[0.2em] shadow-[6px_6px_0px_#fff]"
             style={{ borderRadius: "0px" }}
           >
