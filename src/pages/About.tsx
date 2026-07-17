@@ -169,6 +169,37 @@ export const About: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Quem Constroi */}
+      <section className="py-24 bg-slate-950 text-white border-t-8 border-[#ccff00]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 text-center">
+          <div className="inline-block bg-[#ccff00] text-slate-950 font-black uppercase tracking-widest text-xs px-3 py-1 border-2 border-slate-950 shadow-[4px_4px_0px_#fff] mb-8">
+            QUEM CONSTRÓI
+          </div>
+          <h2 className="text-4xl md:text-6xl font-black text-white mb-8 uppercase tracking-tighter leading-[0.9]">
+            Por trás do<br />
+            <span className="text-[#ccff00]">laboratório</span>
+          </h2>
+          <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto font-light leading-relaxed mb-8">
+            A Unificando é um projeto de <strong className="text-white">Renato Bezerra</strong> — 
+            Engenheiro de Software com +7 anos de experiência, especializado em front-end de alta performance, 
+            IA generativa e automações inteligentes.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            <span className="bg-slate-800 text-slate-300 px-4 py-2 border border-slate-700 text-xs font-black uppercase tracking-widest">Front-end & IA</span>
+            <span className="bg-slate-800 text-slate-300 px-4 py-2 border border-slate-700 text-xs font-black uppercase tracking-widest">Automações com n8n</span>
+            <span className="bg-slate-800 text-slate-300 px-4 py-2 border border-slate-700 text-xs font-black uppercase tracking-widest">Arquitetura de Software</span>
+          </div>
+          <a
+            href="https://renatobezerra.com.br"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-[#ccff00] text-slate-950 px-8 py-4 text-xs font-black uppercase tracking-[0.2em] hover:bg-white transition-all border-2 border-[#ccff00] shadow-[6px_6px_0px_#fff]"
+          >
+            CONHECER RENATO →
+          </a>
+        </div>
+      </section>
     </PageTransition>
   );
 };

@@ -29,9 +29,6 @@ const HowItWorks = React.lazy(() =>
     default: module.HowItWorks,
   })),
 );
-const Plans = React.lazy(() =>
-  import("../pages/Plans").then((module) => ({ default: module.Plans })),
-);
 const About = React.lazy(() =>
   import("../pages/About").then((module) => ({ default: module.About })),
 );
@@ -78,7 +75,6 @@ export const AppRouter: React.FC = () => {
           <Route path={ROUTES.DIGITAL_PRESENCE} element={<DigitalPresence />} />
           <Route path={ROUTES.SERVICES} element={<Services />} />
           <Route path={ROUTES.HOW_IT_WORKS} element={<HowItWorks />} />
-          <Route path={ROUTES.PLANS} element={<Plans />} />
           <Route path={ROUTES.ABOUT} element={<About />} />
           <Route path={ROUTES.CONTACT} element={<Contact />} />
           <Route path={ROUTES.CONTRACT} element={<ContractGenerator />} />

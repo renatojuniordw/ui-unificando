@@ -98,6 +98,17 @@ export const Footer: React.FC = () => {
           UNIFICANDO © {new Date().getFullYear()} • RECIFE - PE
         </p>
       </div>
+
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 mt-6 text-center">
+        <a
+          href="https://renatobezerra.com.br"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-400 hover:text-slate-950 transition-colors inline-block border border-slate-200 px-3 py-1"
+        >
+          Construído por Renato Bezerra → Engenheiro de Software & IA
+        </a>
+      </div>
     </footer>
   );
 };

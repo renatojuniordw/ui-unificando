@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import { Modal } from "../common/Modal";
 import { useContactValidation } from "../../hooks/useContactValidation";
 import { CONTACT_INFO } from "../../constants/social";
-import { ContactFormProps, ServiceSelection } from "../../types/contact";
+import { ServiceSelection } from "../../types/contact";
 import { ModalType } from "../../types/ui";
 import { ServiceSelector } from "./ServiceSelector";
-import { SimulationSummary } from "./SimulationSummary";
 import { buildWhatsAppMessage } from "./ContactForm.utils";
 import { pushDataLayer } from "../../utils/analytics";
 
@@ -22,7 +21,7 @@ const SERVICE_OPTIONS = [
   },
 ];
 
-export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
+export const ContactForm: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [selectedServices, setSelectedServices] = useState<ServiceSelection>({
     ia: false,
@@ -32,10 +31,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
 
   const [company, setCompany] = useState(""); // Honeypot
 
-  // Validation Hook
   const { validateForm } = useContactValidation();
 
-  // Modal State
   const [modal, setModal] = useState<{
     isOpen: boolean;
     title: string;
@@ -75,23 +72,17 @@ export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
 
     if (company) return; // Honeypot
 
-    // Validate at least one service is selected (if no planSelection)
-    if (!planSelection) {
-      const hasSelection = Object.values(selectedServices).some((v) => v);
-      if (!hasSelection) {
-        showModal(
-          "SELEÇÃO OBRIGATÓRIA",
-          "POR FAVOR, SELECIONE AO MENOS UM SERVIÇO SOBRE O QUAL VOCÊ TEM DÚVIDAS.",
-          "warning",
-        );
-        return;
-      }
+    const hasSelection = Object.values(selectedServices).some((v) => v);
+    if (!hasSelection) {
+      showModal(
+        "SELEÇÃO OBRIGATÓRIA",
+        "POR FAVOR, SELECIONE AO MENOS UM SERVIÇO SOBRE O QUAL VOCÊ TEM DÚVIDAS.",
+        "warning",
+      );
+      return;
     }
 
-    // Pass 'simulacao' as challenge if planSelection exists, to satisfy validation
-    const challengeValue = planSelection ? "simulacao" : "servicos";
-
-    const validation = validateForm({ name, challenge: challengeValue });
+    const validation = validateForm({ name, challenge: "servicos" });
 
     if (!validation.isValid && validation.error) {
       showModal(
@@ -107,26 +98,21 @@ export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
       event: "lead_submit",
       lead_method: "whatsapp_redirect",
       lead_source: "contact_form",
-      has_plan_selection: Boolean(planSelection),
-      selected_services: planSelection
-        ? "plan_selection"
-        : Object.entries(selectedServices)
-            .filter(([, v]) => v)
-            .map(([k]) => k)
-            .join(",") || "none",
+      selected_services: Object.entries(selectedServices)
+        .filter(([, v]) => v)
+        .map(([k]) => k)
+        .join(",") || "none",
     });
 
     try {
       const message = buildWhatsAppMessage({
         name,
         selectedServices,
-        planSelection,
         serviceOptions: SERVICE_OPTIONS,
       });
       const url = `https://wa.me/${CONTACT_INFO.whatsappNumber}?text=${message}`;
 
       window.open(url, "_blank");
-      localStorage.removeItem("unificando_plan_selection");
       pushDataLayer({
         event: "lead_submit_success",
         lead_method: "whatsapp_redirect",
@@ -135,7 +121,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
 
       showModal(
         "REDIRECIONANDO",
-        "ESTAMOS ABRINDO SEU WHATSAPP PARA INICIAR O DIAGNÓSTICO.",
+        "ESTAMOS ABRINDO SEU WHATSAPP PARA CONTINUARMOS.",
         "success",
         () => setIsSubmitting(false),
       );
@@ -175,7 +161,6 @@ export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
           />
         </div>
 
-        {/* Honeypot */}
         <div className="hidden" aria-hidden="true">
           <input
             type="text"
@@ -187,18 +172,12 @@ export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
           />
         </div>
 
-        {!planSelection ? (
-          <ServiceSelector
-            options={SERVICE_OPTIONS}
-            selectedServices={selectedServices}
-            onChange={handleServiceChange}
-            disabled={isSubmitting}
-          />
-        ) : (
-          <div className="border-4 border-slate-950 p-4 shadow-[4px_4px_0px_#000]">
-             <SimulationSummary />
-          </div>
-        )}
+        <ServiceSelector
+          options={SERVICE_OPTIONS}
+          selectedServices={selectedServices}
+          onChange={handleServiceChange}
+          disabled={isSubmitting}
+        />
 
         <button
           type="submit"
@@ -224,7 +203,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
         <div className="flex border-4 border-slate-950 p-3 items-center justify-center shadow-[4px_4px_0px_#000]">
             <p className="text-center text-[10px] font-black text-slate-950 uppercase tracking-widest flex items-center justify-center gap-3">
             <span className="w-2 h-2 bg-green-500 animate-pulse border border-slate-950"></span>
-            ATENDIMENTO IA • ONLINE 24/7
+            RESPOSTA EM ATÉ 24H
             </p>
         </div>
       </form>

@@ -10,8 +10,8 @@ export const CTA = {
     to: "#projetos",
   },
   pricing: {
-    label: "Estrutura de Serviços",
-    to: ROUTES.PLANS,
+    label: "Serviços",
+    to: ROUTES.SERVICES,
   },
   solutions: {
     label: "Serviços Sob Consultoria",

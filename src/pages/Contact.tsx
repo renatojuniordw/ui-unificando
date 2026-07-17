@@ -1,24 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { SEO } from "../components/common/SEO";
 import { PageTransition } from "../components/common/PageTransition";
 import { ContactForm } from "../components/contact/ContactForm";
 import { ROUTES } from "../routes";
 
 export const Contact: React.FC = () => {
-  const [planSelection, setPlanSelection] = useState<any>(null);
-
-  useEffect(() => {
-    const savedSelection = localStorage.getItem("unificando_plan_selection");
-    if (savedSelection) {
-      try {
-        const parsed = JSON.parse(savedSelection);
-        setPlanSelection(parsed);
-      } catch (error) {
-        console.error("Error parsing plan selection:", error);
-      }
-    }
-  }, []);
-
   return (
     <PageTransition className="bg-[#ccff00]">
       <SEO
@@ -30,7 +16,7 @@ export const Contact: React.FC = () => {
           "@type": "ContactPage",
           name: "Fale Conosco - Unificando",
           description:
-            "Entre em contato para um diagnóstico gratuito do seu ecossistema digital.",
+            "Entre em contato para conversarmos sobre seu projeto.",
           mainEntity: {
             "@type": "Organization",
             name: "Unificando",
@@ -65,17 +51,17 @@ export const Contact: React.FC = () => {
                 {
                   title: "DIAGNÓSTICO REAL",
                   description:
-                    "Análise do seu atendimento, processos e presença digital, sem custo.",
+                    "Análise do seu cenário, sem custo.",
                 },
                 {
                   title: "POSTURA CONSULTIVA",
                   description:
-                    "Foco no seu cenário atual, sem pressão, sem promessa vazia.",
+                    "Foco no seu projeto, sem pressão, sem promessa vazia.",
                 },
                 {
-                  title: "ATENDIMENTO IMEDIATO",
+                  title: "RESPOSTA ÁGIL",
                   description:
-                    "Resposta instantânea via Inteligência Artificial, disponível 24 horas por dia.",
+                    "Retornamos em até 24 horas úteis.",
                 },
               ].map((benefit, index) => (
                 <div
@@ -96,25 +82,10 @@ export const Contact: React.FC = () => {
                 </div>
               ))}
             </div>
-
-            {planSelection && (
-              <div className="mt-8 p-6 bg-slate-950 text-white border-4 border-slate-950 shadow-[8px_8px_0px_#fff]">
-                <span className="inline-block bg-white text-slate-950 border-2 border-slate-950 px-2 py-1 text-[10px] font-black uppercase tracking-widest mb-4">
-                  SELEÇÃO DE PLANO PRÉVIA
-                </span>
-                <p className="text-[#ccff00] font-black text-xl md:text-2xl tracking-tighter mb-2">
-                  PLANO PERSONALIZADO <br/>
-                  (R$ {planSelection.totals?.monthly}/MÊS)
-                </p>
-                <p className="text-slate-400 text-[10px] font-mono font-bold uppercase tracking-widest mt-4 border-t-2 border-slate-800 pt-4">
-                  OS DADOS DA SIMULAÇÃO JÁ SERÃO ENVIADOS PARA NOSSA EQUIPE.
-                </p>
-              </div>
-            )}
           </div>
 
           <div className="relative">
-             <ContactForm planSelection={planSelection} />
+             <ContactForm />
           </div>
         </div>
       </section>

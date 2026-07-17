@@ -7,7 +7,6 @@ export interface ContactWebhookData {
   name: string;
   whatsapp: string;
   challenge: string;
-  planSelection?: any;
   submittedAt: string;
   source: string;
 }
@@ -17,7 +16,3 @@ export type ContactFormData = {
   whatsapp?: string;
   challenge: string;
 };
-
-export interface ContactFormProps {
-  planSelection?: any;
-}
