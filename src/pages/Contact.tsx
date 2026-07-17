@@ -22,8 +22,8 @@ export const Contact: React.FC = () => {
   return (
     <PageTransition className="bg-[#ccff00]">
       <SEO
-        title="Fale Conosco | Diagnóstico Gratuito Unificando"
-        description="Agende uma conversa com nossos especialistas. Diagnóstico real do seu negócio sem custo e sem compromisso."
+        title="Fale Conosco | Unificando"
+        description="Entre em contato para conversarmos sobre seu projeto."
         canonical={ROUTES.CONTACT}
         jsonLd={{
           "@context": "https://schema.org",
@@ -36,7 +36,7 @@ export const Contact: React.FC = () => {
             name: "Unificando",
             contactPoint: {
               "@type": "ContactPoint",
-              contactType: "sales",
+              contactType: "customer support",
               availableLanguage: "Portuguese",
             },
           },
@@ -49,15 +49,15 @@ export const Contact: React.FC = () => {
               VAMOS CONVERSAR
             </span>
             <h1 className="text-5xl md:text-7xl font-black text-slate-950 mb-8 uppercase tracking-tighter leading-[0.9]">
-              ENTENDA O PRÓXIMO <br/>
+              CONTE SOBRE <br/>
               <span className="inline-block bg-slate-950 text-[#ccff00] px-4 -rotate-1 border-4 border-slate-950 shadow-[6px_6px_0px_#fff] mt-2">
-                PASSO CERTO.
+                SEU PROJETO.
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-slate-950 mb-12 leading-tight font-black uppercase tracking-tight max-w-lg">
               <span className="bg-white px-2 border-2 border-slate-950 mr-1 shadow-[2px_2px_0px_#000] inline-block mb-1">
-                DIAGNÓSTICO GRATUITO
-              </span> PARA IDENTIFICAR EM QUE FASE DO ECOSSISTEMA SEU NEGÓCIO ESTÁ.
+                SEM COMPROMISSO
+              </span> — CONVERSE CONOSCO SOBRE SUA IDEIA.
             </p>
 
             <div className="space-y-6">

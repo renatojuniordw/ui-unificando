@@ -19,18 +19,11 @@ export const buildWhatsAppMessage = ({
     message += `Fiz uma simulação no site e gostaria de saber mais sobre:\n\n`;
 
     const {
-      includeSupport,
-      inboxes,
-      attendants,
       aiChannels,
       aiAddons,
       siteEnabled,
       sitePages,
     } = planSelection;
-
-    if (includeSupport) {
-      message += `Atendimento Unificado\n   - ${inboxes} Caixa(s) de Entrada\n   - ${attendants} Atendente(s)\n`;
-    }
 
     if (aiChannels) {
       const activeChannels = Object.entries(aiChannels)

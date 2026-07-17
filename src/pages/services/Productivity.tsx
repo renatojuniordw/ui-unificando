@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { PageTransition } from "../../components/common/PageTransition";
 import { SEO } from "../../components/common/SEO";
 import { ROUTES } from "../../routes";
@@ -13,8 +14,17 @@ import { ProductivityCta } from "../../features/productivity/components/Producti
 import { FAQSection } from "../../features/productivity/FAQSection";
 
 export const Productivity: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <PageTransition>
+      {/* Sob Consultoria Banner */}
+      <div className="bg-[#ccff00] border-b-4 border-slate-950 py-4 text-center">
+        <span className="text-xs font-black uppercase tracking-widest text-slate-950">
+          Serviço Sob Consultoria — Entre em contato para entender como funciona
+        </span>
+      </div>
+
       <SEO
         title="IA para Negócios | Unificando"
         description="Agentes inteligentes que atendem, vendem e agendam 24/7 no WhatsApp e Instagram."

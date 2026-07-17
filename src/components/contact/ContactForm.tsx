@@ -11,11 +11,6 @@ import { pushDataLayer } from "../../utils/analytics";
 
 const SERVICE_OPTIONS = [
   {
-    id: "atendimento" as keyof ServiceSelection,
-    label: "Atendimento Unificado",
-    emoji: "💬",
-  },
-  {
     id: "ia" as keyof ServiceSelection,
     label: "IA no Atendimento",
     emoji: "🤖",
@@ -25,20 +20,13 @@ const SERVICE_OPTIONS = [
     label: "Sites & Presença Online",
     emoji: "🌐",
   },
-  {
-    id: "hospedagem" as keyof ServiceSelection,
-    label: "Hospedagem Inteligente",
-    emoji: "🚀",
-  },
 ];
 
 export const ContactForm: React.FC<ContactFormProps> = ({ planSelection }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [selectedServices, setSelectedServices] = useState<ServiceSelection>({
-    atendimento: false,
     ia: false,
     site: false,
-    hospedagem: false,
   });
   const [name, setName] = useState("");
 

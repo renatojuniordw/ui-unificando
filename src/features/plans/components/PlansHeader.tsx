@@ -6,14 +6,14 @@ export const PlansHeader: React.FC = () => {
     <section className="py-8 md:py-20 bg-[#ccff00] border-b-4 border-slate-950">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 text-center">
         <span className="inline-block bg-white text-slate-950 border-2 border-slate-950 px-3 py-1 text-[10px] md:text-xs font-black uppercase tracking-widest mb-4 shadow-[3px_3px_0px_#000]">
-          Planos Unificando
+          Estrutura de Serviços
         </span>
         <h1 className="text-3xl md:text-5xl lg:text-7xl font-black text-slate-950 mb-4 md:mb-6 uppercase tracking-tighter leading-[0.95]">
-          A solução ideal <br />
-          para o seu <span className="text-white bg-slate-950 px-2 inline-block rotate-1 border-[3px] md:border-4 border-slate-950 shadow-[4px_4px_0px_#fff] md:shadow-[6px_6px_0px_#fff]">negócio.</span>
+          Tudo que construímos <br />
+          também está <span className="text-white bg-slate-950 px-2 inline-block rotate-1 border-[3px] md:border-4 border-slate-950 shadow-[4px_4px_0px_#fff] md:shadow-[6px_6px_0px_#fff]">disponível.</span>
         </h1>
         <p className="text-base md:text-xl text-slate-900 font-bold tracking-tight mb-8 md:mb-12 max-w-3xl mx-auto leading-tight">
-          Monte o seu ecossistema sob medida. Escolha canais, equipes e Inteligência Artificial.
+          Serviços sob consultoria. Tudo que construímos também pode ser aplicado ao seu negócio.
         </p>
 
         <div className="grid md:grid-cols-2 gap-4 md:gap-6 max-w-5xl mx-auto mt-6 md:mt-8">

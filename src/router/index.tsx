@@ -13,11 +13,6 @@ const Services = React.lazy(() =>
     default: module.Solutions, // Note: the internal export name is still Solutions. We can rename it inside Services later.
   })),
 );
-const CustomerService = React.lazy(() =>
-  import("../pages/services/CustomerService").then((module) => ({
-    default: module.CustomerService,
-  })),
-);
 const Productivity = React.lazy(() =>
   import("../pages/services/Productivity").then((module) => ({
     default: module.Productivity,
@@ -71,12 +66,6 @@ const LawLanding = React.lazy(() =>
     default: module.LawLanding,
   })),
 );
-const DeployService = React.lazy(() =>
-  import("../pages/services/DeployService").then((module) => ({
-    default: module.DeployService,
-  })),
-);
-
 export const AppRouter: React.FC = () => {
   const location = useLocation();
 
@@ -85,7 +74,6 @@ export const AppRouter: React.FC = () => {
       <Suspense fallback={<LoadingFallback />}>
         <Routes location={location} key={location.pathname}>
           <Route path={ROUTES.HOME} element={<Home />} />
-          <Route path={ROUTES.CUSTOMER_SERVICE} element={<CustomerService />} />
           <Route path={ROUTES.PRODUCTIVITY} element={<Productivity />} />
           <Route path={ROUTES.DIGITAL_PRESENCE} element={<DigitalPresence />} />
           <Route path={ROUTES.SERVICES} element={<Services />} />
@@ -98,7 +86,6 @@ export const AppRouter: React.FC = () => {
           <Route path={ROUTES.TERMS} element={<TermsOfService />} />
           <Route path={ROUTES.LINKS} element={<LinksPage />} />
           <Route path={ROUTES.FOR_LAWYERS} element={<LawLanding />} />
-          <Route path={ROUTES.SMART_HOSTING} element={<DeployService />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>

@@ -9,7 +9,7 @@ export const TermsOfService: React.FC = () => {
     {
       title: "1. Visão Geral",
       content:
-        "ESTES TERMOS REGULAM O USO DA PLATAFORMA UNIFICANDO (64.630.380/0001-20). UM ECOSSISTEMA DE SOLUÇÕES PARA ATENDIMENTO DIGITAL, AUTOMAÇÃO RESPONSÁVEL E IA APLICADA. AO UTILIZAR OS SERVIÇOS, O USUÁRIO DECLARA CONCORDÂNCIA INTEGRAL COM ESTAS REGRAS.",
+        "ESTES TERMOS REGULAM O USO DA PLATAFORMA UNIFICANDO. UM ECOSSISTEMA DE SOLUÇÕES PARA ATENDIMENTO DIGITAL, AUTOMAÇÃO RESPONSÁVEL E IA APLICADA. AO UTILIZAR OS SERVIÇOS, O USUÁRIO DECLARA CONCORDÂNCIA INTEGRAL COM ESTAS REGRAS.",
     },
     {
       title: "2. Aceitação",
@@ -26,8 +26,7 @@ export const TermsOfService: React.FC = () => {
                "Painel de Atendimento Multicanal",
                "Automação e IA de Atendimento",
                "Landing Pages Profissionais",
-               "Hospedagem Inteligente (DaaS)",
-             ].map((s, i) => (
+              ].map((s, i) => (
                <div key={i} className="bg-slate-50 p-4 border-2 border-slate-950 shadow-[4px_4px_0px_#000] text-xs font-black uppercase">
                  {s}
                </div>
@@ -56,19 +55,7 @@ export const TermsOfService: React.FC = () => {
       content:
         "A IA ATUA COMO APOIO. PROJETOS COM IA PASSAM POR DIAGNÓSTICO. O UNIFICANDO NÃO SE RESPONSABILIZA POR RESPOSTAS DA IA QUE DIVIRJAM DAS REGRAS CONFIGURADAS PELO CLIENTE — O MONITORAMENTO É DEVER DO CONTRATANTE.",
     },
-    {
-      title: "7. Hospedagem Inteligente (DaaS)",
-      content: (
-        <div className="space-y-4">
-          <p>INFRAESTRUTURA FOCADA EM PROJETOS FRONT-END:</p>
-          <ul className="space-y-3 font-mono text-xs font-bold uppercase">
-             <li>- DOMÍNIO É PROPRIEDADE E RESPONSABILIDADE DO CLIENTE.</li>
-             <li>- NÃO INCLUI BANCO DE DADOS OU DESENVOLVIMENTO DE BACK-END.</li>
-             <li>- NÃO COBRE DEBUG DE CÓDIGO GERADO POR FERRAMENTAS EXTERNAS.</li>
-          </ul>
-        </div>
-      ),
-    },
+
     {
       title: "8. Pagamento & Prazos",
       content:

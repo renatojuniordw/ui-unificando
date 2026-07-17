@@ -1,10 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { WhatsAppSimulation } from "../WhatsAppSimulation";
-import { CTA } from "../../../constants/cta";
-import { trackCtaClick } from "../../../utils/analytics";
+import { ROUTES } from "../../../routes";
 
 export const ProductivityHero: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="py-20 md:py-32 bg-white relative overflow-hidden border-b-2 border-slate-950">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 grid md:grid-cols-2 gap-16 items-center">
@@ -38,17 +40,10 @@ export const ProductivityHero: React.FC = () => {
             </ul>
             <div className="flex flex-col sm:flex-row gap-4 mt-6">
               <button
-                onClick={() => {
-                  trackCtaClick({
-                    label: CTA.primary.label,
-                    location: "productivity_hero_primary",
-                    to: CTA.primary.to,
-                  });
-                  window.open(CTA.primary.to, "_blank");
-                }}
+                onClick={() => navigate(ROUTES.CONTACT)}
                 className="bg-[#ccff00] text-slate-950 px-8 py-5 text-xs font-black hover:bg-slate-950 hover:text-[#ccff00] transition-colors border-2 border-slate-950 shadow-[6px_6px_0px_#000] uppercase tracking-[0.2em] w-max"
               >
-                {CTA.primary.label}
+                Agendar Consultoria
               </button>
             </div>
           </div>

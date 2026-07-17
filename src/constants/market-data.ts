@@ -1,13 +1,5 @@
 export const MARKET_INSIGHTS = [
   {
-    pilar: "Atendimento Unificado",
-    title: "A Velocidade é o Novo Marketing",
-    stat: "78%",
-    description:
-      "dos consumidores compram da primeira empresa que responde ao contato inicial através do digital.",
-    source: "Harvard Business Review",
-  },
-  {
     pilar: "IA no Atendimento",
     stat: "24/7",
     title: "Escala com Inteligência",

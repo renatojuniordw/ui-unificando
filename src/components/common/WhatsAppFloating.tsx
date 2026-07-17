@@ -4,7 +4,7 @@ import { trackWhatsAppClick } from "../../utils/analytics";
 
 export const WhatsAppFloating: React.FC = () => {
   const whatsappMessage =
-    "Olá! Estava no site da Unificando e gostaria de entender como centralizar meu atendimento.";
+    "Olá! Estava no site da Unificando e gostaria de saber mais sobre os projetos.";
 
   return (
     <motion.a

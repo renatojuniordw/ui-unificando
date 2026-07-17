@@ -1,17 +1,9 @@
 import React from "react";
-import { CTA } from "../../../constants/cta";
-import { trackCtaClick } from "../../../utils/analytics";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../../../routes";
 
 export const ProductivityCta: React.FC = () => {
-
-  const handleCtaClick = () => {
-    trackCtaClick({
-      label: CTA.primary.label,
-      location: "productivity_finalcta_primary",
-      to: CTA.primary.to,
-    });
-    window.open(CTA.primary.to, "_blank");
-  };
+  const navigate = useNavigate();
 
   return (
     <section className="py-24 bg-[#ccff00] text-slate-950 border-b-4 border-slate-950 overflow-hidden">
@@ -21,10 +13,10 @@ export const ProductivityCta: React.FC = () => {
           <span className="text-white bg-slate-950 px-2 inline-block rotate-1 border-2 border-slate-950 shadow-[6px_6px_0px_#fff]">GANHAR TEMPO?</span>
         </h2>
         <button
-          onClick={handleCtaClick}
+          onClick={() => navigate(ROUTES.CONTACT)}
           className="bg-slate-950 text-white border-4 border-slate-950 px-12 py-6 text-xl font-black hover:bg-white hover:text-slate-950 transition-colors shadow-[8px_8px_0px_#000] hover:shadow-[8px_8px_0px_#000] uppercase tracking-widest block mx-auto w-full md:w-auto"
         >
-          {CTA.primary.label}
+          Agendar Consultoria
         </button>
       </div>
     </section>

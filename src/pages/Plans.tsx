@@ -71,21 +71,14 @@ export const Plans: React.FC<PlansProps> = () => {
   return (
     <PageTransition className="bg-white">
       <SEO
-        title="Planos e Preços | Unificando"
-        description="Monte a solução ideal para o seu negócio. Atendimento Digital, Inteligência Artificial e Sites."
+        title="Estrutura de Serviços | Unificando"
+        description="Conheça nossa estrutura de serviços sob consultoria. Tudo que construímos também está disponível para seu projeto."
         canonical={ROUTES.PLANS}
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "OfferCatalog",
           name: "Planos Unificando",
           itemListElement: [
-            {
-              "@type": "Offer",
-              itemOffered: {
-                "@type": "Service",
-                name: "Atendimento Unificado",
-              },
-            },
             {
               "@type": "Offer",
               itemOffered: {

@@ -1,8 +1,6 @@
 export interface ServiceSelection {
-  atendimento: boolean;
   ia: boolean;
   site: boolean;
-  hospedagem: boolean;
 }
 
 export interface ContactWebhookData {

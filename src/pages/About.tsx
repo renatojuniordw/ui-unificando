@@ -8,8 +8,8 @@ export const About: React.FC = () => {
   return (
     <PageTransition className="bg-white">
       <SEO
-        title="Sobre o Unificado | Manifesto Digital"
-        description="Nossa postura: clareza, responsabilidade e tecnologia como estrutura, não espetáculo."
+        title="Sobre a Unificando | Laboratório de Projetos Autorais"
+        description="Conheça o laboratório: produtos digitais, ferramentas com IA e projetos autorais."
         canonical={ROUTES.ABOUT}
         jsonLd={{
           "@context": "https://schema.org",
@@ -21,7 +21,7 @@ export const About: React.FC = () => {
             "@type": "Organization",
             "name": "Unificando Digital",
             "foundingDate": "2024",
-            "description": "Ecossistema de organização e automação de atendimento digital para PMEs.",
+            "description": "Laboratório de projetos autorais, ferramentas utilitárias e sistemas com inteligência artificial.",
             "url": "https://unificando.com.br",
             "logo": "https://unificando.com.br/assets/img/LOGO_UNIFICANDO.svg",
             "address": {
@@ -31,10 +31,11 @@ export const About: React.FC = () => {
               "addressCountry": "BR"
             },
             "knowsAbout": [
-              "Automação de WhatsApp",
-              "Inteligência Artificial para Negócios",
-              "Desenvolvimento Web de Alta Conversão",
-              "Sistemas de Atendimento Multicanal"
+              "Desenvolvimento de Produtos Digitais",
+              "Inteligência Artificial Aplicada",
+              "Ferramentas Utilitárias Web",
+              "Desenvolvimento Web Full-stack",
+              "Sistemas de Automação Inteligente"
             ]
           }
         }}
@@ -51,11 +52,11 @@ export const About: React.FC = () => {
             <span className="text-white bg-slate-950 px-4 inline-block -rotate-2 border-4 border-slate-950 shadow-[8px_8px_0px_#fff]">MISSÃO.</span>
           </h1>
           <p className="text-2xl md:text-3xl lg:text-4xl text-slate-950 mb-12 leading-none font-black tracking-tight max-w-4xl mx-auto uppercase">
-            SUBSTITUÍMOS O CAOS DO "ZAP" POR UMA <span className="bg-slate-950 text-[#ccff00] px-2 border-2 border-slate-950">MÁQUINA DE ESCALA PREVISÍVEL.</span>
+            CONSTRUÍMOS PRODUTOS DIGITAIS QUE RESOLVEM <span className="bg-slate-950 text-[#ccff00] px-2 border-2 border-slate-950">PROBLEMAS REAIS.</span>
           </p>
           <div className="max-w-3xl mx-auto bg-white p-6 border-4 border-slate-950 shadow-[8px_8px_0px_#000]">
             <p className="text-slate-950 font-mono font-bold text-xl uppercase">
-              NÃO VENDEMOS FERRAMENTAS. VENDEMOS ESTRUTURA.
+              PROJETOS AUTORAIS, FERRAMENTAS UTILITÁRIAS E SISTEMAS COM IA.
             </p>
           </div>
         </div>
@@ -73,15 +74,13 @@ export const About: React.FC = () => {
               </div>
 
               <h3 className="text-4xl lg:text-5xl font-black text-slate-950 mb-8 uppercase tracking-tighter leading-[0.9]">
-                ESPECIALISTAS EM <br />
-                <span className="block mt-2 bg-white px-2 border-4 border-slate-950 shadow-[4px_4px_0px_#000] w-max">OPERAÇÃO.</span>
+                LABORATÓRIO DE <br />
+                <span className="block mt-2 bg-white px-2 border-4 border-slate-950 shadow-[4px_4px_0px_#000] w-max">PRODUTOS.</span>
               </h3>
 
               <div className="space-y-6 text-slate-950 font-mono font-bold uppercase leading-relaxed text-sm">
                 <p>
-                  Usamos tecnologia para organizar, escalar e dar
-                  previsibilidade ao seu negócio — sempre com métricas reais,
-                  decisões conscientes e estrutura bem feita.
+                  Criamos produtos digitais que resolvem problemas reais. Ferramentas utilitárias, sistemas inteligentes e projetos autorais — tudo que construímos nasce de uma necessidade concreta.
                 </p>
                 <div className="bg-slate-950 text-white p-4 border-2 border-slate-950">
                   <p>
@@ -110,12 +109,12 @@ export const About: React.FC = () => {
                 </li>
                 <li className="flex items-start gap-4 pb-4">
                   <span className="text-red-500 font-black text-2xl leading-none">✕</span>
-                  <span>NÃO VENDEMOS ROBÔS QUE "VENDEM SOZINHOS".</span>
+                  <span>NÃO VENDEMOS O QUE NÃO CONSTRUÍMOS.</span>
                 </li>
               </ul>
 
               <div className="bg-white text-slate-950 font-black uppercase p-4 border-4 border-slate-950 shadow-[4px_4px_0px_#red-500] mt-auto">
-                FUGIMOS DO HYPE VAZIO. NOSSO FOCO É RESOLVER PROBLEMAS REAIS, COM SOLUÇÕES QUE FUNCIONAM NO DIA A DIA.
+                CADA PROJETO É UMA DEMONSTRAÇÃO DO QUE SABEMOS FAZER. SEM HYPE, SEM PROMESSAS VAZIAS.
               </div>
             </div>
           </div>

@@ -1,43 +1,32 @@
 import { PageTransition } from "../components/common/PageTransition";
 import { SEO } from "../components/common/SEO";
-import { CTA } from "../constants/cta";
-import { trackCtaClick } from "../utils/analytics";
 
 export const HowItWorks: React.FC = () => {
-  const handleCtaClick = (locationStr: string) => {
-    trackCtaClick({
-      label: CTA.primary.label,
-      location: locationStr,
-      to: CTA.primary.to,
-    });
-    window.open(CTA.primary.to, "_blank");
-  };
-
   return (
     <PageTransition>
       <SEO
-        title="Como Funciona o Método Unificando | Crescimento sem Bagunça"
-        description="Nosso método dividido em fases: Organização, Evolução e Autoridade. Entre no estágio ideal para o seu negócio."
+        title="Como Trabalhamos | Laboratório Unificando"
+        description="Metodologia de desenvolvimento: prototipação, validação e deploy de projetos digitais."
         canonical="/como-funciona"
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "HowTo",
-          name: "Método Unificando de Crescimento Digital",
+          name: "Método de Trabalho Unificando",
           step: [
             {
               "@type": "HowToStep",
-              name: "Fase 1: Organização Total",
-              text: "Centralização de WhatsApp, Instagram e organização de atendimento em equipe.",
+              name: "Fase 1: Prototipação",
+              text: "Entendemos o problema, desenhamos a solução e criamos protótipo funcional.",
             },
             {
               "@type": "HowToStep",
-              name: "Fase 2: Evolução Responsável",
-              text: "Implementação de fluxos inteligentes e IA para automação de atendimento.",
+              name: "Fase 2: Validação",
+              text: "Testamos com usuários reais e iteramos baseado em feedback.",
             },
             {
               "@type": "HowToStep",
-              name: "Fase 3: Autoridade de Marca",
-              text: "Construção de presença digital sólida com Site e SEO.",
+              name: "Fase 3: Deploy",
+              text: "Colocamos no ar com infraestrutura profissional e suporte contínuo.",
             },
           ],
         }}
@@ -49,15 +38,15 @@ export const HowItWorks: React.FC = () => {
             A NOSSA FORMA DE ATUAR
           </span>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-slate-950 mb-10 uppercase tracking-tighter leading-[0.9]">
-            CRESCIMENTO <br />
-            SEM <span className="text-white bg-red-600 px-2 inline-block rotate-1 border-4 border-slate-950 shadow-[6px_6px_0px_#000]">BAGUNÇA.</span>
+            PROJETOS QUE <br />
+            <span className="text-white bg-[#ccff00] text-slate-950 px-2 inline-block rotate-1 border-4 border-slate-950 shadow-[6px_6px_0px_#000]">RESOLVEM.</span>
           </h1>
           <p className="text-xl md:text-3xl text-slate-950 font-black uppercase tracking-tight mb-8">
             NO SEU TEMPO.
           </p>
           <div className="bg-[#ccff00] border-4 border-slate-950 p-6 shadow-[8px_8px_0px_#000] inline-block mt-4">
             <p className="text-lg md:text-xl text-slate-950 font-mono font-bold max-w-2xl mx-auto uppercase">
-              Todo negócio passa por fases distintas. Nós entramos onde você está — e evoluímos junto.
+              Da ideia ao produto. Cada projeto segue um processo testado e adaptável.
             </p>
           </div>
         </div>
@@ -73,19 +62,17 @@ export const HowItWorks: React.FC = () => {
             <div className="grid md:grid-cols-2 gap-12 items-center relative">
               <div className="md:pr-12 md:text-right">
                 <div className="inline-block bg-white border-2 border-slate-950 text-slate-950 px-3 py-1 text-xs font-black uppercase tracking-widest mb-4 shadow-[4px_4px_0px_#000]">
-                  ANTES - FASE 01
+                  FASE 01
                 </div>
                 <h3 className="text-4xl lg:text-5xl font-black text-slate-950 mb-6 uppercase tracking-tighter leading-[0.9]">
-                  ORGANIZAÇÃO<br/>TOTAL
+                  PROTOTIPAGEM
                 </h3>
                 <div className="bg-[#ccff00] p-8 border-4 border-slate-950 mb-8 inline-block md:ml-auto text-left lg:max-w-md shadow-[8px_8px_0px_#000]">
                   <p className="text-sm font-black text-slate-950 mb-3 uppercase tracking-widest">
-                    Quando o atendimento está confuso
+                    Fase de descoberta e ideação
                   </p>
                   <p className="text-sm md:text-base text-slate-950 font-mono font-bold leading-relaxed">
-                    Mensagens espalhadas, respostas perdidas, mais de uma pessoa
-                    atendendo sem controle. Aqui, o foco é organizar a base e
-                    centralizar tudo.
+                    Entendemos o problema, desenhamos a solução e criamos um protótipo funcional.
                   </p>
                 </div>
 
@@ -96,24 +83,24 @@ export const HowItWorks: React.FC = () => {
                   <ul className="space-y-3 text-sm md:text-base font-mono font-bold text-slate-950 md:flex md:flex-col md:items-end">
                     <li className="flex gap-4 items-center md:flex-row-reverse">
                       <span className="text-slate-950 bg-[#ccff00] border-2 border-slate-950 w-6 h-6 flex items-center justify-center font-black">✓</span>
-                      <span>Centralizamos WhatsApp, Instagram e site</span>
+                      <span>Mapeamos o problema e o escopo</span>
                     </li>
                     <li className="flex gap-4 items-center md:flex-row-reverse">
                       <span className="text-slate-950 bg-[#ccff00] border-2 border-slate-950 w-6 h-6 flex items-center justify-center font-black">✓</span>
-                      <span>Organizamos atendimento em equipe</span>
+                      <span>Desenhamos a arquitetura da solução</span>
                     </li>
                     <li className="flex gap-4 items-center md:flex-row-reverse">
                       <span className="text-slate-950 bg-[#ccff00] border-2 border-slate-950 w-6 h-6 flex items-center justify-center font-black">✓</span>
-                      <span>Criamos controle e histórico completo</span>
+                      <span>Criamos protótipo funcional</span>
                     </li>
                   </ul>
                 </div>
 
                 <button
-                  onClick={() => handleCtaClick("how_it_works_phase1")}
+                  onClick={() => window.location.href = '/contato'}
                   className="bg-slate-950 text-white border-4 border-slate-950 px-8 py-4 mt-2 text-sm font-black hover:bg-[#ccff00] hover:text-slate-950 transition-colors uppercase tracking-widest shadow-[6px_6px_0px_#000] inline-block w-full md:w-auto text-center"
                 >
-                  Falar com Especialista
+                  Agendar Consultoria
                 </button>
               </div>
 
@@ -134,19 +121,17 @@ export const HowItWorks: React.FC = () => {
 
               <div className="md:pl-12 order-2 md:text-left">
                 <div className="inline-block bg-slate-950 text-[#ccff00] border-2 border-slate-950 px-3 py-1 text-xs font-black uppercase tracking-widest mb-4 shadow-[4px_4px_0px_#000]">
-                  DURANTE - FASE 02
+                  FASE 02
                 </div>
                 <h3 className="text-4xl lg:text-5xl font-black text-slate-950 mb-6 uppercase tracking-tighter leading-[0.9]">
-                  EVOLUÇÃO<br/>INTELIGENTE
+                  VALIDAÇÃO
                 </h3>
                 <div className="bg-white p-8 border-4 border-slate-950 mb-8 md:mr-auto lg:max-w-md shadow-[8px_8px_0px_#000]">
                   <p className="text-sm font-black text-slate-950 mb-3 uppercase tracking-widest">
-                    Quando organizar já não basta
+                    Fase de teste e iteração
                   </p>
                   <p className="text-sm md:text-base text-slate-950 font-mono font-bold leading-relaxed">
-                    O volume cresce, o tempo aperta e tarefas repetitivas viram
-                    gargalo. É hora de automatizar com critério e inteligência
-                    artificial.
+                    Testamos com usuários reais, iteramos com base em feedback e ajustamos o escopo.
                   </p>
                 </div>
 
@@ -157,24 +142,24 @@ export const HowItWorks: React.FC = () => {
                   <ul className="space-y-3 text-sm md:text-base font-mono font-bold text-slate-950">
                     <li className="flex gap-4 items-center">
                       <span className="text-white bg-slate-950 border-2 border-slate-950 w-6 h-6 flex items-center justify-center font-black">✓</span>{" "}
-                      <span>Identificamos gargalos operacionais</span>
+                      <span>Testamos com usuários reais</span>
                     </li>
                     <li className="flex gap-4 items-center">
                       <span className="text-white bg-slate-950 border-2 border-slate-950 w-6 h-6 flex items-center justify-center font-black">✓</span>{" "}
-                      <span>Criamos fluxos inteligentes de triagem</span>
+                      <span>Coletamos e priorizamos feedback</span>
                     </li>
                     <li className="flex gap-4 items-center">
                       <span className="text-white bg-slate-950 border-2 border-slate-950 w-6 h-6 flex items-center justify-center font-black">✓</span>
-                      <span>IA sem perder o toque humano na negociação</span>
+                      <span>Ajustamos escopo e funcionalidades</span>
                     </li>
                   </ul>
                 </div>
 
                 <button
-                  onClick={() => handleCtaClick("how_it_works_phase2")}
+                  onClick={() => window.location.href = '/contato'}
                   className="bg-[#ccff00] text-slate-950 border-4 border-slate-950 px-8 py-4 mt-2 text-sm font-black hover:bg-slate-950 hover:text-[#ccff00] transition-colors uppercase tracking-widest shadow-[6px_6px_0px_#000] inline-block w-full md:w-auto text-center"
                 >
-                  Falar com Especialista
+                  Agendar Consultoria
                 </button>
               </div>
             </div>
@@ -183,19 +168,17 @@ export const HowItWorks: React.FC = () => {
             <div className="grid md:grid-cols-2 gap-12 items-center relative">
               <div className="md:pr-12 md:text-right">
                 <div className="inline-block bg-white border-2 border-slate-950 text-slate-950 px-3 py-1 text-xs font-black uppercase tracking-widest mb-4 shadow-[4px_4px_0px_#000]">
-                  DEPOIS - FASE 03
+                  FASE 03
                 </div>
                 <h3 className="text-4xl lg:text-5xl font-black text-slate-950 mb-6 uppercase tracking-tighter leading-[0.9]">
-                  AUTORIDADE<br/>DE MARCA
+                  DEPLOY
                 </h3>
                 <div className="bg-[#ccff00] p-8 border-4 border-slate-950 mb-8 inline-block md:ml-auto text-left lg:max-w-md shadow-[8px_8px_0px_#000]">
                   <p className="text-sm font-black text-slate-950 mb-3 uppercase tracking-widest">
-                    Quando a operação está sólida
+                    Fase de produção e entrega
                   </p>
                   <p className="text-sm md:text-base text-slate-950 font-mono font-bold leading-relaxed">
-                    Agora o negócio precisa ser encontrado, respeitado e
-                    lembrado. Construímos sua presença digital para sustentar o
-                    crescimento exponencial.
+                    Colocamos no ar com infraestrutura profissional, monitoramento e suporte contínuo.
                   </p>
                 </div>
 
@@ -206,24 +189,24 @@ export const HowItWorks: React.FC = () => {
                   <ul className="space-y-3 text-sm md:text-base font-mono font-bold text-slate-950 md:flex md:flex-col md:items-end">
                     <li className="flex gap-4 items-center md:flex-row-reverse">
                        <span className="text-slate-950 bg-[#ccff00] border-2 border-slate-950 w-6 h-6 flex items-center justify-center font-black">✓</span>
-                      <span>Vitrine online profissional e perfomática</span>
+                      <span>Deploy em infraestrutura profissional</span>
                     </li>
                     <li className="flex gap-4 items-center md:flex-row-reverse">
                        <span className="text-slate-950 bg-[#ccff00] border-2 border-slate-950 w-6 h-6 flex items-center justify-center font-black">✓</span>
-                      <span>Estrutura de SEO robusta (Google)</span>
+                      <span>Monitoramento e suporte contínuo</span>
                     </li>
                     <li className="flex gap-4 items-center md:flex-row-reverse">
                        <span className="text-slate-950 bg-[#ccff00] border-2 border-slate-950 w-6 h-6 flex items-center justify-center font-black">✓</span>
-                      <span>Integração Site + Atendimento + IA</span>
+                      <span>Documentação e transferência de conhecimento</span>
                     </li>
                   </ul>
                 </div>
 
                 <button
-                  onClick={() => handleCtaClick("how_it_works_phase3")}
+                  onClick={() => window.location.href = '/contato'}
                   className="bg-slate-950 text-white border-4 border-slate-950 px-8 py-4 mt-2 text-sm font-black hover:bg-[#ccff00] hover:text-slate-950 transition-colors uppercase tracking-widest shadow-[6px_6px_0px_#000] inline-block w-full md:w-auto text-center"
                 >
-                  Falar com Especialista
+                  Agendar Consultoria
                 </button>
               </div>
 
@@ -273,11 +256,16 @@ export const HowItWorks: React.FC = () => {
             </div>
           </div>
 
+          <p className="text-white font-bold mb-12 max-w-lg mx-auto text-[11px] uppercase tracking-[0.2em] leading-loose">
+            Projetos autorais, produtos utilitários ou sistemas sob medida — o processo é o mesmo.
+          </p>
+
           <button
-            onClick={() => handleCtaClick("how_it_works_final_cta")}
-            className="bg-slate-950 text-white border-4 border-slate-950 px-12 py-6 text-xl font-black hover:bg-white hover:text-slate-950 transition-colors shadow-[8px_8px_0px_#000] hover:shadow-[8px_8px_0px_#000] uppercase tracking-widest block mx-auto w-full md:w-auto"
+            onClick={() => window.location.href = '/contato'}
+            className="bg-[#ccff00] text-slate-950 px-10 py-5 text-sm md:text-base font-black hover:bg-white transition-all uppercase tracking-[0.2em] shadow-[6px_6px_0px_#fff]"
+            style={{ borderRadius: "0px" }}
           >
-            Começar Agora
+            Vamos construir algo?
           </button>
         </div>
       </section>

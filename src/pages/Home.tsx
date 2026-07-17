@@ -3,26 +3,13 @@ import { SEO } from "../components/common/SEO";
 import { PageTransition } from "../components/common/PageTransition";
 import { ROUTES } from "../routes";
 import { HeroSection } from "../features/home/components/HeroSection";
-import { StatsSection } from "../features/home/components/StatsSection";
-import { ProblemSection } from "../features/home/components/ProblemSection";
+import { ProjectsSection } from "../features/home/components/ProjectsSection";
+import { CapabilitiesSection } from "../features/home/components/CapabilitiesSection";
 import { SolutionsSection } from "../features/home/components/SolutionsSection";
 import { JourneySection } from "../features/home/components/JourneySection";
 import { CtaSection } from "../features/home/components/CtaSection";
 
 export const Home: React.FC = () => {
-  const [selectedSegment, setSelectedSegment] = React.useState<string | null>(
-    null
-  );
-
-  const handleSelectSegment = (segment: string) => {
-    setSelectedSegment((prev) => (prev === segment ? null : segment));
-    window.setTimeout(() => {
-      document
-        .getElementById("solutions")
-        ?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 0);
-  };
-
   return (
     <PageTransition>
       <SEO
@@ -51,8 +38,7 @@ export const Home: React.FC = () => {
               "name": "Unificando",
               "url": "https://unificando.com.br",
               "logo": "https://unificando.com.br/assets/img/LOGO_UNIFICANDO.svg",
-              "legalName": "64.630.380 MARIA JOSE GOMES DOS SANTOS",
-              "taxID": "64.630.380/0001-20",
+
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Recife",
@@ -73,12 +59,9 @@ export const Home: React.FC = () => {
       />
 
       <HeroSection />
-      <StatsSection />
-      <ProblemSection
-        selectedSegment={selectedSegment}
-        onSelectSegment={handleSelectSegment}
-      />
-      <SolutionsSection selectedSegment={selectedSegment} />
+      <ProjectsSection />
+      <CapabilitiesSection />
+      <SolutionsSection selectedSegment={null} />
       <JourneySection />
       <CtaSection />
     </PageTransition>

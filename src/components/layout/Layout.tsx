@@ -9,16 +9,11 @@ import { WhatsAppFloating } from "../common/WhatsAppFloating";
 const navItems: NavItem[] = [
   { label: "Início", path: ROUTES.HOME },
   { label: "Como Funciona", path: ROUTES.HOW_IT_WORKS },
-  { label: "Planos", path: ROUTES.PLANS },
+
   { label: "Sobre", path: ROUTES.ABOUT },
 ];
 
 const solutionItems = [
-  {
-    label: "Atendimento Unificado",
-    path: ROUTES.CUSTOMER_SERVICE,
-    desc: "Plataforma de Crescimento",
-  },
   {
     label: "IA no Atendimento",
     path: ROUTES.PRODUCTIVITY,
@@ -29,11 +24,7 @@ const solutionItems = [
     path: ROUTES.DIGITAL_PRESENCE,
     desc: "Presença Digital & Autoridade",
   },
-  {
-    label: "Deploy Inteligente",
-    path: ROUTES.SMART_HOSTING,
-    desc: "Hospedagem Inteligente",
-  },
+
 ];
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {

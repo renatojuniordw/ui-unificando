@@ -17,8 +17,7 @@ export const Footer: React.FC = () => {
             />
           </div>
           <p className="max-w-md mb-6 text-[12px] md:text-base font-mono font-bold uppercase p-4 border-l-4 border-slate-950 bg-slate-50">
-            O ecossistema definitivo para negócios que buscam maturidade,
-            autoridade e organização. Brutalmente focado em conversão.
+            Laboratório de projetos autorais, ferramentas utilitárias e soluções com inteligência artificial.
           </p>
           <div className="flex gap-4">
             <a
@@ -39,11 +38,6 @@ export const Footer: React.FC = () => {
             SOLUÇÕES
           </h4>
           <ul className="space-y-3 md:space-y-4 text-[10px] md:text-xs font-black uppercase tracking-widest">
-            <li>
-              <Link to={ROUTES.CUSTOMER_SERVICE} className="hover:bg-[#ccff00] hover:px-2 transition-all inline-block py-1">
-                ATENDIMENTO
-              </Link>
-            </li>
             <li>
               <Link to={ROUTES.PRODUCTIVITY} className="hover:bg-[#ccff00] hover:px-2 transition-all inline-block py-1">
                 IA NO SUPORTE
@@ -101,15 +95,7 @@ export const Footer: React.FC = () => {
       </div>
       <div className="max-w-7xl mx-auto px-6 lg:px-12 mt-8 py-8 bg-slate-50 border-4 border-slate-950 text-[10px] font-mono text-slate-800 text-center uppercase font-bold text-balance">
         <p>
-          UNIFICANDO © {new Date().getFullYear()} É OPERADO POR 64.630.380 MARIA
-          JOSE GOMES DOS SANTOS | CNPJ:
-          64.630.380/0001-20 • RECIFE - PE
-        </p>
-        <p className="mt-4 leading-loose">
-          ESTE SITE NÃO FAZ PARTE DO SITE DO FACEBOOK OU FACEBOOK INC. ALÉM
-          DISSO, ESTE SITE NÃO É ENDOSSADO PELO FACEBOOK DE NENHUMA MANEIRA.
-          FACEBOOK É UMA MARCA COMERCIAL DA FACEBOOK, INC. WHATSAPP É UMA MARCA
-          COMERCIAL DO WHATSAPP LLC.
+          UNIFICANDO © {new Date().getFullYear()} • RECIFE - PE
         </p>
       </div>
     </footer>

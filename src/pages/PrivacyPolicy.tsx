@@ -9,7 +9,7 @@ export const PrivacyPolicy: React.FC = () => {
     {
       title: "1. Visão Geral",
       content:
-        "O Unificando (64.630.380 MARIA JOSE GOMES DOS SANTOS) respeita a privacidade e a proteção dos dados pessoais de usuários e terceiros envolvidos no uso da plataforma. Esta Política explica como os dados são coletados, usados, armazenados e protegidos, em conformidade com a LGPD (Lei nº 13.709/2018). Ao utilizar o Unificando, o usuário concorda com as práticas descritas nesta Política.",
+        "O Unificando respeita a privacidade e a proteção dos dados pessoais de usuários e terceiros envolvidos no uso da plataforma. Esta Política explica como os dados são coletados, usados, armazenados e protegidos, em conformidade com a LGPD (Lei nº 13.709/2018). Ao utilizar o Unificando, o usuário concorda com as práticas descritas nesta Política.",
     },
     {
       title: "2. A quem esta Política se aplica?",
@@ -44,7 +44,6 @@ export const PrivacyPolicy: React.FC = () => {
                 "Automação responsável de processos",
                 "Uso de inteligência artificial aplicada",
                 "Criação de presença profissional",
-                "Hospedagem Inteligente (DaaS)",
               ].map((item, i) => (
                 <li key={i} className="flex items-center gap-2 text-xs font-black uppercase italic">
                    <span className="w-2 h-2 bg-slate-950"></span>
@@ -77,12 +76,7 @@ export const PrivacyPolicy: React.FC = () => {
                </div>
              ))}
           </div>
-          <div className="bg-amber-100 p-6 border-4 border-slate-950 shadow-[6px_6px_0px_#000]">
-            <p className="text-sm font-black uppercase mb-4 leading-none">NOTA SOBRE HOSPEDAGEM (DaaS):</p>
-            <p className="text-xs leading-relaxed font-mono font-bold">
-              Processamos apenas dados de infraestrutura (IP, requisições) necessários para estabilidade e proteção. Não acessamos o conteúdo preenchido nos formulários dos sites hospedados.
-            </p>
-          </div>
+
         </div>
       ),
     },

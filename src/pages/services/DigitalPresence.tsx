@@ -1,26 +1,25 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../routes";
 import { SEO } from "../../components/common/SEO";
 import { PageTransition } from "../../components/common/PageTransition";
-import { CTA } from "../../constants/cta";
-import { trackCtaClick } from "../../utils/analytics";
 
 // Animação de Scroll e Construção de Landing Page
 import { LandingPageAnimation } from "../../features/digital-presence/LandingPageAnimation";
 import { FAQSection } from "../../features/digital-presence/FAQSection";
 
 export const DigitalPresence: React.FC = () => {
-  const handleCTA = () => {
-    trackCtaClick({
-      label: CTA.primary.label,
-      location: "digital_presence_cta",
-      to: CTA.primary.to,
-    });
-    window.open(CTA.primary.to, "_blank");
-  };
+  const navigate = useNavigate();
 
   return (
     <PageTransition>
+      {/* Sob Consultoria Banner */}
+      <div className="bg-[#ccff00] border-b-4 border-slate-950 py-4 text-center">
+        <span className="text-xs font-black uppercase tracking-widest text-slate-950">
+          Serviço Sob Consultoria — Entre em contato para entender como funciona
+        </span>
+      </div>
+
       <SEO
         title="Sites Profissionais e Presença Digital | Unificando"
         description="Tenha uma casa própria na internet. Sites rápidos, profissionais e otimizados para o Google."
@@ -102,10 +101,10 @@ export const DigitalPresence: React.FC = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <button
-                onClick={handleCTA}
+                onClick={() => navigate(ROUTES.CONTACT)}
                 className="bg-slate-950 text-[#ccff00] px-8 py-5 text-xs font-black border-2 border-slate-950 hover:bg-[#ccff00] hover:text-slate-950 transition-colors shadow-[6px_6px_0px_#000] hover:shadow-[6px_6px_0px_#000] uppercase tracking-widest w-max"
               >
-                Agendar diagnóstico
+                Agendar Consultoria
               </button>
             </div>
           </div>
@@ -191,10 +190,10 @@ export const DigitalPresence: React.FC = () => {
 
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <button
-                  onClick={handleCTA}
+                  onClick={() => navigate(ROUTES.CONTACT)}
                   className="bg-[#ccff00] text-slate-950 px-12 py-5 text-sm font-black uppercase tracking-[0.2em] shadow-[8px_8px_0px_transparent] border-2 border-transparent hover:border-slate-950 hover:shadow-[8px_8px_0px_#fff] transition-all w-full sm:w-auto"
                 >
-                  Agendar Raio-X Gratuito
+                  Agendar Consultoria
                 </button>
               </div>
             </div>
@@ -250,10 +249,10 @@ export const DigitalPresence: React.FC = () => {
             DIGITAL ESTÁ PRONTA?
           </h2>
           <button
-            onClick={handleCTA}
+            onClick={() => navigate(ROUTES.CONTACT)}
             className="bg-slate-950 text-[#ccff00] px-12 py-6 text-sm font-black border-4 border-slate-950 hover:bg-[#ccff00] hover:text-slate-950 transition-colors shadow-[8px_8px_0px_#000] uppercase tracking-widest inline-block"
           >
-            Falar pelo WhatsApp
+            Agendar Consultoria
           </button>
         </div>
       </section>

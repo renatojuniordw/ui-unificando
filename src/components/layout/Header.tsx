@@ -33,7 +33,6 @@ export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
   const isServicesActive = (
     [
       ROUTES.SERVICES,
-      ROUTES.CUSTOMER_SERVICE,
       ROUTES.PRODUCTIVITY,
       ROUTES.DIGITAL_PRESENCE,
     ] as string[]
@@ -147,7 +146,7 @@ export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
             onClick={handleCtaClick}
             className="bg-[#ccff00] ml-4 text-slate-950 px-6 py-3 text-xs font-black uppercase tracking-widest hover:bg-white transition-all border-4 border-[#ccff00] shadow-[4px_4px_0px_#fff] hover:-translate-y-1 hover:shadow-[6px_6px_0px_#fff]"
           >
-            FALAR COM ESPECIALISTA
+            CONSULTORIA
           </button>
         </nav>
 
@@ -249,7 +248,7 @@ export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
             onClick={handleCtaClick}
             className="bg-[#ccff00] text-slate-950 w-full py-6 font-black uppercase tracking-tighter text-xl mt-8 border-4 border-transparent text-center hover:bg-white transition-all shadow-[8px_8px_0px_#fff]"
           >
-            FALAR COM ESPECIALISTA
+            CONSULTORIA
           </button>
         </div>
       </div>
