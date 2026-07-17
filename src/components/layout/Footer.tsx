@@ -39,12 +39,12 @@ export const Footer: React.FC = () => {
           </h4>
           <ul className="space-y-3 md:space-y-4 text-[10px] md:text-xs font-black uppercase tracking-widest">
             <li>
-              <Link to={ROUTES.PRODUCTIVITY} className="hover:bg-[#ccff00] hover:px-2 transition-all inline-block py-1">
+              <Link to={ROUTES.SERVICES} className="hover:bg-[#ccff00] hover:px-2 transition-all inline-block py-1">
                 IA NO SUPORTE
               </Link>
             </li>
             <li>
-              <Link to={ROUTES.DIGITAL_PRESENCE} className="hover:bg-[#ccff00] hover:px-2 transition-all inline-block py-1">
+              <Link to={ROUTES.SERVICES} className="hover:bg-[#ccff00] hover:px-2 transition-all inline-block py-1">
                 SITES & WEB
               </Link>
             </li>

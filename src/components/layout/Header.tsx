@@ -33,8 +33,6 @@ export const Header: React.FC<HeaderProps> = ({ navItems, solutionItems }) => {
   const isServicesActive = (
     [
       ROUTES.SERVICES,
-      ROUTES.PRODUCTIVITY,
-      ROUTES.DIGITAL_PRESENCE,
     ] as string[]
   ).includes(pathname);
 

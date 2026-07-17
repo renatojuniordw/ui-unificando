@@ -1,8 +1,6 @@
 export const ROUTES = {
   HOME: "/",
   SERVICES: "/servicos",
-  PRODUCTIVITY: "/servicos/ia",
-  DIGITAL_PRESENCE: "/servicos/sites",
   HOW_IT_WORKS: "/metodo-unificando",
   ABOUT: "/sobre",
   CONTACT: "/contato",

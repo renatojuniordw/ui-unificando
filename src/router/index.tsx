@@ -10,20 +10,9 @@ const Home = React.lazy(() =>
 );
 const Services = React.lazy(() =>
   import("../pages/services/Services").then((module) => ({
-    default: module.Solutions, // Note: the internal export name is still Solutions. We can rename it inside Services later.
+    default: module.Solutions,
   })),
 );
-const Productivity = React.lazy(() =>
-  import("../pages/services/Productivity").then((module) => ({
-    default: module.Productivity,
-  })),
-);
-const DigitalPresence = React.lazy(() =>
-  import("../pages/services/DigitalPresence").then((module) => ({
-    default: module.DigitalPresence,
-  })),
-);
-// Old Solutions import removed.
 const HowItWorks = React.lazy(() =>
   import("../pages/HowItWorks").then((module) => ({
     default: module.HowItWorks,
@@ -71,8 +60,6 @@ export const AppRouter: React.FC = () => {
       <Suspense fallback={<LoadingFallback />}>
         <Routes location={location} key={location.pathname}>
           <Route path={ROUTES.HOME} element={<Home />} />
-          <Route path={ROUTES.PRODUCTIVITY} element={<Productivity />} />
-          <Route path={ROUTES.DIGITAL_PRESENCE} element={<DigitalPresence />} />
           <Route path={ROUTES.SERVICES} element={<Services />} />
           <Route path={ROUTES.HOW_IT_WORKS} element={<HowItWorks />} />
           <Route path={ROUTES.ABOUT} element={<About />} />

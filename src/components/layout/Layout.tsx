@@ -16,12 +16,12 @@ const navItems: NavItem[] = [
 const solutionItems = [
   {
     label: "IA no Atendimento",
-    path: ROUTES.PRODUCTIVITY,
+    path: ROUTES.SERVICES,
     desc: "IA para negócios",
   },
   {
     label: "Sites & Presença Online",
-    path: ROUTES.DIGITAL_PRESENCE,
+    path: ROUTES.SERVICES,
     desc: "Presença Digital & Autoridade",
   },
 

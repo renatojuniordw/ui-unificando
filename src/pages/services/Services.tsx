@@ -31,11 +31,11 @@ const AutomacaoAnimation = () => {
           animate={{ opacity: step >= 2 ? 1 : 0, x: step >= 2 ? 0 : 20 }}
           className="bg-[#ccff00] border-2 border-slate-950 p-4 max-w-[70%] self-end text-[9px] font-black text-slate-950 shadow-[4px_4px_0px_#fff] uppercase tracking-tight"
         >
-          OLÁ! ESCOLHA UMA OPÇÃO...
+          CLARO! VOU TE EXPLICAR...
         </motion.div>
       </div>
       <div className="text-[10px] font-black text-white uppercase tracking-widest text-center mt-4 border-t-2 border-slate-800 pt-4">
-        TRIAGEM INTELIGENTE
+        EXEMPLO DE FLUXO COM IA
       </div>
     </div>
   );
@@ -137,9 +137,9 @@ export const Solutions: React.FC = () => {
               IA NO <br/> ATENDIMENTO
             </h2>
             <p className="text-xl text-slate-950 mb-8 font-mono font-bold leading-relaxed border-l-4 border-[#ccff00] pl-4">
-              Agentes inteligentes que atendem, qualificam, agendam e escalam
-              conversas 24/7, seguindo o tom da sua marca e seus processos
-              internos.
+              Agentes inteligentes que atendem, qualificam e escalam conversas.
+              Uma das especialidades do laboratório — criamos sistemas de IA
+              sob medida para o seu negócio.
             </p>
 
             <div className="bg-[#ccff00] p-6 border-4 border-slate-950 mb-10 shadow-[8px_8px_0px_#000]">
@@ -162,10 +162,10 @@ export const Solutions: React.FC = () => {
             </div>
 
             <button
-              onClick={() => navigate(ROUTES.PRODUCTIVITY)}
+              onClick={() => window.location.href = "mailto:contato@unificando.com.br"}
               className="bg-slate-950 text-white px-8 py-5 text-xs font-black border-4 border-slate-950 shadow-[6px_6px_0px_#000] hover:bg-white hover:text-slate-950 transition-colors uppercase tracking-[0.2em] inline-block"
             >
-              CONHECER IA
+              SOLICITAR PROPOSTA
             </button>
           </motion.div>
         </div>
@@ -210,10 +210,10 @@ export const Solutions: React.FC = () => {
             </div>
 
             <button
-              onClick={() => navigate(ROUTES.DIGITAL_PRESENCE)}
+              onClick={() => window.location.href = "mailto:contato@unificando.com.br"}
               className="bg-[#ccff00] text-slate-950 px-8 py-5 text-xs font-black border-4 border-transparent shadow-[6px_6px_0px_#fff] hover:bg-white hover:text-slate-950 hover:border-slate-950 transition-colors uppercase tracking-[0.2em] inline-block"
             >
-              VER DETALHES
+              SOLICITAR PROPOSTA
             </button>
           </motion.div>
           <div className="h-full min-h-[400px]">
