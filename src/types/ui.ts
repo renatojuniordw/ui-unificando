@@ -22,4 +22,5 @@ export interface SEOProps {
   ogImage?: string;
   jsonLd?: Record<string, any> | Record<string, any>[];
   robots?: string;
+  keywords?: string;
 }

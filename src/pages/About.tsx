@@ -11,6 +11,7 @@ export const About: React.FC = () => {
         title="Sobre a Unificando | Laboratório de Projetos Autorais"
         description="Conheça o laboratório: produtos digitais, ferramentas com IA e projetos autorais."
         canonical={ROUTES.ABOUT}
+        keywords="sobre Unificando, laboratório digital, produtos autorais, ferramentas IA, Renato Bezerra, engenheiro de software, Recife"
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "AboutPage",

@@ -16,6 +16,7 @@ export const Home: React.FC = () => {
         title="Unificando | Atendimento via WhatsApp, IA e Presença Digital"
         description="Centralize WhatsApp e Instagram, automatize o atendimento com IA e fortaleça sua presença no Google com site profissional. Ideal para PMEs."
         canonical={ROUTES.HOME}
+        keywords="Unificando, automação WhatsApp, IA atendimento, chatbot WhatsApp, site profissional, presença digital, PME, pequenas empresas, Recife, Instagram, automação com IA"
         jsonLd={{
           "@context": "https://schema.org",
           "@graph": [

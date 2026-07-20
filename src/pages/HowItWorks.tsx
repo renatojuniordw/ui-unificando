@@ -10,7 +10,8 @@ export const HowItWorks: React.FC = () => {
       <SEO
         title="Como Trabalhamos | Laboratório Unificando"
         description="Metodologia de desenvolvimento: prototipação, validação e deploy de projetos digitais."
-        canonical="/como-funciona"
+        canonical={ROUTES.HOW_IT_WORKS}
+        keywords="metodologia desenvolvimento, prototipação, validação, deploy, processo ágil, produtos digitais, laboratório digital"
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "HowTo",

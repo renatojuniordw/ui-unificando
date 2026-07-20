@@ -9,8 +9,8 @@ export const NotFound: React.FC = () => {
     <PageTransition>
       <SEO
         title="Página não encontrada | Unificando"
-        description="A página que você está procurando não existe."
-        canonical={ROUTES.NOT_FOUND}
+        description="A página que você está procurando não existe. Volte para a página inicial."
+        canonical={ROUTES.HOME}
         robots="noindex, nofollow"
       />
       <div className="min-h-[70vh] flex flex-col items-center justify-center text-center px-4 bg-slate-50">

@@ -17,6 +17,7 @@ export const LawLanding: React.FC = () => {
         title="Unificando para Advogados | Atendimento Jurídico Centralizado e IA"
         description="Escritórios de advocacia perdem contratos por demora no WhatsApp. Centralize seu atendimento, automatize a triagem com IA e triplique sua conversão de leads jurídicos."
         canonical={ROUTES.FOR_LAWYERS}
+        keywords="advogados, escritório advocacia, atendimento jurídico, WhatsApp advocacia, IA para advogados, automação escritório, leads jurídicos, triagem IA, OAB"
         jsonLd={{
           "@context": "https://schema.org",
           "@graph": [

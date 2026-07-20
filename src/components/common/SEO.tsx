@@ -9,6 +9,7 @@ export const SEO: React.FC<SEOProps> = ({
   ogImage,
   jsonLd,
   robots,
+  keywords,
 }) => {
   const siteUrl =
     (import.meta as any).env?.VITE_SITE_URL?.toString() ||
@@ -18,13 +19,22 @@ export const SEO: React.FC<SEOProps> = ({
     ? `${siteUrl}${ogImage}`
     : `${siteUrl}/og-image.svg`;
 
+  const defaultKeywords = "Unificando, automação WhatsApp, IA atendimento, presença digital, laboratório digital, Recife, automação com IA, chatbot, site profissional";
+
   return (
     <Helmet>
       {/* Visual */}
       <title>{title}</title>
       <meta name="description" content={description} />
+      <meta name="keywords" content={keywords || defaultKeywords} />
       <link rel="canonical" href={fullCanonical} />
-      {robots ? <meta name="robots" content={robots} /> : null}
+      {robots ? <meta name="robots" content={robots} /> : <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />}
+
+      {/* AI Crawlers */}
+      <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large" />
+      <meta name="chatgpt" content="all" />
+      <meta name="ai-crawler" content="all" />
+      <link rel="llms" href="/llms.txt" title="AI Discovery" type="text/plain" />
 
       {/* Social / Open Graph */}
       <meta property="og:type" content="website" />
@@ -32,6 +42,8 @@ export const SEO: React.FC<SEOProps> = ({
       <meta property="og:description" content={description} />
       <meta property="og:url" content={fullCanonical} />
       <meta property="og:image" content={fullImage} />
+      <meta property="og:site_name" content="Unificando Digital" />
+      <meta property="og:locale" content="pt_BR" />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />

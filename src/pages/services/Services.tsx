@@ -75,6 +75,7 @@ export const Solutions: React.FC = () => {
         title="Serviços Sob Consultoria | Unificando"
         description="Tudo que construímos também pode ser aplicado ao seu negócio. Sob medida, sem pressão."
         canonical={ROUTES.SERVICES}
+        keywords="serviços digitais, consultoria IA, automação atendimento, chatbot, site institucional, presença digital, desenvolvimento web, Recife"
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "CollectionPage",

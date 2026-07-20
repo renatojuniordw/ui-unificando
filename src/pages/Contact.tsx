@@ -11,6 +11,7 @@ export const Contact: React.FC = () => {
         title="Fale Conosco | Unificando"
         description="Entre em contato para conversarmos sobre seu projeto."
         canonical={ROUTES.CONTACT}
+        keywords="contato Unificando, falar conosco, orçamento, consultoria digital, proposta, atendimento"
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "ContactPage",
