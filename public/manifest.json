@@ -1,0 +1,39 @@
+{
+  "name": "Unificando — Laboratório de Projetos Autorais & IA",
+  "short_name": "Unificando",
+  "description": "Ecossistema de automação de atendimento digital, IA e presença online para PMEs.",
+  "start_url": "/",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone"],
+  "theme_color": "#0f172a",
+  "background_color": "#f8fafc",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/LOGO_UNIFICANDO.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo_thumbnail.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/LOGO_PERFIL.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/LOGO_PERFIL.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": ["business", "productivity", "utilities"],
+  "lang": "pt-BR"
+}
