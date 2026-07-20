@@ -11,6 +11,14 @@ const projects = [
     tags: ["Next.js", "PDF-lib", "IA"],
   },
   {
+    title: "Unificando Med",
+    status: "Em desenvolvimento",
+    statusColor: "bg-yellow-500",
+    description: "Consulta inteligente de medicamentos intercambiáveis da ANVISA com busca semântica por IA local.",
+    link: "https://med.unificando.com.br",
+    tags: ["Next.js", "IA", "ANVISA"],
+  },
+  {
     title: "Sistema de Afiliados",
     status: "Em desenvolvimento",
     statusColor: "bg-yellow-500",
