@@ -13,6 +13,8 @@ export const Footer: React.FC = () => {
             <img
               src={LogoUnificando}
               alt="Unificando"
+              width={167}
+              height={40}
               className="h-6 md:h-10 w-auto"
             />
           </div>
@@ -34,9 +36,9 @@ export const Footer: React.FC = () => {
           </div>
         </div>
         <div className="text-left">
-          <h4 className="inline-block bg-slate-950 text-white px-2 py-1 text-sm md:text-base font-black uppercase tracking-widest mb-4 md:mb-6 border-2 border-slate-950 shadow-[3px_3px_0px_#ccff00]">
+          <h2 className="inline-block bg-slate-950 text-white px-2 py-1 text-sm md:text-base font-black uppercase tracking-widest mb-4 md:mb-6 border-2 border-slate-950 shadow-[3px_3px_0px_#ccff00]">
             SOLUÇÕES
-          </h4>
+          </h2>
           <ul className="space-y-3 md:space-y-4 text-[10px] md:text-xs font-black uppercase tracking-widest">
             <li>
               <Link to={ROUTES.SERVICES} className="hover:bg-[#ccff00] hover:px-2 transition-all inline-block py-1">
@@ -51,9 +53,9 @@ export const Footer: React.FC = () => {
           </ul>
         </div>
         <div className="text-left">
-          <h4 className="inline-block bg-slate-950 text-[#ccff00] px-2 py-1 text-sm md:text-base font-black uppercase tracking-widest mb-4 md:mb-6 border-2 border-slate-950 shadow-[3px_3px_0px_#000]">
+          <h2 className="inline-block bg-slate-950 text-[#ccff00] px-2 py-1 text-sm md:text-base font-black uppercase tracking-widest mb-4 md:mb-6 border-2 border-slate-950 shadow-[3px_3px_0px_#000]">
             LINKS
-          </h4>
+          </h2>
           <ul className="space-y-3 md:space-y-4 text-[10px] md:text-xs font-black uppercase tracking-widest">
             <li>
               <Link to={ROUTES.ABOUT} className="hover:bg-[#ccff00] hover:px-2 transition-all inline-block py-1">
@@ -104,7 +106,7 @@ export const Footer: React.FC = () => {
           href="https://renatobezerra.com.br"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-400 hover:text-slate-950 transition-colors inline-block border border-slate-200 px-3 py-1"
+          className="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-600 hover:text-slate-950 transition-colors inline-block border border-slate-200 px-3 py-1"
         >
           Construído por Renato Bezerra → Engenheiro de Software & IA
         </a>

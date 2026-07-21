@@ -100,7 +100,7 @@ export const ProjectsSection: React.FC = () => {
                   rel="noopener noreferrer"
                   className="text-xs font-black uppercase tracking-widest text-slate-950 inline-flex items-center gap-2 group-hover:gap-3 transition-all border-b-2 border-slate-950 pb-1"
                 >
-                  Acessar Projeto →
+                  Acessar {project.title} <span aria-hidden="true">→</span>
                 </a>
               )}
             </motion.div>

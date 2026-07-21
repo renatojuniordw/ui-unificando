@@ -9,16 +9,16 @@ https://unificando.com.br
 Laboratório especializado em produtos digitais, ferramentas utilitárias e soluções com inteligência artificial. Centralização de WhatsApp e Instagram, automação de atendimento com IA, criação de sites profissionais. Ideal para PMEs, escritórios de advocacia e profissionais autônomos.
 
 ## Páginas principais
-- Home: https://unificando.com.br/ — Landing page principal
-- Serviços: https://unificando.com.br/servicos — Soluções modulares sob consultoria
-- Para Advogados: https://unificando.com.br/para-advogados — Atendimento jurídico centralizado com IA
-- Método: https://unificando.com.br/metodo-unificando — Processo de trabalho (prototipação → validação → deploy)
-- Sobre: https://unificando.com.br/sobre — Manifesto e princípios
-- Contato: https://unificando.com.br/contato — Formulário de contato
-- Links: https://unificando.com.br/links — Todos os canais
-- Gerar Contrato: https://unificando.com.br/contrato — Contrato de prestação de serviços
-- Privacidade: https://unificando.com.br/privacidade — Política LGPD
-- Termos: https://unificando.com.br/termos — Termos de uso
+- [Home](https://unificando.com.br/): Landing page principal
+- [Serviços](https://unificando.com.br/servicos): Soluções modulares sob consultoria
+- [Para Advogados](https://unificando.com.br/para-advogados): Atendimento jurídico centralizado com IA
+- [Método](https://unificando.com.br/metodo-unificando): Processo de trabalho (prototipação → validação → deploy)
+- [Sobre](https://unificando.com.br/sobre): Manifesto e princípios
+- [Contato](https://unificando.com.br/contato): Formulário de contato
+- [Links](https://unificando.com.br/links): Todos os canais
+- [Gerar Contrato](https://unificando.com.br/contrato): Contrato de prestação de serviços
+- [Privacidade](https://unificando.com.br/privacidade): Política LGPD
+- [Termos](https://unificando.com.br/termos): Termos de uso
 
 ## Soluções
 - **IA no Atendimento**: Agentes inteligentes que atendem, qualificam e escalam conversas no WhatsApp e Instagram
@@ -26,9 +26,9 @@ Laboratório especializado em produtos digitais, ferramentas utilitárias e solu
 - **Automação com n8n**: Fluxos automatizados integrando APIs e sistemas
 
 ## Contato
-- Email: contato@unificando.com.br
-- Instagram: https://instagram.com/unificando.digital
-- WhatsApp: https://wa.me/5581995557302
+- [Email](mailto:contato@unificando.com.br)
+- [Instagram](https://instagram.com/unificando.digital)
+- [WhatsApp](https://wa.me/5581995557302)
 
 ## Info adicional
 - Fundação: 2024

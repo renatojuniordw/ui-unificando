@@ -54,7 +54,13 @@ export const Header: React.FC<HeaderProps> = React.memo(({ navItems, solutionIte
           className="flex items-center gap-2 cursor-pointer bg-[#ccff00] p-2 border-2 border-slate-950 shadow-[4px_4px_0px_#fff] hover:-translate-y-1 hover:shadow-[6px_6px_0px_#fff] transition-all"
           onClick={closeAll}
         >
-          <img src={LogoUnificando} alt="Unificando" className="h-6 w-auto" />
+          <img
+            src={LogoUnificando}
+            alt="Unificando"
+            width={100}
+            height={24}
+            className="h-6 w-auto"
+          />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-8">
