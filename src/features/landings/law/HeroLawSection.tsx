@@ -1,9 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import { CTA } from "../../../constants/cta";
 import { trackCtaClick } from "../../../utils/analytics";
 
 export const HeroLawSection: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="pt-24 pb-20 md:pt-32 md:pb-28 overflow-hidden bg-slate-950 border-b-8 border-slate-950 relative">
       <div className="max-w-4xl mx-auto px-6 lg:px-12 flex flex-col items-center text-center relative z-10">
@@ -44,7 +47,7 @@ export const HeroLawSection: React.FC = () => {
                   location: "law_hero_primary",
                   to: CTA.primary.to,
                 });
-                window.open(CTA.primary.to, "_blank");
+                navigate(CTA.primary.to);
               }}
               className="bg-[#ccff00] text-slate-950 px-10 py-6 border-4 border-slate-950 text-base font-black uppercase tracking-widest shadow-[8px_8px_0px_#fff] hover:shadow-[12px_12px_0px_#fff] transition-all"
             >

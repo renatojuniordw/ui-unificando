@@ -5,7 +5,7 @@ import { ServiceSelection } from "../../types/contact";
 import { ModalType } from "../../types/ui";
 import { ServiceSelector } from "./ServiceSelector";
 import { pushDataLayer } from "../../utils/analytics";
-import { CONTACT_EMAIL } from "../../constants/social";
+import { SOCIAL_LINKS } from "../../constants/social";
 
 const SERVICE_OPTIONS = [
   {
@@ -104,8 +104,7 @@ export const ContactForm: React.FC = () => {
     });
 
     try {
-      const subject = encodeURIComponent("Contato - Unificando");
-      const body = encodeURIComponent(
+      const message = encodeURIComponent(
         `Olá! Me chamo ${name}.\n\n` +
         Object.entries(selectedServices)
           .filter(([, v]) => v)
@@ -113,9 +112,9 @@ export const ContactForm: React.FC = () => {
           .join(", ") +
         `\n\nGostaria de saber mais sobre como funciona.`
       );
-      const url = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+      const url = `${SOCIAL_LINKS.whatsapp}?text=${message}`;
 
-      window.location.href = url;
+      window.open(url, "_blank", "noopener,noreferrer");
       pushDataLayer({
         event: "lead_submit_success",
         lead_method: "whatsapp_redirect",
@@ -124,7 +123,7 @@ export const ContactForm: React.FC = () => {
 
       showModal(
         "REDIRECIONANDO",
-        "ESTAMOS ABRINDO SEU CLIENTE DE E-MAIL PARA CONTINUARMOS.",
+        "ESTAMOS ABRINDO O WHATSAPP PARA CONTINUARMOS.",
         "success",
         () => setIsSubmitting(false),
       );
@@ -198,7 +197,8 @@ export const ContactForm: React.FC = () => {
           ) : (
             <>
               <svg className="w-5 h-5 md:w-6 md:h-6 fill-current" viewBox="0 0 24 24">
-                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.148.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                <path d="M12.004 2c-5.523 0-10 4.477-10 10 0 1.762.457 3.42 1.257 4.862L2 22l5.267-1.382A9.955 9.955 0 0012.004 22c5.523 0 10-4.477 10-10s-4.477-10-10-10zm0 18.148a8.14 8.14 0 01-4.148-1.134l-.297-.176-3.126.82.834-3.045-.193-.312A8.15 8.15 0 013.85 12c0-4.507 3.647-8.148 8.154-8.148 4.507 0 8.148 3.641 8.148 8.148 0 4.507-3.641 8.148-8.148 8.148z" />
               </svg>
               <span>ENVIAR MENSAGEM</span>
             </>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { NavItem } from "../../types";
 import { ROUTES } from "../../routes";
 import { CTA } from "../../constants/cta";
@@ -14,6 +14,7 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = React.memo(({ navItems, solutionItems }) => {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   const {
     isMenuOpen,
@@ -42,7 +43,7 @@ export const Header: React.FC<HeaderProps> = React.memo(({ navItems, solutionIte
       location: "header_primary",
       to: CTA.primary.to,
     });
-    window.open(CTA.primary.to as string, "_blank", "noopener,noreferrer");
+    navigate(CTA.primary.to);
   };
 
   return (

@@ -67,7 +67,7 @@ export const SolutionsSection: React.FC<SolutionsSectionProps> = ({
             </div>
             
             <button
-              onClick={() => handleCtaClick(CTA.primary.label, "home_solutions_card_ia", CTA.primary.to as string, true)}
+              onClick={() => handleCtaClick(CTA.primary.label, "home_solutions_card_ia", CTA.primary.to as string)}
               className="text-slate-950 font-black inline-flex items-center gap-2 group-hover:gap-4 transition-all uppercase text-[11px] tracking-[0.2em] border-b-2 border-slate-950 pb-1 w-max"
             >
               Saber mais <span>→</span>
@@ -92,7 +92,7 @@ export const SolutionsSection: React.FC<SolutionsSectionProps> = ({
             </div>
             
             <button
-              onClick={() => handleCtaClick(CTA.primary.label, "home_solutions_card_presenca", CTA.primary.to as string, true)}
+              onClick={() => handleCtaClick(CTA.primary.label, "home_solutions_card_presenca", CTA.primary.to as string)}
               className="text-slate-950 font-black inline-flex items-center gap-2 group-hover:gap-4 transition-all uppercase text-[11px] tracking-[0.2em] border-b-2 border-slate-950 pb-1 w-max"
             >
               Saber mais <span>→</span>

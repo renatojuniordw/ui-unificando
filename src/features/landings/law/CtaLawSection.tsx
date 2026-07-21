@@ -1,9 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import { CTA } from "../../../constants/cta";
 import { trackCtaClick } from "../../../utils/analytics";
 
 export const CtaLawSection: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="py-24 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10 text-center">
@@ -37,7 +40,7 @@ export const CtaLawSection: React.FC = () => {
                   location: "law_cta_footer",
                   to: CTA.primary.to,
                 });
-                window.open(CTA.primary.to, "_blank");
+                navigate(CTA.primary.to);
               }}
               className="bg-white text-slate-950 px-12 py-6 border-4 border-slate-950 text-base font-black uppercase tracking-widest shadow-[8px_8px_0px_#ccff00] hover:shadow-[12px_12px_0px_#ccff00] transition-all"
             >
