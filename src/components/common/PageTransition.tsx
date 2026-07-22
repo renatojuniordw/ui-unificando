@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import { PageTransitionProps } from "../../types/ui";
 
 const pageVariants = {
-  initial: { opacity: 0, filter: "grayscale(100%) blur(10px)" },
-  animate: { opacity: 1, filter: "grayscale(0%) blur(0px)" },
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
   exit: { opacity: 0 },
 };
 

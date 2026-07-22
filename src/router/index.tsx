@@ -3,11 +3,9 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { LoadingFallback } from "../components/common/LoadingFallback";
 import { ROUTES } from "../routes";
+import { Home } from "../pages/Home";
 
 // Lazy load pages for code splitting
-const Home = React.lazy(() =>
-  import("../pages/Home").then((module) => ({ default: module.Home })),
-);
 const Services = React.lazy(() =>
   import("../pages/services/Services").then((module) => ({
     default: module.Solutions,
