@@ -17,8 +17,8 @@ export const PartnerTech: React.FC = () => {
 
         <div className="flex flex-wrap items-center justify-center gap-12 md:gap-20 transition-all duration-500">
           {techs.map((tech, i) => (
-            <div key={i} className="flex items-center gap-3 opacity-50 hover:opacity-100 transition-opacity">
-              <span className="text-2xl">{tech.logo}</span>
+            <div key={i} className="flex items-center gap-3">
+              <span className="text-2xl opacity-50 hover:opacity-100 transition-opacity">{tech.logo}</span>
               <span className="text-xs font-black uppercase tracking-widest text-slate-950">
                 {tech.name}
               </span>

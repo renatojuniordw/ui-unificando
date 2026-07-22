@@ -45,7 +45,11 @@
         window.addEventListener(evt, onFirstInteraction, { passive: true });
       });
       window.addEventListener("load", function () {
-        setTimeout(loadGoogleTags, 3500);
+        if ("requestIdleCallback" in window) {
+          requestIdleCallback(loadGoogleTags, { timeout: 8000 });
+        } else {
+          setTimeout(loadGoogleTags, 6000);
+        }
       });
     </script>
     <!-- End Google Tag Manager + GA4 -->
