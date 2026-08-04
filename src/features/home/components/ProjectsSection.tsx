@@ -19,6 +19,14 @@ const projects = [
     tags: ["Next.js", "IA", "ANVISA"],
   },
   {
+    title: "Radar Unificando",
+    status: "No ar",
+    statusColor: "bg-green-500",
+    description: "Busca de vagas remotas em tempo real (Gupy + InHire) com assistente de carreira por IA via MCP.",
+    link: "https://radar.unificando.com.br",
+    tags: ["Next.js", "MCP", "IA"],
+  },
+  {
     title: "Sistema de Afiliados",
     status: "Em desenvolvimento",
     statusColor: "bg-yellow-500",
