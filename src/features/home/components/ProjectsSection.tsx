@@ -22,7 +22,7 @@ const projects = [
     title: "Radar Unificando",
     status: "No ar",
     statusColor: "bg-green-500",
-    description: "Busca de vagas remotas em tempo real (Gupy + InHire) com assistente de carreira por IA via MCP.",
+    description: "Busca de vagas em tempo real (Gupy + InHire, todas as áreas) com IA: score ATS, currículo adaptado e recomendação de cursos.",
     link: "https://radar.unificando.com.br",
     tags: ["Next.js", "MCP", "IA"],
   },
