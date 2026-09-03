@@ -9,7 +9,7 @@ export const TermsOfService: React.FC = () => {
     {
       title: "1. Visão Geral",
       content:
-        "ESTES TERMOS REGULAM O USO DA PLATAFORMA UNIFICANDO. UM ECOSSISTEMA DE SOLUÇÕES PARA ATENDIMENTO DIGITAL, AUTOMAÇÃO RESPONSÁVEL E IA APLICADA. AO UTILIZAR OS SERVIÇOS, O USUÁRIO DECLARA CONCORDÂNCIA INTEGRAL COM ESTAS REGRAS.",
+        "ESTES TERMOS REGULAM O USO DO LABORATÓRIO UNIFICANDO: SEUS SITES, PRODUTOS, FERRAMENTAS E CONTEÚDOS. AO UTILIZAR QUALQUER SERVIÇO DO LABORATÓRIO, O USUÁRIO DECLARA CONCORDÂNCIA INTEGRAL COM ESTAS REGRAS.",
     },
     {
       title: "2. Aceitação",
@@ -17,15 +17,16 @@ export const TermsOfService: React.FC = () => {
         "O USO ESTÁ CONDICIONADO À ACEITAÇÃO DESTES TERMOS. EM CASO DE DISCORDÂNCIA, O ACESSO DEVE SER INTERROMPIDO IMEDIATAMENTE.",
     },
     {
-      title: "3. O Escopo",
+      title: "3. Descrição dos Serviços",
       content: (
         <div className="space-y-4">
-          <p className="font-mono font-bold uppercase text-slate-500">O UNIFICANDO OFERECE SOLUÇÕES MODULARES:</p>
+          <p className="font-mono font-bold uppercase text-slate-500">O LABORATÓRIO UNIFICANDO PUBLICA:</p>
           <div className="grid md:grid-cols-2 gap-4">
              {[
-               "Painel de Atendimento Multicanal",
-               "Automação e IA de Atendimento",
-               "Landing Pages Profissionais",
+               "Produtos utilitários web (PDF Unificando)",
+               "Sistemas com IA aplicada (Med, Radar)",
+               "Ferramentas open source no npm",
+               "Conteúdos e documentação técnica",
               ].map((s, i) => (
                <div key={i} className="bg-slate-50 p-4 border-2 border-slate-950 shadow-[4px_4px_0px_#000] text-xs font-black uppercase">
                  {s}
@@ -38,49 +39,53 @@ export const TermsOfService: React.FC = () => {
     {
       title: "4. Acesso & Contas",
       content:
-        "O USUÁRIO É O ÚNICO RESPONSÁVEL POR SUAS CREDENCIAIS E PELA VERACIDADE DOS DADOS. O UNIFICANDO NÃO SE RESPONSABILIZA POR ACESSOS INDEVIDOS CAUSADOS POR NEGLIGÊNCIA DO CLIENTE.",
+        "OS PRODUTOS DO LABORATÓRIO FUNCIONAM SEM CADASTRO E ANONIMAMENTE. SE NO FUTURO ALGUM SERVIÇO EXIGIR CONTA, O USUÁRIO SERÁ O ÚNICO RESPONSÁVEL POR SUAS CREDENCIAIS E PELA VERACIDADE DOS DADOS FORNECIDOS.",
     },
     {
-      title: "5. Canais & WhatsApp",
+      title: "5. Uso Aceitável",
       content: (
         <div className="bg-white p-6 border-4 border-slate-950 shadow-[6px_6px_0px_#000]">
           <p className="font-mono font-bold text-sm uppercase leading-relaxed">
-            O UNIFICANDO NÃO FORNECE NÚMEROS DE WHATSAPP OU CONTAS DE REDES SOCIAIS. O CLIENTE UTILIZA SEUS PRÓPRIOS CANAIS, AUTORIZANDO A CONEXÃO VIA MÉTODOS OFICIAIS.
+            É PROIBIDO UTILIZAR OS SERVIÇOS DO LABORATÓRIO PARA QUALQUER FIM ILEGAL, PARA REALIZAR SCRAPING OU ABUSO MASSIVO, PARA TENTATIVAS DE ACESSO NÃO AUTORIZADO OU QUALQUER AÇÃO QUE COMPROMETA A SEGURANÇA E A ESTABILIDADE DOS PRODUTOS.
           </p>
         </div>
       ),
     },
     {
-      title: "6. Automação & IA",
+      title: "6. Propriedade Intelectual",
       content:
-        "A IA ATUA COMO APOIO. PROJETOS COM IA PASSAM POR DIAGNÓSTICO. O UNIFICANDO NÃO SE RESPONSABILIZA POR RESPOSTAS DA IA QUE DIVIRJAM DAS REGRAS CONFIGURADAS PELO CLIENTE — O MONITORAMENTO É DEVER DO CONTRATANTE.",
-    },
-
-    {
-      title: "8. Pagamento & Prazos",
-      content:
-         "SETUP + MENSALIDADE. SERVIÇO INICIA APÓS CONTRATO ASSINADO E SETUP PAGO. PRAZO PADRÃO: 15 DIAS ÚTEIS.",
+        "TODO O CONTEÚDO, CÓDIGO-FONTE, DESIGN, TEXTOS E MARCAS DO LABORATÓRIO UNIFICANDO SÃO DE PROPRIEDADE DE SEUS CRIADORES. AS FERRAMENTAS PUBLICADAS NO NPM SÃO DE CÓDIGO ABERTO, DISTRIBUÍDAS SOB A LICENÇA MIT, SALVO INDICAÇÃO EM CONTRÁRIO EM CADA PACOTE.",
     },
     {
-      title: "9. Cancelamento",
-      content:
-        "SEM FIDELIDADE. CANCELAMENTO A QUALQUER MOMENTO. REEMBOLSO INTEGRAL APENAS SE SOLICITADO EM ATÉ 7 DIAS ÚTEIS APÓS A ENTREGA DO PROJETO.",
-    },
-    {
-      title: "10. Inadimplência",
-      content:
-        "7 DIAS DE ATRASO: SUSPENSÃO. 30 DIAS: EXCLUSÃO DE DADOS E NECESSIDADE DE NOVO SETUP PARA RETORNO.",
-    },
-    {
-      title: "11. Responsabilidades",
+      title: "7. Isenções & Avisos",
       content: (
         <div className="bg-red-600 text-white p-8 border-4 border-slate-950 shadow-[10px_10px_0px_#000]">
-           <p className="font-black uppercase text-xl leading-none mb-4">ALERTA DE SEGURANÇA:</p>
+           <p className="font-black uppercase text-xl leading-none mb-4">ATENÇÃO:</p>
            <p className="font-mono font-bold text-sm uppercase leading-relaxed">
-             TODO CONTEÚDO ENVIADO, MENSAGENS E REGRAS DE AUTOMAÇÃO SÃO RESPONSABILIDADE EXCLUSIVA DO USUÁRIO. O UNIFICANDO NÃO SE RESPONSABILIZA POR RESULTADOS COMERCIAIS OU PENALIDADES DE PLATAFORMAS (META/WHATSAPP).
+             OS PRODUTOS DO LABORATÓRIO SÃO OFERECIDOS "COMO ESTÃO". DADOS DE FONTES PÚBLICAS DE TERCEIROS (COMO ANVISA E PLATAFORMAS DE VAGAS) PODEM DESATUALIZAR E NÃO CONSTITUEM ACONSELHAMENTO MÉDICO, JURÍDICO OU FINANCEIRO. NENHUM CONTEÚDO DO LABORATÓRIO SUBSTITUI A CONSULTA A UM PROFISSIONAL QUALIFICADO.
            </p>
         </div>
       ),
+    },
+    {
+      title: "8. Limitação de Responsabilidade",
+      content:
+        "OS PRODUTOS SÃO GRATUITOS E NÃO HÁ GARANTIA DE DISPONIBILIDADE CONTÍNUA OU ININTERRUPTA. O LABORATÓRIO NÃO SE RESPONSABILIZA POR DANOS DIRETOS, INDIRETOS OU CONSEQUENTES DECORRENTES DO USO OU DA INDISPONIBILIDADE DE SEUS SERVIÇOS.",
+    },
+    {
+      title: "9. Links de Terceiros",
+      content:
+        "NOSSOS PRODUTOS PODEM CONTER LINKS PARA SITES DE TERCEIROS (NPM, GITHUB, PLATAFORMAS EXTERNAS). NÃO NOS RESPONSABILIZAMOS PELO CONTEÚDO, POLÍTICAS OU PRÁTICAS DESSES SERVIÇOS.",
+    },
+    {
+      title: "10. Alterações destes Termos",
+      content:
+        "ESTES TERMOS PODEM SER ATUALIZADOS A QUALQUER MOMENTO. A VERSÃO ATUALIZADA SERÁ PUBLICADA NESTA PÁGINA COM NOVA DATA DE VERSÃO, E O USO CONTÍNUO DOS SERVIÇOS APÓS A ALTERAÇÃO IMPLICA EM ACEITAÇÃO DOS NOVOS TERMOS.",
+    },
+    {
+      title: "11. Legislação & Foro",
+      content:
+        "ESTES TERMOS SÃO REGIDOS PELAS LEIS DA REPÚBLICA FEDERATIVA DO BRASIL. FICA ELEITO O FORO DA COMARCA DO RECIFE/PE PARA DIRIMIR QUALQUER CONTROVÉRSIA RELACIONADA A ESTES TERMOS.",
     },
   ];
 
@@ -88,14 +93,14 @@ export const TermsOfService: React.FC = () => {
     <PageTransition>
       <SEO
         title="Termos de Uso | Unificando Digital"
-        description="Regras, direitos e deveres para utilização da plataforma e ecossistema Unificando."
+        description="Regras, direitos e deveres para utilização dos sites, produtos e ferramentas do laboratório Unificando."
         canonical={ROUTES.TERMS}
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "WebPage",
           "name": "Termos de Uso e Condições - Unificando",
           "datePublished": "2024-01-01",
-          "dateModified": "2026-03-12",
+          "dateModified": "2026-09-02",
         }}
       />
 
@@ -108,8 +113,7 @@ export const TermsOfService: React.FC = () => {
               <span className="bg-[#ccff00] px-4 rotate-1 inline-block border-8 border-slate-950 shadow-[10px_10px_0px_#000]">TERMOS.</span>
             </h1>
             <div className="flex items-center gap-4">
-               <span className="bg-slate-950 text-white px-3 py-1 font-black uppercase text-xs">VERSÃO 2026.03</span>
-               <span className="font-mono font-black text-xs uppercase text-slate-400 italic">LEGAL_FRAMEWORK_</span>
+               <span className="bg-slate-950 text-white px-3 py-1 font-black uppercase text-xs">VERSÃO 2026.09</span>
             </div>
           </div>
 
@@ -129,7 +133,7 @@ export const TermsOfService: React.FC = () => {
           <div className="mt-32 p-12 border-8 border-slate-950 bg-slate-50 shadow-[20px_20px_0px_#000]">
             <h3 className="text-3xl font-black uppercase mb-6 leading-none">DÚVIDA JURÍDICA?</h3>
             <p className="font-mono font-bold text-slate-500 mb-10 uppercase text-sm leading-relaxed">
-              Trabalhamos com transparência total. Se precisar de esclarecimentos sobre o contrato ou SLA, fale diretamente com nosso canal oficial.
+              Trabalhamos com transparência total. Se precisar de esclarecimentos sobre estes termos, fale diretamente com nosso canal oficial.
             </p>
             <a
               href="mailto:contato@unificando.com.br"

@@ -9,7 +9,7 @@ export const PrivacyPolicy: React.FC = () => {
     {
       title: "1. Visão Geral",
       content:
-        "O Unificando respeita a privacidade e a proteção dos dados pessoais de usuários e terceiros envolvidos no uso da plataforma. Esta Política explica como os dados são coletados, usados, armazenados e protegidos, em conformidade com a LGPD (Lei nº 13.709/2018). Ao utilizar o Unificando, o usuário concorda com as práticas descritas nesta Política.",
+        "O Unificando é um laboratório de projetos autorais e inteligência artificial. Esta Política explica como os dados são coletados, usados, armazenados e protegidos nos sites, produtos e ferramentas do laboratório, em conformidade com a LGPD (Lei nº 13.709/2018). Ao utilizar nossos produtos, o usuário concorda com as práticas descritas nesta Política.",
     },
     {
       title: "2. A quem esta Política se aplica?",
@@ -17,15 +17,15 @@ export const PrivacyPolicy: React.FC = () => {
         <ul className="space-y-4">
           <li className="flex items-start gap-3">
             <span className="bg-slate-950 text-[#ccff00] px-2 border-2 border-slate-950 font-black">✓</span>
-            <span>Usuários da plataforma Unificando (empresas e profissionais);</span>
+            <span>Visitantes de unificando.com.br e dos produtos do laboratório (PDF, Med e Radar Unificando);</span>
           </li>
           <li className="flex items-start gap-3">
             <span className="bg-slate-950 text-[#ccff00] px-2 border-2 border-slate-950 font-black">✓</span>
-            <span>Visitantes de sites e landing pages criados ou mantidos pelo Unificando;</span>
+            <span>Usuários das ferramentas open source publicadas no npm;</span>
           </li>
           <li className="flex items-start gap-3">
             <span className="bg-slate-950 text-[#ccff00] px-2 border-2 border-slate-950 font-black">✓</span>
-            <span>Dados tratados no contexto do atendimento digital feito por meio da plataforma.</span>
+            <span>Pessoas que entram em contato pelo formulário, e-mail ou WhatsApp.</span>
           </li>
         </ul>
       ),
@@ -35,15 +35,15 @@ export const PrivacyPolicy: React.FC = () => {
       content: (
         <div className="space-y-4">
           <p className="font-mono font-bold uppercase text-slate-500">
-            O Unificando é um ecossistema de soluções voltado à:
+            O Unificando é um laboratório de projetos autorais voltado a:
           </p>
           <div className="bg-slate-50 p-6 border-4 border-slate-950 shadow-[4px_4px_0px_#000]">
             <ul className="grid md:grid-cols-2 gap-4">
               {[
-                "Organização do atendimento digital",
-                "Automação responsável de processos",
-                "Uso de inteligência artificial aplicada",
-                "Criação de presença profissional",
+                "Produtos utilitários e ferramentas web",
+                "Inteligência artificial aplicada",
+                "Pesquisa e desenvolvimento (P&D)",
+                "Ferramentas open source para devs",
               ].map((item, i) => (
                 <li key={i} className="flex items-center gap-2 text-xs font-black uppercase italic">
                    <span className="w-2 h-2 bg-slate-950"></span>
@@ -62,54 +62,34 @@ export const PrivacyPolicy: React.FC = () => {
       title: "4. Quais dados pessoais são coletados?",
       content: (
         <div className="space-y-6">
-          <p>Os dados coletados variam conforme o uso do serviço e podem incluir:</p>
+          <p>Os dados coletados variam conforme o produto utilizado e podem incluir:</p>
           <div className="grid sm:grid-cols-2 gap-4">
              {[
-               "Nome, e-mail, telefone e WhatsApp",
-               "Dados de login e autenticação",
-               "Mensagens trocadas nos canais",
-               "Áudios enviados (quando aplicável)",
-               "Dados técnicos (IP, Data, Hora)",
+               "Nome e WhatsApp (apenas via contato)",
+               "Dados de navegação e analytics (GA4, Meta Pixel)",
+               "Dados técnicos (IP, navegador, data e hora)",
+               "Arquivos enviados ao PDF Unificando (processamento efêmero)",
              ].map((d, i) => (
                <div key={i} className="bg-white p-4 border-2 border-slate-950 shadow-[4px_4px_0px_#000] font-mono font-bold text-xs uppercase">
                  {d}
                </div>
              ))}
           </div>
-
+          <p className="text-sm font-black uppercase text-slate-600 italic">
+            * Os produtos do laboratório funcionam sem cadastro. No Med Unificando, as buscas por IA são processadas 100% no navegador — nenhum dado de busca é enviado a servidores ou APIs externas.
+          </p>
         </div>
       ),
     },
     {
-      title: "5. Uso de Dados Google (User Data)",
-      content: (
-        <div className="space-y-6">
-          <p>Em conformidade com a Política de Dados do Usuário dos Serviços de API do Google:</p>
-          <div className="space-y-4">
-            <div className="p-6 bg-slate-950 text-white border-4 border-slate-950 shadow-[8px_8px_0px_#ccff00]">
-               <h4 className="font-black uppercase mb-2 text-[#ccff00]">ACESSO & USO</h4>
-               <p className="text-xs font-mono font-bold leading-relaxed">
-                 Acessamos Sheets, Docs, Drive e Calendar apenas via OAuth para executar automações solicitadas. <br/><br/>
-                 O USO E TRANSFERÊNCIA DE INFORMAÇÕES ADERIRÃO ÀS POLÍTICAS DO GOOGLE, INCLUINDO REQUISITOS DE USO LIMITADO.
-               </p>
-            </div>
-            <p className="text-sm font-black uppercase text-red-600 italic">
-              *NÃO UTILIZAMOS DADOS DAS APIs DO GOOGLE PARA TREINAR MODELOS DE IA.
-            </p>
-          </div>
-        </div>
-      ),
-    },
-    {
-      title: "6. Como os dados são coletados?",
+      title: "5. Como os dados são coletados?",
       content: (
         <div className="flex flex-wrap gap-4">
           {[
-            "Formulários de Lead",
-            "Painel de Atendimento",
-            "Canais Integrados",
-            "Integrações OAuth",
-            "Monitoramento de Segurança",
+            "Formulário de contato",
+            "Cookies de analytics e publicidade",
+            "Uploads efêmeros de arquivos",
+            "Logs de segurança e infraestrutura",
           ].map((c, i) => (
             <span key={i} className="bg-white px-4 py-2 border-4 border-slate-950 text-[10px] font-black uppercase tracking-widest shadow-[4px_4px_0px_#000]">
               {c}
@@ -119,17 +99,17 @@ export const PrivacyPolicy: React.FC = () => {
       ),
     },
     {
-      title: "7. Para que usamos os dados?",
+      title: "6. Para que usamos os dados?",
       content: (
         <div className="bg-white p-8 border-4 border-slate-950 shadow-[10px_10px_0px_#000]">
           <ul className="space-y-3 font-mono text-sm font-bold uppercase">
             {[
-              "Gerenciar contas e logins",
-              "Viabilizar o atendimento digital",
-              "Executar automações configuradas",
-              "Operar agentes de IA com segurança",
-              "Prestar suporte técnico real",
-              "Garantir estabilidade da plataforma",
+              "Responder contatos e conversas sobre projetos",
+              "Operar e melhorar os produtos do laboratório",
+              "Medir audiência e desempenho (GA4, Meta Pixel)",
+              "Exibir publicidade relevante (AdSense)",
+              "Garantir segurança e estabilidade dos serviços",
+              "Cumprir obrigações legais",
             ].map((u, i) => (
               <li key={i} className="flex gap-4 items-center border-b-2 border-slate-100 pb-2 last:border-0">
                 <span className="text-indigo-600 font-black">#0{i+1}</span>
@@ -141,14 +121,30 @@ export const PrivacyPolicy: React.FC = () => {
       ),
     },
     {
-      title: "8. Compartilhamento",
-      content:
-        "Os dados são compartilhados apenas com parceiros essenciais (Meta/WhatsApp, Provedores de Infraestrutura, Gateways de Pagamento). O Unificando nunca vende seus dados.",
+      title: "7. IA & Seus Dados",
+      content: (
+        <div className="bg-slate-950 text-white p-6 border-4 border-slate-950 shadow-[8px_8px_0px_#ccff00]">
+          <p className="font-mono font-bold text-sm uppercase leading-relaxed">
+            O laboratório aplica IA com responsabilidade. NÃO utilizamos dados de usuários para treinar modelos de IA. Onde a IA é usada em nossos produtos, o processamento é local (como no Med Unificando) ou acontece através de provedores terceiros, sujeitos às políticas próprias de cada provedor.
+          </p>
+        </div>
+      ),
     },
     {
-      title: "9. Uso de IA",
+      title: "8. Compartilhamento",
       content:
-        "A IA do Unificando serve como apoio. Ela não toma decisões críticas sozinha, não atua fora das regras definidas pelo usuário e todos os processos são rastreáveis. Foco em automação responsável, não substituição humana.",
+        "Os dados são compartilhados apenas com parceiros essenciais: Google (Analytics e AdSense), Meta (Pixel) e provedores de infraestrutura e hospedagem. O Unificando nunca vende seus dados.",
+    },
+    {
+      title: "9. Cookies & Rastreamento",
+      content: (
+        <div className="space-y-4">
+          <p>Utilizamos cookies e tecnologias similares para medir audiência (Google Analytics), conversões (Meta Pixel) e exibir anúncios (Google AdSense). Esses serviços podem coletar dados de navegação conforme suas próprias políticas.</p>
+          <p className="text-sm font-black uppercase text-slate-600 italic">
+            Você pode gerenciar ou bloquear cookies nas configurações do seu navegador, além de controlar anúncios personalizados nas plataformas do Google e da Meta.
+          </p>
+        </div>
+      ),
     },
     {
       title: "10. Segurança & Direitos",
@@ -172,7 +168,7 @@ export const PrivacyPolicy: React.FC = () => {
     <PageTransition>
       <SEO
         title="Privacidade | Unificando Digital"
-        description="Termos de proteção de dados e práticas de privacidade do ecossistema Unificando."
+        description="Política de privacidade e proteção de dados dos produtos e ferramentas do laboratório Unificando, em conformidade com a LGPD."
         canonical={ROUTES.PRIVACY}
         jsonLd={{
           "@context": "https://schema.org",
@@ -180,7 +176,7 @@ export const PrivacyPolicy: React.FC = () => {
           "name": "Política de Privacidade - Unificando",
           "description": "Explicação completa sobre como tratamos seus dados sob a LGPD.",
           "datePublished": "2024-01-01",
-          "dateModified": "2026-03-12",
+          "dateModified": "2026-09-02",
           "breadcrumb": {
              "@type": "BreadcrumbList",
              "itemListElement": [{
@@ -206,7 +202,7 @@ export const PrivacyPolicy: React.FC = () => {
               <span className="bg-[#ccff00] px-4 -rotate-1 inline-block border-8 border-slate-950 shadow-[10px_10px_0px_#000]">PRIVACIDADE.</span>
             </h1>
             <div className="flex items-center gap-4">
-               <span className="bg-slate-950 text-white px-3 py-1 font-black uppercase text-xs">ATUALIZADO MAR/2026</span>
+               <span className="bg-slate-950 text-white px-3 py-1 font-black uppercase text-xs">ATUALIZADO SET/2026</span>
                <span className="font-mono font-black text-xs uppercase text-slate-400 italic">LGPD COMPLIANT_</span>
             </div>
           </div>
