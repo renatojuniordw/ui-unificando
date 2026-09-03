@@ -20,7 +20,7 @@ export interface SEOProps {
   description: string;
   canonical?: string;
   ogImage?: string;
-  jsonLd?: Record<string, any> | Record<string, any>[];
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   robots?: string;
   keywords?: string;
 }
