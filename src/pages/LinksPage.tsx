@@ -38,7 +38,7 @@ export const LinksPage: React.FC = () => {
       />
 
       {/* Background with animated gradient mesh - LIGHT THEME */}
-      <main className="min-h-screen bg-slate-50 flex flex-col items-center justify-center relative overflow-hidden px-6 py-12 selection:bg-indigo-100 selection:text-indigo-900">
+      <div className="min-h-screen bg-slate-50 flex flex-col items-center justify-center relative overflow-hidden px-6 py-12 selection:bg-indigo-100 selection:text-indigo-900">
         {/* Ambient Background Effects */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
           <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-indigo-200/40 rounded-full blur-[120px] animate-pulse"></div>
@@ -59,6 +59,8 @@ export const LinksPage: React.FC = () => {
               <img
                 src={LogoUnificando}
                 alt="Unificando Logo"
+                width={100}
+                height={24}
                 className="h-12 w-auto mx-auto"
               />
             </div>
@@ -186,7 +188,7 @@ export const LinksPage: React.FC = () => {
             <p>© {new Date().getFullYear()} Unificando</p>
           </motion.div>
         </motion.div>
-      </main>
+      </div>
     </>
   );
 };

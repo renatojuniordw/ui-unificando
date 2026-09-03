@@ -13,9 +13,11 @@ export const Modal: React.FC<ModalProps> = ({
   onConfirm,
 }) => {
   const modalRef = React.useRef<HTMLDivElement>(null);
+  const previouslyFocusedRef = React.useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     if (isOpen) {
+      previouslyFocusedRef.current = document.activeElement as HTMLElement | null;
       document.body.style.overflow = "hidden";
       setTimeout(() => modalRef.current?.focus(), 100);
     } else {
@@ -24,6 +26,39 @@ export const Modal: React.FC<ModalProps> = ({
     return () => {
       document.body.style.overflow = "unset";
     };
+  }, [isOpen]);
+
+  // Focus trap: mantém o Tab circulando dentro do modal
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleTab = (e: KeyboardEvent) => {
+      if (e.key !== "Tab") return;
+      const modal = modalRef.current;
+      if (!modal) return;
+      const focusable = modal.querySelectorAll<HTMLElement>(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+      );
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    window.addEventListener("keydown", handleTab);
+    return () => window.removeEventListener("keydown", handleTab);
+  }, [isOpen]);
+
+  // Restaura o foco ao elemento que abriu o modal
+  useEffect(() => {
+    if (!isOpen && previouslyFocusedRef.current) {
+      previouslyFocusedRef.current.focus();
+      previouslyFocusedRef.current = null;
+    }
   }, [isOpen]);
 
   useEffect(() => {

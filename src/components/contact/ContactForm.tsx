@@ -71,7 +71,25 @@ export const ContactForm: React.FC = () => {
       );
       const url = `${SOCIAL_LINKS.whatsapp}?text=${message}`;
 
-      window.open(url, "_blank", "noopener,noreferrer");
+      const win = window.open(url, "_blank");
+      if (win) {
+        // Remove a referência de opener (equivalente a noopener) sem perder a
+        // detecção de popup bloqueado — com a feature "noopener" o retorno é sempre null.
+        win.opener = null;
+      } else {
+        pushDataLayer({
+          event: "lead_submit_error",
+          lead_method: "whatsapp_redirect",
+          lead_source: "contact_form",
+        });
+        showModal(
+          "ERRO NO REDIRECIONAMENTO",
+          "O NAVEGADOR BLOQUEOU A ABERTURA DO WHATSAPP. PERMITA POP-UPS E TENTE NOVAMENTE.",
+          "error",
+        );
+        return;
+      }
+
       pushDataLayer({
         event: "lead_submit_success",
         lead_method: "whatsapp_redirect",

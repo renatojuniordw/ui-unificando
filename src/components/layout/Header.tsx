@@ -46,7 +46,9 @@ export const Header: React.FC<HeaderProps> = React.memo(({ navItems }) => {
           <button
             className="text-white bg-slate-900 border-2 border-slate-800 p-2 hover:bg-[#ccff00] hover:text-slate-950 transition-colors"
             onClick={toggleMenu}
-            aria-label="Toggle menu"
+            aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-nav"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +71,10 @@ export const Header: React.FC<HeaderProps> = React.memo(({ navItems }) => {
       </div>
 
       {/* Mobile Nav */}
-      <div className={`fixed inset-0 top-20 bg-slate-950 z-40 lg:hidden overflow-y-auto transition-transform duration-300 ${isMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
+      <div
+        id="mobile-nav"
+        className={`fixed inset-0 top-20 bg-slate-950 z-40 lg:hidden overflow-y-auto transition-transform duration-300 ${isMenuOpen ? "translate-x-0" : "translate-x-full"}`}
+      >
         <div className="flex flex-col p-6 min-h-full pb-24">
           {navItems.map((item) => (
             <Link

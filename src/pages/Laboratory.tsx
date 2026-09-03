@@ -5,6 +5,7 @@ import { PageTransition } from "../components/common/PageTransition";
 import { CtaButton } from "../components/common/CtaButton";
 import { ROUTES } from "../routes";
 import { DevToolsSection } from "../features/home/components/DevToolsSection";
+import { NOISE_BACKGROUND } from "../constants/backgrounds";
 
 const capabilities = [
   {
@@ -117,10 +118,7 @@ export const Laboratory: React.FC = () => {
       <section className="py-24 md:py-32 bg-slate-950 text-white border-b-8 border-[#ccff00] relative overflow-hidden">
         <div
           className="absolute inset-0 opacity-20 pointer-events-none mix-blend-overlay"
-          style={{
-            backgroundImage:
-              'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")',
-          }}
+          style={{ backgroundImage: NOISE_BACKGROUND }}
         />
         <div className="max-w-7xl mx-auto px-6 lg:px-12 text-center relative z-10">
           <span className="inline-block bg-[#ccff00] text-slate-950 font-black uppercase tracking-[0.2em] text-[10px] px-3 py-1 border-2 border-slate-950 shadow-[4px_4px_0px_#fff] mb-8">
@@ -248,10 +246,7 @@ export const Laboratory: React.FC = () => {
       <section className="py-24 md:py-32 bg-slate-950 text-white text-center relative overflow-hidden">
         <div
           className="absolute inset-0 opacity-20 pointer-events-none mix-blend-overlay"
-          style={{
-            backgroundImage:
-              'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")',
-          }}
+          style={{ backgroundImage: NOISE_BACKGROUND }}
         />
         <div className="max-w-4xl mx-auto px-6 lg:px-12 relative z-10 flex flex-col items-center">
           <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-[0.9] mb-8">
