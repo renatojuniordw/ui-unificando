@@ -19,7 +19,7 @@ export const SEO: React.FC<SEOProps> = ({
     ? `${siteUrl}${ogImage}`
     : `${siteUrl}/og-image.svg`;
 
-  const defaultKeywords = "Unificando, automação WhatsApp, IA atendimento, presença digital, laboratório digital, Recife, automação com IA, chatbot, site profissional";
+  const defaultKeywords = "Unificando, laboratório digital, projetos autorais, IA aplicada, ferramentas utilitárias, produtos digitais, P&D, inteligência artificial, desenvolvimento de produto, Recife";
 
   return (
     <Helmet>

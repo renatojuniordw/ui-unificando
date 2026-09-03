@@ -1,32 +1,14 @@
 import React, { useState } from "react";
 import { Modal } from "../common/Modal";
 import { useContactValidation } from "../../hooks/useContactValidation";
-import { ServiceSelection } from "../../types/contact";
 import { ModalType } from "../../types/ui";
-import { ServiceSelector } from "./ServiceSelector";
 import { pushDataLayer } from "../../utils/analytics";
 import { SOCIAL_LINKS } from "../../constants/social";
 
-const SERVICE_OPTIONS = [
-  {
-    id: "ia" as keyof ServiceSelection,
-    label: "IA no Atendimento",
-    emoji: "🤖",
-  },
-  {
-    id: "site" as keyof ServiceSelection,
-    label: "Sites & Presença Online",
-    emoji: "🌐",
-  },
-];
-
 export const ContactForm: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [selectedServices, setSelectedServices] = useState<ServiceSelection>({
-    ia: false,
-    site: false,
-  });
   const [name, setName] = useState("");
+  const [whatsapp, setWhatsapp] = useState("");
 
   const [company, setCompany] = useState(""); // Honeypot
 
@@ -59,29 +41,12 @@ export const ContactForm: React.FC = () => {
     if (modal.onClose) modal.onClose();
   };
 
-  const handleServiceChange = (
-    id: keyof ServiceSelection,
-    checked: boolean,
-  ) => {
-    setSelectedServices((prev) => ({ ...prev, [id]: checked }));
-  };
-
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
 
     if (company) return; // Honeypot
 
-    const hasSelection = Object.values(selectedServices).some((v) => v);
-    if (!hasSelection) {
-      showModal(
-        "SELEÇÃO OBRIGATÓRIA",
-        "POR FAVOR, SELECIONE AO MENOS UM SERVIÇO SOBRE O QUAL VOCÊ TEM DÚVIDAS.",
-        "warning",
-      );
-      return;
-    }
-
-    const validation = validateForm({ name, challenge: "servicos" });
+    const validation = validateForm({ name, whatsapp, challenge: "projeto" });
 
     if (!validation.isValid && validation.error) {
       showModal(
@@ -97,20 +62,12 @@ export const ContactForm: React.FC = () => {
       event: "lead_submit",
       lead_method: "whatsapp_redirect",
       lead_source: "contact_form",
-      selected_services: Object.entries(selectedServices)
-        .filter(([, v]) => v)
-        .map(([k]) => k)
-        .join(",") || "none",
+      selected_services: "projeto",
     });
 
     try {
       const message = encodeURIComponent(
-        `Olá! Me chamo ${name}.\n\n` +
-        Object.entries(selectedServices)
-          .filter(([, v]) => v)
-          .map(([k]) => k.toUpperCase())
-          .join(", ") +
-        `\n\nGostaria de saber mais sobre como funciona.`
+        `Olá! Me chamo ${name}${whatsapp ? `, WhatsApp ${whatsapp}` : ""}.\n\nGostaria de conversar sobre um projeto.`
       );
       const url = `${SOCIAL_LINKS.whatsapp}?text=${message}`;
 
@@ -164,6 +121,22 @@ export const ContactForm: React.FC = () => {
           />
         </div>
 
+        <div>
+          <label htmlFor="contact-whatsapp" className="inline-block bg-slate-950 text-white text-[10px] font-black mb-3 uppercase tracking-widest px-2 py-1 border-2 border-slate-950 shadow-[2px_2px_0px_#ccff00]">
+            SEU WHATSAPP
+          </label>
+          <input
+            id="contact-whatsapp"
+            type="tel"
+            inputMode="numeric"
+            value={whatsapp}
+            onChange={(e) => setWhatsapp(e.target.value)}
+            disabled={isSubmitting}
+            className="w-full bg-white border-4 border-slate-950 text-slate-950 font-black uppercase tracking-tight px-5 py-4 focus:bg-slate-50 focus:outline-none transition-colors shadow-[4px_4px_0px_#000] focus:shadow-[2px_2px_0px_#000] focus:translate-y-[2px] focus:translate-x-[2px]"
+            placeholder="(00) 00000-0000"
+          />
+        </div>
+
         <div className="hidden" aria-hidden="true">
           <input
             type="text"
@@ -174,13 +147,6 @@ export const ContactForm: React.FC = () => {
             autoComplete="off"
           />
         </div>
-
-        <ServiceSelector
-          options={SERVICE_OPTIONS}
-          selectedServices={selectedServices}
-          onChange={handleServiceChange}
-          disabled={isSubmitting}
-        />
 
         <button
           type="submit"

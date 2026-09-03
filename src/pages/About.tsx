@@ -143,7 +143,7 @@ export const About: React.FC = () => {
                 id: "02",
                 title: "TRANSPARÊNCIA",
                 description:
-                  "Você sabe exatamente o que está contratando, quanto custa e por quê.",
+                  "Você sabe exatamente o que está sendo construído, como funciona e por quê.",
               },
               {
                 id: "03",

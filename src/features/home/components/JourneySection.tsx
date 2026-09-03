@@ -1,10 +1,7 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import { ROUTES } from "../../../routes";
+import { CtaButton } from "../../../components/common/CtaButton";
 
 export const JourneySection: React.FC = () => {
-  const navigate = useNavigate();
-
   return (
     <section className="py-24 md:py-32 bg-slate-950 text-white text-center relative overflow-hidden border-b-2 border-white/10">
       <div
@@ -45,16 +42,10 @@ export const JourneySection: React.FC = () => {
         </div>
 
         <p className="text-white font-bold mb-12 max-w-lg mx-auto text-[11px] uppercase tracking-[0.2em] leading-loose">
-          Projetos autorais, produtos utilitários ou sistemas sob medida — o processo é o mesmo.
+          Projetos autorais, produtos utilitários ou sistemas com IA — o processo é o mesmo.
         </p>
 
-        <button
-          onClick={() => navigate(ROUTES.CONTACT)}
-          className="bg-[#ccff00] text-slate-950 px-10 py-5 text-sm md:text-base font-black hover:bg-white transition-all uppercase tracking-[0.2em] shadow-[6px_6px_0px_#fff]"
-          style={{ borderRadius: "0px" }}
-        >
-          Vamos construir algo?
-        </button>
+        <CtaButton />
       </div>
     </section>
   );

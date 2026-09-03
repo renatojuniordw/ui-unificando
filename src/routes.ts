@@ -1,13 +1,12 @@
 export const ROUTES = {
   HOME: "/",
-  SERVICES: "/servicos",
+  LAB: "/laboratorio",
   HOW_IT_WORKS: "/metodo-unificando",
   ABOUT: "/sobre",
   CONTACT: "/contato",
-  CONTRACT: "/contrato",
   PRIVACY: "/privacidade",
   TERMS: "/termos",
   LINKS: "/links",
   NOT_FOUND: "/404",
-  FOR_LAWYERS: "/para-advogados",
+  LEGACY_SERVICES: "/servicos",
 } as const;

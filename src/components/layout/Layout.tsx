@@ -8,30 +8,15 @@ import { WhatsAppFloating } from "../common/WhatsAppFloating";
 
 const navItems: NavItem[] = [
   { label: "Início", path: ROUTES.HOME },
-  { label: "Como Funciona", path: ROUTES.HOW_IT_WORKS },
-
+  { label: "Laboratório", path: ROUTES.LAB },
+  { label: "Método", path: ROUTES.HOW_IT_WORKS },
   { label: "Sobre", path: ROUTES.ABOUT },
-];
-
-const solutionItems = [
-  {
-    label: "IA no Atendimento",
-    path: ROUTES.SERVICES,
-    desc: "IA para negócios",
-  },
-  {
-    label: "Sites & Presença Online",
-    path: ROUTES.SERVICES,
-    desc: "Presença Digital & Autoridade",
-  },
-
 ];
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const location = useLocation();
-  const isContractPage = location.pathname === ROUTES.CONTRACT;
   const isLinksPage = location.pathname === ROUTES.LINKS;
-  const shouldHideLayout = isContractPage || isLinksPage;
+  const shouldHideLayout = isLinksPage;
 
   return (
     <div className="min-h-screen flex flex-col selection:bg-indigo-100 selection:text-indigo-900">
@@ -42,9 +27,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
         PULAR PARA O CONTEÚDO
       </a>
 
-      {!shouldHideLayout && (
-        <Header navItems={navItems} solutionItems={solutionItems} />
-      )}
+      {!shouldHideLayout && <Header navItems={navItems} />}
 
       <main id="main-content" className={`flex-grow ${!shouldHideLayout ? "pt-20" : ""}`}>
         {children}

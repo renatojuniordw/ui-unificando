@@ -11,7 +11,7 @@ export const Contact: React.FC = () => {
         title="Fale Conosco | Unificando"
         description="Entre em contato para conversarmos sobre seu projeto."
         canonical={ROUTES.CONTACT}
-        keywords="contato Unificando, falar conosco, orçamento, consultoria digital, proposta, atendimento"
+        keywords="contato Unificando, falar conosco, projeto autoral, parceria, laboratório digital, conversa sobre projeto"
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "ContactPage",
@@ -43,16 +43,16 @@ export const Contact: React.FC = () => {
             </h1>
             <p className="text-xl md:text-2xl text-slate-950 mb-12 leading-tight font-black uppercase tracking-tight max-w-lg">
               <span className="bg-white px-2 border-2 border-slate-950 mr-1 shadow-[2px_2px_0px_#000] inline-block mb-1">
-                SEM COMPROMISSO
-              </span> — CONVERSE CONOSCO SOBRE SUA IDEIA.
+                BORA CONVERSAR
+              </span> — Toda ideia começa com uma conversa.
             </p>
 
             <div className="space-y-6">
               {[
                 {
-                  title: "DIAGNÓSTICO REAL",
+                  title: "CONVERSA REAL",
                   description:
-                    "Análise do seu cenário, sem custo.",
+                    "Entendemos sua ideia e contexto, sem roteiro de venda.",
                 },
                 {
                   title: "POSTURA CONSULTIVA",

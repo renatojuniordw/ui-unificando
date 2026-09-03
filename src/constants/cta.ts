@@ -1,6 +1,6 @@
 export const CTA = {
   primary: {
-    label: "Agendar Consultoria",
+    label: "Falar sobre um projeto",
     to: "/contato",
   },
 } as const;

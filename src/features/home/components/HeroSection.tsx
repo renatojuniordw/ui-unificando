@@ -43,7 +43,7 @@ export const HeroSection: React.FC = () => {
             Ferramentas utilitárias, sistemas com inteligência artificial e projetos autorais — 
             da ideia ao deploy.
             <strong className="text-white font-medium block mt-2">
-              IA • Utilitários • Sistemas Sob Medida
+              IA • Utilitários • Sistemas & Web
             </strong>
           </p>
 
@@ -73,19 +73,8 @@ export const HeroSection: React.FC = () => {
               className="border-2 border-white text-white px-8 py-5 md:px-10 md:py-6 text-sm md:text-base font-black uppercase tracking-[0.2em] hover:bg-white hover:text-slate-950 transition-all"
               style={{ borderRadius: "1px" }}
             >
-              CONSULTORIA
+              FALAR SOBRE UM PROJETO
             </motion.button>
-
-            <div className="flex flex-col">
-              <div className="flex -space-x-3 mb-2">
-                {[1, 2, 3].map((i) => (
-                  <div key={i} className="w-10 h-10 rounded-full border-2 border-slate-950 bg-slate-800 flex items-center justify-center text-[10px] font-bold">★</div>
-                ))}
-              </div>
-              <span className="text-xs font-mono text-slate-500 uppercase tracking-widest">
-                1.000+ PDFs processados
-              </span>
-            </div>
           </div>
 
           <div className="text-sm border-t border-slate-900 pt-8 max-w-xl">

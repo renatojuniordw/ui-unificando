@@ -1,7 +1,7 @@
 {
   "name": "Unificando — Laboratório de Projetos Autorais & IA",
   "short_name": "Unificando",
-  "description": "Ecossistema de automação de atendimento digital, IA e presença online para PMEs.",
+  "description": "Laboratório de Projetos Autorais & IA: ferramentas utilitárias, sistemas com inteligência artificial e produtos digitais.",
   "start_url": "/",
   "display": "standalone",
   "display_override": ["window-controls-overlay", "standalone"],

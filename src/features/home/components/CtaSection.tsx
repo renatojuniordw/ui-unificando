@@ -29,11 +29,11 @@ export const CtaSection: React.FC = () => {
           </div>
 
           <h2 className="text-5xl md:text-7xl font-black mb-8 uppercase tracking-tighter leading-[0.9]">
-            Vamos construir<br />
-            algo juntos?
+            Pronto para<br />
+            começar?
           </h2>
           <p className="text-lg md:text-2xl text-slate-800 mb-12 max-w-2xl mx-auto font-medium tracking-wide">
-            Produto próprio, ferramenta utilitária ou sistema sob medida. 
+            Projeto autoral, ferramenta utilitária ou sistema com IA.
             Toda ideia começa com uma conversa.
           </p>
 
@@ -46,14 +46,14 @@ export const CtaSection: React.FC = () => {
               style={{ borderRadius: "0px" }}
             >
               <span className="flex items-center justify-center gap-4">
-                Agendar Consultoria
+                Falar sobre um projeto
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </span>
             </motion.button>
             <span className="text-xs font-mono font-bold tracking-widest text-slate-700 uppercase mt-4">
-              SEM COMPROMISSO • RESPOSTA EM ATÉ 24H
+              RESPOSTA EM ATÉ 24H
             </span>
           </div>
         </motion.div>

@@ -1,14 +1,14 @@
 import React, { Suspense } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { LoadingFallback } from "../components/common/LoadingFallback";
 import { ROUTES } from "../routes";
 import { Home } from "../pages/Home";
 
 // Lazy load pages for code splitting
-const Services = React.lazy(() =>
-  import("../pages/services/Services").then((module) => ({
-    default: module.Solutions,
+const Laboratory = React.lazy(() =>
+  import("../pages/Laboratory").then((module) => ({
+    default: module.Laboratory,
   })),
 );
 const HowItWorks = React.lazy(() =>
@@ -21,11 +21,6 @@ const About = React.lazy(() =>
 );
 const Contact = React.lazy(() =>
   import("../pages/Contact").then((module) => ({ default: module.Contact })),
-);
-const ContractGenerator = React.lazy(() =>
-  import("../pages/ContractGenerator").then((module) => ({
-    default: module.ContractGenerator,
-  })),
 );
 const NotFound = React.lazy(() =>
   import("../pages/NotFound").then((module) => ({ default: module.NotFound })),
@@ -45,11 +40,6 @@ const LinksPage = React.lazy(() =>
     default: module.LinksPage,
   })),
 );
-const LawLanding = React.lazy(() =>
-  import("../pages/landings/LawLanding").then((module) => ({
-    default: module.LawLanding,
-  })),
-);
 export const AppRouter: React.FC = () => {
   const location = useLocation();
 
@@ -58,15 +48,17 @@ export const AppRouter: React.FC = () => {
       <Suspense fallback={<LoadingFallback />}>
         <Routes location={location} key={location.pathname}>
           <Route path={ROUTES.HOME} element={<Home />} />
-          <Route path={ROUTES.SERVICES} element={<Services />} />
+          <Route path={ROUTES.LAB} element={<Laboratory />} />
+          <Route
+            path={ROUTES.LEGACY_SERVICES}
+            element={<Navigate to={ROUTES.LAB} replace />}
+          />
           <Route path={ROUTES.HOW_IT_WORKS} element={<HowItWorks />} />
           <Route path={ROUTES.ABOUT} element={<About />} />
           <Route path={ROUTES.CONTACT} element={<Contact />} />
-          <Route path={ROUTES.CONTRACT} element={<ContractGenerator />} />
           <Route path={ROUTES.PRIVACY} element={<PrivacyPolicy />} />
           <Route path={ROUTES.TERMS} element={<TermsOfService />} />
           <Route path={ROUTES.LINKS} element={<LinksPage />} />
-          <Route path={ROUTES.FOR_LAWYERS} element={<LawLanding />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>

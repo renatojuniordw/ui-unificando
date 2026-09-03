@@ -1,7 +1,7 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { ProjectCard, ProjectCardData } from "./ProjectCard";
 
-const projects = [
+const projects: ProjectCardData[] = [
   {
     title: "PDF Unificando",
     status: "No ar",
@@ -26,27 +26,6 @@ const projects = [
     link: "https://radar.unificando.com.br",
     tags: ["Next.js", "MCP", "IA"],
   },
-  {
-    title: "Sistema de Afiliados",
-    status: "Em desenvolvimento",
-    statusColor: "bg-yellow-500",
-    description: "Plataforma inteligente para gestão e monitoramento de afiliados com IA.",
-    tags: ["React", "IA", "Em breve"],
-  },
-  {
-    title: "Cálculo Previdenciário",
-    status: "Em desenvolvimento",
-    statusColor: "bg-yellow-500",
-    description: "Automação de cálculos previdenciários com inteligência artificial.",
-    tags: ["IA", "Python", "Em breve"],
-  },
-  {
-    title: "Consultoria em IA & Dev",
-    status: "Sob consulta",
-    statusColor: "bg-blue-500",
-    description: "Soluções personalizadas: sistemas, automações, sites e integrações sob medida.",
-    tags: ["Sob medida", "IA", "Web"],
-  },
 ];
 
 export const ProjectsSection: React.FC = () => {
@@ -67,51 +46,7 @@ export const ProjectsSection: React.FC = () => {
 
         <div className="grid md:grid-cols-2 gap-6">
           {projects.map((project, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="group relative p-8 bg-white border-4 border-slate-950 shadow-[8px_8px_0px_#000] hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[12px_12px_0px_#000] transition-all"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <span className={`w-2.5 h-2.5 rounded-full ${project.statusColor} animate-pulse`} />
-                <span className="text-[10px] font-black uppercase tracking-widest text-slate-500">
-                  {project.status}
-                </span>
-              </div>
-
-              <h3 className="text-2xl md:text-3xl font-black text-slate-950 uppercase tracking-tighter mb-3">
-                {project.title}
-              </h3>
-
-              <p className="text-sm font-mono font-bold text-slate-600 leading-relaxed mb-6">
-                {project.description}
-              </p>
-
-              <div className="flex flex-wrap gap-2 mb-6">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-[10px] font-black uppercase tracking-widest bg-slate-950 text-white px-3 py-1 border border-slate-950"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              {project.link && (
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs font-black uppercase tracking-widest text-slate-950 inline-flex items-center gap-2 group-hover:gap-3 transition-all border-b-2 border-slate-950 pb-1"
-                >
-                  Acessar {project.title} <span aria-hidden="true">→</span>
-                </a>
-              )}
-            </motion.div>
+            <ProjectCard key={project.title} project={project} index={i} />
           ))}
         </div>
       </div>

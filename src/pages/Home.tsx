@@ -4,6 +4,8 @@ import { PageTransition } from "../components/common/PageTransition";
 import { ROUTES } from "../routes";
 import { HeroSection } from "../features/home/components/HeroSection";
 import { ProjectsSection } from "../features/home/components/ProjectsSection";
+import { DevToolsSection } from "../features/home/components/DevToolsSection";
+import { RoadmapSection } from "../features/home/components/RoadmapSection";
 import { CapabilitiesSection } from "../features/home/components/CapabilitiesSection";
 import { SolutionsSection } from "../features/home/components/SolutionsSection";
 import { JourneySection } from "../features/home/components/JourneySection";
@@ -13,10 +15,10 @@ export const Home: React.FC = () => {
   return (
     <PageTransition>
       <SEO
-        title="Unificando | Atendimento via WhatsApp, IA e Presença Digital"
-        description="Centralize WhatsApp e Instagram, automatize o atendimento com IA e fortaleça sua presença no Google com site profissional. Ideal para PMEs."
+        title="Unificando | Laboratório de Projetos Autorais & IA"
+        description="Laboratório de projetos autorais e P&D: ferramentas utilitárias, sistemas com inteligência artificial e produtos digitais — da ideia ao deploy."
         canonical={ROUTES.HOME}
-        keywords="Unificando, automação WhatsApp, IA atendimento, chatbot WhatsApp, site profissional, presença digital, PME, pequenas empresas, Recife, Instagram, automação com IA"
+        keywords="Unificando, laboratório digital, projetos autorais, IA aplicada, ferramentas utilitárias, produtos digitais, P&D, inteligência artificial, desenvolvimento de produto, Recife"
         jsonLd={{
           "@context": "https://schema.org",
           "@graph": [
@@ -26,7 +28,7 @@ export const Home: React.FC = () => {
               "name": "Unificando",
               "url": "https://unificando.com.br",
               "datePublished": "2024-01-01",
-              "dateModified": "2026-03-12",
+              "dateModified": "2026-09-02",
               "potentialAction": {
                 "@type": "SearchAction",
                 target: "https://unificando.com.br/search?q={search_term_string}",
@@ -37,6 +39,7 @@ export const Home: React.FC = () => {
               "@type": "Organization",
               "@id": "https://unificando.com.br/#organization",
               "name": "Unificando",
+              "description": "Laboratório de Projetos Autorais & IA — ferramentas utilitárias, sistemas com inteligência artificial e produtos digitais.",
               "url": "https://unificando.com.br",
               "logo": "https://unificando.com.br/assets/img/LOGO_UNIFICANDO.svg",
 
@@ -61,6 +64,17 @@ export const Home: React.FC = () => {
 
       <HeroSection />
       <ProjectsSection />
+      <DevToolsSection
+        id="devtools"
+        title={
+          <>
+            FERRAMENTAS <span className="bg-[#ccff00] px-2 inline-block border-2 border-slate-950 shadow-[4px_4px_0px_#000]">ABERTAS</span>
+          </>
+        }
+        description="P&D publicado como open source no npm — ferramentas reais de engenharia de prompt, usadas fora do laboratório."
+        className="py-24 md:py-32 bg-slate-100 border-b-2 border-slate-950"
+      />
+      <RoadmapSection />
       <CapabilitiesSection />
       <SolutionsSection selectedSegment={null} />
       <JourneySection />

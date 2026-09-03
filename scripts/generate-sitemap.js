@@ -5,8 +5,7 @@ const TODAY = new Date().toISOString().split("T")[0];
 
 const routes = [
   { path: "/", priority: "1.0", changeFreq: "weekly" },
-  { path: "/servicos", priority: "0.9", changeFreq: "monthly" },
-  { path: "/para-advogados", priority: "0.9", changeFreq: "monthly" },
+  { path: "/laboratorio", priority: "0.9", changeFreq: "monthly" },
   { path: "/metodo-unificando", priority: "0.8", changeFreq: "monthly" },
   { path: "/sobre", priority: "0.7", changeFreq: "monthly" },
   { path: "/contato", priority: "0.8", changeFreq: "monthly" },

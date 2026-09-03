@@ -31,8 +31,8 @@ export const LinksPage: React.FC = () => {
   return (
     <>
       <SEO
-        title="Links | Unificando - Soluções Digitais"
-        description="Acesse nossos canais oficiais: WhatsApp, Site e Redes Sociais. Unifique sua presença digital."
+        title="Links | Unificando — Laboratório de Projetos Autorais & IA"
+        description="Acesse nossos canais oficiais: WhatsApp, Site e Redes Sociais. Conheça os projetos do laboratório."
         canonical={ROUTES.LINKS}
         robots="noindex, follow"
       />
@@ -64,11 +64,11 @@ export const LinksPage: React.FC = () => {
             </div>
 
             <h1 className="text-2xl font-black text-slate-900 tracking-tight">
-              Unifique sua Presença Digital
+              Unificando • Laboratório
             </h1>
             <p className="text-slate-500 text-sm font-medium leading-relaxed max-w-[280px] mx-auto">
-              Estratégias de Atendimento, Inteligência Artificial e
-              Desenvolvimento Web para escalar seu negócio.
+              Projetos autorais, ferramentas utilitárias e sistemas com
+              Inteligência Artificial — da ideia ao deploy.
             </p>
           </motion.div>
 
@@ -134,7 +134,7 @@ export const LinksPage: React.FC = () => {
                   Visitar Site Oficial
                 </span>
                 <span className="block text-slate-500 text-[10px] font-medium mt-0.5">
-                  Conheça Nossas Soluções
+                  Conheça os Projetos
                 </span>
               </div>
             </Link>

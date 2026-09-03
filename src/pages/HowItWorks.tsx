@@ -1,15 +1,15 @@
-import { useNavigate } from "react-router-dom";
 import { PageTransition } from "../components/common/PageTransition";
 import { SEO } from "../components/common/SEO";
+import { CtaButton } from "../components/common/CtaButton";
 import { ROUTES } from "../routes";
+import { MethodPhase } from "../features/method/components/MethodPhase";
 
 export const HowItWorks: React.FC = () => {
-  const navigate = useNavigate();
   return (
     <PageTransition>
       <SEO
-        title="Como Trabalhamos | Laboratório Unificando"
-        description="Metodologia de desenvolvimento: prototipação, validação e deploy de projetos digitais."
+        title="Método | Laboratório Unificando"
+        description="Metodologia do laboratório: prototipação, validação e deploy de projetos digitais — da ideia ao produto no ar."
         canonical={ROUTES.HOW_IT_WORKS}
         keywords="metodologia desenvolvimento, prototipação, validação, deploy, processo ágil, produtos digitais, laboratório digital"
         jsonLd={{
@@ -30,7 +30,7 @@ export const HowItWorks: React.FC = () => {
             {
               "@type": "HowToStep",
               name: "Fase 3: Deploy",
-              text: "Colocamos no ar com infraestrutura profissional e suporte contínuo.",
+              text: "Colocamos no ar com infraestrutura profissional e monitoramento contínuo.",
             },
           ],
         }}
@@ -46,7 +46,7 @@ export const HowItWorks: React.FC = () => {
             <span className="text-white bg-[#ccff00] text-slate-950 px-2 inline-block rotate-1 border-4 border-slate-950 shadow-[6px_6px_0px_#000]">RESOLVEM.</span>
           </h1>
           <p className="text-xl md:text-3xl text-slate-950 font-black uppercase tracking-tight mb-8">
-            NO SEU TEMPO.
+            DA IDEIA AO PRODUTO.
           </p>
           <div className="bg-[#ccff00] border-4 border-slate-950 p-6 shadow-[8px_8px_0px_#000] inline-block mt-4">
             <p className="text-lg md:text-xl text-slate-950 font-mono font-bold max-w-2xl mx-auto uppercase">
@@ -62,164 +62,54 @@ export const HowItWorks: React.FC = () => {
           <div className="absolute left-1/2 top-0 bottom-0 w-2 bg-slate-950 hidden md:block -translate-x-1/2"></div>
 
           <div className="space-y-32">
-            {/* PHASE 1: ANTES */}
-            <div className="grid md:grid-cols-2 gap-12 items-center relative">
-              <div className="md:pr-12 md:text-right">
-                <div className="inline-block bg-white border-2 border-slate-950 text-slate-950 px-3 py-1 text-xs font-black uppercase tracking-widest mb-4 shadow-[4px_4px_0px_#000]">
-                  FASE 01
-                </div>
-                <h2 className="text-4xl lg:text-5xl font-black text-slate-950 mb-6 uppercase tracking-tighter leading-[0.9]">
-                  PROTOTIPAGEM
-                </h2>
-                <div className="bg-[#ccff00] p-8 border-4 border-slate-950 mb-8 inline-block md:ml-auto text-left lg:max-w-md shadow-[8px_8px_0px_#000]">
-                  <p className="text-sm font-black text-slate-950 mb-3 uppercase tracking-widest">
-                    Fase de descoberta e ideação
-                  </p>
-                  <p className="text-sm md:text-base text-slate-950 font-mono font-bold leading-relaxed">
-                    Entendemos o problema, desenhamos a solução e criamos um protótipo funcional.
-                  </p>
-                </div>
+            <MethodPhase
+              phase="FASE 01"
+              title="PROTOTIPAGEM"
+              subtitle="Fase de descoberta e ideação"
+              description="Entendemos o problema, desenhamos a solução e criamos um protótipo funcional."
+              items={[
+                "Mapeamos o problema e o escopo",
+                "Desenhamos a arquitetura da solução",
+                "Criamos protótipo funcional",
+              ]}
+              icon="📂"
+              side="left"
+              variant="lime"
+              example="O Radar Unificando começou como um protótipo de busca de vagas — em uma tarde, já era possível consultar o Gupy ao vivo."
+            />
 
-                <div className="space-y-4 mb-8">
-                  <span className="text-xs font-black uppercase tracking-widest text-slate-950 block bg-[#ccff00] inline-block px-2 py-1 border-2 border-slate-950">
-                    O QUE FAZEMOS:
-                  </span>
-                  <ul className="space-y-3 text-sm md:text-base font-mono font-bold text-slate-950 md:flex md:flex-col md:items-end">
-                    <li className="flex gap-4 items-center md:flex-row-reverse">
-                      <span className="text-slate-950 bg-[#ccff00] border-2 border-slate-950 w-6 h-6 flex items-center justify-center font-black">✓</span>
-                      <span>Mapeamos o problema e o escopo</span>
-                    </li>
-                    <li className="flex gap-4 items-center md:flex-row-reverse">
-                      <span className="text-slate-950 bg-[#ccff00] border-2 border-slate-950 w-6 h-6 flex items-center justify-center font-black">✓</span>
-                      <span>Desenhamos a arquitetura da solução</span>
-                    </li>
-                    <li className="flex gap-4 items-center md:flex-row-reverse">
-                      <span className="text-slate-950 bg-[#ccff00] border-2 border-slate-950 w-6 h-6 flex items-center justify-center font-black">✓</span>
-                      <span>Criamos protótipo funcional</span>
-                    </li>
-                  </ul>
-                </div>
+            <MethodPhase
+              phase="FASE 02"
+              title="VALIDAÇÃO"
+              subtitle="Fase de teste e iteração"
+              description="Testamos com usuários reais, iteramos com base em feedback e ajustamos o escopo."
+              items={[
+                "Testamos com usuários reais",
+                "Coletamos e priorizamos feedback",
+                "Ajustamos escopo e funcionalidades",
+              ]}
+              icon="⚡"
+              side="right"
+              variant="white"
+              example="O Med Unificando foi validado com usuários reais antes de ganhar preços CMED, exportação e sincronização automática."
+            />
 
-                <button
-                  onClick={() => navigate(ROUTES.CONTACT)}
-                  className="bg-slate-950 text-white border-4 border-slate-950 px-8 py-4 mt-2 text-sm font-black hover:bg-[#ccff00] hover:text-slate-950 transition-colors uppercase tracking-widest shadow-[6px_6px_0px_#000] inline-block w-full md:w-auto text-center"
-                >
-                  Agendar Consultoria
-                </button>
-              </div>
-
-              <div className="hidden md:flex justify-start pl-12 z-10">
-                <div className="w-24 h-24 bg-slate-950 text-white flex items-center justify-center text-4xl shadow-[8px_8px_0px_#ccff00] border-4 border-slate-950">
-                  📂
-                </div>
-              </div>
-            </div>
-
-            {/* PHASE 2: DURANTE */}
-            <div className="grid md:grid-cols-2 gap-12 items-center relative">
-              <div className="hidden md:flex justify-end pr-12 order-1 z-10">
-                <div className="w-24 h-24 bg-[#ccff00] text-slate-950 flex items-center justify-center text-4xl shadow-[8px_8px_0px_#000] border-4 border-slate-950">
-                  ⚡
-                </div>
-              </div>
-
-              <div className="md:pl-12 order-2 md:text-left">
-                <div className="inline-block bg-slate-950 text-[#ccff00] border-2 border-slate-950 px-3 py-1 text-xs font-black uppercase tracking-widest mb-4 shadow-[4px_4px_0px_#000]">
-                  FASE 02
-                </div>
-                <h2 className="text-4xl lg:text-5xl font-black text-slate-950 mb-6 uppercase tracking-tighter leading-[0.9]">
-                  VALIDAÇÃO
-                </h2>
-                <div className="bg-white p-8 border-4 border-slate-950 mb-8 md:mr-auto lg:max-w-md shadow-[8px_8px_0px_#000]">
-                  <p className="text-sm font-black text-slate-950 mb-3 uppercase tracking-widest">
-                    Fase de teste e iteração
-                  </p>
-                  <p className="text-sm md:text-base text-slate-950 font-mono font-bold leading-relaxed">
-                    Testamos com usuários reais, iteramos com base em feedback e ajustamos o escopo.
-                  </p>
-                </div>
-
-                <div className="space-y-4 mb-8">
-                  <span className="text-xs font-black uppercase tracking-widest text-white block bg-slate-950 inline-block px-2 py-1 border-2 border-slate-950">
-                    O QUE FAZEMOS:
-                  </span>
-                  <ul className="space-y-3 text-sm md:text-base font-mono font-bold text-slate-950">
-                    <li className="flex gap-4 items-center">
-                      <span className="text-white bg-slate-950 border-2 border-slate-950 w-6 h-6 flex items-center justify-center font-black">✓</span>{" "}
-                      <span>Testamos com usuários reais</span>
-                    </li>
-                    <li className="flex gap-4 items-center">
-                      <span className="text-white bg-slate-950 border-2 border-slate-950 w-6 h-6 flex items-center justify-center font-black">✓</span>{" "}
-                      <span>Coletamos e priorizamos feedback</span>
-                    </li>
-                    <li className="flex gap-4 items-center">
-                      <span className="text-white bg-slate-950 border-2 border-slate-950 w-6 h-6 flex items-center justify-center font-black">✓</span>
-                      <span>Ajustamos escopo e funcionalidades</span>
-                    </li>
-                  </ul>
-                </div>
-
-                <button
-                  onClick={() => navigate(ROUTES.CONTACT)}
-                  className="bg-[#ccff00] text-slate-950 border-4 border-slate-950 px-8 py-4 mt-2 text-sm font-black hover:bg-slate-950 hover:text-[#ccff00] transition-colors uppercase tracking-widest shadow-[6px_6px_0px_#000] inline-block w-full md:w-auto text-center"
-                >
-                  Agendar Consultoria
-                </button>
-              </div>
-            </div>
-
-            {/* PHASE 3: DEPOIS */}
-            <div className="grid md:grid-cols-2 gap-12 items-center relative">
-              <div className="md:pr-12 md:text-right">
-                <div className="inline-block bg-white border-2 border-slate-950 text-slate-950 px-3 py-1 text-xs font-black uppercase tracking-widest mb-4 shadow-[4px_4px_0px_#000]">
-                  FASE 03
-                </div>
-                <h2 className="text-4xl lg:text-5xl font-black text-slate-950 mb-6 uppercase tracking-tighter leading-[0.9]">
-                  DEPLOY
-                </h2>
-                <div className="bg-[#ccff00] p-8 border-4 border-slate-950 mb-8 inline-block md:ml-auto text-left lg:max-w-md shadow-[8px_8px_0px_#000]">
-                  <p className="text-sm font-black text-slate-950 mb-3 uppercase tracking-widest">
-                    Fase de produção e entrega
-                  </p>
-                  <p className="text-sm md:text-base text-slate-950 font-mono font-bold leading-relaxed">
-                    Colocamos no ar com infraestrutura profissional, monitoramento e suporte contínuo.
-                  </p>
-                </div>
-
-                <div className="space-y-4 mb-8">
-                  <span className="text-xs font-black uppercase tracking-widest text-slate-950 block bg-[#ccff00] inline-block px-2 py-1 border-2 border-slate-950">
-                    O QUE FAZEMOS:
-                  </span>
-                  <ul className="space-y-3 text-sm md:text-base font-mono font-bold text-slate-950 md:flex md:flex-col md:items-end">
-                    <li className="flex gap-4 items-center md:flex-row-reverse">
-                       <span className="text-slate-950 bg-[#ccff00] border-2 border-slate-950 w-6 h-6 flex items-center justify-center font-black">✓</span>
-                      <span>Deploy em infraestrutura profissional</span>
-                    </li>
-                    <li className="flex gap-4 items-center md:flex-row-reverse">
-                       <span className="text-slate-950 bg-[#ccff00] border-2 border-slate-950 w-6 h-6 flex items-center justify-center font-black">✓</span>
-                      <span>Monitoramento e suporte contínuo</span>
-                    </li>
-                    <li className="flex gap-4 items-center md:flex-row-reverse">
-                       <span className="text-slate-950 bg-[#ccff00] border-2 border-slate-950 w-6 h-6 flex items-center justify-center font-black">✓</span>
-                      <span>Documentação e transferência de conhecimento</span>
-                    </li>
-                  </ul>
-                </div>
-
-                <button
-                  onClick={() => navigate(ROUTES.CONTACT)}
-                  className="bg-slate-950 text-white border-4 border-slate-950 px-8 py-4 mt-2 text-sm font-black hover:bg-[#ccff00] hover:text-slate-950 transition-colors uppercase tracking-widest shadow-[6px_6px_0px_#000] inline-block w-full md:w-auto text-center"
-                >
-                  Agendar Consultoria
-                </button>
-              </div>
-
-              <div className="hidden md:flex justify-start pl-12 z-10">
-                <div className="w-24 h-24 bg-white text-slate-950 flex items-center justify-center text-4xl shadow-[8px_8px_0px_#000] border-4 border-slate-950">
-                  🌐
-                </div>
-              </div>
-            </div>
+            <MethodPhase
+              phase="FASE 03"
+              title="DEPLOY"
+              subtitle="Fase de produção e entrega"
+              description="Colocamos no ar com infraestrutura profissional, monitoramento e iteração contínua."
+              items={[
+                "Deploy em infraestrutura profissional",
+                "Monitoramento e iteração contínua",
+                "Documentação e transferência de conhecimento",
+              ]}
+              icon="🌐"
+              side="left"
+              variant="lime"
+              iconClassName="bg-white text-slate-950 shadow-[8px_8px_0px_#000]"
+              example="O PDF Unificando está no ar com processamento efêmero, fila de concorrência e monitoramento contínuo."
+            />
           </div>
         </div>
       </section>
@@ -239,7 +129,7 @@ export const HowItWorks: React.FC = () => {
                 01. FLEXÍVEL
               </span>
               <p className="text-base font-mono font-bold text-inherit mt-4">
-                Comece em qualquer fase. O ecossistema se molda de acordo com o tamanho do seu gargalo.
+                Cada projeto começa onde faz sentido. O processo se adapta ao problema — não o contrário.
               </p>
             </div>
             <div className="bg-white border-4 border-slate-950 p-8 shadow-[8px_8px_0px_#000] hover:bg-slate-950 hover:text-white group transition-colors">
@@ -247,30 +137,24 @@ export const HowItWorks: React.FC = () => {
                 02. RÁPIDO
               </span>
               <p className="text-base font-mono font-bold text-inherit mt-4">
-                Pule etapas ou acelere o processo se precisar de resultados mais agressivos imediatamente.
+                Ciclos curtos e protótipos funcionais cedo. Velocidade sem sacrificar qualidade.
               </p>
             </div>
             <div className="bg-white border-4 border-slate-950 p-8 shadow-[8px_8px_0px_#000] hover:bg-slate-950 hover:text-white group transition-colors">
               <span className="text-xl font-black uppercase tracking-widest text-[#ccff00] bg-slate-950 inline-block px-2 group-hover:bg-white group-hover:text-slate-950 border-2 border-slate-950 mb-4 block w-max">
-                03. SOB MEDIDA
+                03. AUTORAL
               </span>
               <p className="text-base font-mono font-bold text-inherit mt-4">
-                Combine automações e fluxos conforme sua necessidade. Nada é imposto, tudo é testado.
+                Cada projeto é autoral e testado de verdade. Nada é imposto, tudo é validado com uso real.
               </p>
             </div>
           </div>
 
-          <p            className="text-slate-950 font-bold mb-12 max-w-lg mx-auto text-[11px] uppercase tracking-[0.2em] leading-loose">
-            Projetos autorais, produtos utilitários ou sistemas sob medida — o processo é o mesmo.
+          <p className="text-slate-950 font-bold mb-12 max-w-lg mx-auto text-[11px] uppercase tracking-[0.2em] leading-loose">
+            Projetos autorais, produtos utilitários ou sistemas com IA — o processo é o mesmo.
           </p>
 
-          <button
-            onClick={() => navigate(ROUTES.CONTACT)}
-            className="bg-[#ccff00] text-slate-950 px-10 py-5 text-sm md:text-base font-black hover:bg-white transition-all uppercase tracking-[0.2em] shadow-[6px_6px_0px_#fff]"
-            style={{ borderRadius: "0px" }}
-          >
-            Vamos construir algo?
-          </button>
+          <CtaButton label="Quero falar de uma ideia" />
         </div>
       </section>
 
@@ -282,8 +166,8 @@ export const HowItWorks: React.FC = () => {
           </div>
 
           <div className="flex flex-wrap justify-center gap-4 text-xs font-black text-slate-950 uppercase tracking-wide">
-            <span className="bg-[#ccff00] px-3 py-1 border-2 border-slate-950 shadow-[2px_2px_0px_#000]">Foque no Gargalo</span>
-            <span className="bg-[#ccff00] px-3 py-1 border-2 border-slate-950 shadow-[2px_2px_0px_#000]">Apenas o que Precisa</span>
+            <span className="bg-[#ccff00] px-3 py-1 border-2 border-slate-950 shadow-[2px_2px_0px_#000]">Foco no Problema</span>
+            <span className="bg-[#ccff00] px-3 py-1 border-2 border-slate-950 shadow-[2px_2px_0px_#000]">Apenas o que Resolve</span>
             <span className="bg-[#ccff00] px-3 py-1 border-2 border-slate-950 shadow-[2px_2px_0px_#000]">Sem Promessas Mágicas</span>
           </div>
         </div>

@@ -14,7 +14,7 @@ const capabilities = [
   },
   {
     icon: "🛠",
-    title: "Desenvolvimento Sob Medida",
+    title: "Desenvolvimento Web",
     description: "Sistemas web, APIs, integrações e sites. Da prototipação ao deploy, com tecnologia de ponta.",
   },
 ];
