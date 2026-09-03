@@ -1,23 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-
-const capabilities = [
-  {
-    icon: "⚡",
-    title: "Produtos Utilitários",
-    description: "Ferramentas que resolvem problemas específicos — PDF, conversão, automação. Rápidas, gratuitas e sem complicação.",
-  },
-  {
-    icon: "🧠",
-    title: "IA Aplicada",
-    description: "Agentes inteligentes, automações de processo, cálculos automatizados e sistemas que aprendem e evoluem com uso.",
-  },
-  {
-    icon: "🛠",
-    title: "Desenvolvimento Web",
-    description: "Sistemas web, APIs, integrações e sites. Da prototipação ao deploy, com tecnologia de ponta.",
-  },
-];
+import { HOME_CAPABILITIES } from "../../../data/capabilities";
 
 export const CapabilitiesSection: React.FC = () => {
   return (
@@ -38,7 +21,7 @@ export const CapabilitiesSection: React.FC = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-0 border-2 border-slate-950">
-          {capabilities.map((item, index) => (
+          {HOME_CAPABILITIES.map((item, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}

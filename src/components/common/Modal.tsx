@@ -9,8 +9,6 @@ export const Modal: React.FC<ModalProps> = ({
   title,
   message,
   type = "error",
-  confirmText,
-  onConfirm,
 }) => {
   const modalRef = React.useRef<HTMLDivElement>(null);
   const previouslyFocusedRef = React.useRef<HTMLElement | null>(null);
@@ -159,29 +157,12 @@ export const Modal: React.FC<ModalProps> = ({
               {message}
             </p>
 
-            {onConfirm ? (
-              <div className="flex flex-col w-full gap-3">
-                <button
-                  onClick={onConfirm}
-                  className={`w-full py-3 rounded-xl font-bold text-white transition-all shadow-lg hover:-translate-y-0.5 ${buttonColors[type]}`}
-                >
-                  {confirmText || "Confirmar"}
-                </button>
-                <button
-                  onClick={onClose}
-                  className="w-full py-3 rounded-xl font-bold text-slate-400 hover:text-slate-600 transition-colors"
-                >
-                  Fechar
-                </button>
-              </div>
-            ) : (
-              <button
-                onClick={onClose}
-                className={`w-full py-3 rounded-xl font-bold text-white transition-all shadow-lg hover:-translate-y-0.5 ${buttonColors[type]}`}
-              >
-                Entendido
-              </button>
-            )}
+            <button
+              onClick={onClose}
+              className={`w-full py-3 rounded-xl font-bold text-white transition-all shadow-lg hover:-translate-y-0.5 ${buttonColors[type]}`}
+            >
+              Entendido
+            </button>
           </motion.div>
         </div>
       )}

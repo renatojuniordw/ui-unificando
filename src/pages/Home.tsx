@@ -76,7 +76,7 @@ export const Home: React.FC = () => {
       />
       <RoadmapSection />
       <CapabilitiesSection />
-      <SolutionsSection selectedSegment={null} />
+      <SolutionsSection />
       <JourneySection />
       <CtaSection />
     </PageTransition>

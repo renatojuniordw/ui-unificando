@@ -1,15 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { ROUTES } from "../../../routes";
+import { SOLUTIONS_MODULES } from "../../../data/capabilities";
 
-type SolutionsSectionProps = {
-  selectedSegment: string | null;
-};
-
-export const SolutionsSection: React.FC<SolutionsSectionProps> = ({
-  selectedSegment,
-}) => {
+export const SolutionsSection: React.FC = () => {
   const navigate = useNavigate();
 
   return (
@@ -33,67 +27,34 @@ export const SolutionsSection: React.FC<SolutionsSectionProps> = ({
           </p>
         </div>
 
-        {selectedSegment ? (
-          <div className="flex mb-10">
-            <div className="inline-flex items-center gap-3 bg-[#ccff00] border-2 border-slate-950 text-slate-950 px-4 py-2 text-[11px] font-black uppercase tracking-[0.2em] shadow-[4px_4px_0px_#000]">
-              Segmento em Foco: <span>{selectedSegment}</span>
-            </div>
-          </div>
-        ) : null}
-
         {/* 2x2 Brutalist Grid */}
         <div className="grid md:grid-cols-2 gap-0 border-t-2 border-l-2 border-slate-950 bg-slate-950">
-          {/* Module 1: IA */}
-          <motion.div
-            whileHover={{ backgroundColor: "#ccff00" }}
-            className="group relative p-8 md:p-12 bg-white border-r-2 border-b-2 border-slate-950 transition-colors duration-300 flex flex-col justify-between"
-          >
-            <div>
-              <div className="inline-block bg-slate-950 text-white text-[10px] font-black px-3 py-1 uppercase tracking-widest border border-transparent shadow-[3px_3px_0px_rgba(0,0,0,0.2)]">
-                01 • Inteligência
-              </div>
-              <h3 className="text-2xl md:text-4xl font-black mt-8 mb-4 uppercase tracking-tighter text-slate-950">
-                IA Aplicada
-              </h3>
-              <p className="text-slate-700 mb-8 font-medium text-sm leading-relaxed">
-                Agentes, RAG e embeddings locais resolvendo problemas reais —
-                com privacidade por design e custo sob controle.
-              </p>
-            </div>
-
-            <button
-              onClick={() => navigate(ROUTES.LAB)}
-              className="text-slate-950 font-black inline-flex items-center gap-2 group-hover:gap-4 transition-all uppercase text-[11px] tracking-[0.2em] border-b-2 border-slate-950 pb-1 w-max"
+          {SOLUTIONS_MODULES.map((module) => (
+            <motion.div
+              key={module.badge}
+              whileHover={{ backgroundColor: "#ccff00" }}
+              className="group relative p-8 md:p-12 bg-white border-r-2 border-b-2 border-slate-950 transition-colors duration-300 flex flex-col justify-between"
             >
-              Conhecer <span>→</span>
-            </button>
-          </motion.div>
-
-          {/* Module 2: Produtos */}
-          <motion.div
-            whileHover={{ backgroundColor: "#ccff00" }}
-            className="group relative p-8 md:p-12 bg-white border-r-2 border-b-2 border-slate-950 transition-colors duration-300 flex flex-col justify-between"
-          >
-            <div>
-              <div className="inline-block bg-slate-950 text-white text-[10px] font-black px-3 py-1 uppercase tracking-widest border border-transparent shadow-[3px_3px_0px_rgba(0,0,0,0.2)]">
-                02 • Produto
+              <div>
+                <div className="inline-block bg-slate-950 text-white text-[10px] font-black px-3 py-1 uppercase tracking-widest border border-transparent shadow-[3px_3px_0px_rgba(0,0,0,0.2)]">
+                  {module.badge}
+                </div>
+                <h3 className="text-2xl md:text-4xl font-black mt-8 mb-4 uppercase tracking-tighter text-slate-950">
+                  {module.title}
+                </h3>
+                <p className="text-slate-700 mb-8 font-medium text-sm leading-relaxed">
+                  {module.description}
+                </p>
               </div>
-              <h3 className="text-2xl md:text-4xl font-black mt-8 mb-4 uppercase tracking-tighter text-slate-950">
-                Utilitários & Sistemas
-              </h3>
-              <p className="text-slate-700 mb-8 font-medium text-sm leading-relaxed">
-                Ferramentas rápidas e gratuitas que resolvem dores específicas —
-                de PDFs a buscas semânticas em dados públicos.
-              </p>
-            </div>
 
-            <button
-              onClick={() => navigate(ROUTES.LAB)}
-              className="text-slate-950 font-black inline-flex items-center gap-2 group-hover:gap-4 transition-all uppercase text-[11px] tracking-[0.2em] border-b-2 border-slate-950 pb-1 w-max"
-            >
-              Conhecer <span>→</span>
-            </button>
-          </motion.div>
+              <button
+                onClick={() => navigate(module.to)}
+                className="text-slate-950 font-black inline-flex items-center gap-2 group-hover:gap-4 transition-all uppercase text-[11px] tracking-[0.2em] border-b-2 border-slate-950 pb-1 w-max"
+              >
+                Conhecer <span>→</span>
+              </button>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

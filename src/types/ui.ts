@@ -1,3 +1,5 @@
+import type React from "react";
+
 export type ModalType = "success" | "error" | "warning";
 
 export interface ModalProps {
@@ -6,8 +8,6 @@ export interface ModalProps {
   title: string;
   message: string;
   type?: ModalType;
-  confirmText?: string;
-  onConfirm?: () => void;
 }
 
 export interface PageTransitionProps {

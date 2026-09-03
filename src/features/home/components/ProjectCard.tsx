@@ -13,10 +13,9 @@ export type ProjectCardData = {
 interface ProjectCardProps {
   project: ProjectCardData;
   index: number;
-  ctaLabel?: string;
 }
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, ctaLabel }) => {
+export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -58,7 +57,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, ctaLab
           rel="noopener noreferrer"
           className="text-xs font-black uppercase tracking-widest text-slate-950 inline-flex items-center gap-2 group-hover:gap-3 transition-all border-b-2 border-slate-950 pb-1"
         >
-          {ctaLabel ?? `Acessar ${project.title}`} <span aria-hidden="true">→</span>
+          Acessar {project.title} <span aria-hidden="true">→</span>
         </a>
       )}
     </motion.div>

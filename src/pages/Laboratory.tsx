@@ -6,96 +6,7 @@ import { CtaButton } from "../components/common/CtaButton";
 import { ROUTES } from "../routes";
 import { DevToolsSection } from "../features/home/components/DevToolsSection";
 import { NOISE_BACKGROUND } from "../constants/backgrounds";
-
-const capabilities = [
-  {
-    icon: "🧠",
-    tag: "01 • IA APLICADA",
-    title: "Inteligência Artificial",
-    description:
-      "Agentes, RAG, embeddings locais e LLMs aplicados a problemas reais — com privacidade por design e custo sob controle.",
-  },
-  {
-    icon: "⚡",
-    tag: "02 • UTILITÁRIOS",
-    title: "Produtos Utilitários",
-    description:
-      "Ferramentas rápidas, gratuitas e sem complicação que resolvem dores específicas — de PDFs a buscas semânticas.",
-  },
-  {
-    icon: "🔀",
-    tag: "03 • AUTOMAÇÃO",
-    title: "Automação & Integrações",
-    description:
-      "Fluxos inteligentes com n8n, APIs públicas e agentes que reduzem operação manual em semanas.",
-  },
-  {
-    icon: "🌐",
-    tag: "04 • WEB",
-    title: "Desenvolvimento Web",
-    description:
-      "Sistemas e interfaces de alta performance — da arquitetura ao deploy, com foco em velocidade e manutenibilidade.",
-  },
-  {
-    icon: "🔒",
-    tag: "05 • PRIVACIDADE",
-    title: "Dados & Privacidade",
-    description:
-      "LGPD por design, processamento efêmero e redação automática de dados sensíveis como premissa, não como extra.",
-  },
-  {
-    icon: "🧪",
-    tag: "06 • P&D",
-    title: "Experimentação",
-    description:
-      "Ideias sendo testadas em produção: benchmarks, protótipos e hipóteses que só sobrevivem se resolverem algo de verdade.",
-  },
-];
-
-const stack = [
-  "TypeScript",
-  "React",
-  "Next.js",
-  "Node.js",
-  "Python",
-  "Tailwind",
-  "PostgreSQL",
-  "Redis",
-  "Prisma",
-  "MCP",
-  "n8n",
-  "Vercel AI SDK",
-  "ONNX / Transformers",
-  "Docker",
-  "AWS",
-];
-
-const areas = [
-  {
-    tag: "P&D",
-    title: "Busca semântica 100% local",
-    description:
-      "Embeddings no navegador, sem enviar dados para APIs externas. Já aplicado no Med Unificando.",
-  },
-  {
-    tag: "P&D",
-    title: "Robustez contra prompt injection",
-    description:
-      "Defesa em 3 camadas aplicada em produto em produção, com limites de custo e LGPD por design.",
-  },
-  {
-    tag: "P&D",
-    title: "MCP + fontes oficiais",
-    description:
-      "Integração com APIs públicas via Model Context Protocol, com fallback automático e busca ao vivo.",
-  },
-  {
-    tag: "P&D",
-    title: "Engenharia de custo de IA",
-    description:
-      "Tornar produtos com IA sustentáveis e gratuitos: controle de tokens, filas e modelos locais.",
-  },
-];
+import { LAB_CAPABILITIES, LAB_PD_AREAS } from "../data/capabilities";
 
 export const Laboratory: React.FC = () => {
   return (
@@ -159,7 +70,7 @@ export const Laboratory: React.FC = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-0 border-2 border-slate-950 bg-slate-950">
-            {capabilities.map((item, index) => (
+            {LAB_CAPABILITIES.map((item, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -205,7 +116,7 @@ export const Laboratory: React.FC = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {areas.map((area, index) => (
+            {LAB_PD_AREAS.map((area, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}

@@ -7,6 +7,5 @@ export const ROUTES = {
   PRIVACY: "/privacidade",
   TERMS: "/termos",
   LINKS: "/links",
-  NOT_FOUND: "/404",
   LEGACY_SERVICES: "/servicos",
 } as const;
