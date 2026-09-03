@@ -110,6 +110,20 @@ export const Footer: React.FC = () => {
           © {new Date().getFullYear()} UNIFICANDO DIGITAL. TODOS OS DIREITOS
           RESERVADOS.
         </p>
+        <div className="flex gap-8">
+          <Link
+            to={ROUTES.PRIVACY}
+            className="hover:bg-slate-950 hover:text-white px-2 py-1 transition-all"
+          >
+            PRIVACIDADE
+          </Link>
+          <Link
+            to={ROUTES.TERMS}
+            className="hover:bg-slate-950 hover:text-white px-2 py-1 transition-all"
+          >
+            TERMOS
+          </Link>
+        </div>
       </div>
       <div className="max-w-7xl mx-auto px-6 lg:px-12 mt-8 py-8 bg-slate-50 border-4 border-slate-950 text-[10px] font-mono text-slate-800 text-center uppercase font-bold text-balance">
         <p>UNIFICANDO © {new Date().getFullYear()} • RECIFE - PE</p>
