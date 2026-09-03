@@ -40,7 +40,7 @@ export const CtaSection: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => navigate(ROUTES.CONTACT)}
-              className="w-full md:w-auto bg-slate-950 text-[#ccff00] px-10 py-6 md:px-14 md:py-8 text-base md:text-xl font-black shadow-[10px_10px_0px_#000] border-2 border-transparent uppercase tracking-[0.1em] hover:bg-slate-900 transition-all font-outfit"
+              className="w-full md:w-auto bg-slate-950 text-[#ccff00] px-10 py-6 md:px-14 md:py-8 text-base md:text-xl font-black shadow-[10px_10px_0px_#000] border-2 border-transparent uppercase tracking-[0.1em] hover:bg-slate-900 transition-all"
               style={{ borderRadius: "0px" }}
             >
               <span className="flex items-center justify-center gap-4">

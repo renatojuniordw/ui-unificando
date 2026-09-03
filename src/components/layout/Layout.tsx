@@ -16,7 +16,6 @@ const navItems: NavItem[] = [
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const location = useLocation();
   const isLinksPage = location.pathname === ROUTES.LINKS;
-  const shouldHideLayout = isLinksPage;
 
   return (
     <div className="min-h-screen flex flex-col selection:bg-indigo-100 selection:text-indigo-900">
@@ -27,14 +26,14 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
         PULAR PARA O CONTEÚDO
       </a>
 
-      {!shouldHideLayout && <Header navItems={navItems} />}
+      {!isLinksPage && <Header navItems={navItems} />}
 
-      <main id="main-content" className={`flex-grow ${!shouldHideLayout ? "pt-20" : ""}`}>
+      <main id="main-content" className={`flex-grow ${!isLinksPage ? "pt-20" : ""}`}>
         {children}
       </main>
 
-      {!shouldHideLayout && <Footer />}
-      {!shouldHideLayout && <WhatsAppFloating />}
+      {!isLinksPage && <Footer />}
+      {!isLinksPage && <WhatsAppFloating />}
     </div>
   );
 };

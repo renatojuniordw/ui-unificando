@@ -52,11 +52,10 @@ export const HeroSection: React.FC = () => {
               onClick={() => {
                 document.getElementById("projetos")?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="bg-[#ccff00] text-slate-950 px-8 py-5 md:px-10 md:py-6 text-sm md:text-base font-black uppercase tracking-[0.2em] hover:bg-[#b3ff00] transition-colors relative group overflow-hidden"
+              className="bg-[#ccff00] text-slate-950 px-8 py-5 md:px-10 md:py-6 text-sm md:text-base font-black uppercase tracking-[0.2em] hover:bg-[#b3ff00] transition-colors"
               style={{ borderRadius: "1px" }}
             >
-              <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_0.8s_forwards] bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12" />
-              <span className="relative z-10 flex items-center gap-3">
+              <span className="flex items-center gap-3">
                 VER PROJETOS
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth="2.5" d="M19 9l-7 7-7-7" />

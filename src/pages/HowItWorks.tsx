@@ -1,3 +1,4 @@
+import React from "react";
 import { PageTransition } from "../components/common/PageTransition";
 import { SEO } from "../components/common/SEO";
 import { CtaButton } from "../components/common/CtaButton";

@@ -1,11 +1,6 @@
 @import "tailwindcss";
-@theme {
-  --color-neon-yellow: #ccff00;
-  --color-brutalist-black: #020617;
-}
 
 body {
     font-family: 'Inter', sans-serif;
-    font-display: swap;
     scroll-behavior: smooth;
 }

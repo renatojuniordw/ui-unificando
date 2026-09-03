@@ -1,6 +1,6 @@
-import { ContactFormData } from "../types/contact";
-import { ValidationResult } from "../types/form";
-import { validatePhone } from "../utils/validators";
+import type { ContactFormData } from "../types/contact.ts";
+import type { ValidationResult } from "../types/form.ts";
+import { validatePhone } from "../utils/validators.ts";
 
 export const useContactValidation = () => {
   const validateForm = (data: ContactFormData): ValidationResult => {

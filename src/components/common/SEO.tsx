@@ -11,9 +11,7 @@ export const SEO: React.FC<SEOProps> = ({
   robots,
   keywords,
 }) => {
-  const siteUrl =
-    (import.meta as any).env?.VITE_SITE_URL?.toString() ||
-    "https://unificando.com.br";
+  const siteUrl = import.meta.env.VITE_SITE_URL || "https://unificando.com.br";
   const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl;
   const fullImage = ogImage
     ? `${siteUrl}${ogImage}`
@@ -58,9 +56,9 @@ export const SEO: React.FC<SEOProps> = ({
             "@type": "Organization",
             name: "Unificando",
             url: "https://unificando.com.br",
-            logo: "https://unificando.com.br/logo.svg",
+            logo: "https://unificando.com.br/assets/img/LOGO_UNIFICANDO.svg",
             description:
-              "Ecossistema de organização e automação de atendimento para WhatsApp e Instagram.",
+              "Laboratório de projetos autorais, ferramentas utilitárias e soluções com inteligência artificial.",
           },
         )}
       </script>

@@ -114,7 +114,7 @@ export const About: React.FC = () => {
                 </li>
               </ul>
 
-              <div className="bg-white text-slate-950 font-black uppercase p-4 border-4 border-slate-950 shadow-[4px_4px_0px_#red-500] mt-auto">
+              <div className="bg-white text-slate-950 font-black uppercase p-4 border-4 border-slate-950 shadow-[4px_4px_0px_#ef4444] mt-auto">
                 CADA PROJETO É UMA DEMONSTRAÇÃO DO QUE SABEMOS FAZER. SEM HYPE, SEM PROMESSAS VAZIAS.
               </div>
             </div>

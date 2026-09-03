@@ -1,8 +1,8 @@
 export const validatePhone = (phone: string): boolean => {
-  // Expecting format +55... or just digits
+  // Expecting format +55... or just digits.
   // Minimal length for BR numbers:
   // DDI (2) + DDD (2) + Number (8 or 9) = 12 or 13 digits.
-  // react-international-phone returns with + usually.
+  // O formulário envia o número com "+" quando vindo de input internacional.
   const cleanPhone = phone.replace(/[^\d+]/g, ""); // keep +
 
   if (!cleanPhone.includes("+")) {

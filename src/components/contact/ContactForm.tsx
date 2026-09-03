@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Modal } from "../common/Modal";
+import { WhatsAppIcon } from "../common/icons/WhatsAppIcon";
 import { useContactValidation } from "../../hooks/useContactValidation";
 import { ModalType } from "../../types/ui";
 import { pushDataLayer } from "../../utils/analytics";
@@ -115,8 +116,6 @@ export const ContactForm: React.FC = () => {
     }
   };
 
-  const isButtonDisabled = isSubmitting;
-
   return (
     <div className="bg-white p-8 md:p-12 border-4 border-slate-950 shadow-[12px_12px_0px_#000] text-left relative z-10 mx-auto w-full max-w-lg">
       <div className="absolute top-0 right-0 bg-slate-950 text-white font-black px-4 py-2 border-l-4 border-b-4 border-slate-950">
@@ -168,10 +167,10 @@ export const ContactForm: React.FC = () => {
 
         <button
           type="submit"
-          disabled={isButtonDisabled}
+          disabled={isSubmitting}
           className={`w-full py-6 border-4 border-slate-950 font-black text-xs md:text-sm transition-all shadow-[6px_6px_0px_#000] uppercase tracking-[0.2em] mt-8 flex items-center justify-center gap-4
               ${
-                !isButtonDisabled
+                !isSubmitting
                   ? "bg-[#25D366] text-black hover:bg-[#1ebd5a] hover:translate-y-1 hover:translate-x-1 hover:shadow-[2px_2px_0px_#000]"
                   : "bg-slate-300 text-slate-500 cursor-not-allowed"
               }`}
@@ -180,10 +179,7 @@ export const ContactForm: React.FC = () => {
             "AGUARDE..."
           ) : (
             <>
-              <svg className="w-5 h-5 md:w-6 md:h-6 fill-current" viewBox="0 0 24 24">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.148.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
-                <path d="M12.004 2c-5.523 0-10 4.477-10 10 0 1.762.457 3.42 1.257 4.862L2 22l5.267-1.382A9.955 9.955 0 0012.004 22c5.523 0 10-4.477 10-10s-4.477-10-10-10zm0 18.148a8.14 8.14 0 01-4.148-1.134l-.297-.176-3.126.82.834-3.045-.193-.312A8.15 8.15 0 013.85 12c0-4.507 3.647-8.148 8.154-8.148 4.507 0 8.148 3.641 8.148 8.148 0 4.507-3.641 8.148-8.148 8.148z" />
-              </svg>
+              <WhatsAppIcon className="w-5 h-5 md:w-6 md:h-6 fill-current" />
               <span>ENVIAR MENSAGEM</span>
             </>
           )}
