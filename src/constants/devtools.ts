@@ -20,3 +20,15 @@ export const DEVTOOLS: ProjectCardData[] = [
     tags: ["npm", "CLI", "IA"],
   },
 ];
+
+export const OPEN_SERVERS: ProjectCardData[] = [
+  {
+    title: "MCP Med Unificando",
+    status: "No ar",
+    statusColor: "bg-green-500",
+    description:
+      "Servidor MCP em produção: a base ANVISA/CMED exposta como 12 ferramentas read-only para agentes de IA (Claude, Cursor, opencode).",
+    link: "https://med.unificando.com.br/mcp",
+    tags: ["MCP", "Streamable HTTP", "Read-only"],
+  },
+];

@@ -2,6 +2,7 @@ import React from "react";
 import { SEO } from "../components/common/SEO";
 import { PageTransition } from "../components/common/PageTransition";
 import { ROUTES } from "../routes";
+import { DEVTOOLS, OPEN_SERVERS } from "../constants/devtools";
 import { HeroSection } from "../features/home/components/HeroSection";
 import { ProjectsSection } from "../features/home/components/ProjectsSection";
 import { DevToolsSection } from "../features/home/components/DevToolsSection";
@@ -71,8 +72,9 @@ export const Home: React.FC = () => {
             FERRAMENTAS <span className="bg-[#ccff00] px-2 inline-block border-2 border-slate-950 shadow-[4px_4px_0px_#000]">ABERTAS</span>
           </>
         }
-        description="P&D publicado como open source no npm — ferramentas reais de engenharia de prompt, usadas fora do laboratório."
+        description="P&D publicado como open source — bibliotecas de engenharia de prompt e um servidor MCP real, abertos e em uso."
         className="py-24 md:py-32 bg-slate-100 border-b-2 border-slate-950"
+        items={[...DEVTOOLS, ...OPEN_SERVERS]}
       />
       <RoadmapSection />
       <CapabilitiesSection />

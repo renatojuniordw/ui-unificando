@@ -92,7 +92,7 @@ export const HowItWorks: React.FC = () => {
               icon="⚡"
               side="right"
               variant="white"
-              example="O Med Unificando foi validado com usuários reais antes de ganhar preços CMED, exportação e sincronização automática."
+              example="O Med Unificando foi validado com usuários reais antes de ganhar preços CMED, exportação, sincronização automática e o MCP Server para agentes de IA."
             />
 
             <MethodPhase

@@ -94,7 +94,7 @@ export const LAB_PD_AREAS: Capability[] = [
     tag: "P&D",
     title: "MCP + fontes oficiais",
     description:
-      "Integração com APIs públicas via Model Context Protocol, com fallback automático e busca ao vivo.",
+      "Integração com APIs públicas via Model Context Protocol com fallback automático — e o Med Unificando expõe seu próprio MCP Server (12 ferramentas read-only) para agentes de IA.",
   },
   {
     tag: "P&D",

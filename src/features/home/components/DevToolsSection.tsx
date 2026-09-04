@@ -1,5 +1,5 @@
 import React from "react";
-import { ProjectCard } from "./ProjectCard";
+import { ProjectCard, ProjectCardData } from "./ProjectCard";
 import { DEVTOOLS } from "../../../constants/devtools";
 
 interface DevToolsSectionProps {
@@ -7,6 +7,7 @@ interface DevToolsSectionProps {
   title: React.ReactNode;
   description: string;
   className?: string;
+  items?: ProjectCardData[];
 }
 
 export const DevToolsSection: React.FC<DevToolsSectionProps> = ({
@@ -14,6 +15,7 @@ export const DevToolsSection: React.FC<DevToolsSectionProps> = ({
   title,
   description,
   className = "py-24 md:py-32 bg-white border-b-2 border-slate-950",
+  items = DEVTOOLS,
 }) => {
   return (
     <section id={id} className={`${className} scroll-mt-24`}>
@@ -31,7 +33,7 @@ export const DevToolsSection: React.FC<DevToolsSectionProps> = ({
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          {DEVTOOLS.map((project, i) => (
+          {items.map((project, i) => (
             <ProjectCard key={project.title} project={project} index={i} />
           ))}
         </div>
