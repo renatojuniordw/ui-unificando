@@ -107,7 +107,7 @@ export const Footer: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12 mt-24 pt-8 border-t-4 border-slate-950 text-xs font-black uppercase tracking-widest flex flex-col md:flex-row justify-between items-center gap-6">
         <p className="bg-slate-950 text-[#ccff00] px-4 py-2 border-2 border-slate-950">
-          © {new Date().getFullYear()} UNIFICANDO DIGITAL. TODOS OS DIREITOS
+          © {new Date().getFullYear()} UNIFICANDO. TODOS OS DIREITOS
           RESERVADOS.
         </p>
         <div className="flex gap-8">

@@ -92,7 +92,7 @@ export const TermsOfService: React.FC = () => {
   return (
     <PageTransition>
       <SEO
-        title="Termos de Uso | Unificando Digital"
+        title="Termos de Uso | Unificando"
         description="Regras, direitos e deveres para utilização dos sites, produtos e ferramentas do laboratório Unificando."
         canonical={ROUTES.TERMS}
         jsonLd={{

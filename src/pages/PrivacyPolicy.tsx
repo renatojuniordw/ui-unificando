@@ -167,7 +167,7 @@ export const PrivacyPolicy: React.FC = () => {
   return (
     <PageTransition>
       <SEO
-        title="Privacidade | Unificando Digital"
+        title="Privacidade | Unificando"
         description="Política de privacidade e proteção de dados dos produtos e ferramentas do laboratório Unificando, em conformidade com a LGPD."
         canonical={ROUTES.PRIVACY}
         jsonLd={{

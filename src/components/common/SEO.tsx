@@ -40,7 +40,7 @@ export const SEO: React.FC<SEOProps> = ({
       <meta property="og:description" content={description} />
       <meta property="og:url" content={fullCanonical} />
       <meta property="og:image" content={fullImage} />
-      <meta property="og:site_name" content="Unificando Digital" />
+      <meta property="og:site_name" content="Unificando" />
       <meta property="og:locale" content="pt_BR" />
 
       {/* Twitter */}

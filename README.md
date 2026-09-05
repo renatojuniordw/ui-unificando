@@ -68,4 +68,4 @@ Este projeto utiliza **Framer Motion** para transições suaves entre páginas e
 
 ---
 
-© 2026 Unificando Digital. Crafted for results.
+© 2026 Unificando. Crafted for results.

@@ -20,7 +20,7 @@ export const About: React.FC = () => {
           "mainEntity": {
             "@id": "https://unificando.com.br/#organization",
             "@type": "Organization",
-            "name": "Unificando Digital",
+            "name": "Unificando",
             "foundingDate": "2024",
             "description": "Laboratório de projetos autorais, ferramentas utilitárias e sistemas com inteligência artificial.",
             "url": "https://unificando.com.br",
@@ -46,7 +46,7 @@ export const About: React.FC = () => {
       <section className="py-24 md:py-32 bg-[#ccff00] border-b-8 border-slate-950">
         <div className="max-w-6xl mx-auto px-6 lg:px-12 text-center">
           <span className="inline-block bg-white text-slate-950 font-black uppercase tracking-widest text-xs mb-8 px-4 py-2 border-4 border-slate-950 shadow-[4px_4px_0px_#000]">
-            UNIFICANDO DIGITAL
+            UNIFICANDO
           </span>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-slate-950 mb-12 uppercase tracking-tighter leading-[0.9]">
             A NOSSA <br/>
